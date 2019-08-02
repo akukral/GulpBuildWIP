@@ -1,0 +1,14 @@
+<figure class="Figure" role="group">
+    <img 
+    data-sizes="auto"
+    data-src="{{ block.image[0].url('lazy') | default('There seems to be an error here.') }}"
+    data-srcset="{{ block.image[0].url('lazy') | default('There seems to be an error here.') }} 300w,
+    {{ block.image[0].url('large') | default('There seems to be an error here.') }} 600w"
+    alt="{{ block.image[0].title ?? block.copy ?? '' }}"
+    class="lazyload" />
+    {% if block.copy | default %}
+    <figcaption class="Figure__caption">{{ block.copy | default('There seems to be an error here.') }}</figcaption>
+    {% endif %}
+</figure>
+
+{# EOF #}

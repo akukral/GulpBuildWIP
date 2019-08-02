@@ -1,0 +1,75 @@
+{% extends '_layout/_main' %}
+
+{% block main %}
+  <h1 id="MainTitle">Homepage</h1>
+
+  {% for block in entry.contentBlocks.all() %}
+    {% include[
+      '_blocktypes/_' ~ block.type,
+      '_blocktypes/_copyBlock'
+    ] %}
+  {% endfor %}
+
+  <section>
+    <h2>Mission Statement</h2>
+    <p>Hey, take a look at the earthlings. Goodbye! Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. I was part of something special. Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists.!</p>
+  </section>
+
+  <section>
+    <h2>Featured Content</h2>
+    <article>
+      <h3><a href="#">Article Title</a></h3>
+      <p>
+        They're using our own satellites against us. And the clock is ticking. Must go faster. I gave it a cold? I gave it a virus. A computer virus. Remind me to thank John for a lovely weekend. Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should.
+        <br />
+        <a href="#">Read More About …</a>
+      </p>
+    </article>
+    <article>
+      <h3><a href="#">Article Title</a></h3>
+      <p>
+        Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. What do they got in there? King Kong? Is this my espresso machine? Wh-what is-h-how did you get my espresso machine? You really think you can fly that thing?
+        <br />
+        <a href="#">Read More About …</a>
+      </p>
+    </article>
+    <article>
+      <h3><a href="#">Article Title</a></h3>
+      <p>
+        Must go faster... go, go, go, go, go! Must go faster... go, go, go, go, go! Yes, Yes, without the oops! Life finds a way. Yeah, but John, if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists. Remind me to thank John for a lovely weekend.
+        <br />
+        <a href="#">Read More About …</a>
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Featured Research</h2>
+    <article>
+      <h3><a href="#">Article Title</a></h3>
+      <p>
+        We gotta burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this planet enough, they won't want it anymore! Yes, Yes, without the oops! I was part of something special. You really think you can fly that thing?
+        <br />
+        <a href="#">Read More About …</a>
+      </p>
+    </article>
+    <article>
+      <h3><a href="#">Article Title</a></h3>
+      <p>
+        Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. You know what? It is beets. I've crashed into a beet truck. Jaguar shark! So tell me - does it really exist? I gave it a cold? I gave it a virus. A computer virus.
+        <br />
+        <a href="#">Read More About …</a>
+      </p>
+    </article>
+    <article>
+      <h3><a href="#">Article Title</a></h3>
+      <p>
+        Is this my espresso machine? Wh-what is-h-how did you get my espresso machine? This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows.
+        <br />
+        <a href="#">Read More About …</a>
+      </p>
+    </article>
+  </section>
+{% endblock %}
+
+{# EOF #}

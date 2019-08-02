@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- TODO update to actual URL-->
+  <link rel="home" href="//localhost:3000/" />
+
+  <!-- Meta Info -->
+
+  <title>Home</title>
+  <meta name="description" content="Website Homepage" />
+
+  <meta property="fb:app_id" content="">
+  <meta property="og:url" content="//localhost:3000/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Home" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="Website Homepage" />
+  <meta property="og:site_name" content="Home" />
+  <meta property="og:locale" content="en-US" />
+  <meta property="og:locale:alternate" content="en-US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:url" content="//localhost:3000/" />
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="Website Homepage" />
+  <meta name="twitter:image" content="" />
+
+  <link rel="home" href="//localhost:3000/" />
+  <link rel="canonical" href="//localhost:3000/">
+
+  <!-- Mobile App Info -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="apple-touch-fullscreen" content="yes" />
+
+  <!-- Favicon Info-->
+  <!-- TODO -->
+  <!-- https://realfavicongenerator.net/ -->
+
+  <!--[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script> <![endif]-->
+
+  <!-- Put in Critical CSS -->
+  <link rel="stylesheet" href="/critical.css" media="screen and (min-width:300px)" id="critical">
+
+  <!-- Preloads -->
+  <link rel="preload" href="/ui/css/main.css" as="style">
+  <link rel="preload" href="/critical.css" as="style">
+  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
+  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+</head>
+
+<body>
+
+  <header class="Header">
+    <noscript>
+      <span class="Warning">Please enable javascript to get the most out of this page.</span>
+    </noscript>
+
+    <a href="#Main" class="skip" tabindex="0">Skip to main content</a>
+    <a href="/" class="Header__logo">Site Name</a>
+
+    <nav class="Nav" aria-label="Main navigation">
+      <button class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
+        <span class="sr-only">Toggle Menu</span>
+        <span class="Nav__hamburger"></span>
+      </button>
+      <ul id="Menu" aria-live="polite">
+        <li>
+          <a href="/page-1">Page 1</a>
+        </li>
+        <li>
+          <a href="/page-2">Page 2</a>
+        </li>
+        <li>
+          <a href="/page-3">Page 3</a>
+        </li>
+        <li>
+          <a href="/page-4">Page 4</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /nav -->
+  </header>
+  <!-- /header -->
+
+
+  <main class="Main" id="Main" aria-labelledby="MainTitle">
+    <h1 id="MainTitle">Homepage</h1>
+
+    <label for="search">Search:
+      <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="on" />
+    </label>
+    <datalist id="searchList">
+      <option value="lorem">
+      <option value="ipsum">
+      <option value="dolor">
+      <option value="sit">
+    </datalist>
+
+    <button class="Button" data-modal="Dialog1">Modal 1</button>
+    <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1" aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
+      <div class="Dialog__container">
+        <h1 id="Dialog__title1">Modal 1</h1>
+        <div id="Dialog__content1">
+          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. Earum sunt voluptatum adipisci, a libero perferendis
+            blanditiis neque quisquam excepturi deserunt?</p>
+        </div>
+        <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+      </div>
+    </div>
+
+    <p>Hello this is the home page. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dicta
+      necessitatibus odit iure atque exercitationem amet quam. Est, harum unde?</p>
+
+    <div class="Cta">
+      <a href="//localhost:3000/about" class="Button">Test Button</a>
+    </div>
+
+    <blockquote class="Blockquote">
+      <p>This could be the design for a block quote</p>
+      <p class="Blockquote__byline">Jane Doe</p>
+    </blockquote>
+
+    <h2>A section heading block</h2>
+
+    <button class="Button" data-modal="Dialog2">Modal 2</button>
+    <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2" aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
+      <div class="Dialog__container">
+        <h1 id="Dialog__title2">Modal 2</h1>
+        <div id="Dialog__content2">
+          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. <a href="/">Earum sunt voluptatum</a> adipisci, a libero perferendis
+            blanditiis neque quisquam excepturi deserunt?</p>
+        </div>
+        <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+      </div>
+    </div>
+
+    <!-- <div class="Video">
+      <iframe src="https://player.vimeo.com/video/117827095?portrait=0&amp;title=0&amp;byline=0" title="Education Research Alliance for New Orleans: What Schools Do Families Want (And Why)?"
+        class="Video__embed"></iframe>
+    </div> -->
+
+    <figure class="Figure" role="group">
+      <img src="/ui/images/1818manh2.JPG" alt="Photo of a empty strip mall" class="lazyload" loading="lazy">
+      <figcaption class="Figure__caption">
+        <p>Unknown photographer.</p>
+      </figcaption>
+    </figure>
+
+    <section>
+      <details class="Details">
+        <summary class="Details__summary" aria-expanded="false" aria-controls="Details1" tabindex="0" role="button">
+          <span class="Details__summary-text">Lorem, ipsum dolor.</span>
+          <span class="sr-only">Click to expand details.</span>
+        </summary>
+        <div class="Details__content" id="Details1" aria-live="polite">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>Doloribus facere pariatur vel aut sint <a href="/">dolores praesentium ullam quidem</a> ipsa debitis!</p>
+        </div>
+      </details>
+
+      <details class="Details">
+        <summary class="Details__summary" aria-expanded="false" aria-controls="Details2" tabindex="0" role="button">
+          <span class="Details__summary-text">Lorem ipsum dolor sit amet.</span>
+          <span class="sr-only">Click to expand details.</span>
+        </summary>
+        <div class="Details__content" id="Details2" aria-live="polite">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae temporibus libero eum voluptate laboriosam
+            recusandae nisi sit voluptatibus ut suscipit.</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Mission Statement</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus doloribus natus, fuga, perspiciatis earum
+        eius voluptatum architecto culpa iste nobis molestiae a deleniti deserunt eos fugit dolore necessitatibus, odit
+        nesciunt omnis quas tempore rem nihil dolorem libero. Perspiciatis architecto molestias id hic corrupti quos
+        magnam, laudantium dicta officiis provident itaque animi! Nam repellat, minima minus accusamus voluptates natus
+        maiores, ab obcaecati assumenda error, fugit amet id nesciunt explicabo distinctio magnam vero quibusdam
+        tempore. Nam cupiditate nulla ex illum labore, est maxime laborum corrupti repudiandae? Deleniti harum, sapiente
+        autem perferendis magnam qui, placeat debitis esse et adipisci sint. Tempora, fuga molestiae!</p>
+    </section>
+
+    <section>
+      <h2>Featured Content</h2>
+      <article>
+        <h3><a href="#">Article Title 1</a></h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus maxime voluptatibus voluptatem
+          repellat tenetur optio fuga quaerat consectetur doloremque!
+          <br />
+          <a href="#">Read More About …</a>
+        </p>
+      </article>
+      <article>
+        <h3><a href="#">Article Title 2</a></h3>
+        <p>
+          Eum ea odit ipsa pariatur iure beatae dignissimos expedita quasi sequi, eligendi sunt maxime. Quos porro ex
+          eveniet perferendis est!
+          <br />
+          <a href="#">Read More About …</a>
+        </p>
+      </article>
+      <article>
+        <h3><a href="#">Article Title 3</a></h3>
+        <p>
+          Accusamus corporis necessitatibus delectus vero. Nihil saepe itaque ea. Quibusdam quae mollitia rerum quos
+          dolore doloribus fuga adipisci saepe unde.
+          <br />
+          <a href="#">Read More About …</a>
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Featured Research</h2>
+      <article>
+        <h3><a href="#">Article Title 4</a></h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tenetur temporibus sunt, minus atque
+          eaque excepturi asperiores eius hic dolor!
+          <br />
+          <a href="#">Read More About …</a>
+        </p>
+      </article>
+      <article>
+        <h3><a href="#">Article Title 5</a></h3>
+        <p>
+          Suscipit odio veniam placeat eius harum quasi, illum velit unde nemo odit vero amet, soluta dolore
+          necessitatibus error magnam sed.
+          <br />
+          <a href="#">Read More About …</a>
+        </p>
+      </article>
+      <article>
+        <h3><a href="#">Article Title 6</a></h3>
+        <p>
+          Eaque nobis error ipsa ducimus ea similique dolorem nostrum repellat asperiores assumenda. Consequatur magnam
+          quas eveniet quasi necessitatibus id cupiditate.
+          <br />
+          <a href="#">Read More About …</a>
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <form method="post" class="Form">
+        <label for="firstName">First Name*
+          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name" autocomplete="given-name" required="">
+        </label>
+
+        <label for="lastName">Last Name*
+          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name" autocomplete="family-name" required="">
+        </label>
+
+        <label for="address">Address*
+          <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on" required="">
+        </label>
+
+        <label for="city">City*
+          <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on" required="">
+        </label>
+
+        <label for="state">State*
+          <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on" required="">
+        </label>
+
+        <label for="zipCode">Zip*
+          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="Zip" autocomplete="postal-code" required="">
+        </label>
+
+        <label for="email">Email Address*
+          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="email" required="">
+        </label>
+
+        <label for="email_address_confirm">Email Address Confirm
+          <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
+            type="email" placeholder="Email@Address.com">
+        </label>
+
+        <label for="phone">Phone
+          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required="">
+        </label>
+
+        <label for="subject">Subject/Interest*
+          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
+            required="">
+        </label>
+
+        <label for="message">Message
+          <textarea class="form-control" name="message" id="message" rows="6"
+            placeholder="Send us your message."></textarea>
+        </label>
+
+        <label>
+          <input class="checkbox-inline" name="newsletterSignup" id="newsletterSignup" type="checkbox">
+          I'd like to subscribe to the Leontine Linens Newsletter.
+        </label>
+
+        <button class="Button" type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+  <!-- main -->
+
+  <footer class="Footer">
+    <p>
+      &copy; 2019 Copyright. | <a href="/sitemap">Site Map</a>
+    </p>
+  </footer>
+  <!-- footer -->
+
+  <script>
+    function loadCSS(e) {
+      var n = window.document.createElement("link");
+      var t = window.document.getElementsByTagName("head")[0];
+      n.rel = "stylesheet",
+        n.href = e,
+        n.media = "print";
+      t.appendChild(n, t)
+      setTimeout(function () {
+        n.media = "screen and (min-width:300px)"
+      }, 0);
+    }
+    loadCSS("/ui/css/main.css");
+  </script>
+  <!-- This polyfill needs to be loaded from the cdn to work -->
+  <script src="//cdn.polyfill.io/v2/polyfill.min.js" crossorigin="anonymous"></script>
+  <!-- Load main scripts here -->
+  <script src="/ui/js/main.js" async="async" defer="defer"></script>
+</body>
+
+</html>

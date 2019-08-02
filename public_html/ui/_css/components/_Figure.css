@@ -1,0 +1,16 @@
+.Figure {
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+  & img {
+    display: block;
+
+    width: 100%;
+    /* mask-border: url('/ui/images/stamp.svg') 45 repeat; */
+    /* -webkit-mask-box-image: url('/ui/images/stamp.svg') 45 repeat; */
+  }
+}
+.Figure__caption {
+  font-size: .8rem;
+}
+
+/* EOF */

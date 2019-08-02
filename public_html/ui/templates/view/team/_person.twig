@@ -1,0 +1,12 @@
+{% extends '_layout/_main' %}
+
+{% block main %}<h1 id="MainTitle">{{ entry.title }}</h1>
+  {% for block in entry.contentBlocks.all() %}
+    {% include[
+      '_blocktypes/_' ~ block.type,
+      '_blocktypes/_copyBlock'
+    ] %}
+  {% endfor %}
+{% endblock %}
+
+{# EOF #}

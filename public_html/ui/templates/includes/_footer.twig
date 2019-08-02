@@ -1,0 +1,39 @@
+<footer class="Footer">
+  <section class="Footer__signup" aria-label="NewsLetter Sign-up">
+    <form id="Newsletter" class="Newsletter" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="2BE4EF332AA2E32596E38B640E9056190F3E9BB520AF15944EB42247965B1750412DEE8F469147A2925791DE8D7B2A7E6DAC7F148D983958187E1137925D90B4">
+      <h3>STAY INFORMED</h3>
+      <p>Subscribe to the REACH newsletter to receive updates and information every now and then.</p>
+      <label for="email_signup" class="">
+        <span>Email Address</span>
+        <input id="fieldEmail" name="cm-euiwd-euiwd" type="email" class="js-cm-email-input" required />
+      </label>
+      <button type="submit" form="Newsletter" value="Submit" class="Button">Sign-up</button>
+    </form>
+  </section>
+  <section class="Footer__content" aria-label="General Website Information">
+    <div class="Footer__about">
+      <h3>About REACH</h3>
+      {{ footer.about }}
+      <div class="Footer__information">{{ footer.information }}</div>
+    </div>
+    <div class="Footer__navigate">
+      <h3>Navigate</h3>
+      <ul>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/research">Research Clearinghouse</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="Footer__contact">
+      <h3>Contact</h3>
+      {{ footer.contact }}
+    </div>
+  </section>
+  <p class="Footer__copyright">
+    <span>&copy; {{ now|date('Y') }} {{ footer.copyright }}</span> &emsp;|&emsp; <span><a href="/sitemap">Site Map</a></span>
+  </p>
+</footer>
+<!-- footer -->

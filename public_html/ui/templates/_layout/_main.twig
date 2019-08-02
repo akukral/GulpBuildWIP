@@ -1,0 +1,73 @@
+{% minify %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- TODO update to actual URL-->
+  <link rel="home" href="{{ siteUrl }}" />
+
+  <!-- TODO create manifest and PWA Information-->
+
+  <!-- Meta Info -->
+  {% hook 'seo' %}
+
+  <!-- Mobile App Info -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="apple-touch-fullscreen" content="yes" />
+
+  <!-- Favicon Info-->
+  <!-- TODO -->
+  <!-- https://realfavicongenerator.net/ -->
+
+  <!--[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script> <![endif]-->
+
+  <!-- Critical CSS if Possible inline TODO -->
+  <link rel="stylesheet" href="/critical.css" media="all" id="critical">
+
+  <!-- Preloads -->
+  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
+  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+</head>
+
+<body>
+
+  {% include 'includes/_header' %}
+
+  <main class="Main" id="Main" aria-labelledby="MainTitle">
+    {% block main %}
+    <p>There seems to be an error here.</p>
+    {% endblock %}
+  </main>
+  <!-- main -->
+
+  {% include 'includes/_footer' %}
+
+  <script>
+    function loadCSS(e) {
+      var n = window.document.createElement("link");
+      var t = window.document.getElementsByTagName("head")[0];
+      n.rel = "stylesheet",
+        n.href = e,
+        n.media = "only x";
+      t.appendChild(n, t)
+      setTimeout(function () {
+        n.media = "all"
+      }, 0);
+    }
+    loadCSS("/ui/css/main.css");
+  </script>
+  <!-- This polyfill needs to be loaded from the cdn to work -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <!-- Load main scripts here -->
+  <script src="/ui/js/main.js" async=""></script>
+</body>
+
+</html>
+{% endminify %}
+
+{# EOF #}

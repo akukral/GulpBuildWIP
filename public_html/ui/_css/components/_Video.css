@@ -1,0 +1,41 @@
+.Video {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  margin-bottom: 5rem;
+  padding-top: 25px;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 54.45%; /* 16:9 */
+  background-color: var(--alpha);
+}
+.Video--featured {
+  z-index: 2;
+
+  margin-top: -10rem;
+}
+.Video__embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+.Video__description {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  padding: 1rem;
+
+  font-style: italic;
+  text-align: center;
+
+  color: var(--light);
+  background-color: var(--charlie);
+  font-weight: 900;
+}
+/* EOF */

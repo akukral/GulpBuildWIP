@@ -1,0 +1,16 @@
+:root{
+  --light: #fff;
+  --dark: #000;
+
+  /* basic site colors  */
+  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
+
+  --alpha: #303030;
+  --bravo: #0000FF;
+  --charlie: #00008B;
+  --delta: #A9A9A9;
+  --echo: #D3D3D3;
+  --foxtrot: #818181;
+}
+
+/* EOF */

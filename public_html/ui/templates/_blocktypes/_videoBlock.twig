@@ -1,0 +1,12 @@
+<div class="Video">
+  {% if block.copy | default %}
+  <iframe
+  title="{{ block.videoTitle | default('There seems to be an error here.') }}"
+  data-src="{{ block.copy }}"
+  class="Video__embed lazyload"></iframe>
+  {% else %}
+  There seems to be an error here.
+  {% endif %}
+</div>
+
+{# EOF #}

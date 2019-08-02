@@ -1,0 +1,35 @@
+.Button,
+a:any-link.Button,
+button.Button {
+  display: inline-block;
+  /* margin-left: 1rem; */
+  /* margin-right: 1rem; */
+  padding: .5rem 2rem;
+
+  text-align: center;
+
+  color: var(--light);
+  background-color: var(--charlie);
+  text-decoration: none;
+  font-size: inherit;
+  border:none;
+  line-height: inherit;
+  margin-bottom: 1.5rem;
+
+  &:hover, &:focus{
+    color: var(--light);
+    background-color: var(--bravo);
+    cursor: pointer;
+  }
+  &:active{
+    color: var(--light);
+    background-color: var(--charlie);
+  }
+  &:focus {
+    outline: 2px solid var(--bravo);
+    outline-offset: 2px;
+  }
+}
+
+
+/* EOF */

@@ -1,0 +1,29 @@
+.Header {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+
+  background-color: var(--echo);
+}
+.Header__logo {
+  display: inline-block;
+
+  padding: 1rem;
+
+  background-color: inherit;
+}
+@supports (padding: max(0px)) {
+  .Header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+}
+
+/* EOF */

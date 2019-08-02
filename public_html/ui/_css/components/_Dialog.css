@@ -1,0 +1,44 @@
+.Dialog {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 3000%;
+  height: 3000%;
+  padding: 2rem;
+
+  content: '';
+
+  background-color: rgba(255,255,255,0.95);
+}
+.Dialog__container {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  width: calc(100% - 4rem);
+  max-width: 75ch;
+  max-height: 90%;
+  padding: 2rem;
+
+  transform: translate(-50%,-50%);
+
+  border: 1px solid var(--dark);
+  background-color: var(--light);
+}
+.Dialog[open],
+.Dialog--open {
+  display: block;
+}
+.Dialog:not([open]) {
+  /* display: none !important; */
+  visibility: hidden;
+}

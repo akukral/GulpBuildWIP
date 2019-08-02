@@ -1,3 +1,64 @@
 # Craft Storage (cache) [http://buildwithcraft.com/help/craft-storage-gitignore]
 /craft/storage/*
 !/craft/storage/logo/*
+
+# Ignore all files starting with dot except for gitignore and htaccess
+.*
+!/.gitignore
+!/.htaccess
+
+# Uploaded files
+# ----------------------------------------------------------------------
+public/assets/uploads/*
+
+# Misc files
+# ----------------------------------------------------------------------
+_notes
+.cache
+.DS_Store
+.komodotools
+.project
+.sass-cache/
+.settings
+.tmproj
+*.esproj
+*.komodoproject
+*.sublime-project
+*.sublime-workspace
+**/config/config.php
+**/database.php
+bower_components/
+dploy.yaml
+dwsync.xml
+logs/*
+nbproject
+node_modules/
+Thumbs.db
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.komodotools
+_notes
+dwsync.xml

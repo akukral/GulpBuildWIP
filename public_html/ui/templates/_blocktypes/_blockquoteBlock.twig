@@ -1,0 +1,8 @@
+<blockquote class="Blockquote">
+{{ block.copy | default('There seems to be an error here.') }}
+{% if block.byline %}
+    <p class="Blockquote__byline">— {{ block.byline | default('There seems to be an error here.') }}</p>
+{% endif %}
+</blockquote>
+
+{# EOF #}

@@ -1,0 +1,16 @@
+.Footer {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: var(--echo);
+}
+.Footer a{
+  background-color: inherit;
+}
+
+@supports (padding: min(0px)) {
+  .Footer__copyright {
+    padding-bottom: min(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* EOF */

@@ -1,0 +1,11 @@
+.Cta,
+a:link.Cta {
+  display: block;
+
+  width: max-content;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-left: auto;
+}
+
+/* EOF */
