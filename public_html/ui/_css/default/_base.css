@@ -4,11 +4,10 @@
   box-sizing: inherit;
   box-sizing: border-box;
 
-  /* transition: 0.2s ; */
-  will-change: font-size;
-
   font-display: swap !important;
   overscroll-behavior: contain;
+  /* transition: 0.2s ; */
+  will-change: font-size;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -59,7 +58,6 @@ img.lazyload {
 
 a {
   /* transition: 0.2s; */
-
   color: var(--charlie);
   outline-offset: 0rem;
   background-color: inherit;
@@ -94,10 +92,9 @@ a:focus {
 
 @media (hover: hover) {
   a:hover {
-
-  color: var(--bravo);
-  box-shadow: none;
-  text-shadow: none;
+    color: var(--bravo);
+    box-shadow: none;
+    text-shadow: none;
   }
 }
 
@@ -199,6 +196,22 @@ body {
   }
 }
 
+.Warning {
+  display: block;
+
+  width: 100%;
+  padding: 1rem;
+
+  text-align: center;
+
+  background-color: yellow;
+}
+
+.honey{
+  visibility: hidden;
+  display: none;
+}
+
 @supports (display:grid) {
   body {
     display: grid;
@@ -212,6 +225,9 @@ body {
       grid-column: main;
     }
     & footer {
+      grid-column: full;
+    }
+    & noscript {
       grid-column: full;
     }
   }

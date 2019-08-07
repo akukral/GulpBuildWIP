@@ -142,13 +142,13 @@ gulp.task(`sync`, gulp.series((done) => {
     browsersync.init({
       server: {
         baseDir: webroot,
-        https: true,
+        // https: true,
       },
     });
   } else {
     browsersync.init({
       proxy: domain,
-      https: true,
+      // https: true,
     });
   }
 

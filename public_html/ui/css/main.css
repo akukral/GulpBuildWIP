@@ -83,11 +83,10 @@ table {
   box-sizing: inherit;
   box-sizing: border-box;
 
-  /* transition: 0.2s ; */
-  will-change: font-size;
-
   font-display: swap !important;
   overscroll-behavior: contain;
+  /* transition: 0.2s ; */
+  will-change: font-size;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -142,9 +141,7 @@ img.lazyload {
 
 a {
   /* transition: 0.2s; */
-
   color: #00008B;
-
   color: var(--charlie);
   outline-offset: 0rem;
   background-color: inherit;
@@ -182,12 +179,10 @@ a:focus {
 
 @media (hover: hover) {
   a:hover {
-
-  color: #0000FF;
-
-  color: var(--bravo);
-  box-shadow: none;
-  text-shadow: none;
+    color: #0000FF;
+    color: var(--bravo);
+    box-shadow: none;
+    text-shadow: none;
   }
 }
 
@@ -294,6 +289,22 @@ body header,
     width: 100%;
   }
 
+.Warning {
+  display: block;
+
+  width: 100%;
+  padding: 1rem;
+
+  text-align: center;
+
+  background-color: yellow;
+}
+
+.honey{
+  visibility: hidden;
+  display: none;
+}
+
 @supports (display:grid) {
   body {
     display: grid;
@@ -308,6 +319,9 @@ body header,
       grid-column: main;
     }
     body footer {
+      grid-column: full;
+    }
+    body noscript {
       grid-column: full;
     }
 }
@@ -575,6 +589,7 @@ label{
   top: 0;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -786,6 +801,25 @@ label{
     transition-delay: 0s, 0.2s;
   }
 
+body.no-js .Nav ul{
+    display: block;
+    position: relative;
+  }
+
+body.no-js .Nav li{
+    display: inline-block;
+    position: relative;
+    width: auto;
+  }
+
+body.no-js .Nav a{
+    padding: 1rem;
+  }
+
+body.no-js .Nav__toggle{
+    display: none;
+  }
+
 @media screen and (min-width: 1000px) {
     .Nav ul {
       position: relative;
@@ -847,7 +881,6 @@ label{
 
 .Details {
   margin-bottom: 1.5rem;
-
   /* padding: 1rem; */
 
   color: #0000FF;
@@ -859,9 +892,10 @@ label{
 
 .Details__summary {
   position: relative;
+
   padding: 1rem;
+
   cursor: pointer
-  /* font-size: 1.5rem; */
 }
 
 .Details__summary:focus {
@@ -871,22 +905,34 @@ label{
     outline-offset: 2px;
   }
 
-.Details__summary::after{
+.Details__summary:after {
   position: absolute;
+  top: 50%;
   right: 1rem;
-  top: 0;
-  content: '\2295';
-  /* transform: translateY(-50%); */
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  content: '';
+  transition: transform 0.3s;
+  transform: rotate(90deg) translateY(-50%);
+  transform-origin: 50% 0;
+
   font-size: 2rem;
-  line-height: 3rem;
-  speak: none;
+
   color: #000;
-  color: var(--dark)
+
+  color: var(--dark);
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIyNnB4IiB2aWV3Qm94PSIwIDAgMjYgMjYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU2LjMgKDgxNzE2KSAtIGh0dHBzOi8vc2tldGNoLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS4wMDAwMDAsIDEuMDAwMDAwKSI+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiMwMDAwMDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSByb3RhdGUoLTkwLjAwMDAwMCkgdHJhbnNsYXRlKC0xMi4wMDAwMDAsIC0xMi4wMDAwMDApICIgeD0iMTEiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjE2Ij48L3JlY3Q+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiMwMDAwMDAiIHg9IjExIiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxNiI+PC9yZWN0PgogICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIj48L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  speak: none
 }
 
 @media reader, speech, aural {
 
-.Details__summary::after{
+.Details__summary:after {
     display: none;
     visibility: hidden
 }
@@ -910,41 +956,46 @@ label{
   display: none;
 }
 
-Details[open] .Details__summary{
+details[open] .Details__summary {
   background-color: #A9A9A9;
   background-color: var(--delta);
 }
 
-.Details--open .Details__summary{
+.Details--open .Details__summary {
   background-color: #A9A9A9;
   background-color: var(--delta);
 }
 
-.Details[open] .Details__content{
+.Details[open] .Details__content {
   display: block !important;
   /* height: auto !important; */
 }
 
-.Details--open .Details__content{
+.Details--open .Details__content {
   display: block !important;
 }
 
-.Details[open] .Details__summary::after{
-  content: '\2297';
+.Details[open] .Details__summary::after {
+  /* content: '\2297'; */
+  transform: rotate(45deg) translateY(-50%);
 }
 
-.Details--open .Details__summary::after{
-  content: '\2297';
+.Details--open .Details__summary::after {
+  /* content: '\2297'; */
+  transform: rotate(45deg) translateY(-50%);
 }
 
-.Details__content{
-  font-size: 1rem;
-  color: #303030;
-  color: var(--alpha);
+.Details__content {
   padding: 2rem 1rem;
+
+  font-size: 1rem;
+
+  color: #303030;
+
+  color: var(--alpha);
 }
 
-.Details__content *:last-child{
+.Details__content *:last-child {
   margin-bottom: 0;
 }
 
@@ -955,6 +1006,14 @@ summary::details-marker {
 summary::-webkit-details-marker {
   display: none;
 }
+
+body.no-js .Details {
+    display: block !important;
+  }
+
+body.no-js .Details__content {
+    display: block !important;
+  }
 
 /* EOF */
 
@@ -1015,7 +1074,7 @@ summary::-webkit-details-marker {
   padding-left: 1rem;
   line-height: inherit;
 
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   border-left: 5px solid #0000FF;
 
@@ -1082,7 +1141,8 @@ button.Button {
   font-size: inherit;
   border:none;
   line-height: inherit;
-  margin-bottom: 1.5rem
+  margin-bottom: 1.5rem;
+  cursor: pointer
 }
 
 .Button,
@@ -1104,7 +1164,8 @@ button.Button {
   font-size: inherit;
   border:none;
   line-height: inherit;
-  margin-bottom: 1.5rem
+  margin-bottom: 1.5rem;
+  cursor: pointer
 }
 
 .Button:hover, .Button:focus, a:link.Button:hover, a:visited.Button:hover, a:link.Button:focus, a:visited.Button:focus, button.Button:hover, button.Button:focus{
@@ -1112,7 +1173,6 @@ button.Button {
     color: var(--light);
     background-color: #0000FF;
     background-color: var(--bravo);
-    cursor: pointer;
   }
 
 .Button:hover, .Button:focus, a:any-link.Button:hover, a:any-link.Button:focus, button.Button:hover, button.Button:focus{
@@ -1120,7 +1180,6 @@ button.Button {
     color: var(--light);
     background-color: #0000FF;
     background-color: var(--bravo);
-    cursor: pointer;
   }
 
 .Button:active,a:link.Button:active,a:visited.Button:active,button.Button:active{
@@ -1201,5 +1260,35 @@ button.Button {
   /* display: none !important; */
   visibility: hidden;
 }
+
+body.no-js [data-modal] {
+    display: none !important;
+  }
+
+body.no-js .Dialog {
+    z-index: 1 !important;
+
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important;
+  }
+
+body.no-js .Dialog,
+  body.no-js .Dialog__container {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+
+    display: block !important;
+    visibility: visible !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    transform: none !important;
+  }
+
+body.no-js .Dialog [class*='close'] {
+    display: none !important;
+  }
 
 /* EOF */

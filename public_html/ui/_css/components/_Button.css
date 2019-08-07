@@ -15,11 +15,11 @@ button.Button {
   border:none;
   line-height: inherit;
   margin-bottom: 1.5rem;
+  cursor: pointer;
 
   &:hover, &:focus{
     color: var(--light);
     background-color: var(--bravo);
-    cursor: pointer;
   }
   &:active{
     color: var(--light);

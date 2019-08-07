@@ -13,6 +13,8 @@ const Details = class Details {
     this.curState = false;
 
     this.init()
+
+    // return this
   }
 
 
@@ -39,6 +41,7 @@ const Details = class Details {
       this.detailsContainer.removeAttribute(`open`);
       // console.log(`close`);
     }
+    // return this
   }
 
   keyhandler(event) {
@@ -54,6 +57,7 @@ const Details = class Details {
         // console.log(`enter`)
       }
     }
+    // return this;
   }
 };
 

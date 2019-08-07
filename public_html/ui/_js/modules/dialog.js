@@ -35,8 +35,11 @@ const Dialog = class Dialog {
 
     if (this.curState) {
       this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
+      console.log(this.focusableElements);
       this.firstFocusableEl = this.focusableElements[0];
-      this.lastFocusableEl = this.focusableElements[this.focusableElements.length-1];
+      console.log(this.firstFocusableEl)
+      this.lastFocusableEl = this.focusableElements.pop();
+      console.log(this.lastFocusableEl)
 
       // setting the initial focus to be on the dialog itself
       this.dialogTarget.setAttribute(`tabindex`, `-1`);
@@ -58,16 +61,16 @@ const Dialog = class Dialog {
   keyhandler(event) {
 
     let isEscape = false;
-    // let isTab = false;
+    let isTab = false;
     if (`key` in event) {
       isEscape = (event.key === `Escape` || event.key === `Esc`);
-      // isTab = (event.key === 'Tab')
+      isTab = (event.key === 'Tab')
     } else {
       isEscape = (event.keyCode === 27);
-      // isTab = (event.keyCode === KEYCODE_TAB)
+      isTab = (event.keyCode === KEYCODE_TAB)
     }
-     console.log(isEscape);
-    // if(!isEscape && !isTab) return
+    //  console.log(isEscape);
+    if(!isEscape && !isTab) return
 
     if (isEscape && this.curState) {
       this.toggledialog();

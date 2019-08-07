@@ -157,6 +157,24 @@
   }
 }
 
+body.no-js{
+  & .Nav ul{
+    display: block;
+    position: relative;
+  }
+  & .Nav li{
+    display: inline-block;
+    position: relative;
+    width: auto;
+  }
+  & .Nav a{
+    padding: 1rem;
+  }
+  & .Nav__toggle{
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1000px) {
   .Nav {
     & ul {
@@ -194,4 +212,5 @@
     right: 1rem;
   }
 };
+
 /* EOF */

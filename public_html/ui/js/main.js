@@ -92,50 +92,62 @@ var _nav2 = _interopRequireDefault(_nav);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+_lazysizes2.default.cfg.init = false; // import app from './modules/app';
+
+
+if ('loading' in HTMLImageElement.prototype) {
+  console.log("Browser supports `loading`..");
+  var lazy = document.querySelectorAll('[class*=\'lazy\']');
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = lazy[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var item = _step.value;
+
+      item.classList.remove('lazyload');
+      item.classList.add('lazyloaded');
+    }
+    // lazySizes.cfg.lazyClass = 'lazy';
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+} else {
+  // Fetch and apply a polyfill/JavaScript library
+  console.log("Browser does not support `loading`..");
+  // for lazy-loading instead.
+  _lazysizes2.default.cfg.init = true;
+}
+
 // app();
 (0, _fontLoader2.default)();
 
 // init modals
-// import app from './modules/app';
 var modals = Array.from(document.querySelectorAll('[data-modal]'));
-var _iteratorNormalCompletion = true;
-var _didIteratorError = false;
-var _iteratorError = undefined;
-
-try {
-  for (var _iterator = modals[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-    var win = _step.value;
-
-    new _dialog2.default(win);
-  }
-
-  // init details
-} catch (err) {
-  _didIteratorError = true;
-  _iteratorError = err;
-} finally {
-  try {
-    if (!_iteratorNormalCompletion && _iterator.return) {
-      _iterator.return();
-    }
-  } finally {
-    if (_didIteratorError) {
-      throw _iteratorError;
-    }
-  }
-}
-
-var details = Array.from(document.querySelectorAll('details'));
 var _iteratorNormalCompletion2 = true;
 var _didIteratorError2 = false;
 var _iteratorError2 = undefined;
 
 try {
-  for (var _iterator2 = details[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-    var detail = _step2.value;
+  for (var _iterator2 = modals[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+    var win = _step2.value;
 
-    new _details2.default(detail);
+    new _dialog2.default(win);
   }
+
+  // init details
 } catch (err) {
   _didIteratorError2 = true;
   _iteratorError2 = err;
@@ -150,6 +162,36 @@ try {
     }
   }
 }
+
+var details = Array.from(document.querySelectorAll('details'));
+var _iteratorNormalCompletion3 = true;
+var _didIteratorError3 = false;
+var _iteratorError3 = undefined;
+
+try {
+  for (var _iterator3 = details[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+    var detail = _step3.value;
+
+    new _details2.default(detail);
+  }
+
+  // remove no-js body class proving js is loaded and everything has run
+} catch (err) {
+  _didIteratorError3 = true;
+  _iteratorError3 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+      _iterator3.return();
+    }
+  } finally {
+    if (_didIteratorError3) {
+      throw _iteratorError3;
+    }
+  }
+}
+
+document.body.classList.remove('no-js');
 
 /***/ }),
 /* 1 */
@@ -967,8 +1009,11 @@ var Dialog = function () {
 
       if (this.curState) {
         this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
+        console.log(this.focusableElements);
         this.firstFocusableEl = this.focusableElements[0];
-        this.lastFocusableEl = this.focusableElements[this.focusableElements.length - 1];
+        console.log(this.firstFocusableEl);
+        this.lastFocusableEl = this.focusableElements.pop();
+        console.log(this.lastFocusableEl);
 
         // setting the initial focus to be on the dialog itself
         this.dialogTarget.setAttribute('tabindex', '-1');
@@ -991,16 +1036,16 @@ var Dialog = function () {
     value: function keyhandler(event) {
 
       var isEscape = false;
-      // let isTab = false;
+      var isTab = false;
       if ('key' in event) {
         isEscape = event.key === 'Escape' || event.key === 'Esc';
-        // isTab = (event.key === 'Tab')
+        isTab = event.key === 'Tab';
       } else {
         isEscape = event.keyCode === 27;
-        // isTab = (event.keyCode === KEYCODE_TAB)
+        isTab = event.keyCode === KEYCODE_TAB;
       }
-      console.log(isEscape);
-      // if(!isEscape && !isTab) return
+      //  console.log(isEscape);
+      if (!isEscape && !isTab) return;
 
       if (isEscape && this.curState) {
         this.toggledialog();
@@ -1053,6 +1098,8 @@ var Details = function () {
     this.curState = false;
 
     this.init();
+
+    // return this
   }
 
   _createClass(Details, [{
@@ -1081,6 +1128,7 @@ var Details = function () {
         this.detailsContainer.removeAttribute("open");
         // console.log(`close`);
       }
+      // return this
     }
   }, {
     key: "keyhandler",
@@ -1097,6 +1145,7 @@ var Details = function () {
           // console.log(`enter`)
         }
       }
+      // return this;
     }
   }]);
 
