@@ -6,19 +6,21 @@ import Dialog from './modules/dialog';
 import Details from './modules/details';
 import nav from './modules/nav';
 
+nav();
+
 lazySizes.cfg.init = false;
 
+// check if native lazy loading is available
 if ('loading' in HTMLImageElement.prototype) {
-  console.log("Browser supports `loading`..");
+  // console.log("Browser supports `loading`..");
   const lazy = document.querySelectorAll(`[class*='lazy']`);
   for (let item of lazy){
     item.classList.remove(`lazyload`);
     item.classList.add(`lazyloaded`);
   }
-  // lazySizes.cfg.lazyClass = 'lazy';
 } else {
   // Fetch and apply a polyfill/JavaScript library
-  console.log("Browser does not support `loading`..");
+  // console.log("Browser does not support `loading`..");
   // for lazy-loading instead.
   lazySizes.cfg.init = true;
 }
@@ -29,7 +31,8 @@ fontLoader();
 // init modals
 const modals = Array.from(document.querySelectorAll(`[data-modal]`));
 for(let win of modals ){
-  new Dialog(win)
+  new Dialog(win);
+  // console.log(win);
 }
 
 // init details
@@ -38,5 +41,5 @@ for(let detail of details ){
   new Details(detail)
 }
 
-// remove no-js body class proving js is loaded and everything has run
+// remove no-js body class proving JS is loaded and everything before this in this script has run.
 document.body.classList.remove(`no-js`);

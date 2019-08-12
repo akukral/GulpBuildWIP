@@ -92,11 +92,14 @@ var _nav2 = _interopRequireDefault(_nav);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_lazysizes2.default.cfg.init = false; // import app from './modules/app';
+(0, _nav2.default)(); // import app from './modules/app';
 
 
+_lazysizes2.default.cfg.init = false;
+
+// check if native lazy loading is available
 if ('loading' in HTMLImageElement.prototype) {
-  console.log("Browser supports `loading`..");
+  // console.log("Browser supports `loading`..");
   var lazy = document.querySelectorAll('[class*=\'lazy\']');
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -109,7 +112,6 @@ if ('loading' in HTMLImageElement.prototype) {
       item.classList.remove('lazyload');
       item.classList.add('lazyloaded');
     }
-    // lazySizes.cfg.lazyClass = 'lazy';
   } catch (err) {
     _didIteratorError = true;
     _iteratorError = err;
@@ -126,7 +128,7 @@ if ('loading' in HTMLImageElement.prototype) {
   }
 } else {
   // Fetch and apply a polyfill/JavaScript library
-  console.log("Browser does not support `loading`..");
+  // console.log("Browser does not support `loading`..");
   // for lazy-loading instead.
   _lazysizes2.default.cfg.init = true;
 }
@@ -145,6 +147,7 @@ try {
     var win = _step2.value;
 
     new _dialog2.default(win);
+    // console.log(win);
   }
 
   // init details
@@ -175,7 +178,7 @@ try {
     new _details2.default(detail);
   }
 
-  // remove no-js body class proving js is loaded and everything has run
+  // remove no-js body class proving JS is loaded and everything before this in this script has run.
 } catch (err) {
   _didIteratorError3 = true;
   _iteratorError3 = err;
@@ -989,17 +992,19 @@ var Dialog = function () {
     this.curState = false;
 
     this.init();
+
+    return this;
   }
 
   _createClass(Dialog, [{
     key: 'init',
     value: function init() {
-      this.dialogButton.addEventListener('click', this.toggledialog.bind(this));
-      this.dialogClose.addEventListener('click', this.toggledialog.bind(this));
+      this.dialogButton.addEventListener('click', this.toggleDialogVisibility.bind(this));
+      this.dialogClose.addEventListener('click', this.toggleDialogVisibility.bind(this));
     }
   }, {
-    key: 'toggledialog',
-    value: function toggledialog() {
+    key: 'toggleDialogVisibility',
+    value: function toggleDialogVisibility() {
       // changing the state of the dialog being open defaults to false (not open)
       this.curState = !this.curState;
 
@@ -1008,12 +1013,12 @@ var Dialog = function () {
       this.dialogTarget.classList.toggle('Dialog--open');
 
       if (this.curState) {
+        // find all of the focusable elements within the element to trap
         this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
-        console.log(this.focusableElements);
+
         this.firstFocusableEl = this.focusableElements[0];
-        console.log(this.firstFocusableEl);
+
         this.lastFocusableEl = this.focusableElements.pop();
-        console.log(this.lastFocusableEl);
 
         // setting the initial focus to be on the dialog itself
         this.dialogTarget.setAttribute('tabindex', '-1');
@@ -1022,7 +1027,7 @@ var Dialog = function () {
         this.dialogTarget.setAttribute('open', '');
 
         // listen for keyboard events namely TAB and ESC keys
-        document.addEventListener('keydown', this.keyhandler.bind(this));
+        document.addEventListener('keydown', this.keypressHandler.bind(this));
       } else {
         // set the tab index of the dialog
         this.dialogTarget.setAttribute('tabindex', '0');
@@ -1032,11 +1037,12 @@ var Dialog = function () {
       }
     }
   }, {
-    key: 'keyhandler',
-    value: function keyhandler(event) {
+    key: 'keypressHandler',
+    value: function keypressHandler(event) {
 
       var isEscape = false;
       var isTab = false;
+
       if ('key' in event) {
         isEscape = event.key === 'Escape' || event.key === 'Esc';
         isTab = event.key === 'Tab';
@@ -1044,11 +1050,12 @@ var Dialog = function () {
         isEscape = event.keyCode === 27;
         isTab = event.keyCode === KEYCODE_TAB;
       }
-      //  console.log(isEscape);
-      if (!isEscape && !isTab) return;
+
+      if (!isEscape && !isTab) return; //if the keypressed isn't a tab or escape what are we doing here
 
       if (isEscape && this.curState) {
-        this.toggledialog();
+        // if the state of this dialog is open/true close it and set the focus back to the button that opens it.
+        this.toggleDialogVisibility();
         this.dialogButton.focus();
       }
 
@@ -1099,18 +1106,18 @@ var Details = function () {
 
     this.init();
 
-    // return this
+    return this;
   }
 
   _createClass(Details, [{
     key: "init",
     value: function init() {
-      this.detailsButton.addEventListener("click", this.toggledetails.bind(this));
-      this.detailsButton.addEventListener("keydown", this.keyhandler.bind(this));
+      this.detailsButton.addEventListener("click", this.toggleDetailVisibility.bind(this));
+      this.detailsButton.addEventListener("keydown", this.keypressHandler.bind(this));
     }
   }, {
-    key: "toggledetails",
-    value: function toggledetails(event) {
+    key: "toggleDetailVisibility",
+    value: function toggleDetailVisibility(event) {
       event.preventDefault();
       // changing the state of the details being open defaults to false (not open)
       this.curState = !this.curState;
@@ -1131,17 +1138,18 @@ var Details = function () {
       // return this
     }
   }, {
-    key: "keyhandler",
-    value: function keyhandler(event) {
+    key: "keypressHandler",
+    value: function keypressHandler(event) {
       if (this.detailsButton.hasFocus) {
+        // if the toggle button for the detail is focused allow ENTER or SPACEBAR to open the accordion.
         if (event.key === " " || event.key === "Spacebar" || event.keyCode === 0 || event.keyCode === 32) {
           event.preventDefault();
-          this.toggledetails(event);
+          this.toggleDetailVisibility(event);
           // console.log(`space`)
         }
         if (event.key === "Enter" || event.key === "Return" || event.keyCode === 13) {
           event.preventDefault();
-          this.toggledetails(event);
+          this.toggleDetailVisibility(event);
           // console.log(`enter`)
         }
       }
@@ -1164,8 +1172,8 @@ exports.default = Details;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function () {
+exports.default = Nav;
+function Nav() {
   var nav = document.querySelectorAll("Nav")[0];
   // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
   // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));
@@ -1186,6 +1194,7 @@ exports.default = function () {
   }
 
   function trapFocus(element) {
+    // find all the focusable elements
     var focusableEls = Array.from(element.querySelectorAll("iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])"));
     var firstFocusableEl = focusableEls[0];
     var lastFocusableEl = focusableEls[focusableEls.length - 1];
@@ -1230,6 +1239,8 @@ exports.default = function () {
       nav.classList.toggle("Nav--visible");
       setTimeout(function () {
         nav.classList.toggle("Nav--isactive");
+        button.focus();
+        button.removeEventListener("keypress");
       }, 200);
     }
     button.setAttribute("aria-expanded", curState);
@@ -1251,7 +1262,7 @@ exports.default = function () {
   if (button) {
     button.addEventListener("click", toggleNav);
   }
-}();
+};
 
 // EOF
 

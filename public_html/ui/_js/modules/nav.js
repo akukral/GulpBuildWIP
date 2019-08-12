@@ -1,4 +1,4 @@
-export default (function () {
+export default function Nav(){
   const nav = document.querySelectorAll(`Nav`)[0];
   // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
   // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));
@@ -19,6 +19,7 @@ export default (function () {
   }
 
   function trapFocus(element) {
+    // find all the focusable elements
     const focusableEls = Array.from(element.querySelectorAll(`iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])`));
     const firstFocusableEl = focusableEls[0];
     const lastFocusableEl = focusableEls[focusableEls.length - 1];
@@ -49,7 +50,7 @@ export default (function () {
     });
   }
 
-  const toggleNav = function (event) {
+  const toggleNav = function () {
     // event.preventDefault();
     curState = !curState
     if (curState) {
@@ -65,6 +66,8 @@ export default (function () {
       nav.classList.toggle(`Nav--visible`);
       setTimeout(() => {
         nav.classList.toggle(`Nav--isactive`);
+        button.focus();
+        button.removeEventListener(`keypress`);
       }, 200);
     }
     button.setAttribute(`aria-expanded`, curState);
@@ -87,6 +90,6 @@ export default (function () {
     button.addEventListener(`click`, toggleNav);
   }
 
-})();
+}
 
 // EOF

@@ -14,16 +14,16 @@ const Details = class Details {
 
     this.init()
 
-    // return this
+    return this
   }
 
 
   init() {
-    this.detailsButton.addEventListener(`click`, this.toggledetails.bind(this));
-    this.detailsButton.addEventListener(`keydown`, this.keyhandler.bind(this));
+    this.detailsButton.addEventListener(`click`, this.toggleDetailVisibility.bind(this));
+    this.detailsButton.addEventListener(`keydown`, this.keypressHandler.bind(this));
   }
 
-  toggledetails(event) {
+  toggleDetailVisibility(event) {
     event.preventDefault()
     // changing the state of the details being open defaults to false (not open)
     this.curState = !this.curState
@@ -44,16 +44,17 @@ const Details = class Details {
     // return this
   }
 
-  keyhandler(event) {
+  keypressHandler(event) {
     if(this.detailsButton.hasFocus){
+      // if the toggle button for the detail is focused allow ENTER or SPACEBAR to open the accordion.
       if (event.key === ` ` || event.key === `Spacebar` || event.keyCode === 0 || event.keyCode === 32) {
         event.preventDefault();
-        this.toggledetails(event);
+        this.toggleDetailVisibility(event);
         // console.log(`space`)
       }
       if (event.key === `Enter` || event.key === `Return` || event.keyCode === 13) {
         event.preventDefault();
-        this.toggledetails(event);
+        this.toggleDetailVisibility(event);
         // console.log(`enter`)
       }
     }

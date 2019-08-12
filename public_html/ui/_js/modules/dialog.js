@@ -16,16 +16,18 @@ const Dialog = class Dialog {
 
     this.curState = false;
 
-    this.init()
+    this.init();
+
+    return this
   }
 
 
   init() {
-    this.dialogButton.addEventListener(`click`, this.toggledialog.bind(this));
-    this.dialogClose.addEventListener(`click`, this.toggledialog.bind(this));
+    this.dialogButton.addEventListener(`click`, this.toggleDialogVisibility.bind(this));
+    this.dialogClose.addEventListener(`click`, this.toggleDialogVisibility.bind(this));
   }
 
-  toggledialog() {
+  toggleDialogVisibility() {
     // changing the state of the dialog being open defaults to false (not open)
     this.curState = !this.curState
 
@@ -34,12 +36,13 @@ const Dialog = class Dialog {
     this.dialogTarget.classList.toggle(`Dialog--open`);
 
     if (this.curState) {
+      // find all of the focusable elements within the element to trap
       this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
-      console.log(this.focusableElements);
+
       this.firstFocusableEl = this.focusableElements[0];
-      console.log(this.firstFocusableEl)
+
       this.lastFocusableEl = this.focusableElements.pop();
-      console.log(this.lastFocusableEl)
+
 
       // setting the initial focus to be on the dialog itself
       this.dialogTarget.setAttribute(`tabindex`, `-1`);
@@ -48,7 +51,7 @@ const Dialog = class Dialog {
       this.dialogTarget.setAttribute(`open`,``);
 
       // listen for keyboard events namely TAB and ESC keys
-      document.addEventListener(`keydown`, this.keyhandler.bind(this));
+      document.addEventListener(`keydown`, this.keypressHandler.bind(this));
     } else {
       // set the tab index of the dialog
       this.dialogTarget.setAttribute(`tabindex`, `0`);
@@ -58,22 +61,24 @@ const Dialog = class Dialog {
     }
   }
 
-  keyhandler(event) {
+  keypressHandler(event) {
 
     let isEscape = false;
     let isTab = false;
+
     if (`key` in event) {
       isEscape = (event.key === `Escape` || event.key === `Esc`);
-      isTab = (event.key === 'Tab')
+      isTab = (event.key === `Tab`)
     } else {
       isEscape = (event.keyCode === 27);
       isTab = (event.keyCode === KEYCODE_TAB)
     }
-    //  console.log(isEscape);
-    if(!isEscape && !isTab) return
+
+    if(!isEscape && !isTab) return //if the keypressed isn't a tab or escape what are we doing here
 
     if (isEscape && this.curState) {
-      this.toggledialog();
+      // if the state of this dialog is open/true close it and set the focus back to the button that opens it.
+      this.toggleDialogVisibility();
       this.dialogButton.focus();
     }
 
