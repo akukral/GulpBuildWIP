@@ -1193,76 +1193,66 @@ function Nav() {
     };
   }
 
-  function trapFocus(element) {
-    // find all the focusable elements
-    var focusableEls = Array.from(element.querySelectorAll("iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])"));
+  function keyHandler(e) {
+
+    var focusableEls = Array.from(nav.querySelectorAll("iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])"));
     var firstFocusableEl = focusableEls[0];
     var lastFocusableEl = focusableEls[focusableEls.length - 1];
-    var KEYCODE_TAB = 9;
 
-    // console.log(firstFocusableEl)
-    // console.log(lastFocusableEl)
+    // console.log(e);
+    var isTabPressed = e.key === "Tab" || e.keyCode === 9;
+    var isEscape = e.key === "Escape" || e.key === "Esc" || e.keyCode === 27;
 
-    element.addEventListener("keydown", function (e) {
-      var isTabPressed = e.key === "Tab" || e.keyCode === KEYCODE_TAB;
+    // if (!isTabPressed) {
+    //   return;
+    // }
 
-      if (!isTabPressed) {
-        return;
+    if (e.shiftKey) /* shift + tab */{
+        if (document.activeElement === firstFocusableEl) {
+          lastFocusableEl.focus();
+          e.preventDefault();
+        }
+      } else /* tab */{
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl.focus();
+          e.preventDefault();
+        }
       }
 
-      if (e.shiftKey) /* shift + tab */{
-          if (document.activeElement === firstFocusableEl) {
-            lastFocusableEl.focus();
-            e.preventDefault();
-          }
-        } else /* tab */{
-          if (document.activeElement === lastFocusableEl) {
-            firstFocusableEl.focus();
-            e.preventDefault();
-          }
-        }
-    });
+    if (isEscape && curState) {
+      toggleNav();
+    }
   }
 
-  var toggleNav = function toggleNav(event) {
+  var toggleNav = function toggleNav() {
     // event.preventDefault();
     curState = !curState;
     if (curState) {
       nav.classList.toggle("Nav--isactive");
+      nav.addEventListener("keydown", keyHandler);
+
       setTimeout(function () {
         nav.classList.toggle("Nav--visible");
       }, 100);
-
-      trapFocus(nav);
     } else {
 
+      // console.log('button')
+      button.focus();
+
       nav.classList.toggle("Nav--visible");
+      nav.removeEventListener("keydown", keyHandler, { passive: true });
+
       setTimeout(function () {
         nav.classList.toggle("Nav--isactive");
-        button.focus();
-        button.removeEventListener("keypress");
       }, 200);
     }
     button.setAttribute("aria-expanded", curState);
   };
 
-  document.body.addEventListener("keydown", function (evt) {
-    evt = evt || window.event;
-    var isEscape = false;
-    if ("key" in evt) {
-      isEscape = evt.key === "Escape" || evt.key === "Esc";
-    } else {
-      isEscape = evt.keyCode === 27;
-    }
-    if (isEscape && curState) {
-      toggleNav();
-    }
-  });
-
   if (button) {
     button.addEventListener("click", toggleNav);
   }
-};
+}
 
 // EOF
 
