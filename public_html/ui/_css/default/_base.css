@@ -12,9 +12,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   *,
-  *:before,
-  *:after {
-    transition: 0 !important;
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
   }
 }
 
@@ -116,9 +117,9 @@ a:focus {
   height: 1px;
   padding: 1rem;
 
-  color: #ffffff !important;
+  color: var(--light) !important;
   border: 0;
-  background-color: #000000 !important;
+  background-color: var(--dark) !important;
 }
 .skip:hover,
 .skip:focus,
@@ -158,9 +159,9 @@ a:focus {
 
   white-space: nowrap;
 
-  color: #ffffff !important;
+  color: var(--light) !important;
   border: 0;
-  background-color: #000000 !important;
+  background-color: var(--dark) !important;
 
   -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
           clip-path: polygon(0px 0px, 0px 0px, 0px 0px);

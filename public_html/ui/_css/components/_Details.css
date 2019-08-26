@@ -13,8 +13,8 @@
   cursor: pointer;
   &:focus {
     outline: 2px solid var(--bravo);
-    outline-offset: calc(1rem + 3px);
-    outline-offset: 2px;
+    /* outline-offset: calc(1rem + 3px); */
+    /* outline-offset: 2px; */
   }
 }
 .Details__summary:after {

@@ -1,18 +1,20 @@
 const Dialog = class Dialog {
   constructor(
-    dialogButton,
-    dialogTarget,
-    dialogClose
+    settingsObj
     ) {
     // constructor(options = {}) {
     // Object.assign(this, {
     //   dialogButton: document.querySelector(`[data-dialog]`),
     //   dialogTarget: document.querySelector(`[data-dialog]`).nextElementSibling,
     // }, options);
+    this.settings = settingsObj;
 
-    this.dialogButton = dialogButton || document.querySelector(`[data-dialog]`);
-    this.dialogTarget = dialogTarget || this.dialogButton.nextElementSibling || document.querySelector(`dialog`) || document.querySelector(`[data-dialog]`).nextElementSibling;
-    this.dialogClose = dialogClose || this.dialogTarget.querySelector(`[class*='close'], [class*='Close'], [aria-label*='close']`);
+    this.dialogButton = this.settings.button || document.querySelector(`[data-dialog]`);
+    if (!this.dialogButton) return
+    this.dialogTarget = this.settings.target || this.dialogButton.nextElementSibling || document.querySelector(`dialog`) || document.querySelector(`[data-dialog]`).nextElementSibling;
+    if (!this.dialogTarget) return
+    this.dialogClose = this.settings.close || this.dialogTarget.querySelector(`[class*='close'], [class*='Close'], [aria-label*='close']`);
+    if (!this.dialogClose) return
 
     this.curState = false;
 
@@ -43,7 +45,6 @@ const Dialog = class Dialog {
 
       this.lastFocusableEl = this.focusableElements.pop();
 
-
       // setting the initial focus to be on the dialog itself
       this.dialogTarget.setAttribute(`tabindex`, `-1`);
       this.dialogTarget.focus()
@@ -53,6 +54,11 @@ const Dialog = class Dialog {
       // listen for keyboard events namely TAB and ESC keys
       document.addEventListener(`keydown`, this.keypressHandler.bind(this));
     } else {
+      // dealing with an autoplay or currently playing video in the modal if you close it.
+      const iframeSrc = this.dialogTarget.querySelector(`iframe`).src;
+      this.dialogTarget.querySelector(`iframe`).src = ``;
+      this.dialogTarget.querySelector(`iframe`).src = iframeSrc;
+
       // set the tab index of the dialog
       this.dialogTarget.setAttribute(`tabindex`, `0`);
       this.dialogTarget.removeAttribute(`open`);

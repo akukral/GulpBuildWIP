@@ -122,7 +122,7 @@ gulp.task(`imagemin`, gulp.series((done) => {
   console.log(`Image Compression`);
   gulp.src(imageSources)
     .pipe(imagemin());
-    // .pipe(gulp.dest(`${webroot}`));
+  // .pipe(gulp.dest(`${webroot}`));
 
   done();
 }));
@@ -138,7 +138,7 @@ gulp.task(`html`, gulp.series((done) => {
 }));
 
 gulp.task(`sync`, gulp.series((done) => {
-  if(domain===``){
+  if (domain === ``) {
     browsersync.init({
       server: {
         baseDir: webroot,
@@ -183,7 +183,7 @@ gulp.task('critical', gulp.series((done) => {
       minify: true,
       penthouse: {
         forceInclude: [`body footer`],
-        timeout: 6000,
+        timeout: 10000,
       },
     }))
     .pipe(postcss(processors))
@@ -192,7 +192,7 @@ gulp.task('critical', gulp.series((done) => {
       stream: true,
     }));
 
-    done();
+  done();
 }));
 
 gulp.task(`watch`, gulp.series((done) => {

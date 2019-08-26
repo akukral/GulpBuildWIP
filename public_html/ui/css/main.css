@@ -75,6 +75,53 @@ table {
   --foxtrot: #818181;
 }
 
+[data-theme="dark-mode"]{
+  --light: #000;
+  --dark: #fff;
+
+  /* basic site colors  */
+  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
+
+  --alpha: #303030;
+  --bravo: #0000FF;
+  --charlie: #00008B;
+  --delta: #A9A9A9;
+  --echo: #D3D3D3;
+  --foxtrot: #818181;
+}
+
+@media screen and (prefers-color-scheme: light) {
+  :root{
+    --light: #fff;
+    --dark: #000;
+
+    /* basic site colors  */
+    /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
+
+    --alpha: #303030;
+    --bravo: #0000FF;
+    --charlie: #00008B;
+    --delta: #A9A9A9;
+    --echo: #D3D3D3;
+    --foxtrot: #818181;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark){
+  --light: #000;
+  --dark: #fff;
+
+  /* basic site colors  */
+  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
+
+  --alpha: #303030;
+  --bravo: #0000FF;
+  --charlie: #00008B;
+  --delta: #A9A9A9;
+  --echo: #D3D3D3;
+  --foxtrot: #818181;
+}
+
 /* EOF */
 
 *,
@@ -91,9 +138,10 @@ table {
 
 @media (prefers-reduced-motion: reduce) {
   *,
-  *:before,
-  *:after {
-    transition: 0 !important;
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
   }
 }
 
@@ -204,9 +252,12 @@ a:focus {
   height: 1px;
   padding: 1rem;
 
-  color: #ffffff !important;
+  color: #fff !important;
+
+  color: var(--light) !important;
   border: 0;
-  background-color: #000000 !important;
+  background-color: #000 !important;
+  background-color: var(--dark) !important;
 }
 
 .skip:hover,
@@ -247,9 +298,12 @@ a:focus {
 
   white-space: nowrap;
 
-  color: #ffffff !important;
+  color: #fff !important;
+
+  color: var(--light) !important;
   border: 0;
-  background-color: #000000 !important;
+  background-color: #000 !important;
+  background-color: var(--dark) !important;
   clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
 }
 
@@ -901,8 +955,8 @@ body.no-js .Nav__toggle{
 .Details__summary:focus {
     outline: 2px solid #0000FF;
     outline: 2px solid var(--bravo);
-    outline-offset: calc(1rem + 3px);
-    outline-offset: 2px;
+    /* outline-offset: calc(1rem + 3px); */
+    /* outline-offset: 2px; */
   }
 
 .Details__summary:after {
@@ -1290,5 +1344,114 @@ body.no-js .Dialog,
 body.no-js .Dialog [class*='close'] {
     display: none !important;
   }
+
+.Carousel,
+.Carousel__slide {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 3.5rem;
+  padding: 0;
+}
+
+.Carousel {
+  position: relative;
+  height: 0;
+  padding-bottom: 50%;
+}
+
+.Carousel__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.Carousel__slide {
+  position: relative;
+  background-size: cover;
+}
+
+.Carousel--active .Carousel__slide {
+  display: block !important;
+  visibility: hidden;
+
+  transition: left 0.6s ease-out;
+}
+
+.Carousel--active .Carousel__slide.current {
+  left: 0;
+
+  visibility: visible;
+}
+
+.Carousel--active .Carousel__slide.next {
+  left: 100%;
+}
+
+.Carousel--active .Carousel__slide.prev {
+  left: -100%;
+}
+
+.Carousel--active .Carousel__slide.next.in-transition,
+.Carousel--active .Carousel__slide.prev.in-transition {
+  visibility: visible;
+}
+
+.Carousel--active .Carousel__slide {
+  position: absolute;
+  top: 0;
+
+  display: none;
+
+  border: none;
+}
+
+.Carousel__slide.current {
+  display: block;
+}
+
+.Carousel__content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.73333);
+  margin: 1rem;
+  padding: 1rem;
+  padding-bottom: 0.000001rem;
+}
+
+.btn-prev,
+.btn-next {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: .5rem 1rem !important;
+}
+
+.btn-prev {
+  left: .5rem;
+}
+
+.btn-next {
+  right: .5rem;
+}
+
+.Carousel__slidenav {
+  position: absolute;
+  top: 100%;
+
+  width: 100%;
+  text-align: center;
+}
+
+.Carousel__slidenav li {
+  display: inline-block;
+}
 
 /* EOF */

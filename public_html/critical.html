@@ -8,11 +8,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <!-- TODO update to actual URL-->
-  <link rel="home" href="//localhost:3000/" />
+  <link rel="home" href="http://gulpbuildwip.local" />
 
   <!-- Meta Info -->
 
-  <title>Home</title>
+  <title>Home | Gulp Build WIP</title>
   <meta name="description" content="Website Homepage" />
 
   <meta property="fb:app_id" content="">
@@ -32,8 +32,10 @@
   <meta name="twitter:description" content="Website Homepage" />
   <meta name="twitter:image" content="" />
 
-  <link rel="home" href="//localhost:3000/" />
-  <link rel="canonical" href="//localhost:3000/">
+  <!-- TODO update to actual URL-->
+  <link rel="home" href="http://gulpbuildwip.local" />
+  <!-- TODO update to actual URL-->
+  <link rel="canonical" href="http://gulpbuildwip.local">
 
   <!-- Mobile App Info -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,35 +59,35 @@
 </head>
 
 <body class="no-js">
+  <noscript>
+    <span class="Warning">Please enable javascript to get the most out of this page.</span>
+  </noscript>
 
   <header class="Header">
     <a href="#Main" class="skip" tabindex="0">Skip to main content</a>
     <a href="/" class="Header__logo">Site Name</a>
 
-    <nav class="Nav" aria-label="Main navigation">
+    <nav class="Nav" aria-label="Main Navigation">
       <button class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
         <span class="sr-only">Toggle Menu</span>
         <span class="Nav__hamburger"></span>
       </button>
       <ul id="Menu" aria-live="polite">
         <li>
-          <a href="/page-1">Page 1</a>
+          <a href="/#page-1">Page 1</a>
         </li>
         <li>
-          <a href="/page-2">Page 2</a>
+          <a href="/#page-2">Page 2</a>
         </li>
         <li>
-          <a href="/page-3">Page 3</a>
+          <a href="/#page-3">Page 3</a>
         </li>
         <li>
-          <a href="/page-4">Page 4</a>
+          <a href="/#page-4">Page 4</a>
         </li>
       </ul>
     </nav>
     <!-- /nav -->
-    <noscript>
-      <span class="Warning">Please enable javascript to get the most out of this page.</span>
-    </noscript>
   </header>
   <!-- /header -->
 
@@ -94,7 +96,7 @@
     <h1 id="MainTitle">Homepage</h1>
 
     <label for="search">Search:
-      <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="on" />
+      <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" />
     </label>
     <datalist id="searchList">
       <option value="lorem">
@@ -104,11 +106,13 @@
     </datalist>
 
     <button class="Button" data-modal="Dialog1">Modal 1</button>
-    <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1" aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
+    <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
+      aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
       <div class="Dialog__container">
         <h1 id="Dialog__title1">Modal 1</h1>
         <div id="Dialog__content1">
-          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. Earum sunt voluptatum adipisci, a libero perferendis
+          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. Earum sunt voluptatum adipisci, a
+            libero perferendis
             blanditiis neque quisquam excepturi deserunt?</p>
         </div>
         <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
@@ -119,7 +123,7 @@
       necessitatibus odit iure atque exercitationem amet quam. Est, harum unde?</p>
 
     <div class="Cta">
-      <a href="//localhost:3000/about" class="Button">Test Button</a>
+      <a href="/#button" class="Button">Test Button</a>
     </div>
 
     <blockquote class="Blockquote">
@@ -130,30 +134,32 @@
     <h2>A section heading block</h2>
 
     <button class="Button" data-modal="Dialog2">Modal 2</button>
-    <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2" aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
+    <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
+      aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
         <h1 id="Dialog__title2">Modal 2</h1>
         <div id="Dialog__content2">
-          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. <a href="/">Earum sunt voluptatum</a> adipisci, a libero perferendis
+          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. <a href="/">Earum sunt
+              voluptatum</a> adipisci, a libero perferendis
             blanditiis neque quisquam excepturi deserunt?</p>
         </div>
         <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
       </div>
     </div>
 
-    <!-- <div class="Video">
+    <div class="Video">
       <iframe src="https://player.vimeo.com/video/117827095?portrait=0&amp;title=0&amp;byline=0" title="Education Research Alliance for New Orleans: What Schools Do Families Want (And Why)?"
-        class="Video__embed"></iframe>
-    </div> -->
+        class="Video__embed lazyload" loading="lazy"></iframe>
+    </div>
 
-    <figure class="Figure" role="group">
+    <figure class="Figure">
       <img src="/ui/images/1818manh2.JPG" alt="Photo of a empty strip mall" class="lazyload" loading="lazy">
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
       </figcaption>
     </figure>
 
-    <section>
+    <section aria-label="Accordions">
       <details class="Details">
         <summary class="Details__summary" aria-expanded="false" aria-controls="Details1" tabindex="0" role="button">
           <span class="Details__summary-text">Lorem, ipsum dolor.</span>
@@ -177,7 +183,7 @@
       </details>
     </section>
 
-    <section>
+    <section aria-label="Mission Statement">
       <h2>Mission Statement</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus doloribus natus, fuga, perspiciatis earum
         eius voluptatum architecto culpa iste nobis molestiae a deleniti deserunt eos fugit dolore necessitatibus, odit
@@ -188,7 +194,7 @@
         autem perferendis magnam qui, placeat debitis esse et adipisci sint. Tempora, fuga molestiae!</p>
     </section>
 
-    <section>
+    <section aria-label="Featured Content">
       <h2>Featured Content</h2>
       <article>
         <h3><a href="#">Article Title 1</a></h3>
@@ -219,7 +225,7 @@
       </article>
     </section>
 
-    <section>
+    <section aria-label="Featured Research">
       <h2>Featured Research</h2>
       <article>
         <h3><a href="#">Article Title 4</a></h3>
@@ -250,52 +256,99 @@
       </article>
     </section>
 
-    <section>
+    <section aria-label="Carousel of Articles">
+      <div id="Carousel" class="Carousel">
+        <ul>
+          <li class="Carousel__slide">
+            <figure>
+              <img src="https://picsum.photos/1000/500?random=1" alt="random image from lorum picsum 1" class="lazyload" loading="lazy">
+            </figure>
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+              Teddies in Space Inc. has released outstanding numbers for the last solar year.
+              <a href="…">Full Annual Report</a>
+            </p>
+          </li>
+          <li class="Carousel__slide">
+            <figure>
+              <img src="https://picsum.photos/1000/500?random=2" alt="random image from lorum picsum 2" class="lazyload" loading="lazy">
+            </figure>
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+              Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+              <a href="…">Everything about the new model</a>
+            </p>
+          </li>
+          <li class="Carousel__slide">
+            <figure>
+              <img src="https://picsum.photos/1000/500?random=3" alt="random image from lorum picsum 3" class="lazyload" loading="lazy">
+            </figure>
+            <h4>Adventures of the Space&nbsp;Teddy</h4>
+            <p>
+              Using modern HTML5 technologies, the latest installment of our game performs great on your computer,
+              tablet, or mobile.
+              <a href="…">Play the Game here!</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-label="Contact Form">
+      <h2>Contact Form</h2>
       <form method="post" class="Form">
         <label for="firstName">First Name*
-          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name" autocomplete="given-name" required="">
+          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name"
+            autocomplete="given-name" required="">
         </label>
 
         <label for="lastName">Last Name*
-          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name" autocomplete="family-name" required="">
+          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name"
+            autocomplete="family-name" required="">
         </label>
 
         <label for="address">Address*
-          <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on" required="">
+          <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on"
+            required="">
         </label>
 
         <label for="city">City*
-          <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on" required="">
+          <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on"
+            required="">
         </label>
 
         <label for="state">State*
-          <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on" required="">
+          <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on"
+            required="">
         </label>
 
         <label for="zipCode">Zip*
-          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="Zip" autocomplete="postal-code" required="">
+          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="Zip"
+            autocomplete="postal-code" required="">
         </label>
 
         <label for="email">Email Address*
-          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="email" required="">
+          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com"
+            autocomplete="email" required="">
         </label>
 
-        <label for="email_address_confirm">Email Address Confirm
+        <label for="email_address_confirm" class="honey" aria-hidden="true">Email Address Confirm
           <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
             type="email" placeholder="Email@Address.com">
         </label>
 
         <label for="phone">Phone
-          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required="">
+          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on"
+            required="">
         </label>
 
         <label for="subject">Subject/Interest*
           <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
-            required="">
+            autocomplete="off" required="">
         </label>
 
         <label for="message">Message
-          <textarea class="form-control" name="message" id="message" rows="6"
+          <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off"
             placeholder="Send us your message."></textarea>
         </label>
 
@@ -312,7 +365,7 @@
 
   <footer class="Footer">
     <p>
-      &copy; 2019 Copyright. | <a href="/sitemap">Site Map</a>
+      © 2019 Copyright. | <a href="/sitemap">Site Map</a>
     </p>
   </footer>
   <!-- footer -->
@@ -331,10 +384,27 @@
     }
     loadCSS("/ui/css/main.css");
   </script>
+
   <!-- This polyfill needs to be loaded from the cdn to work -->
-  <script src="//cdn.polyfill.io/v2/polyfill.min.js" crossorigin="anonymous"></script>
+  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
+
   <!-- Load main scripts here -->
   <script src="/ui/js/main.js" async="async" defer="defer"></script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          // Registration was successful
+          console.info('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.info('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>

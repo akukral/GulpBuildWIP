@@ -1,14 +1,17 @@
 const Details = class Details {
   constructor(
-    detailsContainer,
-    detailsButton,
-    detailsTarget
+    settingsObj
   ) {
 
+    this.settings = settingsObj;
+
     // set the accordion/detail elements
-    this.detailsContainer = detailsContainer || document.querySelector(`details`);
-    this.detailsButton = detailsButton || this.detailsContainer.querySelector(`summary`);
-    this.detailsTarget = detailsTarget || this.detailsButton.nextElementSibling || this.detailsContainer.querySelector(`summary`).nextElementSibling || document.querySelector(`Details__content`);
+    this.detailsContainer = this.settings.container || document.querySelector(`details`);
+    if (!this.detailsContainer) return
+    this.detailsButton = this.settings.button || this.detailsContainer.querySelector(`summary`);
+    if (!this.detailsButton) return
+    this.detailsTarget = this.settings.target || this.detailsButton.nextElementSibling || this.detailsContainer.querySelector(`summary`).nextElementSibling || document.querySelector(`Details__content`);
+    if (!this.detailsTarget) return
 
     this.curState = false;
 

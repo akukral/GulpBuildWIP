@@ -4,8 +4,10 @@ import lazySizes from 'lazysizes';
 import fontLoader from './modules/fontLoader';
 import Dialog from './modules/dialog';
 import Details from './modules/details';
+import Carousel from './modules/carousel';
 import nav from './modules/nav';
 
+fontLoader();
 nav();
 
 lazySizes.cfg.init = false;
@@ -25,21 +27,66 @@ if ('loading' in HTMLImageElement.prototype) {
   lazySizes.cfg.init = true;
 }
 
-// app();
-fontLoader();
-
 // init modals
 const modals = Array.from(document.querySelectorAll(`[data-modal]`));
 for(let win of modals ){
-  new Dialog(win);
+  new Dialog({button:win});
   // console.log(win);
 }
 
 // init details
 const details = Array.from(document.querySelectorAll(`details`));
 for(let detail of details ){
-  new Details(detail)
+  new Details({container:detail})
 }
+
+// init Carousel
+const myCarousel = new Carousel();
+myCarousel.init({
+  id: 'Carousel',
+  slidenav: true,
+  animate: true,
+  startAnimated: false
+});
+
+const media = "(prefers-reduced-motion: reduce)";
+const pref = window.matchMedia(media);
+// console.log("reduced motion=",pref)
+if (pref.media !== media && !pref.matches) {
+  // do animationless stuff
+  console.log('prefers reduced motion');
+}
+
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
+
+console.log('isDarkMode='+isDarkMode, 'isLightMode='+isLightMode, 'isNotSpecified='+isNotSpecified, 'hasNoSupport='+hasNoSupport)
+
+// const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+// const currentTheme = localStorage.getItem('theme');
+
+// if (currentTheme) {
+//     document.documentElement.setAttribute('data-theme', currentTheme);
+
+//     if (currentTheme === 'dark') {
+//         toggleSwitch.checked = true;
+//     }
+// }
+
+// function switchTheme(e) {
+//     if (e.target.checked) {
+//         document.documentElement.setAttribute('data-theme', 'dark');
+//         localStorage.setItem('theme', 'dark');
+//     }
+//     else {        document.documentElement.setAttribute('data-theme', 'light');
+//           localStorage.setItem('theme', 'light');
+//     }
+// }
+
+// toggleSwitch.addEventListener('change', switchTheme, false);
+
 
 // remove no-js body class proving JS is loaded and everything before this in this script has run.
 document.body.classList.remove(`no-js`);
