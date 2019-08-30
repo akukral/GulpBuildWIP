@@ -28,6 +28,7 @@ body {
   letter-spacing: .01rem;
   font-display: swap !important;
   text-size-adjust: 100% !important;
+  font-variant-numeric: tabular-nums;
 }
 
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;

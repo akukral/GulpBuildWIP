@@ -49,7 +49,7 @@ myCarousel.init({
   startAnimated: false
 });
 
-const media = "(prefers-reduced-motion: reduce)";
+const media = '(prefers-reduced-motion: reduce)';
 const pref = window.matchMedia(media);
 // console.log("reduced motion=",pref)
 if (pref.media !== media && !pref.matches) {
@@ -57,9 +57,9 @@ if (pref.media !== media && !pref.matches) {
   console.log('prefers reduced motion');
 }
 
-const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
 const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
 
 console.log('isDarkMode='+isDarkMode, 'isLightMode='+isLightMode, 'isNotSpecified='+isNotSpecified, 'hasNoSupport='+hasNoSupport)
