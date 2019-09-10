@@ -31,13 +31,12 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--heading h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6;
 
 :--heading{
   font-family: 'NeueBold', Helvetica;
   font-display: auto;
 }
-
 
 h1, .h1 {
   font-size: 3.4rem;

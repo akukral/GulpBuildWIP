@@ -2,26 +2,30 @@
 a:any-link.Button,
 button.Button {
   display: inline-block;
+
+  margin-bottom: 1.5rem;
   /* margin-left: 1rem; */
   /* margin-right: 1rem; */
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
 
-  text-align: center;
-
-  color: var(--light);
-  background-color: var(--charlie);
-  text-decoration: none;
-  font-size: inherit;
-  border:none;
-  line-height: inherit;
-  margin-bottom: 1.5rem;
   cursor: pointer;
 
-  &:hover, &:focus{
+  font-size: inherit;
+  line-height: inherit;
+  text-align: center;
+  text-decoration: none;
+
+  color: var(--light);
+  border: none;
+  border-radius: 0.2rem; /* delete later */
+  background-color: var(--charlie);
+
+  &:hover,
+  &:focus {
     color: var(--light);
     background-color: var(--bravo);
   }
-  &:active{
+  &:active {
     color: var(--light);
     background-color: var(--charlie);
   }

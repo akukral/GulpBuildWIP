@@ -204,7 +204,7 @@ myCarousel.init({
   startAnimated: false
 });
 
-var media = "(prefers-reduced-motion: reduce)";
+var media = '(prefers-reduced-motion: reduce)';
 var pref = window.matchMedia(media);
 // console.log("reduced motion=",pref)
 if (pref.media !== media && !pref.matches) {
@@ -212,9 +212,9 @@ if (pref.media !== media && !pref.matches) {
   console.log('prefers reduced motion');
 }
 
-var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
-var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches;
+var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches;
 var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
 
 console.log('isDarkMode=' + isDarkMode, 'isLightMode=' + isLightMode, 'isNotSpecified=' + isNotSpecified, 'hasNoSupport=' + hasNoSupport);
@@ -1084,9 +1084,12 @@ var Dialog = function () {
         document.addEventListener('keydown', this.keypressHandler.bind(this));
       } else {
         // dealing with an autoplay or currently playing video in the modal if you close it.
-        var iframeSrc = this.dialogTarget.querySelector('iframe').src;
-        this.dialogTarget.querySelector('iframe').src = '';
-        this.dialogTarget.querySelector('iframe').src = iframeSrc;
+        var iframeSrc = this.dialogTarget.querySelector('iframe');
+        if (iframeSrc) {
+          var src = iframeSrc.src;
+          this.dialogTarget.querySelector('iframe').src = '';
+          this.dialogTarget.querySelector('iframe').src = src;
+        }
 
         // set the tab index of the dialog
         this.dialogTarget.setAttribute('tabindex', '0');

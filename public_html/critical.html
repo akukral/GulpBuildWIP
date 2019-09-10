@@ -54,8 +54,23 @@
   <!-- Preloads -->
   <link rel="preload" href="/ui/css/main.css" as="style">
   <link rel="preload" href="/critical.css" as="style">
+  <link rel="preload" href="/ui/js/main.js" as="script">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+
+  <style>
+    @media screen and (max-width: 300px) {
+      * {
+        max-width: 100%;
+        height: auto;
+      }
+
+      [data-modal],
+      .Dialog__close {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body class="no-js">
@@ -111,9 +126,15 @@
       <div class="Dialog__container">
         <h1 id="Dialog__title1">Modal 1</h1>
         <div id="Dialog__content1">
-          <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. Earum sunt voluptatum adipisci, a
-            libero perferendis
-            blanditiis neque quisquam excepturi deserunt?</p>
+          <div class="Video">
+            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6" width="640" height="360" frameborder="0"
+              allow="autoplay; fullscreen" allowfullscreen title="Test Vimeo Video" class="Video__embed lazyload"
+              loading="lazy"></iframe>
+          </div>
+          <p>
+            <a href="https://vimeo.com/100708006">Photoshop animation test</a> from <a
+              href="https://vimeo.com/sambmotion">Sam Burton</a> on <a href="https://vimeo.com">Vimeo</a>.
+          </p>
         </div>
         <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
       </div>
@@ -148,12 +169,14 @@
     </div>
 
     <div class="Video">
-      <iframe src="https://player.vimeo.com/video/117827095?portrait=0&amp;title=0&amp;byline=0" title="Education Research Alliance for New Orleans: What Schools Do Families Want (And Why)?"
+      <iframe src="https://player.vimeo.com/video/117827095?portrait=0&amp;title=0&amp;byline=0"
+        title="Education Research Alliance for New Orleans: What Schools Do Families Want (And Why)?"
         class="Video__embed lazyload" loading="lazy"></iframe>
     </div>
 
     <figure class="Figure">
-      <img src="/ui/images/1818manh2.JPG" alt="Photo of a empty strip mall" class="lazyload" loading="lazy">
+      <img src="/ui/images/1818manh2.JPG" height="1296" width="1936" alt="Photo of a empty strip mall" class="lazyload"
+        loading="lazy">
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
       </figcaption>
@@ -258,37 +281,46 @@
 
     <section aria-label="Carousel of Articles">
       <div id="Carousel" class="Carousel">
-        <ul>
+        <ul class="Carousel__container">
           <li class="Carousel__slide">
             <figure>
-              <img src="https://picsum.photos/1000/500?random=1" alt="random image from lorum picsum 1" class="lazyload" loading="lazy">
+              <img src="https://picsum.photos/1000/500?random=1" height="500" width="1000"
+                alt="random image from lorum picsum 1" class="lazyload" loading="lazy" id="test">
             </figure>
-            <h4>Space Teddy production reaches all-time high</h4>
-            <p>
-              Teddies in Space Inc. has released outstanding numbers for the last solar year.
-              <a href="…">Full Annual Report</a>
-            </p>
+            <div class="Carousel__content">
+              <h4>Space Teddy production reaches all-time high</h4>
+              <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+              </p>
+            </div>
           </li>
           <li class="Carousel__slide">
             <figure>
-              <img src="https://picsum.photos/1000/500?random=2" alt="random image from lorum picsum 2" class="lazyload" loading="lazy">
+              <img src="https://picsum.photos/1000/500?random=2" height="500" width="1000"
+                alt="random image from lorum picsum 2" class="lazyload" loading="lazy">
             </figure>
-            <h4>New Space Teddy Announced!</h4>
-            <p>
-              Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-              <a href="…">Everything about the new model</a>
-            </p>
+            <div class="Carousel__content">
+              <h4>New Space Teddy Announced!</h4>
+              <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+              </p>
+            </div>
           </li>
           <li class="Carousel__slide">
             <figure>
-              <img src="https://picsum.photos/1000/500?random=3" alt="random image from lorum picsum 3" class="lazyload" loading="lazy">
+              <img src="https://picsum.photos/1000/500?random=3" height="500" width="1000"
+                alt="random image from lorum picsum 3" class="lazyload" loading="lazy">
             </figure>
-            <h4>Adventures of the Space&nbsp;Teddy</h4>
-            <p>
-              Using modern HTML5 technologies, the latest installment of our game performs great on your computer,
-              tablet, or mobile.
-              <a href="…">Play the Game here!</a>
-            </p>
+            <div class="Carousel__content">
+              <h4>Adventures of the Space&nbsp;Teddy</h4>
+              <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer,
+                tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+              </p>
+            </div>
           </li>
         </ul>
       </div>
@@ -386,25 +418,27 @@
   </script>
 
   <!-- This polyfill needs to be loaded from the cdn to work -->
-  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" defer></script>
 
   <!-- Load main scripts here -->
-  <script src="/ui/js/main.js" async="async" defer="defer"></script>
+  <script src="/ui/js/main.js" defer></script>
 
   <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').then(function (registration) {
           // Registration was successful
           console.info('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
+        }, function (err) {
           // registration failed :(
           console.info('ServiceWorker registration failed: ', err);
         });
       });
     }
   </script>
+
+  <script src="//instant.page/2.0.0" type="module" defer integrity="sha384-D7B5eODAUd397+f4zNFAVlnDNDtO1ppV8rPnfygILQXhqu3cUndgHvlcJR2Bhig8"></script>
 </body>
 
 </html>

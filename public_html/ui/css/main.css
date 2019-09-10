@@ -145,6 +145,10 @@ table {
   }
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   min-height: 100vh;
@@ -199,11 +203,13 @@ a {
 
 @supports (text-decoration-skip: edges) {
   a {
-    text-decoration-color: currentColor;
+    text-decoration-color: #fe00ff;
     text-decoration-line: underline;
     text-decoration-skip: edges;
     text-decoration-skip-ink: auto;
     text-decoration-style: line;
+    text-decoration-thickness: .125em;
+    text-underline-offset: 1.5px;
   }
 }
 
@@ -425,6 +431,8 @@ body {
   letter-spacing: .01rem;
   font-display: swap !important;
   text-size-adjust: 100% !important;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
 }
 
 h1,
@@ -432,7 +440,13 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6{
   font-family: 'NeueBold', Helvetica;
   font-display: auto;
 }
@@ -1180,70 +1194,88 @@ a:link.Button,
 a:visited.Button,
 button.Button {
   display: inline-block;
+
+  margin-bottom: 1.5rem;
   /* margin-left: 1rem; */
   /* margin-right: 1rem; */
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
 
+  cursor: pointer;
+
+  font-size: inherit;
+  line-height: inherit;
   text-align: center;
+  text-decoration: none;
 
   color: #fff;
 
   color: var(--light);
+  border: none;
+  border-radius: 0.2rem; /* delete later */
   background-color: #00008B;
-  background-color: var(--charlie);
-  text-decoration: none;
-  font-size: inherit;
-  border:none;
-  line-height: inherit;
-  margin-bottom: 1.5rem;
-  cursor: pointer
+  background-color: var(--charlie)
 }
 
 .Button,
 a:any-link.Button,
 button.Button {
   display: inline-block;
+
+  margin-bottom: 1.5rem;
   /* margin-left: 1rem; */
   /* margin-right: 1rem; */
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
 
+  cursor: pointer;
+
+  font-size: inherit;
+  line-height: inherit;
   text-align: center;
+  text-decoration: none;
 
   color: #fff;
 
   color: var(--light);
+  border: none;
+  border-radius: 0.2rem; /* delete later */
   background-color: #00008B;
-  background-color: var(--charlie);
-  text-decoration: none;
-  font-size: inherit;
-  border:none;
-  line-height: inherit;
-  margin-bottom: 1.5rem;
-  cursor: pointer
+  background-color: var(--charlie)
 }
 
-.Button:hover, .Button:focus, a:link.Button:hover, a:visited.Button:hover, a:link.Button:focus, a:visited.Button:focus, button.Button:hover, button.Button:focus{
+.Button:hover,
+  .Button:focus,
+  a:link.Button:hover,
+  a:visited.Button:hover,
+  a:link.Button:focus,
+  a:visited.Button:focus,
+  button.Button:hover,
+  button.Button:focus {
     color: #fff;
     color: var(--light);
     background-color: #0000FF;
     background-color: var(--bravo);
   }
 
-.Button:hover, .Button:focus, a:any-link.Button:hover, a:any-link.Button:focus, button.Button:hover, button.Button:focus{
+.Button:hover,
+  .Button:focus,
+  a:any-link.Button:hover,
+  a:any-link.Button:focus,
+  button.Button:hover,
+  button.Button:focus {
     color: #fff;
     color: var(--light);
     background-color: #0000FF;
     background-color: var(--bravo);
   }
 
-.Button:active,a:link.Button:active,a:visited.Button:active,button.Button:active{
+.Button:active, a:link.Button:active, a:visited.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
     background-color: #00008B;
     background-color: var(--charlie);
   }
 
-.Button:active,a:any-link.Button:active,button.Button:active{
+.Button:active, a:any-link.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
     background-color: #00008B;

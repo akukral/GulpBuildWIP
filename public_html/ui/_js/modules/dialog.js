@@ -55,9 +55,12 @@ const Dialog = class Dialog {
       document.addEventListener(`keydown`, this.keypressHandler.bind(this));
     } else {
       // dealing with an autoplay or currently playing video in the modal if you close it.
-      const iframeSrc = this.dialogTarget.querySelector(`iframe`).src;
-      this.dialogTarget.querySelector(`iframe`).src = ``;
-      this.dialogTarget.querySelector(`iframe`).src = iframeSrc;
+      const iframeSrc = this.dialogTarget.querySelector(`iframe`);
+      if(iframeSrc){
+        const src = iframeSrc.src;
+        this.dialogTarget.querySelector(`iframe`).src = ``;
+        this.dialogTarget.querySelector(`iframe`).src = src;
+      }
 
       // set the tab index of the dialog
       this.dialogTarget.setAttribute(`tabindex`, `0`);
