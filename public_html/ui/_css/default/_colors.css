@@ -5,12 +5,15 @@
   /* basic site colors  */
   /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
-  --alpha: #303030;
-  --bravo: #0000FF;
-  --charlie: #00008B;
-  --delta: #A9A9A9;
-  --echo: #D3D3D3;
-  --foxtrot: #818181;
+  --alpha: rgba(48, 48, 48, 1);
+  --bravo: rgba(0, 0, 255, 1);
+  --charlie: rgba(0, 0, 139, 1);
+  --delta: rgba(169, 169, 169, 1);
+  --echo: rgba(211, 211, 211, 1);
+  --foxtrot: rgba(129, 129, 129, 1);
+
+  --background: var(--light);
+  --forground: var(--dark);
 }
 
 [data-theme="dark-mode"]{

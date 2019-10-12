@@ -67,12 +67,18 @@ table {
   /* basic site colors  */
   /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
-  --alpha: #303030;
-  --bravo: #0000FF;
-  --charlie: #00008B;
-  --delta: #A9A9A9;
-  --echo: #D3D3D3;
-  --foxtrot: #818181;
+  --alpha: rgba(48, 48, 48, 1);
+  --bravo: rgba(0, 0, 255, 1);
+  --charlie: rgba(0, 0, 139, 1);
+  --delta: rgba(169, 169, 169, 1);
+  --echo: rgba(211, 211, 211, 1);
+  --foxtrot: rgba(129, 129, 129, 1);
+
+  --background: #fff;
+
+  --background: var(--light);
+  --forground: #000;
+  --forground: var(--dark);
 }
 
 [data-theme="dark-mode"]{
@@ -156,7 +162,7 @@ body {
 
   font-size: 62.5%;
 
-  color: #303030;
+  color: rgba(48, 48, 48, 1);
 
   color: var(--alpha);
   background-color: #fff;
@@ -193,7 +199,7 @@ img.lazyload {
 
 a {
   /* transition: 0.2s; */
-  color: #00008B;
+  color: rgba(0, 0, 139, 1);
   color: var(--charlie);
   outline-offset: 0rem;
   background-color: inherit;
@@ -215,7 +221,7 @@ a {
 
 a:active,
 a:focus {
-  color: #0000FF;
+  color: rgba(0, 0, 255, 1);
   color: var(--bravo);
   box-shadow: none;
   text-shadow: none;
@@ -225,7 +231,7 @@ a:focus {
   position: relative;
   z-index: 1;
 
-  outline: solid 2px #0000FF;
+  outline: solid 2px rgba(0, 0, 255, 1);
 
   outline: solid 2px var(--bravo);
   outline-offset: 2px;
@@ -233,7 +239,7 @@ a:focus {
 
 @media (hover: hover) {
   a:hover {
-    color: #0000FF;
+    color: rgba(0, 0, 255, 1);
     color: var(--bravo);
     box-shadow: none;
     text-shadow: none;
@@ -549,17 +555,18 @@ i,
 input,
 textarea,
 select {
-  color: inherit;
   overflow: visible;
 
-  margin: 0;
-  padding: .3rem .5rem;
   width: 100%;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding: 0.3rem 0.5rem;
 
   font-size: inherit;
   line-height: inherit;
   vertical-align: bottom;
 
+  color: inherit;
   border: none;
   border-radius: 0 ;
   outline: none;
@@ -577,42 +584,71 @@ select {
   } */
 }
 
-input[type='submit'],textarea[type='submit'],select[type='submit']{
+input[type='submit'], textarea[type='submit'], select[type='submit'] {
     width: auto;
   }
 
-input:focus,textarea:focus,select:focus{
-    outline: solid 2px #0000FF;
+input:focus, textarea:focus, select:focus {
+    outline: solid 2px rgba(0, 0, 255, 1);
     outline: solid 2px var(--bravo);
     outline-offset: 2px;
   }
 
-[type='checkbox']{
-  padding: 0;
-  height: 1em;
-  width: 1em;
-  border: 1px solid currentColor;
+[type='checkbox'] {
   display: inline-block;
+
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  padding: 0;
+
   vertical-align: text-bottom;
-  -webkit-appearance: none;
-  margin-right: .5rem
+
+  border: 1px solid currentColor;
+
+  -webkit-appearance: none
 }
 
-[type='checkbox']:checked{
+[type='checkbox']:checked {
     background-color: #000;
     background-color: var(--dark);
-    box-shadow: inset 0 0 0 .1rem #fff;
-    box-shadow: inset 0 0 0 .1rem var(--light);
+    box-shadow: inset 0 0 0 0.1rem #fff;
+    box-shadow: inset 0 0 0 0.1rem var(--light);
+  }
+
+[type='radio'] {
+  display: inline-block;
+
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  padding: 0;
+
+  vertical-align: text-bottom;
+
+  border: 1px solid currentColor;
+  border-radius: 50%;
+
+  -webkit-appearance: none
+}
+
+[type='radio']:checked {
+    background-color: #000;
+    background-color: var(--dark);
+    box-shadow: inset 0 0 0 0.1rem #fff;
+    box-shadow: inset 0 0 0 0.1rem var(--light);
   }
 
 input,
 textarea,
 select {
-  border: 1px solid #303030;
+  border: 1px solid rgba(48, 48, 48, 1);
   border: 1px solid var(--alpha);
 }
 
-datalist{
+datalist {
   display: none;
 }
 
@@ -637,14 +673,21 @@ select:-moz-focus-inner,
   border: none;
 }
 
-label{
-  display: block;
-  margin-bottom: 1.5rem;
+label {
+  display: inline-block;
+  /* display: block; */
+  /* margin-bottom: 1.5rem; */
+
   cursor: pointer;
 }
 
 .honey {
   display: none;
+}
+
+form [type='submit']{
+  display: block !important;
+  /* clear: both; */
 }
 
 /* EOF */
@@ -663,7 +706,7 @@ label{
 
   margin-bottom: 1.5rem;
 
-  background-color: #D3D3D3;
+  background-color: rgba(211, 211, 211, 1);
 
   background-color: var(--echo);
 }
@@ -712,7 +755,7 @@ label{
 
     list-style: none;
 
-    background-color: #D3D3D3;
+    background-color: rgba(211, 211, 211, 1);
 
     background-color: var(--echo);
   }
@@ -737,7 +780,7 @@ label{
 
 .Nav li.active a{
         /* color: var(--alpha); */
-        background-color: #0000FF;
+        background-color: rgba(0, 0, 255, 1);
         background-color: var(--bravo);
       }
 
@@ -788,7 +831,7 @@ label{
 }
 
 .Nav__toggle:focus {
-    outline: 2px solid #0000FF;
+    outline: 2px solid rgba(0, 0, 255, 1);
     outline: 2px solid var(--bravo);
   }
 
@@ -804,7 +847,7 @@ label{
 
   transition: 0.2s;
 
-  background: #00008B;
+  background: rgba(0, 0, 139, 1);
 
   background: var(--charlie);
 }
@@ -823,7 +866,7 @@ label{
   transition-delay: 0.2s, 0s;
   transition-duration: 0.2s, 0.2s;
 
-  background-color: #00008B;
+  background-color: rgba(0, 0, 139, 1);
 
   background-color: var(--charlie);
 }
@@ -849,7 +892,7 @@ label{
 
     transform: rotate(45deg);
 
-    background-color: #00008B;
+    background-color: rgba(0, 0, 139, 1);
 
     background-color: var(--charlie);
   }
@@ -859,7 +902,7 @@ label{
 
     transform: rotate(-45deg);
 
-    background-color: #00008B;
+    background-color: rgba(0, 0, 139, 1);
 
     background-color: var(--charlie);
   }
@@ -929,7 +972,7 @@ body.no-js .Nav__toggle{
 .Footer {
   margin-top: 3rem;
   padding: 1.5rem;
-  background-color: #D3D3D3;
+  background-color: rgba(211, 211, 211, 1);
   background-color: var(--echo);
 }
 
@@ -951,10 +994,10 @@ body.no-js .Nav__toggle{
   margin-bottom: 1.5rem;
   /* padding: 1rem; */
 
-  color: #0000FF;
+  color: rgba(0, 0, 255, 1);
 
   color: var(--bravo);
-  background-color: #D3D3D3;
+  background-color: rgba(211, 211, 211, 1);
   background-color: var(--echo);
 }
 
@@ -967,7 +1010,7 @@ body.no-js .Nav__toggle{
 }
 
 .Details__summary:focus {
-    outline: 2px solid #0000FF;
+    outline: 2px solid rgba(0, 0, 255, 1);
     outline: 2px solid var(--bravo);
     /* outline-offset: calc(1rem + 3px); */
     /* outline-offset: 2px; */
@@ -1011,7 +1054,7 @@ body.no-js .Nav__toggle{
 
   font-size: 1rem;
 
-  color: #303030;
+  color: rgba(48, 48, 48, 1);
 
   color: var(--alpha);
 }
@@ -1025,12 +1068,12 @@ body.no-js .Nav__toggle{
 }
 
 details[open] .Details__summary {
-  background-color: #A9A9A9;
+  background-color: rgba(169, 169, 169, 1);
   background-color: var(--delta);
 }
 
 .Details--open .Details__summary {
-  background-color: #A9A9A9;
+  background-color: rgba(169, 169, 169, 1);
   background-color: var(--delta);
 }
 
@@ -1058,7 +1101,7 @@ details[open] .Details__summary {
 
   font-size: 1rem;
 
-  color: #303030;
+  color: rgba(48, 48, 48, 1);
 
   color: var(--alpha);
 }
@@ -1095,7 +1138,7 @@ body.no-js .Details__content {
   padding-top: 25px;
   padding-bottom: 56.25%; /* 16:9 */
   padding-bottom: 54.45%; /* 16:9 */
-  background-color: #303030;
+  background-color: rgba(48, 48, 48, 1);
   background-color: var(--alpha);
 }
 
@@ -1128,7 +1171,7 @@ body.no-js .Details__content {
   color: #fff;
 
   color: var(--light);
-  background-color: #00008B;
+  background-color: rgba(0, 0, 139, 1);
   background-color: var(--charlie);
   font-weight: 900;
 }
@@ -1144,7 +1187,7 @@ body.no-js .Details__content {
 
   font-size: 1.5rem;
 
-  border-left: 5px solid #0000FF;
+  border-left: 5px solid rgba(0, 0, 255, 1);
 
   border-left: 5px solid var(--bravo);
 }
@@ -1212,7 +1255,7 @@ button.Button {
   color: var(--light);
   border: none;
   border-radius: 0.2rem; /* delete later */
-  background-color: #00008B;
+  background-color: rgba(0, 0, 139, 1);
   background-color: var(--charlie)
 }
 
@@ -1238,7 +1281,7 @@ button.Button {
   color: var(--light);
   border: none;
   border-radius: 0.2rem; /* delete later */
-  background-color: #00008B;
+  background-color: rgba(0, 0, 139, 1);
   background-color: var(--charlie)
 }
 
@@ -1252,7 +1295,7 @@ button.Button {
   button.Button:focus {
     color: #fff;
     color: var(--light);
-    background-color: #0000FF;
+    background-color: rgba(0, 0, 255, 1);
     background-color: var(--bravo);
   }
 
@@ -1264,32 +1307,32 @@ button.Button {
   button.Button:focus {
     color: #fff;
     color: var(--light);
-    background-color: #0000FF;
+    background-color: rgba(0, 0, 255, 1);
     background-color: var(--bravo);
   }
 
 .Button:active, a:link.Button:active, a:visited.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
-    background-color: #00008B;
+    background-color: rgba(0, 0, 139, 1);
     background-color: var(--charlie);
   }
 
 .Button:active, a:any-link.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
-    background-color: #00008B;
+    background-color: rgba(0, 0, 139, 1);
     background-color: var(--charlie);
   }
 
 .Button:focus, a:link.Button:focus, a:visited.Button:focus, button.Button:focus {
-    outline: 2px solid #0000FF;
+    outline: 2px solid rgba(0, 0, 255, 1);
     outline: 2px solid var(--bravo);
     outline-offset: 2px;
   }
 
 .Button:focus, a:any-link.Button:focus, button.Button:focus {
-    outline: 2px solid #0000FF;
+    outline: 2px solid rgba(0, 0, 255, 1);
     outline: 2px solid var(--bravo);
     outline-offset: 2px;
   }

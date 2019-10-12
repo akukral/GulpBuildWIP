@@ -110,9 +110,8 @@
   <main class="Main" id="Main" aria-labelledby="MainTitle">
     <h1 id="MainTitle">Homepage</h1>
 
-    <label for="search">Search:
-      <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" />
-    </label>
+    <label for="search">Search:</label>
+    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" />
     <datalist id="searchList">
       <option value="lorem">
       <option value="ipsum">
@@ -221,7 +220,7 @@
       <h2>Featured Content</h2>
       <article>
         <h3><a href="#" aria-describedby="description1">Article Title 1</a></h3>
-        <p id="desription1">
+        <l id="description1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus maxime voluptatibus voluptatem
           repellat tenetur optio fuga quaerat consectetur doloremque!
         </pi>
@@ -231,7 +230,7 @@
       </article>
       <article>
         <h3><a href="#" aria-describedby="description2">Article Title 2</a></h3>
-        <p id="desription2">
+        <p id="description2">
           Eum ea odit ipsa pariatur iure beatae dignissimos expedita quasi sequi, eligendi sunt maxime. Quos porro ex
           eveniet perferendis est!
         </p>
@@ -241,7 +240,7 @@
       </article>
       <article>
         <h3><a href="#" aria-describedby="description3">Article Title 3</a></h3>
-        <p id="desription3">
+        <p id="description3">
           Accusamus corporis necessitatibus delectus vero. Nihil saepe itaque ea. Quibusdam quae mollitia rerum quos
           dolore doloribus fuga adipisci saepe unde.
         </p>
@@ -301,65 +300,60 @@
     <section aria-label="Contact Form">
       <h2>Contact Form</h2>
       <form method="post" class="Form">
-        <label for="firstName">First Name*
+        <label for="firstName">First Name*</label>
           <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name"
             autocomplete="given-name" required="">
-        </label>
 
-        <label for="lastName">Last Name*
+        <label for="lastName">Last Name*</label>
           <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name"
             autocomplete="family-name" required="">
-        </label>
 
-        <label for="address">Address*
+        <label for="address">Address*</label>
           <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on"
             required="">
-        </label>
 
-        <label for="city">City*
+        <label for="city">City*</label>
           <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on"
             required="">
-        </label>
 
-        <label for="state">State*
+        <label for="state">State*</label>
           <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on"
             required="">
-        </label>
 
-        <label for="zipCode">Zip*
+        <label for="zipCode">Zip*</label>
           <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="Zip"
             autocomplete="postal-code" required="">
-        </label>
 
-        <label for="email">Email Address*
+        <label for="email">Email Address*</label></label></label>
           <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com"
             autocomplete="email" required="">
-        </label>
 
-        <label for="email_address_confirm" class="honey" aria-hidden="true">Email Address Confirm
-          <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
-            type="email" placeholder="Email@Address.com">
-        </label>
+        <div class="honey" aria-hidden="true">
+          <label for="email_address_confirm">Email Address Confirm</label>
+            <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
+              type="email" placeholder="Email@Address.com">
+        </div>
 
-        <label for="phone">Phone
+        <label for="phone">Phone</label>
           <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on"
             required="">
-        </label>
 
-        <label for="subject">Subject/Interest*
+        <label for="subject">Subject/Interest*</label>
           <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
             autocomplete="off" required="">
-        </label>
 
-        <label for="message">Message
+        <label for="message">Message</label>
           <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off"
             placeholder="Send us your message."></textarea>
-        </label>
 
-        <label>
-          <input class="checkbox-inline" name="newsletterSignup" id="newsletterSignup" type="checkbox">
-          I'd like to subscribe to the Leontine Linens Newsletter.
-        </label>
+
+        <label><input type="radio" name="r1" id="r1" value="r1" checked> Value 1</label>
+        <label><input type="radio" name="r1" id="r1" value="r2"> Value 2</label>
+        <label><input type="radio" name="r1" id="r1" value="r3"> Value 3</label>
+
+
+        <input class="checkbox-inline" name="newsletterSignup" id="newsletterSignup" type="checkbox">
+        <label for="newsletterSignup">I'd like to subscribe to the Leontine Linens Newsletter.</label>
 
         <button class="Button" type="submit">Submit</button>
       </form>

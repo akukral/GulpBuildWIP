@@ -1,17 +1,18 @@
 input,
 textarea,
 select {
-  color: inherit;
   overflow: visible;
 
-  margin: 0;
-  padding: .3rem .5rem;
   width: 100%;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding: 0.3rem 0.5rem;
 
   font-size: inherit;
   line-height: inherit;
   vertical-align: bottom;
 
+  color: inherit;
   border: none;
   border-radius: 0 ;
   outline: none;
@@ -19,7 +20,7 @@ select {
   box-shadow: none;
 
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   text-fill-color: var(--light);
 
   /* &::-webkit-input-placeholder {
@@ -27,26 +28,51 @@ select {
     font-style: italic;
     font-size: 1rem;
   } */
-  &[type='submit']{
+  &[type='submit'] {
     width: auto;
   }
-  &:focus{
+  &:focus {
     outline: solid 2px var(--bravo);
     outline-offset: 2px;
   }
 }
-[type='checkbox']{
-  padding: 0;
-  height: 1em;
-  width: 1em;
-  border: 1px solid currentColor;
+[type='checkbox'] {
   display: inline-block;
+
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  padding: 0;
+
   vertical-align: text-bottom;
+
+  border: 1px solid currentColor;
+
   -webkit-appearance: none;
-  margin-right: .5rem;
-  &:checked{
+  &:checked {
     background-color: var(--dark);
-    box-shadow: inset 0 0 0 .1rem var(--light);
+    box-shadow: inset 0 0 0 0.1rem var(--light);
+  }
+}
+[type='radio'] {
+  display: inline-block;
+
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  padding: 0;
+
+  vertical-align: text-bottom;
+
+  border: 1px solid currentColor;
+  border-radius: 50%;
+
+  -webkit-appearance: none;
+  &:checked {
+    background-color: var(--dark);
+    box-shadow: inset 0 0 0 0.1rem var(--light);
   }
 }
 input,
@@ -54,7 +80,7 @@ textarea,
 select {
   border: 1px solid var(--alpha);
 }
-datalist{
+datalist {
   display: none;
 }
 input:-webkit-autofill,
@@ -76,14 +102,21 @@ select:-moz-focus-inner,
   border: none;
 }
 
-label{
-  display: block;
-  margin-bottom: 1.5rem;
+label {
+  display: inline-block;
+  /* display: block; */
+  /* margin-bottom: 1.5rem; */
+
   cursor: pointer;
 }
 
 .honey {
   display: none;
+}
+
+form [type='submit']{
+  display: block !important;
+  /* clear: both; */
 }
 
 /* EOF */
