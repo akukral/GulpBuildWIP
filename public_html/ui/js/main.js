@@ -90,14 +90,18 @@ var _carousel = __webpack_require__(5);
 
 var _carousel2 = _interopRequireDefault(_carousel);
 
-var _nav = __webpack_require__(6);
+var _tabs = __webpack_require__(6);
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
+var _nav = __webpack_require__(7);
 
 var _nav2 = _interopRequireDefault(_nav);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import app from './modules/app';
-(0, _fontLoader2.default)();
+(0, _fontLoader2.default)(); // import app from './modules/app';
+
 (0, _nav2.default)();
 
 _lazysizes2.default.cfg.init = false;
@@ -179,8 +183,7 @@ try {
 
     new _details2.default({ container: detail });
   }
-
-  // init Carousel
+  // init tabs
 } catch (err) {
   _didIteratorError3 = true;
   _iteratorError3 = err;
@@ -192,6 +195,34 @@ try {
   } finally {
     if (_didIteratorError3) {
       throw _iteratorError3;
+    }
+  }
+}
+
+var tabset = Array.from(document.querySelectorAll('.Tabbed'));
+var _iteratorNormalCompletion4 = true;
+var _didIteratorError4 = false;
+var _iteratorError4 = undefined;
+
+try {
+  for (var _iterator4 = tabset[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+    var tab = _step4.value;
+
+    new _tabs2.default({ container: tab });
+  }
+
+  // init Carousel
+} catch (err) {
+  _didIteratorError4 = true;
+  _iteratorError4 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion4 && _iterator4.return) {
+      _iterator4.return();
+    }
+  } finally {
+    if (_didIteratorError4) {
+      throw _iteratorError4;
     }
   }
 }
@@ -1606,6 +1637,124 @@ exports.default = myCarousel;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Tabs = function () {
+  function Tabs(settingsObj) {
+    _classCallCheck(this, Tabs);
+
+    this.settings = settingsObj;
+
+    // set the accordion/detail elements
+    this.tabContainer = this.settings.container || document.querySelector('.Tabbed');
+    if (!this.tabContainer) return;
+
+    this.tabbed = this.tabContainer;
+    this.tablist = this.tabbed.querySelector('ul');
+    this.tabs = this.tablist.querySelectorAll('a');
+    this.panels = this.tabbed.querySelectorAll('[id^="section"]');
+
+    this.init();
+
+    return this;
+  }
+
+  _createClass(Tabs, [{
+    key: 'init',
+    value: function init() {
+      var _this = this;
+
+      // Add semantics are remove user focusability for each tab
+      Array.prototype.forEach.call(this.tabs, function (tab, i) {
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('id', 'tab' + (i + 1));
+        tab.setAttribute('tabindex', '-1');
+        tab.parentNode.setAttribute('role', 'presentation');
+
+        // Handle clicking of tabs for mouse users
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
+          var currentTab = _this.tablist.querySelector('[aria-selected]');
+          if (e.currentTarget !== currentTab) {
+            _this.switchTab(currentTab, e.currentTarget);
+          }
+        });
+
+        // Handle keydown events for keyboard users
+        tab.addEventListener('keydown', function (e) {
+          // Get the index of the current tab in the tabs node list
+          var index = Array.prototype.indexOf.call(_this.tabs, e.currentTarget);
+          // Work out which key the user is pressing and
+          // Calculate the new tab's index where appropriate
+          var dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? 'down' : null;
+          if (dir !== null) {
+            e.preventDefault();
+            // If the down key is pressed, move focus to the open panel,
+            // otherwise switch to the adjacent tab
+            dir === 'down' ? _this.panels[i].focus() : _this.tabs[dir] ? _this.switchTab(e.currentTarget, _this.tabs[dir]) : void 0;
+          }
+        });
+      });
+
+      // Add tab panel semantics and hide them all
+      Array.prototype.forEach.call(this.panels, function (panel, i) {
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('tabindex', '-1');
+        var id = panel.getAttribute('id');
+        panel.setAttribute('aria-labelledby', _this.tabs[i].id);
+        panel.hidden = true;
+      });
+
+      // Add the tablist role to the first <ul> in the .tabbed container
+      this.tablist.setAttribute('role', 'tablist');
+
+      // Initially activate the first tab and reveal the first tab panel
+      this.tabs[0].removeAttribute('tabindex');
+      this.tabs[0].setAttribute('aria-selected', 'true');
+      this.panels[0].hidden = false;
+    }
+
+    // Get relevant elements and collections
+
+    // The tab switching function
+
+  }, {
+    key: 'switchTab',
+    value: function switchTab(oldTab, newTab) {
+      newTab.focus();
+      // Make the active tab focusable by the user (Tab key)
+      newTab.removeAttribute('tabindex');
+      // Set the selected state
+      newTab.setAttribute('aria-selected', 'true');
+      oldTab.removeAttribute('aria-selected');
+      oldTab.setAttribute('tabindex', '-1');
+      // Get the indices of the new and old tabs to find the correct
+      // tab panels to show and hide
+      var index = Array.prototype.indexOf.call(this.tabs, newTab);
+      var oldIndex = Array.prototype.indexOf.call(this.tabs, oldTab);
+      this.panels[oldIndex].hidden = true;
+      this.panels[index].hidden = false;
+    }
+  }]);
+
+  return Tabs;
+}();
+
+exports.default = Tabs;
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

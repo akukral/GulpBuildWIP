@@ -79,6 +79,9 @@ a {
     text-decoration-style: line;
     text-decoration-thickness: .125em;
     text-underline-offset: 1.5px;
+    &:hover, &:active, &:focus{
+      text-decoration-thickness: .15em;
+    }
   }
 }
 
@@ -217,6 +220,11 @@ body {
 .honey{
   visibility: hidden;
   display: none;
+}
+
+[hidden]{
+  display: none !important;
+  visibility: hidden !important;
 }
 
 @supports (display:grid) {

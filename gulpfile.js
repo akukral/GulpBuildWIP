@@ -183,7 +183,7 @@ gulp.task('critical', gulp.series((done) => {
       minify: true,
       penthouse: {
         forceInclude: [`body footer`],
-        timeout: 10000,
+        timeout: 600000,
       },
     }))
     .pipe(postcss(processors))

@@ -78,12 +78,23 @@ h5, .h5 {
   margin-top: 0;
   margin-bottom: 0rem;
 }
+h6, .h6 {
+  font-size: .9rem;
+  /* line-height: 1.6rem; */
+  line-height: 150%;
+  /* margin-top: 1.6rem; */
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
 
 p, ul, ol, pre, table, blockquote {
   /* margin-top: 0rem; */
   margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 150%;
+}
+table{
+  font-variant-numeric: tabular-nums;
 }
 ul ul, ol ol, ul ol, ol ul {
   /* margin-top: 0rem; */

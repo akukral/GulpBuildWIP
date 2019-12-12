@@ -1,0 +1,10 @@
+.Form__checkbox{
+  display: block;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  & [type="checkbox"]{
+    vertical-align: text-top;
+  }
+}
+
+/* EOF */

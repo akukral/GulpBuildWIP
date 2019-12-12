@@ -2,6 +2,7 @@
 
 /*Base & Reset*/
 @import './default/_reset';
+@import './default/_variables';
 @import './default/_colors';
 @import './default/_base';
 @import './default/_type';
@@ -11,6 +12,7 @@
 @import './modules/_Header';
 @import './modules/_Nav';
 @import './modules/_Footer';
+@import './modules/_Form';
 
 /* Components */
 @import './components/_Details';
@@ -21,5 +23,6 @@
 @import './components/_Button';
 @import './components/_Dialog';
 @import './components/_Carousel';
+@import './components/_Tabs';
 
 /* EOF */

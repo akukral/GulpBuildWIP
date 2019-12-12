@@ -17,8 +17,10 @@ button.Button {
 
   color: var(--light);
   border: none;
-  border-radius: 0.2rem; /* delete later */
+  border-radius: var(--border-radius); /* delete later */
   background-color: var(--charlie);
+
+  font-weight: 500;
 
   &:hover,
   &:focus {

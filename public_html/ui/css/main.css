@@ -61,6 +61,10 @@ table {
 /* EOF */
 
 :root{
+  --border-radius: 0.2rem;
+}
+
+:root{
   --light: #fff;
   --dark: #000;
 
@@ -68,8 +72,8 @@ table {
   /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
   --alpha: rgba(48, 48, 48, 1);
-  --bravo: rgba(0, 0, 255, 1);
-  --charlie: rgba(0, 0, 139, 1);
+  --bravo: rgba(32, 122, 193, 1);
+  --charlie: rgba(0, 100, 180, 1);
   --delta: rgba(169, 169, 169, 1);
   --echo: rgba(211, 211, 211, 1);
   --foxtrot: rgba(129, 129, 129, 1);
@@ -89,8 +93,8 @@ table {
   /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
   --alpha: #303030;
-  --bravo: #0000FF;
-  --charlie: #00008B;
+  --bravo: rgba(32, 122, 193, 1);
+  --charlie: rgba(0, 100, 180, 1);
   --delta: #A9A9A9;
   --echo: #D3D3D3;
   --foxtrot: #818181;
@@ -105,8 +109,8 @@ table {
     /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
     --alpha: #303030;
-    --bravo: #0000FF;
-    --charlie: #00008B;
+    --bravo: rgba(32, 122, 193, 1);
+    --charlie: rgba(0, 100, 180, 1);
     --delta: #A9A9A9;
     --echo: #D3D3D3;
     --foxtrot: #818181;
@@ -121,8 +125,8 @@ table {
   /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
   --alpha: #303030;
-  --bravo: #0000FF;
-  --charlie: #00008B;
+  --bravo: rgba(32, 122, 193, 1);
+  --charlie: rgba(0, 100, 180, 1);
   --delta: #A9A9A9;
   --echo: #D3D3D3;
   --foxtrot: #818181;
@@ -199,7 +203,7 @@ img.lazyload {
 
 a {
   /* transition: 0.2s; */
-  color: rgba(0, 0, 139, 1);
+  color: rgba(0, 100, 180, 1);
   color: var(--charlie);
   outline-offset: 0rem;
   background-color: inherit;
@@ -215,13 +219,16 @@ a {
     text-decoration-skip-ink: auto;
     text-decoration-style: line;
     text-decoration-thickness: .125em;
-    text-underline-offset: 1.5px;
+    text-underline-offset: 1.5px
   }
+    a:hover, a:active, a:focus{
+      text-decoration-thickness: .15em;
+    }
 }
 
 a:active,
 a:focus {
-  color: rgba(0, 0, 255, 1);
+  color: rgba(32, 122, 193, 1);
   color: var(--bravo);
   box-shadow: none;
   text-shadow: none;
@@ -231,7 +238,7 @@ a:focus {
   position: relative;
   z-index: 1;
 
-  outline: solid 2px rgba(0, 0, 255, 1);
+  outline: solid 2px rgba(32, 122, 193, 1);
 
   outline: solid 2px var(--bravo);
   outline-offset: 2px;
@@ -239,7 +246,7 @@ a:focus {
 
 @media (hover: hover) {
   a:hover {
-    color: rgba(0, 0, 255, 1);
+    color: rgba(32, 122, 193, 1);
     color: var(--bravo);
     box-shadow: none;
     text-shadow: none;
@@ -369,6 +376,11 @@ body header,
 .honey{
   visibility: hidden;
   display: none;
+}
+
+[hidden]{
+  display: none !important;
+  visibility: hidden !important;
 }
 
 @supports (display:grid) {
@@ -502,11 +514,25 @@ h5, .h5 {
   margin-bottom: 0rem;
 }
 
+h6, .h6 {
+  font-size: .9rem;
+  /* line-height: 1.6rem; */
+  line-height: 150%;
+  /* margin-top: 1.6rem; */
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
 p, ul, ol, pre, table, blockquote {
   /* margin-top: 0rem; */
   margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 150%;
+}
+
+table{
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
 }
 
 ul ul, ol ol, ul ol, ol ul {
@@ -589,7 +615,7 @@ input[type='submit'], textarea[type='submit'], select[type='submit'] {
   }
 
 input:focus, textarea:focus, select:focus {
-    outline: solid 2px rgba(0, 0, 255, 1);
+    outline: solid 2px rgba(32, 122, 193, 1);
     outline: solid 2px var(--bravo);
     outline-offset: 2px;
   }
@@ -780,7 +806,7 @@ form [type='submit']{
 
 .Nav li.active a{
         /* color: var(--alpha); */
-        background-color: rgba(0, 0, 255, 1);
+        background-color: rgba(32, 122, 193, 1);
         background-color: var(--bravo);
       }
 
@@ -831,7 +857,7 @@ form [type='submit']{
 }
 
 .Nav__toggle:focus {
-    outline: 2px solid rgba(0, 0, 255, 1);
+    outline: 2px solid rgba(32, 122, 193, 1);
     outline: 2px solid var(--bravo);
   }
 
@@ -847,7 +873,7 @@ form [type='submit']{
 
   transition: 0.2s;
 
-  background: rgba(0, 0, 139, 1);
+  background: rgba(0, 100, 180, 1);
 
   background: var(--charlie);
 }
@@ -866,7 +892,7 @@ form [type='submit']{
   transition-delay: 0.2s, 0s;
   transition-duration: 0.2s, 0.2s;
 
-  background-color: rgba(0, 0, 139, 1);
+  background-color: rgba(0, 100, 180, 1);
 
   background-color: var(--charlie);
 }
@@ -892,7 +918,7 @@ form [type='submit']{
 
     transform: rotate(45deg);
 
-    background-color: rgba(0, 0, 139, 1);
+    background-color: rgba(0, 100, 180, 1);
 
     background-color: var(--charlie);
   }
@@ -902,7 +928,7 @@ form [type='submit']{
 
     transform: rotate(-45deg);
 
-    background-color: rgba(0, 0, 139, 1);
+    background-color: rgba(0, 100, 180, 1);
 
     background-color: var(--charlie);
   }
@@ -988,13 +1014,25 @@ body.no-js .Nav__toggle{
 
 /* EOF */
 
+.Form__checkbox{
+  display: block;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem
+}
+
+.Form__checkbox [type="checkbox"]{
+    vertical-align: text-top;
+  }
+
+/* EOF */
+
 /* Components */
 
 .Details {
   margin-bottom: 1.5rem;
   /* padding: 1rem; */
 
-  color: rgba(0, 0, 255, 1);
+  color: rgba(32, 122, 193, 1);
 
   color: var(--bravo);
   background-color: rgba(211, 211, 211, 1);
@@ -1010,7 +1048,7 @@ body.no-js .Nav__toggle{
 }
 
 .Details__summary:focus {
-    outline: 2px solid rgba(0, 0, 255, 1);
+    outline: 2px solid rgba(32, 122, 193, 1);
     outline: 2px solid var(--bravo);
     /* outline-offset: calc(1rem + 3px); */
     /* outline-offset: 2px; */
@@ -1171,7 +1209,7 @@ body.no-js .Details__content {
   color: #fff;
 
   color: var(--light);
-  background-color: rgba(0, 0, 139, 1);
+  background-color: rgba(0, 100, 180, 1);
   background-color: var(--charlie);
   font-weight: 900;
 }
@@ -1187,7 +1225,7 @@ body.no-js .Details__content {
 
   font-size: 1.5rem;
 
-  border-left: 5px solid rgba(0, 0, 255, 1);
+  border-left: 5px solid rgba(32, 122, 193, 1);
 
   border-left: 5px solid var(--bravo);
 }
@@ -1254,9 +1292,12 @@ button.Button {
 
   color: var(--light);
   border: none;
-  border-radius: 0.2rem; /* delete later */
-  background-color: rgba(0, 0, 139, 1);
-  background-color: var(--charlie)
+  border-radius: 0.2rem;
+  border-radius: var(--border-radius); /* delete later */
+  background-color: rgba(0, 100, 180, 1);
+  background-color: var(--charlie);
+
+  font-weight: 500
 }
 
 .Button,
@@ -1280,9 +1321,12 @@ button.Button {
 
   color: var(--light);
   border: none;
-  border-radius: 0.2rem; /* delete later */
-  background-color: rgba(0, 0, 139, 1);
-  background-color: var(--charlie)
+  border-radius: 0.2rem;
+  border-radius: var(--border-radius); /* delete later */
+  background-color: rgba(0, 100, 180, 1);
+  background-color: var(--charlie);
+
+  font-weight: 500
 }
 
 .Button:hover,
@@ -1295,7 +1339,7 @@ button.Button {
   button.Button:focus {
     color: #fff;
     color: var(--light);
-    background-color: rgba(0, 0, 255, 1);
+    background-color: rgba(32, 122, 193, 1);
     background-color: var(--bravo);
   }
 
@@ -1307,32 +1351,32 @@ button.Button {
   button.Button:focus {
     color: #fff;
     color: var(--light);
-    background-color: rgba(0, 0, 255, 1);
+    background-color: rgba(32, 122, 193, 1);
     background-color: var(--bravo);
   }
 
 .Button:active, a:link.Button:active, a:visited.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
-    background-color: rgba(0, 0, 139, 1);
+    background-color: rgba(0, 100, 180, 1);
     background-color: var(--charlie);
   }
 
 .Button:active, a:any-link.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
-    background-color: rgba(0, 0, 139, 1);
+    background-color: rgba(0, 100, 180, 1);
     background-color: var(--charlie);
   }
 
 .Button:focus, a:link.Button:focus, a:visited.Button:focus, button.Button:focus {
-    outline: 2px solid rgba(0, 0, 255, 1);
+    outline: 2px solid rgba(32, 122, 193, 1);
     outline: 2px solid var(--bravo);
     outline-offset: 2px;
   }
 
 .Button:focus, a:any-link.Button:focus, button.Button:focus {
-    outline: 2px solid rgba(0, 0, 255, 1);
+    outline: 2px solid rgba(32, 122, 193, 1);
     outline: 2px solid var(--bravo);
     outline-offset: 2px;
   }
@@ -1527,6 +1571,67 @@ body.no-js .Dialog [class*='close'] {
 
 .Carousel__slidenav li {
   display: inline-block;
+}
+
+[role="tablist"] {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+[role="tablist"] li, [role="tablist"] a {
+  display: inline-block;
+}
+
+[role="tablist"] a {
+  text-decoration: none;
+  padding: 0.5rem 1em;
+}
+
+[role="tablist"] [aria-selected] {
+  border: 2px solid;
+  background: #fff;
+  border-bottom: 0;
+  position: relative;
+  top: 2px;
+}
+
+[role="tabpanel"] {
+  border: 2px solid;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+[role="tabpanel"] * + * {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 550px) {
+
+  [role="tablist"] li, [role="tablist"] a {
+    display: block;
+    position: static;
+  }
+
+  [role="tablist"] a {
+    border: 2px solid #222 !important;
+  }
+
+  [role="tablist"] li + li a {
+    border-top: 0 !important;
+  }
+
+  [role="tablist"] [aria-selected] {
+    position: static;
+  }
+
+  [role="tablist"] [aria-selected]::after {
+    content: '\0020⬅';
+  }
+
+  [role="tabpanel"] {
+    border-top: 0;
+  }
+
 }
 
 /* EOF */

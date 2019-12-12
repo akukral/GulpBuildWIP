@@ -5,6 +5,7 @@ import fontLoader from './modules/fontLoader';
 import Dialog from './modules/dialog';
 import Details from './modules/details';
 import Carousel from './modules/carousel';
+import Tabs from './modules/tabs';
 import nav from './modules/nav';
 
 fontLoader();
@@ -38,6 +39,11 @@ for(let win of modals ){
 const details = Array.from(document.querySelectorAll(`details`));
 for(let detail of details ){
   new Details({container:detail})
+}
+// init tabs
+const tabset = Array.from(document.querySelectorAll(`.Tabbed`));
+for(let tab of tabset ){
+  new Tabs({container:tab})
 }
 
 // init Carousel
