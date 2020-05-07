@@ -71,7 +71,7 @@ a {
   touch-action: manipulation;
 }
 
-// Make prettier underlines
+/* Make prettier underlines */
 @supports (text-decoration-skip: edges) {
   a {
     text-decoration-color: var(--bravo);
@@ -102,7 +102,7 @@ a:focus {
   outline-offset: 2px;
 }
 
-// for devices that have bad pointers like WII, styluses, or no pointers
+/* for devices that have bad pointers like WII, styluses, or no pointers */
 @media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
   a:hover {
     color: var(--bravo);
@@ -111,7 +111,7 @@ a:focus {
   }
 }
 
-// skip to content technique
+/* skip to content technique */
 .skip {
   position: absolute;
   z-index: -999;

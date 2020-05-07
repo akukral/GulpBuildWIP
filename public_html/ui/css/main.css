@@ -64,27 +64,6 @@ table {
   --border-radius: 0.2rem;
 }
 
-:root{
-  --light: #fff;
-  --dark: #000;
-
-  /* basic site colors  */
-  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
-
-  --alpha: hsla(206,17%,24%,1);
-  --bravo: hsla(238, 65%, 65%,1);
-  --charlie: hsla(238,69%,52%,1);
-  --delta: hsla(0, 0%, 0%, 0.3);
-  --echo: hsla(0, 0%, 82%, 1);
-  --foxtrot: hsla(0, 0%, 50%, 1);
-
-  --background: #fff;
-
-  --background: var(--light);
-  --forground: #000;
-  --forground: var(--dark);
-}
-
 /* [data-theme="dark-mode"]{
   --light: #000;
   --dark: #fff;
@@ -121,6 +100,34 @@ table {
   --echo: #D3D3D3;
   --foxtrot: #818181;
 } */
+
+:root{
+  --light: #fff;
+  --dark: #000;
+
+  /* basic site colors  */
+  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
+  --var-color-h: 238;
+  --var-color-s: 65%;
+  --var-color-l: 65%;
+
+  --var-color-hsl: 238, 65%, 65%;
+
+  --var-color-hsl: var(--var-color-h), var(--var-color-s), var(--var-color-l);
+
+  --alpha: hsla(206,17%,24%,1);
+  --bravo: hsla(238, 65%, 65.5%,1);
+  --charlie: hsla(238,69%,52.5%,1);
+  --delta: hsla(0, 0%, 0%, 0.3);
+  --echo: hsla(0, 0%, 82%, 1);
+  --foxtrot: hsla(0, 0%, 50%, 1);
+
+  --background: #fff;
+
+  --background: var(--light);
+  --forground: #000;
+  --forground: var(--dark);
+}
 
 /* EOF */
 
@@ -195,7 +202,7 @@ img.lazyload {
 }
 
 a {
-  color: hsla(238,69%,52%,1);
+  color: hsla(238,69%,52.5%,1);
   color: var(--charlie);
   outline-offset: 0rem;
   background-color: inherit;
@@ -203,9 +210,11 @@ a {
   touch-action: manipulation;
 }
 
+/* Make prettier underlines */
+
 @supports (text-decoration-skip: edges) {
   a {
-    text-decoration-color: hsla(238, 65%, 65%,1);
+    text-decoration-color: hsla(238, 65%, 65.5%,1);
     text-decoration-color: var(--bravo);
     text-decoration-line: underline;
     text-decoration-skip: edges;
@@ -221,7 +230,7 @@ a {
 
 a:active,
 a:focus {
-  color: hsla(238, 65%, 65%,1);
+  color: hsla(238, 65%, 65.5%,1);
   color: var(--bravo);
   box-shadow: none;
   text-shadow: none;
@@ -231,20 +240,24 @@ a:focus {
   position: relative;
   z-index: 1;
 
-  outline: solid 2px hsla(238, 65%, 65%,1);
+  outline: solid 2px hsla(238, 65%, 65.5%,1);
 
   outline: solid 2px var(--bravo);
   outline-offset: 2px;
 }
 
-@media (hover: hover) {
+/* for devices that have bad pointers like WII, styluses, or no pointers */
+
+@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
   a:hover {
-    color: hsla(238, 65%, 65%,1);
+    color: hsla(238, 65%, 65.5%,1);
     color: var(--bravo);
     box-shadow: none;
     text-shadow: none;
   }
 }
+
+/* skip to content technique */
 
 .skip {
   position: absolute;
@@ -285,12 +298,16 @@ a:focus {
   text-align: center;
 }
 
+/* Modern Clearfix teqnique */
+
 .clearfix::after {
   display: table;
   clear: both;
 
   content: '';
 }
+
+/* most current screen reader only technique */
 
 .sr-only {
   position: absolute;
@@ -366,6 +383,8 @@ body header,
   display: none;
 }
 
+/* make sure hidden things stay hidden */
+
 [hidden]{
   display: none !important;
   visibility: hidden !important;
@@ -404,6 +423,8 @@ body header,
   /* load in low res stuff */
 }
 
+/* removes all animation if people have reduced motioon seet up for ADA or Memory usage */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -416,6 +437,8 @@ body header,
   }
 }
 
+/* Auto screen dark */
+
 @media (prefers-color-scheme: dark)  {
   body {
     filter: invert(100%) hue-rotate(180deg);
@@ -427,6 +450,8 @@ body header,
   }
   * { box-shadow: none !important; text-shadow: none !important; }
 }
+
+/* Auto screen dark */
 
 @media (prefers-contrast), (inverted-colors){
   *{
@@ -640,7 +665,7 @@ input[type='submit'], textarea[type='submit'], select[type='submit'] {
   }
 
 input:focus, textarea:focus, select:focus {
-    outline: solid 2px hsla(238, 65%, 65%,1);
+    outline: solid 2px hsla(238, 65%, 65.5%,1);
     outline: solid 2px var(--bravo);
     outline-offset: 2px;
   }
@@ -832,7 +857,7 @@ form [type='submit'] {
 
 .Nav li.active a{
         /* color: var(--alpha); */
-        background-color: hsla(238, 65%, 65%,1);
+        background-color: hsla(238, 65%, 65.5%,1);
         background-color: var(--bravo);
       }
 
@@ -883,7 +908,7 @@ form [type='submit'] {
 }
 
 .Nav__toggle:focus {
-    outline: 2px solid hsla(238, 65%, 65%,1);
+    outline: 2px solid hsla(238, 65%, 65.5%,1);
     outline: 2px solid var(--bravo);
   }
 
@@ -899,7 +924,7 @@ form [type='submit'] {
 
   transition: 0.2s;
 
-  background: hsla(238,69%,52%,1);
+  background: hsla(238,69%,52.5%,1);
 
   background: var(--charlie);
 }
@@ -918,7 +943,7 @@ form [type='submit'] {
   transition-delay: 0.2s, 0s;
   transition-duration: 0.2s, 0.2s;
 
-  background-color: hsla(238,69%,52%,1);
+  background-color: hsla(238,69%,52.5%,1);
 
   background-color: var(--charlie);
 }
@@ -944,7 +969,7 @@ form [type='submit'] {
 
     transform: rotate(45deg);
 
-    background-color: hsla(238,69%,52%,1);
+    background-color: hsla(238,69%,52.5%,1);
 
     background-color: var(--charlie);
   }
@@ -954,7 +979,7 @@ form [type='submit'] {
 
     transform: rotate(-45deg);
 
-    background-color: hsla(238,69%,52%,1);
+    background-color: hsla(238,69%,52.5%,1);
 
     background-color: var(--charlie);
   }
@@ -1065,7 +1090,7 @@ section{
   margin-bottom: 1.5rem;
   /* padding: 1rem; */
 
-  color: hsla(238, 65%, 65%,1);
+  color: hsla(238, 65%, 65.5%,1);
 
   color: var(--bravo);
   background-color: hsla(0, 0%, 82%, 1);
@@ -1083,7 +1108,7 @@ section{
   }
 
 .Details__summary:focus {
-    outline: 2px solid hsla(238, 65%, 65%,1);
+    outline: 2px solid hsla(238, 65%, 65.5%,1);
     outline: 2px solid var(--bravo);
     /* outline-offset: calc(1rem + 3px); */
     /* outline-offset: 2px; */
@@ -1244,7 +1269,7 @@ body.no-js .Details__content {
   color: #fff;
 
   color: var(--light);
-  background-color: hsla(238,69%,52%,1);
+  background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
   font-weight: 900;
 }
@@ -1260,7 +1285,7 @@ body.no-js .Details__content {
 
   font-size: 1.5rem;
 
-  border-left: 5px solid hsla(238, 65%, 65%,1);
+  border-left: 5px solid hsla(238, 65%, 65.5%,1);
 
   border-left: 5px solid var(--bravo);
 }
@@ -1329,7 +1354,7 @@ button.Button {
   border: none;
   border-radius: 0.2rem;
   border-radius: var(--border-radius); /* delete later */
-  background-color: hsla(238,69%,52%,1);
+  background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
 
   font-weight: 500
@@ -1358,7 +1383,7 @@ button.Button {
   border: none;
   border-radius: 0.2rem;
   border-radius: var(--border-radius); /* delete later */
-  background-color: hsla(238,69%,52%,1);
+  background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
 
   font-weight: 500
@@ -1374,7 +1399,7 @@ button.Button {
   button.Button:focus {
     color: #fff;
     color: var(--light);
-    background-color: hsla(238, 65%, 65%,1);
+    background-color: hsla(238, 65%, 65.5%,1);
     background-color: var(--bravo);
   }
 
@@ -1386,32 +1411,32 @@ button.Button {
   button.Button:focus {
     color: #fff;
     color: var(--light);
-    background-color: hsla(238, 65%, 65%,1);
+    background-color: hsla(238, 65%, 65.5%,1);
     background-color: var(--bravo);
   }
 
 .Button:active, a:link.Button:active, a:visited.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
-    background-color: hsla(238,69%,52%,1);
+    background-color: hsla(238,69%,52.5%,1);
     background-color: var(--charlie);
   }
 
 .Button:active, a:any-link.Button:active, button.Button:active {
     color: #fff;
     color: var(--light);
-    background-color: hsla(238,69%,52%,1);
+    background-color: hsla(238,69%,52.5%,1);
     background-color: var(--charlie);
   }
 
 .Button:focus, a:link.Button:focus, a:visited.Button:focus, button.Button:focus {
-    outline: 2px solid hsla(238, 65%, 65%,1);
+    outline: 2px solid hsla(238, 65%, 65.5%,1);
     outline: 2px solid var(--bravo);
     outline-offset: 2px;
   }
 
 .Button:focus, a:any-link.Button:focus, button.Button:focus {
-    outline: 2px solid hsla(238, 65%, 65%,1);
+    outline: 2px solid hsla(238, 65%, 65.5%,1);
     outline: 2px solid var(--bravo);
     outline-offset: 2px;
   }
@@ -1504,7 +1529,8 @@ body.no-js .Dialog [class*='close'] {
   }
 
 @media (prefers-reduced-transparency) {
-  background-color: rgba(255,255,255,1);
+  background-color: #fff;
+  background-color: var(--light);
 }
 
 .Carousel,
