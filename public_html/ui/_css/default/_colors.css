@@ -1,27 +1,6 @@
-:root{
-  --light: #fff;
-  --dark: #000;
-
-  /* basic site colors  */
-  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
-
-  --alpha: rgba(48, 48, 48, 1);
-  --bravo: rgba(32, 122, 193, 1);
-  --charlie: rgba(0, 100, 180, 1);
-  --delta: rgba(169, 169, 169, 1);
-  --echo: rgba(211, 211, 211, 1);
-  --foxtrot: rgba(129, 129, 129, 1);
-
-  --background: var(--light);
-  --forground: var(--dark);
-}
-
-[data-theme="dark-mode"]{
+/* [data-theme="dark-mode"]{
   --light: #000;
   --dark: #fff;
-
-  /* basic site colors  */
-  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
 
   --alpha: #303030;
   --bravo: rgba(32, 122, 193, 1);
@@ -36,9 +15,6 @@
     --light: #fff;
     --dark: #000;
 
-    /* basic site colors  */
-    /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
-
     --alpha: #303030;
     --bravo: rgba(32, 122, 193, 1);
     --charlie: rgba(0, 100, 180, 1);
@@ -51,15 +27,35 @@
   --light: #000;
   --dark: #fff;
 
-  /* basic site colors  */
-  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
-
   --alpha: #303030;
   --bravo: rgba(32, 122, 193, 1);
   --charlie: rgba(0, 100, 180, 1);
   --delta: #A9A9A9;
   --echo: #D3D3D3;
   --foxtrot: #818181;
+} */
+
+:root{
+  --light: #fff;
+  --dark: #000;
+
+  /* basic site colors  */
+  /* DO NOT USE COLOR NAMES THAT DEFEATS THE PURPOSE OF THE VARIABLES */
+  --var-color-h: 238;
+  --var-color-s: 65%;
+  --var-color-l: 65%;
+
+  --var-color-hsl: var(--var-color-h), var(--var-color-s), var(--var-color-l);
+
+  --alpha: hsla(206,17%,24%,1);
+  --bravo: hsla(238, 65%, 65.5%,1);
+  --charlie: hsla(238,69%,52.5%,1);
+  --delta: hsla(0, 0%, 0%, 0.3);
+  --echo: hsla(0, 0%, 82%, 1);
+  --foxtrot: hsla(0, 0%, 50%, 1);
+
+  --background: var(--light);
+  --forground: var(--dark);
 }
 
 /* EOF */

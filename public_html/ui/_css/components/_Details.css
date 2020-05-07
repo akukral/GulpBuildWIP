@@ -10,7 +10,9 @@
 
   padding: 1rem;
 
-  cursor: pointer;
+  &:hover{
+    cursor: pointer;
+  }
   &:focus {
     outline: 2px solid var(--bravo);
     /* outline-offset: calc(1rem + 3px); */

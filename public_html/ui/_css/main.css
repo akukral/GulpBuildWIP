@@ -13,6 +13,7 @@
 @import './modules/_Nav';
 @import './modules/_Footer';
 @import './modules/_Form';
+@import './modules/_Section';
 
 /* Components */
 @import './components/_Details';

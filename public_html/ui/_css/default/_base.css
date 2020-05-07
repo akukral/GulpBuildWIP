@@ -6,21 +6,24 @@
 
   font-display: swap !important;
   overscroll-behavior: contain;
-  /* transition: 0.2s ; */
+  transition-duration: 0.2s;
+  transition-property: color, background-color, opacity;
   will-change: font-size;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001s !important;
-    transition-duration: 0.001s !important;
-  }
+  cursor: pointer;
 }
 
 html{
   scroll-behavior: smooth;
+  /* Hide scrollbar for IE and Edge */
+  /* -ms-overflow-style: none; */
+  /* Remove Scrollbar Firefox Fix, suggested in the comments */
+  /* overflow: auto; */
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+html::-webkit-scrollbar {
+  display: none;
 }
 
 html,
@@ -42,8 +45,6 @@ body {
 body {
   margin: 0;
   padding: 0;
-  /* font-size: 1.8rem; */
-
   -webkit-overflow-scrolling: touch;
 }
 
@@ -58,11 +59,11 @@ img.lazyloaded {
   filter: blur(0);
 }
 img.lazyload {
-  transform: blur(2px);
+  transform: blur(.1rem);
+  transition: 2s;
 }
 
 a {
-  /* transition: 0.2s; */
   color: var(--charlie);
   outline-offset: 0rem;
   background-color: inherit;
@@ -70,9 +71,10 @@ a {
   touch-action: manipulation;
 }
 
+// Make prettier underlines
 @supports (text-decoration-skip: edges) {
   a {
-    text-decoration-color: #fe00ff;
+    text-decoration-color: var(--bravo);
     text-decoration-line: underline;
     text-decoration-skip: edges;
     text-decoration-skip-ink: auto;
@@ -100,7 +102,8 @@ a:focus {
   outline-offset: 2px;
 }
 
-@media (hover: hover) {
+// for devices that have bad pointers like WII, styluses, or no pointers
+@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
   a:hover {
     color: var(--bravo);
     box-shadow: none;
@@ -108,22 +111,18 @@ a:focus {
   }
 }
 
-*:last-child,
-* + *:last-child {
-  /* margin-bottom: 0; */
-}
-
+// skip to content technique
 .skip {
   position: absolute;
   z-index: -999;
   top: auto;
-  left: -999px;
+  left: -999rem;
 
   display: block;
   overflow: hidden;
 
-  width: 1px;
-  height: 1px;
+  width: .01rem;
+  height: .01rem;
   padding: 1rem;
 
   color: var(--light) !important;
@@ -148,6 +147,7 @@ a:focus {
   text-align: center;
 }
 
+/* Modern Clearfix teqnique */
 .clearfix::after {
   display: table;
   clear: both;
@@ -155,15 +155,16 @@ a:focus {
   content: '';
 }
 
+/* most current screen reader only technique */
 .sr-only {
   position: absolute;
 
   overflow: hidden;
   clip: rect(0 0 0 0);
 
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  width: .01rem;
+  height: .01rem;
+  margin: -.01rem;
   padding: 0;
 
   white-space: nowrap;
@@ -172,8 +173,8 @@ a:focus {
   border: 0;
   background-color: var(--dark) !important;
 
-  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-          clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
 }
 
 main {
@@ -222,6 +223,7 @@ body {
   display: none;
 }
 
+/* make sure hidden things stay hidden */
 [hidden]{
   display: none !important;
   visibility: hidden !important;
@@ -231,7 +233,7 @@ body {
   body {
     display: grid;
 
-    grid-template-columns: [full-start] minmax(2rem,1fr) [main-start] minmax(100px,75ch) [main-end] minmax(2rem,1fr) [full-end];
+    grid-template-columns: [full-start] minmax(2rem,1fr) [main-start] minmax(10rem,75ch) [main-end] minmax(2rem,1fr) [full-end];
     grid-template-rows: auto 1fr auto;
     & header {
       grid-column: full;
@@ -252,6 +254,48 @@ body {
   @media print {
     a[href^='http']:after {
       content: ' (' attr(href) ')';
+    }
+  }
+}
+
+
+@media (prefers-reduced-data) {
+  /* load in low res stuff */
+}
+
+/* removes all animation if people have reduced motioon seet up for ADA or Memory usage */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+  html{
+    scroll-behavior: auto;
+  }
+}
+
+/* Auto screen dark */
+@media (prefers-color-scheme: dark)  {
+  body {
+    filter: invert(100%) hue-rotate(180deg);
+  }
+  img,
+  video,
+  iframe {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+  * { box-shadow: none !important; text-shadow: none !important; }
+}
+
+/* Auto screen dark */
+@media (prefers-contrast), (inverted-colors){
+  *{
+    color: var(--light) !important;
+    background-color: var(--dark) !important;
+    &.Button, &.Details, &.Summary, & input{
+      border: 1px solid var(--light) !important;
     }
   }
 }

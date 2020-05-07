@@ -8,7 +8,8 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
+  padding: .5rem;
 
   background-color: var(--echo);
 }
@@ -19,11 +20,11 @@
 
   background-color: inherit;
 }
-@supports (padding: max(0px)) {
+@supports (padding: min(0px)) {
   .Header {
-    padding-top: max(1rem, env(safe-area-inset-top));
-    padding-right: max(1rem, env(safe-area-inset-right));
-    padding-left: max(1rem, env(safe-area-inset-left));
+    /* padding-top: max(env(safe-area-inset-bottom), 1.5rem); */
+    padding-right: max(env(safe-area-inset-right, .5rem), .5rem);
+    padding-left: max(env(safe-area-inset-left, .5rem), .5rem);
   }
 }
 

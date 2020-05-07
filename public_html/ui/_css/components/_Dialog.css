@@ -12,7 +12,10 @@
 
   content: '';
 
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255,255,255,0.90);
+  & *{
+    transition: 0s !important;
+  }
 }
 .Dialog__container {
   position: fixed;
@@ -70,4 +73,8 @@ body.no-js {
   & .Dialog [class*='close'] {
     display: none !important;
   }
+}
+
+@media (prefers-reduced-transparency) {
+  background-color: var(--light);
 }

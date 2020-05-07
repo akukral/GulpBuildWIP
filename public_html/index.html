@@ -53,13 +53,14 @@
 
   <!-- Preloads -->
   <link rel="preload" href="/ui/css/main.css" as="style">
+  <!-- TODO add dynamicall if possible -->
   <link rel="preload" href="/critical.css" as="style">
   <link rel="preload" href="/ui/js/main.js" as="script">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
 
   <style>
-    @media screen and (max-width: 300px) {
+    @media screen and (max-width: 25rem) {
       * {
         max-width: 100%;
         height: auto;
@@ -71,6 +72,9 @@
       }
     }
   </style>
+  <noscript>
+    <link rel="stylesheet" href="/ui/css/main.css">
+  </noscript>
 </head>
 
 <body class="no-js">
@@ -89,10 +93,10 @@
       </button>
       <ul id="Menu" aria-live="polite">
         <li>
-          <a href="/#page-1">Page 1</a>
+          <a href="/#featuredContent">Featured Content</a>
         </li>
         <li>
-          <a href="/#page-2">Page 2</a>
+          <a href="/#tabSection">Tab Section</a>
         </li>
         <li>
           <a href="/#page-3">Page 3</a>
@@ -216,14 +220,14 @@
         autem perferendis magnam qui, placeat debitis esse et adipisci sint. Tempora, fuga molestiae!</p>
     </section>
 
-    <section aria-label="Featured Content">
+    <section aria-label="Featured Content" id="featuredContent">
       <h2>Featured Content</h2>
       <article>
         <h3><a href="#" aria-describedby="description1">Article Title 1</a></h3>
-        <l id="description1">
+        <p id="description1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus maxime voluptatibus voluptatem
           repellat tenetur optio fuga quaerat consectetur doloremque!
-        </pi>
+        </p>
         <p>
           <a href="#" aria-describedby="description1">Read More About …</a>
         </p>
@@ -297,40 +301,7 @@
       </div>
     </section>
 
-    <section aria-label="Tabs">
-      <div class="Tabbed">
-        <ul>
-          <li>
-            <a href="#section1">Section 1</a>
-          </li>
-          <li>
-            <a href="#section2">Section 2</a>
-          </li>
-          <li>
-             <a href="#section3">Section 3</a>
-          </li>
-           <li>
-             <a href="#section4">Section 4</a>
-          </li>
-        </ul>
-        <section id="section1">
-          <h2>Section 1</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. <a href="#">Nam luctus</a>, enim in interdum condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna bibendum accumsan.</p>
-        </section>
-        <section id="section2">
-          <h2>Section 2</h2>
-          <p>Nullam at diam nec arcu suscipit auctor non a erat. Sed et magna semper, eleifend magna non, facilisis nisl. Proin et est et lorem dictum finibus ut nec turpis. Aenean nisi tortor, euismod a mauris a, mattis scelerisque tortor. Sed dolor risus, varius a nibh id, condimentum lacinia est. In lacinia cursus odio a aliquam. Curabitur tortor magna, laoreet ut rhoncus at, sodales consequat tellus.</p>
-        </section>
-        <section id="section3">
-          <h2>Section 3</h2>
-          <p>Phasellus ac tristique orci. Nulla maximus <a href="">justo nec dignissim consequat</a>. Sed vehicula diam sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet mollis neque. Vestibulum at facilisis massa.</p>
-        </section>
-        <section id="section4">
-          <h2>Section 4</h2>
-          <p>Nam luctus, enim in interdum condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna bibendum accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. </p>
-        </section>
-      </div>
-
+    <section aria-label="Tabs" id="tabSection">
       <div class="Tabbed">
         <ul>
           <li>
@@ -408,9 +379,9 @@
             placeholder="Send us your message."></textarea>
 
         <fieldset role="group">
-          <label><input type="radio" name="r1" id="r1" value="r1" checked> Value 1</label>
-          <label><input type="radio" name="r1" id="r2" value="r2"> Value 2</label>
-          <label><input type="radio" name="r1" id="r3" value="r3"> Value 3</label>
+          <label><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
+          <label><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
+          <label><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
         </fieldset>
 
 
@@ -433,18 +404,19 @@
   <!-- footer -->
 
   <script>
-    function loadCSS(e) {
+    function loadCSS(file, media) {
       var n = window.document.createElement("link");
       var t = window.document.getElementsByTagName("head")[0];
       n.rel = "stylesheet",
-        n.href = e,
+        n.href = file,
         n.media = "print";
       t.appendChild(n, t)
       setTimeout(function () {
-        n.media = "screen and (min-width:300px)"
+        n.media = media;
+        document.getElementById('critical').remove();
       }, 0);
     }
-    loadCSS("/ui/css/main.css");
+    loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
   </script>
 
   <!-- This polyfill needs to be loaded from the cdn to work -->

@@ -13,8 +13,8 @@ select {
   vertical-align: bottom;
 
   color: inherit;
-  border: none;
-  border-radius: 0 ;
+  border: 1px solid var(--dark);
+  border-radius: var(--border-radius);
   outline: none;
   background-color: var(--light);
   box-shadow: none;
@@ -22,12 +22,6 @@ select {
   -webkit-appearance: none;
           appearance: none;
   text-fill-color: var(--light);
-
-  /* &::-webkit-input-placeholder {
-    line-height: inherit;
-    font-style: italic;
-    font-size: 1rem;
-  } */
   &[type='submit'] {
     width: auto;
   }
@@ -114,7 +108,7 @@ label {
   display: none;
 }
 
-form [type='submit']{
+form [type='submit'] {
   display: block !important;
   /* clear: both; */
 }

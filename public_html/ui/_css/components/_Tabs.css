@@ -13,11 +13,12 @@
 }
 
 [role="tablist"] [aria-selected] {
-  border: 2px solid;
+  border: 2px solid var(--alpha);
   background: #fff;
   border-bottom: 0;
   position: relative;
   top: 2px;
+  outline-offset: -4px;
 }
 
 [role="tabpanel"] {
