@@ -1,26 +1,28 @@
-const fontLoader = () => {
+const fontLoader = (fontsToLoad) => {
   function loadFonts() {
-    if (`fonts` in document) {
-      var font = new FontFace(
-        `Neue`,
-        `local('HelveticaNeue-Roman'),
-          url('/ui/webfonts/helvetica/helveticaneue-roman-webfont.eot?#iefix') format('embedded-opentype'),
-          url('/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff') format('woff'),
-          url('/ui/webfonts/helvetica/helveticaneue-roman-webfont.ttf') format('truetype')`
-      );
 
-      var fontBold = new FontFace(
-        `NeueBold`,
-        `local('HelveticaNeue-Bold'),
-          url('/ui/webfonts/helvetica/helveticaneue-bold-webfont.eot?#iefix') format('embedded-opentype'),
-          url('/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff') format('woff'),
-          url('/ui/webfonts/helvetica/helveticaneue-bold-webfont.ttf') format('truetype')`, {
-          weight: `700`,
-        }
-      );
+    if (`fonts` in document) {
+      const fontsArray = fontsToLoad.map((font,i) => {
+        const shortName = font.shortName || font.localName || `font${i}`;
+        const localName = font.localName || font.shortName || `font${i}`;
+        const path = font.path;
+        const newFont = new FontFace(
+          shortName,
+          `local(${localName}),
+          url('${path}.eot?#iefix') format('embedded-opentype'),
+          url('${path}.woff') format('woff'),
+          url('${path}.ttf') format('truetype')`,
+          {weight: 400}
+        )
+        newFont.display = 'swap';
+        return newFont
+      })
+      // console.log(fontsArray);
+
+      const requests = fontsArray.map(font => font.load());
 
       Promise
-        .all([font.load(), fontBold.load()])
+        .all(requests)
         .then(loadedFonts => {
           // Render them at the same time
           loadedFonts.forEach(function (font) {

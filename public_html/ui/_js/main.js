@@ -8,7 +8,18 @@ import Carousel from './modules/carousel';
 import Tabs from './modules/tabs';
 import nav from './modules/nav';
 
-fontLoader();
+fontLoader([
+  {
+    shortName:`Neue`,
+    localName:`HelveticaNeue-Roman`,
+    path: `/ui/webfonts/helvetica/helveticaneue-roman-webfont`
+  },
+  {
+    shortName:`NeueBold`,
+    localName:`HelveticaNeue-Bold`,
+    path: `/ui/webfonts/helvetica/helveticaneue-bold-webfont`
+  }
+]);
 nav();
 
 lazySizes.cfg.init = false;
@@ -55,7 +66,7 @@ for(let carousel of carousels){
     id: carousel,
     slidenav: true,
     animate: true,
-    startAnimated: false
+    startAnimated: false,
   });
 }
 
@@ -67,9 +78,9 @@ if (pref.media !== media && !pref.matches) {
   console.log('prefers reduced motion');
 }
 
-const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches;
 const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
 
 console.log('isDarkMode='+isDarkMode, 'isLightMode='+isLightMode, 'isNotSpecified='+isNotSpecified, 'hasNoSupport='+hasNoSupport)

@@ -81,6 +81,9 @@ export default function Nav(){
     button.addEventListener(`click`, toggleNav);
   }
 
+  const navItems = nav.querySelectorAll(`a`);
+  navItems.forEach(item => item.addEventListener(`click`,toggleNav));
+
 }
 
 // EOF
