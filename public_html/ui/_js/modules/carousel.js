@@ -93,7 +93,7 @@ const myCarousel = (function () {
 
     // Select the element and the individual slides
     carousel = settings.id;
-    console.log(set)
+    // console.log(set)
     slides = carousel.querySelectorAll('.Carousel__slide');
 
     carousel.className = 'Carousel Carousel--active';

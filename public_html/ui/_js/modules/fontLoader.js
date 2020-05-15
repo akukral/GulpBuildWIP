@@ -3,8 +3,8 @@ const fontLoader = (fontsToLoad) => {
 
     if (`fonts` in document) {
       const fontsArray = fontsToLoad.map((font,i) => {
-        const shortName = font.shortName || font.localName || `font${i}`;
-        const localName = font.localName || font.shortName || `font${i}`;
+        const shortName = font.shortName || font.localName || `font${i+1}`;
+        const localName = font.localName || font.shortName || `font${i+1}`;
         const path = font.path;
         const newFont = new FontFace(
           shortName,
@@ -42,7 +42,6 @@ const fontLoader = (fontsToLoad) => {
   } else {
     loadFonts();
   }
-
 };
 
 export default fontLoader;

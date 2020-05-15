@@ -53,7 +53,7 @@
 
   <!-- Preloads -->
   <link rel="preload" href="/ui/css/main.css" as="style">
-  <!-- TODO add dynamicall if possible -->
+  <!-- TODO add dynamically if possible -->
   <link rel="preload" href="/critical.css" as="style">
   <link rel="preload" href="/ui/js/main.js" as="script">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
@@ -431,7 +431,7 @@
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').then(function (registration) {
           // Registration was successful
-          console.info('ServiceWorker registration successful with scope: ', registration.scope);
+          // console.info('ServiceWorker registration successful with scope: ', registration.scope);
         }, function (err) {
           // registration failed :(
           console.info('ServiceWorker registration failed: ', err);

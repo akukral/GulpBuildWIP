@@ -8,6 +8,9 @@ import Carousel from './modules/carousel';
 import Tabs from './modules/tabs';
 import nav from './modules/nav';
 
+// Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
+// loads in woff eot and ttf files automatically if they are all in the same  directory.
+// Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc
 fontLoader([
   {
     shortName:`Neue`,
@@ -74,8 +77,8 @@ const media = '(prefers-reduced-motion: reduce)';
 const pref = window.matchMedia(media);
 // console.log("reduced motion=",pref)
 if (pref.media !== media && !pref.matches) {
-  // do animationless stuff
-  console.log('prefers reduced motion');
+  // do stuff without animations
+  // console.log('prefers reduced motion');
 }
 
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -109,5 +112,5 @@ console.log('isDarkMode='+isDarkMode, 'isLightMode='+isLightMode, 'isNotSpecifie
 // toggleSwitch.addEventListener('change', switchTheme, false);
 
 
-// remove no-js body class proving JS is loaded and everything before this in this script has run.
+// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
 document.body.classList.remove(`no-js`);
