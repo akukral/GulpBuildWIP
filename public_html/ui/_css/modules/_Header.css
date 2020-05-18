@@ -5,7 +5,7 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 
   margin-bottom: .5rem;
@@ -19,6 +19,32 @@
   padding: 1rem;
 
   background-color: inherit;
+  margin-right: auto;
+}
+.Theme__picker{
+  & span{
+    display: none;
+  }
+  & input{
+    vertical-align: middle;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    &:checked{
+      box-shadow: none;
+      background-color: transparent;
+    }
+    &::after{
+      position: absolute;
+      content:'🌙';
+      top: -.2em;
+      filter: drop-shadow(0 0 .1rem var(--dark));
+    }
+    &:checked::after{
+      content:'☀️';
+      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 .1rem var(--dark));
+    }
+  }
 }
 @supports (padding: min(0px)) {
   .Header {

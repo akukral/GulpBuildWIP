@@ -142,7 +142,6 @@ table {
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity;
   will-change: font-size;
-  cursor: pointer;
 }
 
 html{
@@ -448,6 +447,20 @@ body header,
   iframe {
     filter: invert(100%) hue-rotate(180deg) !important;
   }
+  * { box-shadow: none !important; text-shadow: none !important; }
+}
+
+html[data-theme="dark"] body {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+
+html[data-theme="dark"] img,
+  html[data-theme="dark"] video,
+  html[data-theme="dark"] iframe {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+
+html[data-theme="dark"]{
   * { box-shadow: none !important; text-shadow: none !important; }
 }
 
@@ -777,7 +790,7 @@ form [type='submit'] {
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 
   margin-bottom: .5rem;
@@ -794,7 +807,38 @@ form [type='submit'] {
   padding: 1rem;
 
   background-color: inherit;
+  margin-right: auto;
 }
+
+.Theme__picker span{
+    display: none;
+  }
+
+.Theme__picker input{
+    vertical-align: middle;
+    position: relative;
+    border: none;
+    background-color: transparent
+  }
+
+.Theme__picker input:checked{
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+.Theme__picker input::after{
+      position: absolute;
+      content:'🌙';
+      top: -.2em;
+      filter: drop-shadow(0 0 .1rem #000);
+      filter: drop-shadow(0 0 .1rem var(--dark));
+    }
+
+.Theme__picker input:checked::after{
+      content:'☀️';
+      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 .1rem #000);
+      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 .1rem var(--dark));
+    }
 
 @supports (padding: min(0px)) {
   .Header {

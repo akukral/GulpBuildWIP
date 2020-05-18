@@ -9,7 +9,6 @@
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity;
   will-change: font-size;
-  cursor: pointer;
 }
 
 html{
@@ -284,6 +283,17 @@ body {
   img,
   video,
   iframe {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+  * { box-shadow: none !important; text-shadow: none !important; }
+}
+html[data-theme="dark"]{
+  & body {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+  & img,
+  & video,
+  & iframe {
     filter: invert(100%) hue-rotate(180deg) !important;
   }
   * { box-shadow: none !important; text-shadow: none !important; }
