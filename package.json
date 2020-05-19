@@ -11,7 +11,8 @@
   "author": "AllanKukral",
   "license": "ISC",
   "dependencies": {
-    "lazysizes": "^4.1.8"
+    "lazysizes": "^4.1.8",
+    "quicklink": "^2.0.0"
   },
   "devDependencies": {
     "axe-core": "^3.5.3",

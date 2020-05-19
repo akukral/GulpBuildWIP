@@ -5,7 +5,8 @@
   box-sizing: border-box;
 
   font-display: swap !important;
-  overscroll-behavior: contain;
+  /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
+  overscroll-behavior: none;
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity;
   will-change: font-size;
@@ -86,6 +87,7 @@ a {
   }
 }
 
+a:hover,
 a:active,
 a:focus {
   color: var(--bravo);
@@ -104,7 +106,7 @@ a:focus {
 /* for devices that have bad pointers like WII, styluses, or no pointers */
 @media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
   a:hover {
-    color: var(--bravo);
+    color: var(--charlie);
     box-shadow: none;
     text-shadow: none;
   }

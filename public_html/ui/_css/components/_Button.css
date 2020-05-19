@@ -21,11 +21,13 @@ button.Button {
   background-color: var(--charlie);
 
   font-weight: 500;
+  box-shadow: 0 .1rem .2rem hsla(0, 0%, 0%, .3);
 
   &:hover,
   &:focus {
     color: var(--light);
     background-color: var(--bravo);
+    box-shadow:none;
   }
   &:active {
     color: var(--light);

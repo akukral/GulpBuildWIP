@@ -104,10 +104,10 @@ const myCarousel = (function () {
 
     ctrls.className = 'controls';
     ctrls.innerHTML = '<li>' +
-      '<button type="button" class="Button btn-prev">&laquo;</button>' +
+      '<button type="button" class="Button btn-prev">&lsaquo;</button>' +
       '</li>' +
       '<li>' +
-      '<button type="button" class="Button btn-next">&raquo;</button>' +
+      '<button type="button" class="Button btn-next">&rsaquo;</button>' +
       '</li>';
 
     ctrls.querySelector('.btn-prev')

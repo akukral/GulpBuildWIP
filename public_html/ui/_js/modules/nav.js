@@ -25,7 +25,7 @@ export default function Nav(){
     const lastFocusableEl = focusableEls[focusableEls.length - 1];
 
     // console.log(e);
-    let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
+    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
     let isEscape = (e.key === `Escape` || e.key === `Esc` || e.keyCode === 27);
 
     // if (!isTabPressed) {

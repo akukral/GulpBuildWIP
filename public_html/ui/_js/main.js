@@ -1,5 +1,6 @@
 // import app from './modules/app';
 import lazySizes from 'lazysizes';
+import quicklink from 'quicklink/dist/quicklink.umd';
 
 import fontLoader from './modules/fontLoader';
 import Dialog from './modules/dialog';
@@ -8,6 +9,8 @@ import Carousel from './modules/carousel';
 import Tabs from './modules/tabs';
 import nav from './modules/nav';
 import themePicker from './modules/theme';
+
+quicklink.listen();
 
 // Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
 // loads in woff eot and ttf files automatically if they are all in the same  directory.

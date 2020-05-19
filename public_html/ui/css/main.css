@@ -138,7 +138,8 @@ table {
   box-sizing: border-box;
 
   font-display: swap !important;
-  overscroll-behavior: contain;
+  /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
+  overscroll-behavior: none;
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity;
   will-change: font-size;
@@ -227,6 +228,7 @@ a {
     }
 }
 
+a:hover,
 a:active,
 a:focus {
   color: hsla(238, 65%, 65.5%,1);
@@ -249,8 +251,8 @@ a:focus {
 
 @media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
   a:hover {
-    color: hsla(238, 65%, 65.5%,1);
-    color: var(--bravo);
+    color: hsla(238,69%,52.5%,1);
+    color: var(--charlie);
     box-shadow: none;
     text-shadow: none;
   }
@@ -793,58 +795,66 @@ form [type='submit'] {
   /* justify-content: space-between; */
   align-items: center;
 
-  margin-bottom: .5rem;
-  padding: .5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
 
   background-color: hsla(0, 0%, 82%, 1);
 
   background-color: var(--echo);
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3);
 }
 
 .Header__logo {
   display: inline-block;
 
+  margin-right: auto;
   padding: 1rem;
 
   background-color: inherit;
-  margin-right: auto;
 }
 
-.Theme__picker span{
+.Theme__picker span {
     display: none;
   }
 
-.Theme__picker input{
-    vertical-align: middle;
+.Theme__picker input {
     position: relative;
+
+    vertical-align: middle;
+
     border: none;
     background-color: transparent
   }
 
-.Theme__picker input:checked{
-      box-shadow: none;
+.Theme__picker input:checked {
       background-color: transparent;
+      box-shadow: none;
     }
 
-.Theme__picker input::after{
+.Theme__picker input::after {
       position: absolute;
-      content:'🌙';
-      top: -.2em;
-      filter: drop-shadow(0 0 .1rem #000);
-      filter: drop-shadow(0 0 .1rem var(--dark));
+      top: -0.2em;
+
+      content: '🌙';
+
+      filter: drop-shadow(0 0 0.1rem #000);
+
+      filter: drop-shadow(0 0 0.1rem var(--dark));
     }
 
-.Theme__picker input:checked::after{
-      content:'☀️';
-      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 .1rem #000);
-      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 .1rem var(--dark));
+.Theme__picker input:checked::after {
+      content: '☀️';
+
+      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 0.1rem #000);
+
+      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 0.1rem var(--dark));
     }
 
 @supports (padding: min(0px)) {
   .Header {
     /* padding-top: max(env(safe-area-inset-bottom), 1.5rem); */
-    padding-right: max(env(safe-area-inset-right, .5rem), .5rem);
-    padding-left: max(env(safe-area-inset-left, .5rem), .5rem);
+    padding-right: max(env(safe-area-inset-right, 0.5rem), 0.5rem);
+    padding-left: max(env(safe-area-inset-left, 0.5rem), 0.5rem);
   }
 }
 
@@ -855,7 +865,8 @@ form [type='submit'] {
   /* height: 100%; */
   /* font-weight: 700; */
   letter-spacing: 0.05rem;
-  text-transform: uppercase
+  text-transform: uppercase;
+  font-weight: 900
 }
 
 .Nav ul {
@@ -1280,8 +1291,7 @@ body.no-js .Details__content {
   padding-top: 25px;
   padding-bottom: 56.25%; /* 16:9 */
   padding-bottom: 54.45%; /* 16:9 */
-  background-color: hsla(206,17%,24%,1);
-  background-color: var(--alpha);
+  background-color: transparent;
 }
 
 .Video--featured {
@@ -1369,8 +1379,13 @@ a:link.Cta {
   width: max-content;
   margin-right: auto;
   margin-bottom: 0;
-  margin-left: auto;
+  margin-left: auto
 }
+
+.Cta a,a:link.Cta a{
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
 
 /* EOF */
 
@@ -1401,7 +1416,8 @@ button.Button {
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
 
-  font-weight: 500
+  font-weight: 500;
+  box-shadow: 0 .1rem .2rem hsla(0, 0%, 0%, .3)
 }
 
 .Button,
@@ -1430,7 +1446,8 @@ button.Button {
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
 
-  font-weight: 500
+  font-weight: 500;
+  box-shadow: 0 .1rem .2rem hsla(0, 0%, 0%, .3)
 }
 
 .Button:hover,
@@ -1445,6 +1462,7 @@ button.Button {
     color: var(--light);
     background-color: hsla(238, 65%, 65.5%,1);
     background-color: var(--bravo);
+    box-shadow:none;
   }
 
 .Button:hover,
@@ -1457,6 +1475,7 @@ button.Button {
     color: var(--light);
     background-color: hsla(238, 65%, 65.5%,1);
     background-color: var(--bravo);
+    box-shadow:none;
   }
 
 .Button:active, a:link.Button:active, a:visited.Button:active, button.Button:active {

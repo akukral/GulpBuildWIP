@@ -6,6 +6,10 @@ a:link.Cta {
   margin-right: auto;
   margin-bottom: 0;
   margin-left: auto;
+  & a{
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
 }
 
 /* EOF */
