@@ -11,6 +11,7 @@ button.Button {
   cursor: pointer;
 
   font-size: inherit;
+  font-weight: 500;
   line-height: inherit;
   text-align: center;
   text-decoration: none;
@@ -19,15 +20,13 @@ button.Button {
   border: none;
   border-radius: var(--border-radius); /* delete later */
   background-color: var(--charlie);
-
-  font-weight: 500;
-  box-shadow: 0 .1rem .2rem hsla(0, 0%, 0%, .3);
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1);
 
   &:hover,
   &:focus {
     color: var(--light);
     background-color: var(--bravo);
-    box-shadow:none;
+    box-shadow: none;
   }
   &:active {
     color: var(--light);

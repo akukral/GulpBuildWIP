@@ -7,7 +7,7 @@ const A11Y_OPTIONS = {
 
 describe('A11y Checking', () => {
   beforeEach(() => {
-    cy.visit('https://localhost:3000')
+    cy.visit('http://localhost:3000')
     cy.injectAxe() // make sure axe is available on the page
   })
 

@@ -4,15 +4,18 @@
   box-sizing: inherit;
   box-sizing: border-box;
 
+  transition-duration: 0.2s;
+  transition-property: color, background-color, opacity;
+
   font-display: swap !important;
   /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
   overscroll-behavior: none;
-  transition-duration: 0.2s;
-  transition-property: color, background-color, opacity;
   will-change: font-size;
 }
 
-html{
+html {
+  height: -webkit-fill-available;
+
   scroll-behavior: smooth;
   /* Hide scrollbar for IE and Edge */
   /* -ms-overflow-style: none; */
@@ -28,7 +31,6 @@ html::-webkit-scrollbar {
 
 html,
 body {
-  min-height: 100vh;
   margin: 0;
 
   font-size: 62.5%;
@@ -43,8 +45,12 @@ body {
 }
 
 body {
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
   margin: 0;
   padding: 0;
+
   -webkit-overflow-scrolling: touch;
 }
 
@@ -59,8 +65,8 @@ img.lazyloaded {
   filter: blur(0);
 }
 img.lazyload {
-  transform: blur(.1rem);
   transition: 2s;
+  transform: blur(0.1rem);
 }
 
 a {
@@ -79,10 +85,12 @@ a {
     text-decoration-skip: edges;
     text-decoration-skip-ink: auto;
     text-decoration-style: line;
-    text-decoration-thickness: .125em;
+    text-decoration-thickness: 0.125em;
     text-underline-offset: 1.5px;
-    &:hover, &:active, &:focus{
-      text-decoration-thickness: .15em;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration-thickness: 0.15em;
     }
   }
 }
@@ -104,7 +112,7 @@ a:focus {
 }
 
 /* for devices that have bad pointers like WII, styluses, or no pointers */
-@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
+@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none) {
   a:hover {
     color: var(--charlie);
     box-shadow: none;
@@ -122,8 +130,8 @@ a:focus {
   display: block;
   overflow: hidden;
 
-  width: .01rem;
-  height: .01rem;
+  width: 0.01rem;
+  height: 0.01rem;
   padding: 1rem;
 
   color: var(--light) !important;
@@ -163,9 +171,9 @@ a:focus {
   overflow: hidden;
   clip: rect(0 0 0 0);
 
-  width: .01rem;
-  height: .01rem;
-  margin: -.01rem;
+  width: 0.01rem;
+  height: 0.01rem;
+  margin: -0.01rem;
   padding: 0;
 
   white-space: nowrap;
@@ -175,7 +183,7 @@ a:focus {
   background-color: var(--dark) !important;
 
   -webkit-clip-path: polygon(0 0, 0 0, 0 0);
-  clip-path: polygon(0 0, 0 0, 0 0);
+          clip-path: polygon(0 0, 0 0, 0 0);
 }
 
 main {
@@ -219,13 +227,13 @@ body {
   background-color: yellow;
 }
 
-.honey{
-  visibility: hidden;
+.honey {
   display: none;
+  visibility: hidden;
 }
 
 /* make sure hidden things stay hidden */
-[hidden]{
+[hidden] {
   display: none !important;
   visibility: hidden !important;
 }
@@ -269,45 +277,54 @@ body {
   *,
   *::before,
   *::after {
-    animation-duration: 0s !important;
     transition-duration: 0s !important;
+    animation-duration: 0s !important;
   }
-  html{
+  html {
     scroll-behavior: auto;
   }
 }
 
 /* Auto screen dark */
-@media (prefers-color-scheme: dark)  {
+@media (prefers-color-scheme: dark) {
   body {
     filter: invert(100%) hue-rotate(180deg);
   }
   img,
   video,
   iframe {
-    filter: invert(100%) hue-rotate(180deg) !important;
+    filter: invert(100%) hue-rotate(180deg);
   }
-  * { box-shadow: none !important; text-shadow: none !important; }
+  * {
+    box-shadow: none;
+    text-shadow: none;
+  }
 }
-html[data-theme="dark"]{
+html[data-theme='dark'] {
   & body {
-    filter: invert(100%) hue-rotate(180deg) !important;
+    filter: invert(100%) hue-rotate(180deg);
   }
   & img,
   & video,
   & iframe {
-    filter: invert(100%) hue-rotate(180deg) !important;
+    filter: invert(100%) hue-rotate(180deg);
   }
-  * { box-shadow: none !important; text-shadow: none !important; }
+  * {
+    box-shadow: none;
+    text-shadow: none;
+  }
 }
 
 /* Auto screen dark */
-@media (prefers-contrast), (inverted-colors){
-  *{
-    color: var(--light) !important;
-    background-color: var(--dark) !important;
-    &.Button, &.Details, &.Summary, & input{
-      border: 1px solid var(--light) !important;
+@media (prefers-contrast), (inverted-colors), (-ms-high-contrast: active) {
+  * {
+    color: var(--light);
+    background-color: var(--dark);
+    &.Button,
+    &.Details,
+    &.Summary,
+    & input {
+      border: 1px solid var(--light);
     }
   }
 }

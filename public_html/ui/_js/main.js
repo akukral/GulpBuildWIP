@@ -1,6 +1,7 @@
 // import app from './modules/app';
 import lazySizes from 'lazysizes';
 import quicklink from 'quicklink/dist/quicklink.umd';
+import debounce from 'debounce';
 
 import fontLoader from './modules/fontLoader';
 import Dialog from './modules/dialog';
@@ -26,6 +27,7 @@ fontLoader([{
     path: `/ui/webfonts/helvetica/helveticaneue-bold-webfont`
   }
 ]);
+
 nav();
 
 lazySizes.cfg.init = false;
@@ -92,6 +94,17 @@ if (pref.media !== media && !pref.matches) {
 
 // Night mode theme picker
 themePicker(`.Theme__picker input[type="checkbox"]`);
+
+// window.resize callback function
+function getVerticalHeight() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  console.log(vh);
+}
+
+window.onresize = debounce(getVerticalHeight, 200);
+
+getVerticalHeight();
 
 // remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
 document.body.classList.remove(`no-js`);

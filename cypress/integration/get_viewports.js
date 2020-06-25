@@ -10,23 +10,6 @@ context('Viewport', () => {
     // https://on.cypress.io/viewport
     cy.wait(3000)
 
-    cy.viewport(1024, 480)
-    cy.get('#Menu').should('be.visible')
-    cy.viewport(900, 480)
-
-    // the navbar should have collapse since our screen is smaller
-    cy.get('#Menu').should('not.be.visible')
-    cy.get('.Nav__toggle').should('be.visible').click()
-    cy.get('.Nav').find('a').should('be.visible')
-    cy.get('.Nav__toggle').should('be.visible').click()
-
-    // lets see what our app looks like on a super large screen
-    cy.viewport(2999, 2000)
-    cy.wait(200)
-    cy.screenshot('2999x2000',{
-      capture:'viewport',
-    })
-
     // cy.viewport() accepts a set of preset sizes
     // to easily set the screen to a device's width and height
 
@@ -57,9 +40,9 @@ context('Viewport', () => {
       capture:'viewport',
     })
 
-    cy.viewport('iphone-6')
+    cy.viewport('iphone-xr')
     cy.wait(200)
-    cy.screenshot('iphone-6',{
+    cy.screenshot('iphone-xr',{
       capture:'viewport',
     })
 

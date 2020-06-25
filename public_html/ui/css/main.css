@@ -62,6 +62,7 @@ table {
 
 :root{
   --border-radius: 0.2rem;
+  --vh: 1vh;
 }
 
 /* [data-theme="dark-mode"]{
@@ -137,15 +138,18 @@ table {
   box-sizing: inherit;
   box-sizing: border-box;
 
+  transition-duration: 0.2s;
+  transition-property: color, background-color, opacity;
+
   font-display: swap !important;
   /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
   overscroll-behavior: none;
-  transition-duration: 0.2s;
-  transition-property: color, background-color, opacity;
   will-change: font-size;
 }
 
-html{
+html {
+  height: -webkit-fill-available;
+
   scroll-behavior: smooth;
   /* Hide scrollbar for IE and Edge */
   /* -ms-overflow-style: none; */
@@ -162,7 +166,6 @@ html::-webkit-scrollbar {
 
 html,
 body {
-  min-height: 100vh;
   margin: 0;
 
   font-size: 62.5%;
@@ -180,8 +183,12 @@ body {
 }
 
 body {
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
   margin: 0;
   padding: 0;
+
   -webkit-overflow-scrolling: touch;
 }
 
@@ -197,8 +204,8 @@ img.lazyloaded {
 }
 
 img.lazyload {
-  transform: blur(.1rem);
   transition: 2s;
+  transform: blur(0.1rem);
 }
 
 a {
@@ -220,11 +227,13 @@ a {
     text-decoration-skip: edges;
     text-decoration-skip-ink: auto;
     text-decoration-style: line;
-    text-decoration-thickness: .125em;
+    text-decoration-thickness: 0.125em;
     text-underline-offset: 1.5px
   }
-    a:hover, a:active, a:focus{
-      text-decoration-thickness: .15em;
+    a:hover,
+    a:active,
+    a:focus {
+      text-decoration-thickness: 0.15em;
     }
 }
 
@@ -249,7 +258,7 @@ a:focus {
 
 /* for devices that have bad pointers like WII, styluses, or no pointers */
 
-@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none)  {
+@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none) {
   a:hover {
     color: hsla(238,69%,52.5%,1);
     color: var(--charlie);
@@ -269,8 +278,8 @@ a:focus {
   display: block;
   overflow: hidden;
 
-  width: .01rem;
-  height: .01rem;
+  width: 0.01rem;
+  height: 0.01rem;
   padding: 1rem;
 
   color: #fff !important;
@@ -316,9 +325,9 @@ a:focus {
   overflow: hidden;
   clip: rect(0 0 0 0);
 
-  width: .01rem;
-  height: .01rem;
-  margin: -.01rem;
+  width: 0.01rem;
+  height: 0.01rem;
+  margin: -0.01rem;
   padding: 0;
 
   white-space: nowrap;
@@ -379,14 +388,14 @@ body header,
   background-color: yellow;
 }
 
-.honey{
-  visibility: hidden;
+.honey {
   display: none;
+  visibility: hidden;
 }
 
 /* make sure hidden things stay hidden */
 
-[hidden]{
+[hidden] {
   display: none !important;
   visibility: hidden !important;
 }
@@ -430,54 +439,63 @@ body header,
   *,
   *::before,
   *::after {
-    animation-duration: 0s !important;
     transition-duration: 0s !important;
+    animation-duration: 0s !important;
   }
-  html{
+  html {
     scroll-behavior: auto;
   }
 }
 
 /* Auto screen dark */
 
-@media (prefers-color-scheme: dark)  {
+@media (prefers-color-scheme: dark) {
   body {
     filter: invert(100%) hue-rotate(180deg);
   }
   img,
   video,
   iframe {
-    filter: invert(100%) hue-rotate(180deg) !important;
+    filter: invert(100%) hue-rotate(180deg);
   }
-  * { box-shadow: none !important; text-shadow: none !important; }
+  * {
+    box-shadow: none;
+    text-shadow: none;
+  }
 }
 
-html[data-theme="dark"] body {
-    filter: invert(100%) hue-rotate(180deg) !important;
+html[data-theme='dark'] body {
+    filter: invert(100%) hue-rotate(180deg);
   }
 
-html[data-theme="dark"] img,
-  html[data-theme="dark"] video,
-  html[data-theme="dark"] iframe {
-    filter: invert(100%) hue-rotate(180deg) !important;
+html[data-theme='dark'] img,
+  html[data-theme='dark'] video,
+  html[data-theme='dark'] iframe {
+    filter: invert(100%) hue-rotate(180deg);
   }
 
-html[data-theme="dark"]{
-  * { box-shadow: none !important; text-shadow: none !important; }
+html[data-theme='dark'] {
+  * {
+    box-shadow: none;
+    text-shadow: none;
+  }
 }
 
 /* Auto screen dark */
 
-@media (prefers-contrast), (inverted-colors){
-  *{
-    color: #fff !important;
-    color: var(--light) !important;
-    background-color: #000 !important;
-    background-color: var(--dark) !important
+@media (prefers-contrast), (inverted-colors) {
+  * {
+    color: #fff;
+    color: var(--light);
+    background-color: #000;
+    background-color: var(--dark)
   }
-    *.Button, *.Details, *.Summary, * input{
-      border: 1px solid #fff !important;
-      border: 1px solid var(--light) !important;
+    *.Button,
+    *.Details,
+    *.Summary,
+    * input {
+      border: 1px solid #fff;
+      border: 1px solid var(--light);
     }
 }
 
@@ -514,6 +532,7 @@ body {
   font-size: inherit;
   font-weight: 400;
   font-style: normal;
+  /* line-height: calc(2px + 2ex + 2px); */
   line-height: 150%;
   letter-spacing: .01rem;
   font-display: swap !important;
@@ -658,6 +677,7 @@ select {
   padding: 0.3rem 0.5rem;
 
   font-size: inherit;
+  font-family: inherit;
   line-height: inherit;
   vertical-align: bottom;
 
@@ -690,7 +710,7 @@ input:focus, textarea:focus, select:focus {
 
   width: 1em;
   height: 1em;
-  margin-right: 0.5rem;
+  margin-right: 0.2rem;
   margin-bottom: 0;
   padding: 0;
 
@@ -713,7 +733,7 @@ input:focus, textarea:focus, select:focus {
 
   width: 1em;
   height: 1em;
-  margin-right: 0.5rem;
+  margin-right: 0.2rem;
   margin-bottom: 0;
   padding: 0;
 
@@ -801,7 +821,7 @@ form [type='submit'] {
   background-color: hsla(0, 0%, 82%, 1);
 
   background-color: var(--echo);
-  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3);
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.1rem hsla(0, 0%, 0%, .1);
 }
 
 .Header__logo {
@@ -810,11 +830,11 @@ form [type='submit'] {
   margin-right: auto;
   padding: 1rem;
 
-  background-color: inherit;
+  background-color: inherit
 }
 
-.Theme__picker span {
-    display: none;
+.Header__logo img{
+    filter: none !important;
   }
 
 .Theme__picker input {
@@ -1106,6 +1126,7 @@ body.no-js .Nav__toggle{
   padding: 1.5rem;
   background-color: hsla(0, 0%, 82%, 1);
   background-color: var(--echo);
+  box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, .1);
 }
 
 .Footer a{
@@ -1128,8 +1149,12 @@ body.no-js .Nav__toggle{
   margin-top: 1.5rem
 }
 
-.Form__checkbox [type="checkbox"]{
+.Form__checkbox [type='checkbox']{
     vertical-align: text-top;
+  }
+
+.Form fieldset label{
+    margin-right: 1rem;
   }
 
 /* EOF */
@@ -1333,7 +1358,8 @@ body.no-js .Details__content {
 .Blockquote {
   margin-right: 2rem;
   margin-left: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  margin-top: 1.5rem;
   padding-left: 1rem;
   line-height: inherit;
 
@@ -1403,6 +1429,7 @@ button.Button {
   cursor: pointer;
 
   font-size: inherit;
+  font-weight: 500;
   line-height: inherit;
   text-align: center;
   text-decoration: none;
@@ -1415,9 +1442,7 @@ button.Button {
   border-radius: var(--border-radius); /* delete later */
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
-
-  font-weight: 500;
-  box-shadow: 0 .1rem .2rem hsla(0, 0%, 0%, .3)
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1)
 }
 
 .Button,
@@ -1433,6 +1458,7 @@ button.Button {
   cursor: pointer;
 
   font-size: inherit;
+  font-weight: 500;
   line-height: inherit;
   text-align: center;
   text-decoration: none;
@@ -1445,9 +1471,7 @@ button.Button {
   border-radius: var(--border-radius); /* delete later */
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
-
-  font-weight: 500;
-  box-shadow: 0 .1rem .2rem hsla(0, 0%, 0%, .3)
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1)
 }
 
 .Button:hover,
@@ -1462,7 +1486,7 @@ button.Button {
     color: var(--light);
     background-color: hsla(238, 65%, 65.5%,1);
     background-color: var(--bravo);
-    box-shadow:none;
+    box-shadow: none;
   }
 
 .Button:hover,
@@ -1475,7 +1499,7 @@ button.Button {
     color: var(--light);
     background-color: hsla(238, 65%, 65.5%,1);
     background-color: var(--bravo);
-    box-shadow:none;
+    box-shadow: none;
   }
 
 .Button:active, a:link.Button:active, a:visited.Button:active, button.Button:active {
