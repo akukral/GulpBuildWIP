@@ -106,5 +106,9 @@ window.onresize = debounce(getVerticalHeight, 200);
 
 getVerticalHeight();
 
+const allLinks = Array.from(document.querySelectorAll(`[target="_blank"]`));
+allLinks.forEach(el=> {if(!el.hasAttribute(`rel`)){el.setAttribute(`rel`,`nofollower`)}});
+
+
 // remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
 document.body.classList.remove(`no-js`);

@@ -483,7 +483,7 @@ html[data-theme='dark'] {
 
 /* Auto screen dark */
 
-@media (prefers-contrast), (inverted-colors) {
+@media (prefers-contrast), (inverted-colors), (-ms-high-contrast: active)    {
   * {
     color: #fff;
     color: var(--light);
@@ -1529,6 +1529,8 @@ button.Button {
   }
 
 /* EOF */
+
+/* TODO: Add in and adjust code with polyfill and with ::backdrop */
 
 .Dialog {
   position: fixed;
