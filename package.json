@@ -13,7 +13,7 @@
   "dependencies": {
     "caniuse-lite": "^1.0.30001062",
     "debounce": "^1.2.0",
-    "lazysizes": "^4.1.8",
+    "lazysizes": "^5.2.1",
     "npm-update-all": "^1.0.1",
     "quicklink": "^2.0.0"
   },
