@@ -38,7 +38,7 @@ const fontLoader = (fontsToLoad) => {
     (`matchMedia` in window && window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) ||
     (navigator.connection && (navigator.connection.effectiveType === `slow-2g` || navigator.connection.effectiveType === `2g`))
   ) {
-    console.log(`looks like you don't want custom typefaces`)
+    console.warning(`looks like you don't want custom typefaces`)
   } else {
     loadFonts();
   }

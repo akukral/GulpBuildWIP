@@ -119,7 +119,7 @@ table {
   --alpha: hsla(206,17%,24%,1);
   --bravo: hsla(238, 65%, 65.5%,1);
   --charlie: hsla(238,69%,52.5%,1);
-  --delta: hsla(0, 0%, 0%, 0.3);
+  --delta: hsla(0, 0%, 0%, 0.1);
   --echo: hsla(0, 0%, 82%, 1);
   --foxtrot: hsla(0, 0%, 50%, 1);
 
@@ -264,6 +264,14 @@ a:focus {
     color: var(--charlie);
     box-shadow: none;
     text-shadow: none;
+  }}
+
+@media(any-pointer: coarse) and , (any-pointer: none) and , (pointer: none) and , (hover: none) and 
+;
+
+@media (any-hover: none) {
+  a{
+    text-decoration: underline;
   }
 }
 
@@ -388,6 +396,11 @@ body header,
   background-color: yellow;
 }
 
+.break-after::after {
+  content: '\A';
+  white-space: pre;
+}
+
 .honey {
   display: none;
   visibility: hidden;
@@ -456,7 +469,7 @@ body header,
   img,
   video,
   iframe {
-    filter: invert(100%) hue-rotate(180deg);
+    filter: invert(100%) hue-rotate(180deg) !important;
   }
   * {
     box-shadow: none;
@@ -471,7 +484,7 @@ html[data-theme='dark'] body {
 html[data-theme='dark'] img,
   html[data-theme='dark'] video,
   html[data-theme='dark'] iframe {
-    filter: invert(100%) hue-rotate(180deg);
+    filter: invert(100%) hue-rotate(180deg) !important;
   }
 
 html[data-theme='dark'] {
@@ -539,6 +552,8 @@ body {
   text-size-adjust: 100% !important;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
+  text-edge: cap alphabetic;
+  leading-trim: both;
 }
 
 h1,
@@ -1162,6 +1177,126 @@ body.no-js .Nav__toggle{
 .Section,
 section{
   scroll-margin-top: 5rem;
+  contain: layout style;
+  contain-intrinsic-size: 400px;
+  /* TODO contain-intrinsic-size: 400px; */
+  /* TODO content-visibility: auto; */
+}
+
+/* Headers out of order (i.e. h2 before h1, etc.)
+   Result: dotted blue outline
+*/
+
+h2 ~ h1,
+h3 ~ h1,
+h4 ~ h1,
+h5 ~ h1,
+h6 ~ h1,
+h3 ~ h2,
+h4 ~ h2,
+h5 ~ h2,
+h6 ~ h2,
+h4 ~ h3,
+h5 ~ h3,
+h6 ~ h3,
+h5 ~ h4,
+h6 ~ h4,
+h6 ~ h5 {
+  outline: 0.2rem dotted red;
+}
+
+/* anything that is invalid */
+
+input:invalid {
+  /* background-color: red; */
+}
+
+/* Images with empty alt tags */
+
+img[alt=''],
+img:not([alt]) {
+  outline: 0.2rem dotted red;
+}
+
+img[alt='']:after {
+  content: 'Image is missing an Alt text. ';
+
+  color: black;
+}
+
+/* any inline tyle */
+
+:not(html) *[style] {
+  border: 0.2rem dotted red;
+}
+
+/* faulty or missing links */
+
+a:not([href]),
+a[href='#'],
+a[href=''],
+a[href*='javascript:void(0)'] {
+  border: 0.2rem dotted red;
+}
+
+/* Possible malicious links */
+
+a[target='_blank']:not([rel~='noopener']):not([rel~='noreferrer']) {
+  border: 0.2rem dotted red;
+}
+
+/* no html language set */
+
+html:not([lang]),
+html[lang=''] {
+  background: red;
+}
+
+/* Unaccessible Viewport Attributes */
+
+meta[name='viewport'][content*='user-scalable=no'],
+meta[name='viewport'][content*='maximum-scale'],
+meta[name='viewport'][content*='minimum-scale'] {
+  background: red;
+}
+
+input:not([id]),
+select:not([id]),
+textarea:not([id]) {
+  background: red;
+}
+
+label:not([for]) {
+  color: red;
+}
+
+/* no  submitting name for form */
+
+input:not([name]),
+select:not([name]),
+textarea:not([name]),
+form:not([name]):not([id]) {
+  background: red;
+}
+
+/* empty interactive elements */
+
+button:empty,
+a:empty {
+  border: 0.2rem dotted red;
+}
+
+/* depricated code */
+
+script[type='text/javascript'],
+link[rel='stylesheet'][type='text/css'] {
+  border: 0.2rem dotted red;
+}
+
+/* No div inside inline elements */
+
+:is(b, i, strong, em, abbr, cite, code, span, small, label) > div {
+  border: 0.2rem dotted red;
 }
 
 /* Components */
@@ -1246,12 +1381,12 @@ section{
 }
 
 details[open] .Details__summary {
-  background-color: hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.1);
   background-color: var(--delta);
 }
 
 .Details--open .Details__summary {
-  background-color: hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.1);
   background-color: var(--delta);
 }
 
@@ -1439,10 +1574,10 @@ button.Button {
   color: var(--light);
   border: none;
   border-radius: 0.2rem;
-  border-radius: var(--border-radius); /* delete later */
+  border-radius: var(--border-radius); /* TODO delete later */
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
-  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1)
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1) /* TODO delete later */
 }
 
 .Button,
@@ -1468,10 +1603,10 @@ button.Button {
   color: var(--light);
   border: none;
   border-radius: 0.2rem;
-  border-radius: var(--border-radius); /* delete later */
+  border-radius: var(--border-radius); /* TODO delete later */
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
-  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1)
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, .8), inset 0 0 .5rem hsla(0, 0%, 100%, .1) /* TODO delete later */
 }
 
 .Button:hover,

@@ -1,4 +1,8 @@
 .Section,
 section{
   scroll-margin-top: 5rem;
+  contain: layout style;
+  contain-intrinsic-size: 400px;
+  /* TODO contain-intrinsic-size: 400px; */
+  /* TODO content-visibility: auto; */
 }

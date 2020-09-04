@@ -15,6 +15,8 @@
 @import './modules/_Form';
 @import './modules/_Section';
 
+@import './modules/_Linter';
+
 /* Components */
 @import './components/_Details';
 @import './components/_Video';

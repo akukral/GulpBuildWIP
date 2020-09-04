@@ -179,7 +179,6 @@ gulp.task('critical', gulp.series((done) => {
       css: [`${stylesDestPoint}main.css`],
       width: 768,
       height: 1024,
-      timeout: 6000,
       minify: true,
       penthouse: {
         forceInclude: [`body footer`],

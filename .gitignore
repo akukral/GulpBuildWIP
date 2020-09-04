@@ -1,6 +1,6 @@
 # Craft Storage (cache) [http://buildwithcraft.com/help/craft-storage-gitignore]
-/craft/storage/*
-!/craft/storage/logo/*
+/storage/*
+!/storage/logo/*
 
 # Ignore all files starting with dot except for gitignore and htaccess
 .*
