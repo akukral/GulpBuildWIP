@@ -1,0 +1,104 @@
+
+/* Headers out of order (i.e. h2 before h1, etc.)
+   Result: dotted blue outline
+*/
+h2 ~ h1,
+h3 ~ h1,
+h4 ~ h1,
+h5 ~ h1,
+h6 ~ h1,
+h3 ~ h2,
+h4 ~ h2,
+h5 ~ h2,
+h6 ~ h2,
+h4 ~ h3,
+h5 ~ h3,
+h6 ~ h3,
+h5 ~ h4,
+h6 ~ h4,
+h6 ~ h5 {
+  outline: 0.2rem dotted red;
+}
+
+/* anything that is invalid */
+input:invalid {
+  /* background-color: red; */
+}
+
+/* Images with empty alt tags */
+img[alt=''],
+img:not([alt]) {
+  outline: 0.2rem dotted red;
+}
+
+img[alt='']:after {
+  content: 'Image is missing an Alt text. ';
+
+  color: black;
+}
+
+/* any inline tyle */
+:not(html) *[style] {
+  border: 0.2rem dotted red;
+}
+
+/* faulty or missing links */
+a:not([href]),
+a[href='#'],
+a[href=''],
+a[href*='javascript:void(0)'] {
+  border: 0.2rem dotted red;
+}
+
+/* Possible malicious links */
+a[target='_blank']:not([rel~='noopener']):not([rel~='noreferrer']) {
+  border: 0.2rem dotted red;
+}
+
+/* no html language set */
+html:not([lang]),
+html[lang=''] {
+  background: red;
+}
+
+/* Unaccessible Viewport Attributes */
+meta[name='viewport'][content*='user-scalable=no'],
+meta[name='viewport'][content*='maximum-scale'],
+meta[name='viewport'][content*='minimum-scale'] {
+  background: red;
+}
+
+input:not([id]),
+select:not([id]),
+textarea:not([id]) {
+  background: red;
+}
+
+label:not([for]) {
+  color: red;
+}
+
+/* no  submitting name for form */
+input:not([name]),
+select:not([name]),
+textarea:not([name]),
+form:not([name]):not([id]) {
+  background: red;
+}
+
+/* empty interactive elements */
+button:empty,
+a:empty {
+  border: 0.2rem dotted red;
+}
+
+/* depricated code */
+script[type='text/javascript'],
+link[rel='stylesheet'][type='text/css'] {
+  border: 0.2rem dotted red;
+}
+
+/* No div inside inline elements */
+:is(b, i, strong, em, abbr, cite, code, span, small, label) > div {
+  border: 0.2rem dotted red;
+}
