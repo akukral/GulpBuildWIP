@@ -64,12 +64,23 @@ details[open] .Details__summary {
 .Details--open .Details__summary {
   background-color: var(--delta);
 }
+@keyframes detailsFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-1em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .Details[open] .Details__content {
   display: block !important;
-  /* height: auto !important; */
+  animation: detailsFade .3s ease-in-out;
 }
 .Details--open .Details__content {
   display: block !important;
+  animation: detailsFade .3s ease-in-out;
 }
 .Details[open] .Details__summary::after {
   /* content: '\2297'; */

@@ -65,6 +65,10 @@
   <link rel="preload" href="/ui/js/main.js" as="script">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
   <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+  <link rel="preconnect" href="https://f.vimeocdn.com">
+
+  <!-- Pre connect to any ouside urls here -->
+  <!-- <link rel="preload" href="SOME URL HERE">  -->
 
   <style>
     @media screen and (max-width: 25rem) {
@@ -90,12 +94,14 @@
   </noscript>
 
   <header class="Header">
-    <a href="#Main" class="skip" tabindex="0">Skip to main content</a>
-    <a href="/" class="Header__logo">
+    <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
+    <a href="/" class="Header__logo" title="Boilerplate">
       <img src="/ui/images/logo.svg" alt="Boilerplate Logo" style="max-width: 10rem; vertical-align: middle;">
+      <span class="sr-only">Boilerplate</span>
     </a>
     <nav class="Nav" aria-label="Main Navigation">
-      <button class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
+      <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu"
+        title="Toggle Menu">
         <span class="sr-only">Toggle Menu</span>
         <span class="Nav__hamburger"></span>
       </button>
@@ -106,27 +112,31 @@
         <li>
           <a href="/#tabSection">Tab Section</a>
         </li>
+        <li>
+          <a href="http://google.com" target="_blank">Google</a>
+        </li>
       </ul>
     </nav>
-    <label class="Theme__picker"><input type="checkbox" name="theme" id=""><span>Theme Picker</span></label>
+    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme"><span class="sr-only">Select
+        to enable dark mode.</span></label>
     <!-- /nav -->
   </header>
   <!-- /header -->
 
 
   <main class="Main" id="Main" aria-labelledby="MainTitle">
-    <h1 id="MainTitle">Homepage</h1>
+    <h1 id="MainTitle">Homepage<br>Title</h1>
 
     <label for="search">Search:</label>
     <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" />
-    <datalist id="searchList">
+    <datalist id="searchList" aria-label="Available search autocomplete options">
       <option value="lorem">
       <option value="ipsum">
       <option value="dolor">
       <option value="sit">
     </datalist>
 
-    <button class="Button" data-modal="Dialog1">Modal 1</button>
+    <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
     <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
       aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
       <div class="Dialog__container">
@@ -142,7 +152,9 @@
               href="https://vimeo.com/sambmotion">Sam Burton</a> on <a href="https://vimeo.com">Vimeo</a>.
           </p>
         </div>
-        <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+        <form method="dialog">
+          <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+        </form>
       </div>
     </div>
 
@@ -161,7 +173,7 @@
 
     <h2>A section heading block</h2>
 
-    <button class="Button" data-modal="Dialog2">Modal 2</button>
+    <button type="button" class="Button" data-modal="Dialog2">Modal 2</button>
     <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
       aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
@@ -171,7 +183,9 @@
               voluptatum</a> adipisci, a libero perferendis
             blanditiis neque quisquam excepturi deserunt?</p>
         </div>
-        <button class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+        <form method="dialog">
+          <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+        </form>
       </div>
     </div>
 
@@ -262,11 +276,11 @@
       <div id="Carousel" class="Carousel">
         <div class="Carousel__container">
           <div class="Carousel__slide">
-            <figure>
+            <figure aria-labelledby="Caption1">
               <img src="https://picsum.photos/1000/500?random=1" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 1" class="lazyload" loading="lazy" id="test">
             </figure>
-            <div class="Carousel__content">
+            <div class="Carousel__content" id="Caption1">
               <h4>Space Teddy production reaches all-time high</h4>
               <p>
                 Teddies in Space Inc. has released outstanding numbers for the last solar year.
@@ -275,11 +289,11 @@
             </div>
           </div>
           <div class="Carousel__slide">
-            <figure>
+            <figure aria-labelledby="Caption2">
               <img src="https://picsum.photos/1000/500?random=2" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 2" class="lazyload" loading="lazy">
             </figure>
-            <div class="Carousel__content">
+            <div class="Carousel__content" id="Caption2">
               <h4>New Space Teddy Announced!</h4>
               <p>
                 Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
@@ -288,11 +302,11 @@
             </div>
           </div>
           <div class="Carousel__slide">
-            <figure>
+            <figure aria-labelledby="Caption3">
               <img src="https://picsum.photos/1000/500?random=3" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 3" class="lazyload" loading="lazy">
             </figure>
-            <div class="Carousel__content">
+            <div class="Carousel__content" id="Caption3">
               <h4>Adventures of the Space&nbsp;Teddy</h4>
               <p>
                 Using modern HTML5 technologies, the latest installment of our game performs great on your computer,
@@ -315,77 +329,86 @@
             <a href="#section2">Section 2</a>
           </li>
           <li>
-             <a href="#section3">Section 3</a>
+            <a href="#section3">Section 3</a>
           </li>
         </ul>
         <section id="section1">
           <h2>Section 1</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. <a href="#">Nam luctus</a>, enim in interdum condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna bibendum accumsan.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante
+            erat imperdiet velit, nec laoreet enim lacus a velit. <a href="#">Nam luctus</a>, enim in interdum
+            condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna
+            bibendum accumsan.</p>
         </section>
         <section id="section2">
           <h2>Section 2</h2>
-          <p>Nullam at diam nec arcu suscipit auctor non a erat. Sed et magna semper, eleifend magna non, facilisis nisl. Proin et est et lorem dictum finibus ut nec turpis. Aenean nisi tortor, euismod a mauris a, mattis scelerisque tortor. Sed dolor risus, varius a nibh id, condimentum lacinia est. In lacinia cursus odio a aliquam. Curabitur tortor magna, laoreet ut rhoncus at, sodales consequat tellus.</p>
+          <p>Nullam at diam nec arcu suscipit auctor non a erat. Sed et magna semper, eleifend magna non, facilisis
+            nisl. Proin et est et lorem dictum finibus ut nec turpis. Aenean nisi tortor, euismod a mauris a, mattis
+            scelerisque tortor. Sed dolor risus, varius a nibh id, condimentum lacinia est. In lacinia cursus odio a
+            aliquam. Curabitur tortor magna, laoreet ut rhoncus at, sodales consequat tellus.</p>
         </section>
         <section id="section3">
           <h2>Section 3</h2>
-          <p>Phasellus ac tristique orci. Nulla maximus <a href="">justo nec dignissim consequat</a>. Sed vehicula diam sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet mollis neque. Vestibulum at facilisis massa.</p>
+          <p>Phasellus ac tristique orci. Nulla maximus <a href="">justo nec dignissim consequat</a>. Sed vehicula diam
+            sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan
+            consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet
+            mollis neque. Vestibulum at facilisis massa.</p>
         </section>
       </div>
     </section>
 
     <section aria-label="Contact Form">
       <h2>Contact Form</h2>
-      <form method="post" class="Form">
+      <form method="post" class="Form" id="Contact" name="Contact Form">
         <label for="firstName">First Name*</label>
-          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name"
-            autocomplete="given-name" required="">
+        <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name"
+          autocomplete="given-name" required="">
 
         <label for="lastName">Last Name*</label>
-          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name"
-            autocomplete="family-name" required="">
+        <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name"
+          autocomplete="family-name" required="">
 
         <label for="address">Address*</label>
-          <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on"
-            required="">
+        <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on"
+          required="">
 
         <label for="city">City*</label>
-          <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on"
-            required="">
+        <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on" required="">
 
         <label for="state">State*</label>
-          <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on"
-            required="">
+        <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on"
+          required="">
 
         <label for="zipCode">Zip*</label>
-          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555"
-            autocomplete="postal-code" required="">
+        <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555"
+          autocomplete="postal-code" required="">
 
         <label for="email">Email Address*</label></label></label>
-          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com"
-            autocomplete="email" required="">
+        <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com"
+          autocomplete="email" required="">
 
         <div class="honey" aria-hidden="true">
           <label for="email_address_confirm">Email Address Confirm</label>
-            <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
-              type="email" placeholder="Email@Address.com">
+          <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
+            type="email" placeholder="Email@Address.com">
         </div>
 
         <label for="phone">Phone</label>
-          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on"
-            required="">
+        <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on"
+          required="">
 
         <label for="subject">Subject/Interest*</label>
-          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
-            autocomplete="off" required="">
+        <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
+          autocomplete="off" required="">
 
         <label for="message">Message</label>
-          <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off"
-            placeholder="Send us your message."></textarea>
+        <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off"
+          placeholder="Send us your message."></textarea>
 
         <fieldset role="group">
-          <label><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
-          <label><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
-          <label><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
+          <legend>Some exclusive options.</legend>
+          <label for="r1"><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
+          <label for="r2"><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
+          <label for="r3"><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
         </fieldset>
 
 
@@ -424,10 +447,10 @@
   </script>
 
   <!-- This polyfill needs to be loaded from the cdn to work -->
-  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" defer></script>
+  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" async></script>
 
   <!-- Load main scripts here -->
-  <script src="/ui/js/main.js" defer></script>
+  <script src="/ui/js/main.js" async></script>
 
   <!-- Service Worker -->
   <script>
@@ -444,7 +467,7 @@
     }
   </script>
 
-  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <script src="//instant.page/5.0.1" type="module" integrity="sha384-0DvoZ9kNcB36fWcQApIMIGQoTzoBDYTQ85e8nmsfFOGz4RHAdUhADqJt4k3K2uLS"></script>
 </body>
 
 </html>

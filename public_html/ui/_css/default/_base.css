@@ -14,7 +14,7 @@
 }
 
 html {
-  height: -webkit-fill-available;
+  /* height: -webkit-fill-available; */
 
   scroll-behavior: smooth;
   /* Hide scrollbar for IE and Edge */
@@ -117,7 +117,7 @@ a:focus {
     color: var(--charlie);
     box-shadow: none;
     text-shadow: none;
-  }@media
+  }
 }
 
 @media (any-hover: none) {
