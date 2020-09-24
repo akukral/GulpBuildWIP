@@ -836,7 +836,7 @@ form [type='submit'] {
   background-color: hsla(0, 0%, 82%, 1);
 
   background-color: var(--echo);
-  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.1rem hsla(0, 0%, 0%, .1);
+  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
 }
 
 .Header__logo {
@@ -848,7 +848,7 @@ form [type='submit'] {
   background-color: inherit
 }
 
-.Header__logo img{
+.Header__logo img {
     filter: none !important;
   }
 
@@ -899,8 +899,10 @@ form [type='submit'] {
   display: inline-block;
   /* height: 100%; */
   /* font-weight: 700; */
+
   letter-spacing: 0.05rem;
   text-transform: uppercase;
+
   font-weight: 900
 }
 
@@ -937,15 +939,15 @@ form [type='submit'] {
     text-align: center
   }
 
-.Nav li.active a::after{
+.Nav li.active a::after {
         display: none;
       }
 
-.Nav li.active + li a::after{
+.Nav li.active + li a::after {
         display: none;
       }
 
-.Nav li.active a{
+.Nav li.active a {
         /* color: var(--alpha); */
         background-color: hsla(238, 65%, 65.5%,1);
         background-color: var(--bravo);
@@ -957,13 +959,13 @@ form [type='submit'] {
     display: inline-block;
 
     width: 100%;
-    padding: 5vh 1rem;
     height: 100%;
+    padding: 5vh 1rem;
 
     text-decoration: none;
     word-wrap: none;
-
     /* color: var(--bravo); */
+
     background-color: inherit
   }
 
@@ -989,7 +991,6 @@ form [type='submit'] {
   padding: 1rem;
 
   cursor: pointer;
-
   text-align: center;
 
   border: none;
@@ -1079,22 +1080,25 @@ form [type='submit'] {
     transition-delay: 0s, 0.2s;
   }
 
-body.no-js .Nav ul{
-    display: block;
+body.no-js .Nav ul {
     position: relative;
+
+    display: block;
   }
 
-body.no-js .Nav li{
-    display: inline-block;
+body.no-js .Nav li {
     position: relative;
+
+    display: inline-block;
+
     width: auto;
   }
 
-body.no-js .Nav a{
+body.no-js .Nav a {
     padding: 1rem;
   }
 
-body.no-js .Nav__toggle{
+body.no-js .Nav__toggle {
     display: none;
   }
 
@@ -1129,8 +1133,9 @@ body.no-js .Nav__toggle{
         display: none !important;
       }
   .Nav__toggle {
-    display: none;
     right: 1rem;
+
+    display: none;
   }
 }
 
@@ -1139,38 +1144,41 @@ body.no-js .Nav__toggle{
 .Footer {
   margin-top: 3rem;
   padding: 1.5rem;
+
   background-color: hsla(0, 0%, 82%, 1);
+
   background-color: var(--echo);
-  box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, .1);
+  box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
 }
 
-.Footer a{
+.Footer a {
   background-color: inherit;
 }
 
 @supports (padding: min(0px)) {
   .Footer {
-    padding-bottom: max(calc(env(safe-area-inset-bottom) + 1.5rem), 1.5rem);
     padding-right: max(env(safe-area-inset-right, 1.5rem), 1.5rem);
+    padding-bottom: max(calc(env(safe-area-inset-bottom) + 1.5rem), 1.5rem);
     padding-left: max(env(safe-area-inset-left, 1.5rem), 1.5rem);
   }
 }
 
 /* EOF */
 
-.Form__checkbox{
+.Form__checkbox {
   display: block;
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem
+
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem
 }
 
-.Form__checkbox [type='checkbox']{
+.Form__checkbox [type='checkbox'] {
     vertical-align: text-top;
   }
 
-.Form fieldset label{
-    margin-right: 1rem;
-  }
+.Form fieldset label {
+  margin-right: 1rem;
+}
 
 /* EOF */
 
