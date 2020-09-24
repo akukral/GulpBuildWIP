@@ -1786,7 +1786,7 @@ body.no-js .Dialog [class*='close'] {
 .Carousel,
 .Carousel__slide {
   width: 100%;
-  margin: 0 0 3.5rem;
+  margin: 0 0 6.5rem;
   padding: 0;
 }
 
@@ -1869,6 +1869,14 @@ body.no-js .Dialog [class*='close'] {
   padding: 1rem 1rem 0.000001rem;
 
   background-color: rgba(255, 255, 255, 0.73333);
+}
+
+.Carousel__slidenav{
+  margin-top: 1rem;
+}
+
+.Carousel__slidenav li{
+  margin: 0 0.5rem;
 }
 
 .btn-next,

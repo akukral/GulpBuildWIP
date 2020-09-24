@@ -131,9 +131,9 @@ const myCarousel = (function () {
         let li = document.createElement('li');
 
         if (settings.startAnimated) {
-          li.innerHTML = '<button data-action="stop"><span class="sr-only">Stop Animation </span>￭</button>';
+          li.innerHTML = '<button data-action="stop" class="Button"><span class="sr-only">Stop Animation </span>￭</button>';
         } else {
-          li.innerHTML = '<button data-action="start"><span class="sr-only">Start Animation </span>▶</button>';
+          li.innerHTML = '<button data-action="start" class="Button"><span class="sr-only">Start Animation </span>▶</button>';
         }
 
         slidenav.appendChild(li);
@@ -142,10 +142,10 @@ const myCarousel = (function () {
       if (settings.slidenav) {
         forEachElement(slides, function (el, i) {
           let li = document.createElement('li');
-          let klass = (i === 0) ? 'class="current" ' : '';
+          let klass = (i === 0) ? 'current' : '';
           let kurrent = (i === 0) ? ' <span class="sr-only">(Current Item)</span>' : '';
 
-          li.innerHTML = '<button ' + klass + 'data-slide="' + i + '"><span class="sr-only">Item</span> ' + (i + 1) + kurrent + '</button>';
+          li.innerHTML = '<button class="Button ' + klass + '" data-slide="' + i + '"><span class="sr-only">Item</span> ' + (i + 1) + kurrent + '</button>';
           slidenav.appendChild(li);
         });
       }
@@ -277,10 +277,10 @@ const myCarousel = (function () {
     if (settings.slidenav) {
       let buttons = carousel.querySelectorAll('.Carousel__slidenav button[data-slide]');
       for (let j = buttons.length - 1; j >= 0; j--) {
-        buttons[j].className = '';
+        buttons[j].classList.remove = 'current';
         buttons[j].innerHTML = '<span class="sr-only">Item</span> ' + (j + 1);
       }
-      buttons[new_current].className = 'current';
+      buttons[new_current].classList.add = 'current';
       buttons[new_current].innerHTML = '<span class="sr-only">Item</span> ' + (new_current + 1) + ' <span class="sr-only">(Current Item)</span>';
     }
 
