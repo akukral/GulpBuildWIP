@@ -1,4 +1,6 @@
-:root{
+:root {
   --border-radius: 0.2rem;
+
+  color-scheme: dark light;
   --vh: 1vh;
 }
