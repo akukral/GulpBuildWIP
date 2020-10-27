@@ -34,6 +34,7 @@ body {
   margin: 0;
 
   font-size: 62.5%;
+  overflow-x: hidden;
 
   color: var(--alpha);
   background-color: var(--light);
@@ -103,7 +104,17 @@ a:focus {
   text-shadow: none;
 }
 
-a:focus {
+/* a:focus{
+  outline: solid 2px var(--bravo);
+  outline-offset: 2px;
+} */
+
+a:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+a:focus-visible;
+a:moz-focusring {
   position: relative;
   z-index: 1;
 
