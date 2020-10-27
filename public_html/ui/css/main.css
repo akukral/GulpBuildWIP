@@ -171,6 +171,7 @@ body {
   margin: 0;
 
   font-size: 62.5%;
+  overflow-x: hidden;
 
   color: hsla(206,17%,24%,1);
 
@@ -248,7 +249,22 @@ a:focus {
   text-shadow: none;
 }
 
-a:focus {
+/* a:focus{
+  outline: solid 2px var(--bravo);
+  outline-offset: 2px;
+} */
+
+a:focus:not(.focus-visible) {
+  outline: 0;
+}
+
+a:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+a:focus-visible;
+
+a:moz-focusring {
   position: relative;
   z-index: 1;
 
@@ -1447,12 +1463,15 @@ details[open] .Details__summary {
   margin-bottom: 0;
 }
 
-summary::details-marker {
+summary::details-marker,
+summary::marker,
+summary::-webkit-details-marker
+{
   display: none;
 }
 
-summary::-webkit-details-marker {
-  display: none;
+summary{
+  list-style-type: none;
 }
 
 body.no-js .Details {

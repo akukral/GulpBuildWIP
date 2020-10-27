@@ -112,7 +112,6 @@ summary::-webkit-details-marker
 }
 summary{
   list-style-type: none;
-}display: none;
 }
 
 body.no-js {
