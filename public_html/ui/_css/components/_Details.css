@@ -5,20 +5,25 @@
   color: var(--bravo);
   background-color: var(--echo);
 }
+
 .Details__summary {
   position: relative;
+
+  width: 100%;
 
   padding: 1rem;
 
   &:hover {
     cursor: pointer;
   }
+
   &:focus {
     outline: 2px solid var(--bravo);
     /* outline-offset: calc(1rem + 3px); */
     /* outline-offset: 2px; */
   }
 }
+
 .Details__summary:after {
   position: absolute;
   top: 50%;
@@ -40,60 +45,77 @@
   font-size: 2rem;
 
   speak: none;
-  @media reader, speech, aural {
+
+  @media reader,
+  speech,
+  aural {
     display: none;
     visibility: hidden;
   }
 }
+
 .Details__summary-text {
   display: inline-block;
+
+  width: 100%;
 
   color: var(--alpha);
 
   font-size: 1rem;
 }
+
 .Details:not([open]) .Details__content {
   display: none;
 }
+
 .Details .Details__content {
   display: none;
 }
+
 details[open] .Details__summary {
   background-color: var(--delta);
 }
+
 .Details--open .Details__summary {
   background-color: var(--delta);
 }
+
 @keyframes detailsFade {
   0% {
     transform: translateY(-1em);
 
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
 
     opacity: 1;
   }
 }
+
 .Details[open] .Details__content {
   display: block !important;
 
   animation: detailsFade 0.3s ease-in-out;
 }
+
 .Details--open .Details__content {
   display: block !important;
 
   animation: detailsFade 0.3s ease-in-out;
 }
+
 .Details[open] .Details__summary::after {
   /* content: '\2297'; */
   transform: rotate(45deg) translateY(-50%);
 }
+
 .Details--open .Details__summary::after {
   /* content: '\2297'; */
   transform: rotate(45deg) translateY(-50%);
 }
+
 .Details__content {
   padding: 2rem 1rem;
 
@@ -101,16 +123,18 @@ details[open] .Details__summary {
 
   font-size: 1rem;
 }
+
 .Details__content *:last-child {
   margin-bottom: 0;
 }
+
 summary::details-marker,
 summary::marker,
-summary::-webkit-details-marker
-{
+summary::-webkit-details-marker {
   display: none;
 }
-summary{
+
+summary {
   list-style-type: none;
 }
 
@@ -118,6 +142,7 @@ body.no-js {
   & .Details {
     display: block !important;
   }
+
   & .Details__content {
     display: block !important;
   }

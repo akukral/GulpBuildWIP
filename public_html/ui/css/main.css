@@ -114,8 +114,6 @@ table {
   --var-color-s: 65%;
   --var-color-l: 65%;
 
-  --var-color-hsl: 238, 65%, 65%;
-
   --var-color-hsl: var(--var-color-h), var(--var-color-s), var(--var-color-l);
 
   --alpha: hsla(206,17%,24%,1);
@@ -125,10 +123,7 @@ table {
   --echo: hsla(0, 0%, 82%, 1);
   --foxtrot: hsla(0, 0%, 50%, 1);
 
-  --background: #fff;
-
   --background: var(--light);
-  --forground: #000;
   --forground: var(--dark);
 }
 
@@ -478,6 +473,21 @@ body header,
 
 /* Auto screen dark */
 
+@media (color-index: 48) {
+  body {
+    filter: invert(100%) hue-rotate(180deg);
+  }
+  img,
+  video,
+  iframe {
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+  * {
+    box-shadow: none;
+    text-shadow: none;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     filter: invert(100%) hue-rotate(180deg);
@@ -539,12 +549,8 @@ html[data-theme='dark'] {
   --unitless-lower-font-range: 380;
   --unitless-upper-font-range: 2048;
 
-  --font-size-difference: calc(22 - 14);
-
   --font-size-difference: calc(var(--unitless-max-font-size) - var(--unitless-min-font-size));
-  --font-range-difference: calc(2048 - 380);
   --font-range-difference: calc(var(--unitless-upper-font-range) - var(--unitless-lower-font-range));
-  --viewport-difference: calc(100vw - (380 * 1px));
   --viewport-difference: calc(100vw - (var(--unitless-lower-font-range) * 1px));
 }
 
@@ -572,18 +578,7 @@ body {
   leading-trim: both;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6{
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
   font-family: 'NeueBold', Helvetica;
   font-display: auto;
 }
@@ -1339,6 +1334,8 @@ link[rel='stylesheet'][type='text/css'] {
 .Details__summary {
   position: relative;
 
+  width: 100%;
+
   padding: 1rem
 }
 
@@ -1378,7 +1375,9 @@ link[rel='stylesheet'][type='text/css'] {
   speak: none
 }
 
-@media reader, speech, aural {
+@media reader,
+  speech,
+  aural {
 
 .Details__summary:after {
     display: none;
@@ -1388,6 +1387,8 @@ link[rel='stylesheet'][type='text/css'] {
 
 .Details__summary-text {
   display: inline-block;
+
+  width: 100%;
 
   color: hsla(206,17%,24%,1);
 
@@ -1420,6 +1421,7 @@ details[open] .Details__summary {
 
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
 
@@ -1465,12 +1467,11 @@ details[open] .Details__summary {
 
 summary::details-marker,
 summary::marker,
-summary::-webkit-details-marker
-{
+summary::-webkit-details-marker {
   display: none;
 }
 
-summary{
+summary {
   list-style-type: none;
 }
 
@@ -1887,7 +1888,7 @@ body.no-js .Dialog [class*='close'] {
   margin: 1rem;
   padding: 1rem 1rem 0.000001rem;
 
-  background-color: rgba(255, 255, 255, 0.73333);
+  background-color: rgba(255,255,255,0.73333);
 }
 
 .Carousel__slidenav{

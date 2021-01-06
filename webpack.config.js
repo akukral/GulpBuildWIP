@@ -15,7 +15,7 @@ module.exports = {
               {
                 targets: {
                   browsers: [
-                    'last 4 versions',
+                    'last 6 versions',
                     'IE >= 10',
                   ],
                 },
