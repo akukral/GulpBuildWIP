@@ -29,6 +29,9 @@ const fontLoader = (fontsToLoad) => {
             document.fonts.add(font);
           });
         })
+        .then(_ => {
+          document.documentElement.classList.add('fonts-loaded')
+        })
         .catch((error) => console.log(error.message));
     }
   }

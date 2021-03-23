@@ -71,18 +71,18 @@ for (let tab of tabset) {
   })
 }
 
-// init Carousel
-// const carousels = document.querySelectorAll(`.Carousel`);
-// for (let carousel of carousels) {
-//   // console.log(carousel.querySelector(`.Carousel__slide`))
-//   let newCarousel = new Carousel();
-//   newCarousel.init({
-//     id: carousel,
-//     slidenav: true,
-//     animate: true,
-//     startAnimated: false,
-//   });
-// }
+// init Carousels
+const carousels = document.querySelectorAll(`.Carousel`);
+for (let carousel of carousels) {
+  // console.log(carousel.querySelector(`.Carousel__slide`))
+  let newCarousel = new Carousel();
+  newCarousel.init({
+    id: carousel,
+    slidenav: true,
+    animate: true,
+    startAnimated: false,
+  });
+}
 
 const media = '(prefers-reduced-motion: reduce)';
 const pref = window.matchMedia(media);

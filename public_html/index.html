@@ -13,6 +13,8 @@
   <!-- Meta Info -->
 
   <title>Home | Gulp Build WIP</title>
+
+  <meta name="color-scheme" content="dark light">
   <meta name="description" content="Website Homepage" />
 
   <meta property="fb:app_id" content="">
@@ -98,7 +100,7 @@
   <header class="Header">
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
     <a href="/" class="Header__logo" title="Boilerplate">
-      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" style="max-width: 10rem; vertical-align: middle;">
+      <img decode="acync" src="/ui/images/logo.svg" alt="Boilerplate Logo" style="max-width: 10rem; vertical-align: middle;" width="140" height="32">
       <span class="sr-only">Boilerplate</span>
     </a>
     <nav class="Nav" aria-label="Main Navigation">
@@ -196,8 +198,8 @@
     </div>
 
     <figure class="Figure">
-      <img src="/ui/images/1818manh2.JPG" height="1296" width="1936" alt="Photo of a empty strip mall" class="lazyload"
-        loading="lazy">
+      <!-- <img decode="acync" src="/ui/images/1818manh2.JPG" height="1296" width="1936" alt="Photo of a empty strip mall" class="lazyload"
+        loading="lazy"> -->
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
       </figcaption>
@@ -277,7 +279,7 @@
         <div class="Carousel__container">
           <div class="Carousel__slide">
             <figure aria-labelledby="Caption1">
-              <img src="https://picsum.photos/1000/500?random=1" height="500" width="1000"
+              <img decode="acync" src="https://picsum.photos/1000/500?random=1" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 1" class="lazyload" loading="lazy" id="test">
             </figure>
             <div class="Carousel__content" id="Caption1">
@@ -290,7 +292,7 @@
           </div>
           <div class="Carousel__slide">
             <figure aria-labelledby="Caption2">
-              <img src="https://picsum.photos/1000/500?random=2" height="500" width="1000"
+              <img decode="acync" src="https://picsum.photos/1000/500?random=2" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 2" class="lazyload" loading="lazy">
             </figure>
             <div class="Carousel__content" id="Caption2">
@@ -303,7 +305,7 @@
           </div>
           <div class="Carousel__slide">
             <figure aria-labelledby="Caption3">
-              <img src="https://picsum.photos/1000/500?random=3" height="500" width="1000"
+              <img decode="acync" src="https://picsum.photos/1000/500?random=3" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 3" class="lazyload" loading="lazy">
             </figure>
             <div class="Carousel__content" id="Caption3">
@@ -342,7 +344,7 @@
         </section>
         <section id="section3">
           <h2>Section 3</h2>
-          <p>Phasellus ac tristique orci. Nulla maximus <a href="">justo nec dignissim consequat</a>. Sed vehicula diam sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet mollis neque. Vestibulum at facilisis massa.</p>
+          <p>Phasellus ac tristique orci. Nulla maximus <a href="#">justo nec dignissim consequat</a>. Sed vehicula diam sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet mollis neque. Vestibulum at facilisis massa.</p>
         </section>
       </div>
     </section>
@@ -422,6 +424,13 @@
   </footer>
   <!-- footer -->
 
+  <!-- This polyfill needs to be loaded from the cdn to work -->
+  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" async></script>
+
+  <!-- Load main scripts here -->
+  <script src="/ui/js/main.js" defer></script>
+
+  <!-- Service Worker -->
   <script>
     function loadCSS(file, media) {
       var n = window.document.createElement("link");
@@ -435,17 +444,8 @@
         document.getElementById('critical').remove();
       }, 0);
     }
+
     loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
-  </script>
-
-  <!-- This polyfill needs to be loaded from the cdn to work -->
-  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" async></script>
-
-  <!-- Load main scripts here -->
-  <script src="/ui/js/main.js" async></script>
-
-  <!-- Service Worker -->
-  <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').then(function (registration) {
