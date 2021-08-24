@@ -15,7 +15,6 @@
 @import './modules/_Form';
 @import './modules/_Section';
 
-@import './modules/_Linter';
 
 /* Components */
 @import './components/_Details';
@@ -27,5 +26,7 @@
 @import './components/_Dialog';
 @import './components/_Carousel';
 @import './components/_Tabs';
+
+/* @import './modules/_Linter'; */
 
 /* EOF */

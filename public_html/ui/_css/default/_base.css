@@ -16,7 +16,7 @@
 html {
   /* height: -webkit-fill-available; */
 
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   /* Hide scrollbar for IE and Edge */
   /* -ms-overflow-style: none; */
   /* Remove Scrollbar Firefox Fix, suggested in the comments */
@@ -31,13 +31,15 @@ html::-webkit-scrollbar {
 
 html,
 body {
-  margin: 0;
 
-  font-size: 62.5%;
-  overflow-x: hidden;
+  min-height: 1vw;
+  max-width: 100%;
+  margin: 0;
 
   color: var(--alpha);
   background-color: var(--light);
+
+  font-size: 62.5%;
 
   font-display: auto;
   -webkit-font-smoothing: antialiased;
@@ -46,6 +48,7 @@ body {
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
@@ -65,6 +68,7 @@ img.lazyloaded {
 
   filter: blur(0);
 }
+
 img.lazyload {
   transition: 2s;
   transform: blur(0.1rem);
@@ -88,6 +92,7 @@ a {
     text-decoration-style: line;
     text-decoration-thickness: 0.125em;
     text-underline-offset: 1.5px;
+
     &:hover,
     &:active,
     &:focus {
@@ -114,6 +119,7 @@ a:focus:not(:focus-visible) {
 }
 
 a:focus-visible;
+
 a:moz-focusring {
   position: relative;
   z-index: 1;
@@ -123,7 +129,10 @@ a:moz-focusring {
 }
 
 /* for devices that have bad pointers like WII, styluses, or no pointers */
-@media (any-pointer: coarse), (any-pointer: none), (pointer: none), (hover: none) {
+@media (any-pointer: coarse),
+(any-pointer: none),
+(pointer: none),
+(hover: none) {
   a:hover {
     color: var(--charlie);
     box-shadow: none;
@@ -132,7 +141,7 @@ a:moz-focusring {
 }
 
 @media (any-hover: none) {
-  a{
+  a {
     text-decoration: underline;
   }
 }
@@ -155,6 +164,7 @@ a:moz-focusring {
   border: 0;
   background-color: var(--dark) !important;
 }
+
 .skip:hover,
 .skip:focus,
 .skip:active {
@@ -204,15 +214,17 @@ a:moz-focusring {
 }
 
 main {
-  width: 100%;
   /* max-width: 1200px; */
-  max-width: 75ch;
-  margin-right: auto;
-  margin-left: auto;
+  overflow-x: hidden;
   /* padding-right: 2rem; */
   /* padding-left: 2rem; */
 
   flex-grow: 1;
+  width: 100%;
+  max-width: 75ch;
+  margin-right: auto;
+  margin-left: auto;
+
   @media (max-width: 768px) {
     flex-grow: initial;
   }
@@ -223,10 +235,12 @@ body {
   overflow-x: hidden;
   flex-direction: column;
   align-items: center;
+
   & main {
-    align-self: start;
     flex-grow: 1;
+    align-self: start;
   }
+
   & header,
   & footer {
     width: 100%;
@@ -263,18 +277,22 @@ body {
 @supports (display:grid) {
   body {
     display: grid;
-
-    grid-template-columns: [full-start] minmax(2rem,1fr) [main-start] minmax(10rem,75ch) [main-end] minmax(2rem,1fr) [full-end];
     grid-template-rows: auto 1fr auto;
+
+    grid-template-columns: [full-start] minmax(2rem, 1fr) [main-start] minmax(10rem, 75ch) [main-end] minmax(2rem, 1fr) [full-end];
+
     & header {
       grid-column: full;
     }
+
     & main {
       grid-column: main;
     }
+
     & footer {
       grid-column: full;
     }
+
     & noscript {
       grid-column: full;
     }
@@ -284,7 +302,7 @@ body {
 @supports (content:normal) {
   @media print {
     a[href^='http']:after {
-      content: ' (' attr(href) ')';
+      content: ' ('attr(href) ')';
     }
   }
 }
@@ -294,14 +312,24 @@ body {
   /* load in low res stuff */
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* removes all animation if people have reduced motioon seet up for ADA or Memory usage */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
-    transition-duration: 0s !important;
-    animation-duration: 0s !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
+
   html {
     scroll-behavior: auto;
   }
@@ -312,25 +340,30 @@ body {
   body {
     filter: invert(100%) hue-rotate(180deg);
   }
+
   img,
   video,
   iframe {
     filter: invert(100%) hue-rotate(180deg) !important;
   }
+
   * {
     box-shadow: none;
     text-shadow: none;
   }
 }
+
 html[data-theme='dark'] {
   & body {
     filter: invert(100%) hue-rotate(180deg);
   }
+
   & img,
   & video,
   & iframe {
     filter: invert(100%) hue-rotate(180deg) !important;
   }
+
   * {
     box-shadow: none;
     text-shadow: none;
@@ -338,16 +371,25 @@ html[data-theme='dark'] {
 }
 
 /* Auto screen dark */
-@media (prefers-contrast), (inverted-colors), (-ms-high-contrast: active)    {
+@media (prefers-contrast),
+(inverted-colors),
+(-ms-high-contrast: active) {
   * {
     color: var(--light);
     background-color: var(--dark);
+
     &.Button,
     &.Details,
     &.Summary,
     & input {
       border: 1px solid var(--light);
     }
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    height: -webkit-fill-available;
   }
 }
 

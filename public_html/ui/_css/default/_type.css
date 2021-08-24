@@ -32,6 +32,11 @@ body {
   font-variant-numeric: tabular-nums;
   text-edge: cap alphabetic;
   leading-trim: both;
+
+  /* Help prevent overflow of long words/names/URLs */
+  word-break: break-word;
+  /* Optional, not supported for all languages */
+  hyphens: auto;
 }
 
 @custom-selector :--heading h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6;
@@ -119,6 +124,9 @@ hr, .hr {
 }
 a, b, i, strong, em, small, code {
   /* line-height: 0; */
+}
+a{
+  hyphens: none;
 }
 sub, sup {
   /* line-height: 0; */

@@ -177,8 +177,16 @@ gulp.task('critical', gulp.series((done) => {
     .pipe(critical({
       base: webroot,
       css: [`${stylesDestPoint}main.css`],
-      width: 768,
-      height: 1024,
+      dimensions: [
+        {
+          height: 480,
+          width: 768,
+        },
+        {
+          height: 768,
+          width: 1024,
+        },
+      ],
       minify: true,
       penthouse: {
         forceInclude: [`body footer`],
@@ -186,7 +194,7 @@ gulp.task('critical', gulp.series((done) => {
       },
     }))
     .pipe(postcss(processors))
-    .pipe(gulp.dest(`${webroot}`))
+    .pipe(gulp.dest(stylesDestPoint))
     .pipe(browsersync.reload({
       stream: true,
     }));

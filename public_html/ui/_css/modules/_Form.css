@@ -10,5 +10,12 @@
 .Form fieldset label {
   margin-right: 1rem;
 }
+input:not(:placeholder-shown):required:invalid{
+  border-color: red;
+}
+input:valid{
+  border-color: green;
+}
+
 
 /* EOF */

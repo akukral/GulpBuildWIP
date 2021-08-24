@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="53px" height="36px" viewBox="0 0 53 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
-    <title>logo_small</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="logo_small" transform="translate(-7.000000, -16.000000)">
-            <rect id="Rectangle" x="0" y="0" width="69" height="69"></rect>
-            <polygon id="mark" fill="#333F48" fill-rule="nonzero" points="26.128 51.328 39.34 24.148 56.476 34.732 43.768 42.58 45.388 44.812 59.068 36.28 59.068 33.184 40.528 21.7 42.292 18.028 39.88 16.876 26.38 44.668 10.36 34.732 23.068 26.92 21.592 24.616 7.768 33.148 7.768 36.28 25.192 47.116 23.68 50.248"></polygon>
-        </g>
-    </g>
-</svg>
+<svg height="36" viewBox="0 0 53 36" width="53" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(-7 -16)"><path d="m0 0h69v69h-69z"/><path d="m26.128 51.328 13.212-27.18 17.136 10.584-12.708 7.848 1.62 2.232 13.68-8.532v-3.096l-18.54-11.484 1.764-3.672-2.412-1.152-13.5 27.792-16.02-9.936 12.708-7.812-1.476-2.304-13.824 8.532v3.132l17.424 10.836-1.512 3.132z" fill="#333f48" fill-rule="nonzero"/></g></svg>

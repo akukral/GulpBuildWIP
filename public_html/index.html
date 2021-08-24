@@ -60,15 +60,17 @@
   <!--[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script> <![endif]-->
 
   <!-- Put in Critical CSS -->
-  <link rel="stylesheet" href="/critical.css" media="screen and (min-width:300px)" id="critical">
+  <link rel="stylesheet" href="/ui/css/critical.css" media="screen and (min-width:300px)" id="critical">
 
   <!-- Preloads -->
   <link rel="prefetch" href="/ui/css/main.css" as="style">
   <!-- TODO add dynamically if possible -->
-  <link rel="prefetch" href="/critical.css" as="style">
+  <link rel="prefetch" href="/ui/css/critical.css" as="style">
   <link rel="prefetch" href="/ui/js/main.js" as="script">
   <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
   <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+  <link rel="preload" as="font" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff" crossorigin/>
+  <link rel="preload" as="font" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff" crossorigin/>
   <link rel="preconnect" href="https://f.vimeocdn.com">
 
   <!-- Pre connect to any ouside urls here -->
@@ -88,7 +90,7 @@
     }
   </style>
   <noscript>
-    <link rel="stylesheet" href="/ui/css/main.css">
+    <link rel="stylesheet" href="/ui/css/main.css" media="screen">
   </noscript>
 </head>
 
@@ -100,7 +102,7 @@
   <header class="Header">
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
     <a href="/" class="Header__logo" title="Boilerplate">
-      <img decode="acync" src="/ui/images/logo.svg" alt="Boilerplate Logo" style="max-width: 10rem; vertical-align: middle;" width="140" height="32">
+      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" width="140" height="32">
       <span class="sr-only">Boilerplate</span>
     </a>
     <nav class="Nav" aria-label="Main Navigation">
@@ -198,8 +200,8 @@
     </div>
 
     <figure class="Figure">
-      <!-- <img decode="acync" src="/ui/images/1818manh2.JPG" height="1296" width="1936" alt="Photo of a empty strip mall" class="lazyload"
-        loading="lazy"> -->
+      <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload"
+        loading="lazy">
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
       </figcaption>
@@ -351,52 +353,41 @@
 
     <section aria-label="Contact Form">
       <h2>Contact Form</h2>
-      <form method="post" class="Form" id="Contact" name="Contact Form">
+      <form method="post" class="Form" id="Contact" name="Contact Form" action="/">
         <label for="firstName">First Name*</label>
-          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name"
-            autocomplete="given-name" required="">
+          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="Jane" autocomplete="on" required >
 
         <label for="lastName">Last Name*</label>
-          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name"
-            autocomplete="family-name" required="">
+          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Deaux" autocomplete="on" required>
 
         <label for="address">Address*</label>
-          <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on"
-            required="">
+          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." autocorrect="on" autocomplete="on" required>
 
         <label for="city">City*</label>
-          <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on"
-            required="">
+          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" autocorrect="on" autocomplete="on" required>
 
         <label for="state">State*</label>
-          <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on"
-            required="">
+          <input class="form-control" name="state" id="state" type="text" placeholder="LA" autocorrect="on" autocomplete="on" required>
 
         <label for="zipCode">Zip*</label>
-          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555"
-            autocomplete="postal-code" required="">
+          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" autocomplete="on" required>
 
         <label for="email">Email Address*</label></label></label>
-          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com"
-            autocomplete="email" required="">
+          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="on" required>
 
         <div class="honey" aria-hidden="true">
           <label for="email_address_confirm">Email Address Confirm</label>
-            <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
-              type="email" placeholder="Email@Address.com">
+            <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com" type="email" placeholder="Email@Address.com">
         </div>
 
-        <label for="phone">Phone</label>
-          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on"
-            required="">
+        <label for="phone">Phone*</label>
+          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required>
 
         <label for="subject">Subject/Interest*</label>
-          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
-            autocomplete="off" required="">
+          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" autocomplete="off" autocorrect="on" required>
 
         <label for="message">Message</label>
-          <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off"
-            placeholder="Send us your message."></textarea>
+          <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off" autocorrect="on" placeholder="Send us your message."></textarea>
 
         <fieldset role="group">
           <legend>Some exclusive options.</legend>
@@ -418,9 +409,7 @@
   <!-- main -->
 
   <footer class="Footer">
-    <p>
-      © 2019 Copyright. | <a href="/sitemap">Site Map</a>
-    </p>
+    <p>© 2019 Copyright. | <a href="/sitemap">Site Map</a></p>
   </footer>
   <!-- footer -->
 
@@ -444,8 +433,8 @@
         document.getElementById('critical').remove();
       }, 0);
     }
-
     loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').then(function (registration) {

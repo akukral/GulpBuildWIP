@@ -114,4 +114,18 @@ form [type='submit'] {
   /* clear: both; */
 }
 
+:root { accent-color: var(--alpha); }
+:focus-visible { outline-color: var(--alpha); }
+::selection { background-color: var(--alpha); }
+::marker { color: var(--alpha); }
+
+:is(
+  ::-webkit-calendar-picker-indicator,
+  ::-webkit-clear-button,
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button
+) {
+  color: var(--alpha);
+}
+
 /* EOF */

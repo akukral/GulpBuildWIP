@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="171px" height="173px" viewBox="0 0 171 173" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Untitled 3</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="stampTiles" transform="translate(1.000000, 0.000000)">
-            <path d="M37,13 C37,26.807119 25.807119,38 12,38 L12,130 C25.807119,130 37,141.19288 37,155 L129,155 C129,141.19288 140.19288,130 154,130 L154,38 C140.19288,38 129,26.807119 129,13 L37,13 Z" id="rect2985" fill="#000000"></path>
-        </g>
-    </g>
-</svg>
+<svg height="173" viewBox="0 0 171 173" width="171" xmlns="http://www.w3.org/2000/svg"><path d="m37 13c0 13.807119-11.192881 25-25 25v92c13.807119 0 25 11.19288 25 25h92c0-13.80712 11.19288-25 25-25v-92c-13.80712 0-25-11.192881-25-25z" fill-rule="evenodd" transform="translate(1)"/></svg>

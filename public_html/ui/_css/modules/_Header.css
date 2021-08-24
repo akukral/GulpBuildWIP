@@ -14,6 +14,7 @@
   background-color: var(--echo);
   box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
 }
+
 .Header__logo {
   display: inline-block;
 
@@ -21,10 +22,16 @@
   padding: 1rem;
 
   background-color: inherit;
+
   & img {
     filter: none !important;
   }
+
+  &:hover img {
+    cursor: pointer;
+  }
 }
+
 .Theme__picker {
   & input {
     position: relative;
@@ -33,10 +40,12 @@
 
     border: none;
     background-color: transparent;
+
     &:checked {
       background-color: transparent;
       box-shadow: none;
     }
+
     &::after {
       position: absolute;
       top: -0.2em;
@@ -45,6 +54,7 @@
 
       filter: drop-shadow(0 0 0.1rem var(--dark));
     }
+
     &:checked::after {
       content: '☀️';
 
@@ -52,6 +62,7 @@
     }
   }
 }
+
 @supports (padding: min(0px)) {
   .Header {
     /* padding-top: max(env(safe-area-inset-bottom), 1.5rem); */

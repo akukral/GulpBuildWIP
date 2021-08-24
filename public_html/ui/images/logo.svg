@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="270px" height="38px" viewBox="0 0 270 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
-    <title>logo</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="FiraCode-Regular, Fira Code" font-size="36" font-weight="normal" letter-spacing="-2">
-        <text id="logo" fill="#333F48">
-            <tspan x="-3" y="30">&lt;boilerplate/&gt;</tspan>
-        </text>
-    </g>
-</svg>
+<svg height="38" viewBox="0 0 270 38" width="270" xmlns="http://www.w3.org/2000/svg"><text fill="#333f48" fill-rule="evenodd" font-family="FiraCode-Regular, Fira Code" font-size="36" letter-spacing="-2"><tspan x="-3" y="30">&lt;boilerplate/&gt;</tspan></text></svg>
