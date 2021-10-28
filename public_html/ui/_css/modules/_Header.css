@@ -8,11 +8,36 @@
   /* justify-content: space-between; */
   align-items: center;
 
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   padding: 0.5rem;
 
-  background-color: var(--echo);
-  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
+  background-color: hsla(250, 100%, 100%, .85);
+  backdrop-filter: blur(1rem);
+}
+
+@supports (animation-timeline: works) {
+  @scroll-timeline shadow-scroll-timeline {
+    time-range: 1s;
+    /* scroll-offsets: 0%, 1vh; */
+    start: 0;
+    end: 1vh;
+  }
+  @keyframes shadow-fade {
+    from{
+      box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.01), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.01);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    to{
+      box-shadow: 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .Header {
+    animation: forwards .08s ease-in-out shadow-fade;
+    animation-timeline: shadow-scroll-timeline;
+  }
 }
 
 .Header__logo {
@@ -21,7 +46,7 @@
   margin-right: auto;
   padding: 1rem;
 
-  background-color: inherit;
+  /* background-color: inherit; */
 
   & img {
     filter: none !important;
@@ -40,6 +65,7 @@
 
     border: none;
     background-color: transparent;
+    appearance: none;
 
     &:checked {
       background-color: transparent;

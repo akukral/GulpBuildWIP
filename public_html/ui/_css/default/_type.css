@@ -1,5 +1,5 @@
 :root {
-   /* unitless base font size variables in px */
+  /* unitless base font size variables in px */
   --unitless-min-font-size: 14;
   --unitless-max-font-size: 22;
 
@@ -15,14 +15,14 @@
 @font-face { font-display: swap !important; }
 
 html {
-    font-size: 14px;
-    font-size: calc((var(--unitless-min-font-size) * 1px) + var(--font-size-difference) * var(--viewport-difference) / var(--font-range-difference));
+  font-size: 14px;
+  font-size: calc((var(--unitless-min-font-size) * 1px) + var(--font-size-difference) * var(--viewport-difference) / var(--font-range-difference));
 }
 
 body {
   font-family: Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', ssans-serif;
   font-size: inherit;
-  font-weight: 400;
+  font-weight: 100;
   font-style: normal;
   /* line-height: calc(2px + 2ex + 2px); */
   line-height: 150%;
@@ -140,13 +140,17 @@ sub {
   bottom: -0.25em;
 }
 
- strong,
- b {
-   font-weight: 700 !important;
- }
+strong,
+b {
+  font-weight: 700 !important;
+}
 
- i,
- em {
-   font-style: italic !important;
- }
- /* EOF */
+i,
+em {
+  font-style: italic !important;
+}
+.small{
+  font-size: .8em;
+  line-height: 80%;
+}
+/* EOF */

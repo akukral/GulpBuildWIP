@@ -60,6 +60,7 @@
   <!--[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script> <![endif]-->
 
   <!-- Put in Critical CSS -->
+  <!-- TODO Add inline if possible -->
   <link rel="stylesheet" href="/ui/css/critical.css" media="screen and (min-width:300px)" id="critical">
 
   <!-- Preloads -->
@@ -99,7 +100,7 @@
     <span class="Warning">Please enable javascript to get the most out of this page.</span>
   </noscript>
 
-  <header class="Header">
+  <header class="Header" aria-label="Site Header">
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
     <a href="/" class="Header__logo" title="Boilerplate">
       <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" width="140" height="32">
@@ -132,13 +133,15 @@
     <h1 id="MainTitle">Homepage<br>Title</h1>
 
     <label for="search">Search:</label>
-    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" />
+    <form action="/" method="GET">
+    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" pattern="^.*[a-zA-Z0-9]+.*$"/>
     <datalist id="searchList" aria-label="Available search autocomplete options">
       <option value="lorem">
       <option value="ipsum">
       <option value="dolor">
       <option value="sit">
     </datalist>
+    </form>
 
     <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
     <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
@@ -372,7 +375,11 @@
         <label for="zipCode">Zip*</label>
           <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" autocomplete="on" required>
 
-        <label for="email">Email Address*</label></label></label>
+        <label for="email">
+          Email Address*
+          <p class="small">Format: Email@Address.com</p>
+        </label>
+
           <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="on" required>
 
         <div class="honey" aria-hidden="true">
@@ -380,7 +387,11 @@
             <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com" type="email" placeholder="Email@Address.com">
         </div>
 
-        <label for="phone">Phone*</label>
+        <label for="phone">
+          Phone*
+          <p class="small">Format: (555) 555-5555</p>
+        </label>
+
           <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required>
 
         <label for="subject">Subject/Interest*</label>
@@ -391,9 +402,9 @@
 
         <fieldset role="group">
           <legend>Some exclusive options.</legend>
-          <label for="r1"><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
-          <label for="r2"><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
-          <label for="r3"><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
+          <label for="r1" class="radio"><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
+          <label for="r2" class="radio"><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
+          <label for="r3" class="radio"><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
         </fieldset>
 
 

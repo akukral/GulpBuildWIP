@@ -3,19 +3,43 @@ const fontLoader = (fontsToLoad) => {
 
     if (`fonts` in document) {
       const fontsArray = fontsToLoad.map((font,i) => {
-        const shortName = font.shortName || font.localName || `font${i+1}`;
-        const localName = font.localName || font.shortName || `font${i+1}`;
-        const path = font.path;
-        const newFont = new FontFace(
-          shortName,
-          `local(${localName}),
-          url('${path}.eot?#iefix') format('embedded-opentype'),
-          url('${path}.woff') format('woff'),
-          url('${path}.ttf') format('truetype')`,
-          {weight: 400}
-        )
-        newFont.display = 'swap';
-        return newFont
+          const shortName = font.shortName || font.localName || `font${i+1}`;
+          const localName = font.localName || font.shortName || `font${i+1}`;
+          const path = font.path;
+
+
+          const doesFileExist = (urlToFile, extension) => {
+              fetch(
+                urlToFile+extension,
+                { method: 'GET' }
+              )
+              .then( response => console.error('success:', response) )
+              .catch( error => console.error('error:', error) );
+          };
+
+
+          let fontsToEmbed;
+          if(doesFileExist(path,`.eot`)){
+            fontsToEmbed += `url('${path}.eot?#iefix') format('embedded-opentype'),`
+          }
+          if(doesFileExist(path,`.ttf`)){
+            fontsToEmbed += `url('${path}.format('truetype'),`
+          }
+          if(doesFileExist(path,`.woff2`)){
+            fontsToEmbed += `url('${path}.woff2') format('woff2'),`
+          }
+          if(doesFileExist(path,`.woff`)){
+            fontsToEmbed += `url('${path}.woff') format('woff'),`
+          }
+
+          const newFont = new FontFace(
+            shortName,
+            `local(${localName}),
+            url('${path}.ttf') format('truetype')`,
+            {weight: 400}
+          )
+          newFont.display = 'swap';
+          return newFont
       })
       // console.log(fontsArray);
 

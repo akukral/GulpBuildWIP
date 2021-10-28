@@ -11,6 +11,7 @@ const postcss = require(`gulp-postcss`);
 const postcssPresetEnv = require(`postcss-preset-env`);
 const cssimport = require(`postcss-import`);
 const cssnano = require(`cssnano`);
+// const postcssLogical = require('postcss-logical');
 const critical = require(`critical`).stream;
 
 // Image compression
@@ -66,6 +67,7 @@ gulp.task(`styles`, gulp.series((done) => {
   console.log(`Styles Run`);
   const processors = [
     cssimport(),
+    // postcssLogical(),
     postcssPresetEnv({
       stage: 0,
       features: {
@@ -93,6 +95,7 @@ gulp.task(`stylesBuild`, gulp.series((done) => {
   console.log(`Styles Build`);
   const processors = [
     cssimport(),
+    // postcssLogical(),
     postcssPresetEnv({
       stage: 0,
       features: {
@@ -207,7 +210,7 @@ gulp.task(`watch`, gulp.series((done) => {
   gulp.watch(scriptSources, gulp.series([`scripts`]));
   console.log(`Watchinig Styles`);
   gulp.watch(styleSources, gulp.series([`styles`]));
-  gulp.watch(`${stylesDestPoint}main.css`, gulp.series([`critical`]));
+  // gulp.watch(`${stylesDestPoint}main.css`, gulp.series([`critical`]));
   console.log(`Watchinig Templates`);
   gulp.watch(templateSources, gulp.series([`html`]));
 
@@ -217,5 +220,6 @@ gulp.task(`watch`, gulp.series((done) => {
 gulp.task(`default`, gulp.series([`sync`, `scripts`, `styles`, `watch`]));
 
 gulp.task(`build`, gulp.series([`scriptsBuild`, `stylesBuild`, `critical`, `imagemin`]));
+// gulp.task(`build`, gulp.series([`scriptsBuild`, `stylesBuild`, `imagemin`]));
 
 // EOF

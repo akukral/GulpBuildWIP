@@ -3,6 +3,7 @@
 *:after {
   box-sizing: inherit;
   box-sizing: border-box;
+  transition-timing-function: ease-in-out;
 
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity;
@@ -31,9 +32,9 @@ html::-webkit-scrollbar {
 
 html,
 body {
+  max-width: 100%;
 
   min-height: 1vw;
-  max-width: 100%;
   margin: 0;
 
   color: var(--alpha);
@@ -56,6 +57,8 @@ body {
   padding: 0;
 
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable both-edges;
+  text-rendering: optimizeSpeed;
 }
 
 /* No Image larger than full width */
@@ -77,7 +80,7 @@ img.lazyload {
 a {
   color: var(--charlie);
   outline-offset: 0rem;
-  background-color: inherit;
+  /* background-color: inherit; */
 
   touch-action: manipulation;
 }
@@ -114,11 +117,13 @@ a:focus {
   outline-offset: 2px;
 } */
 
-a:focus:not(:focus-visible) {
-  outline: 0;
+:focus {
+  outline: none !important;
 }
 
-a:focus-visible;
+:focus-visible {
+  outline: solid 2px var(--bravo) !important;
+}
 
 a:moz-focusring {
   position: relative;
@@ -221,9 +226,11 @@ main {
 
   flex-grow: 1;
   width: 100%;
-  max-width: 75ch;
+  max-width: calc(75ch + .6rem);
   margin-right: auto;
   margin-left: auto;
+  padding-right: .3rem;
+  padding-left: .3rem;
 
   @media (max-width: 768px) {
     flex-grow: initial;
@@ -274,6 +281,11 @@ body {
   visibility: hidden !important;
 }
 
+::selection {
+  color: var(--light);
+  background-color: var(--dark);
+}
+
 @supports (display:grid) {
   body {
     display: grid;
@@ -320,7 +332,6 @@ body {
 
 /* removes all animation if people have reduced motioon seet up for ADA or Memory usage */
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -373,7 +384,8 @@ html[data-theme='dark'] {
 /* Auto screen dark */
 @media (prefers-contrast),
 (inverted-colors),
-(-ms-high-contrast: active) {
+(-ms-high-contrast: active),
+(forced-colors: active) {
   * {
     color: var(--light);
     background-color: var(--dark);

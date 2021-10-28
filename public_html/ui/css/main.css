@@ -793,6 +793,7 @@ template {
 *:after {
   box-sizing: inherit;
   box-sizing: border-box;
+  transition-timing-function: ease-in-out;
 
   transition-duration: 0.2s;
   transition-property: color, background-color, opacity;
@@ -822,9 +823,9 @@ html::-webkit-scrollbar {
 
 html,
 body {
+  max-width: 100%;
 
   min-height: 1vw;
-  max-width: 100%;
   margin: 0;
 
   color: hsla(206,17%,24%,1);
@@ -850,6 +851,8 @@ body {
   padding: 0;
 
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable both-edges;
+  text-rendering: optimizeSpeed;
 }
 
 /* No Image larger than full width */
@@ -872,7 +875,7 @@ a {
   color: hsla(238,69%,52.5%,1);
   color: var(--charlie);
   outline-offset: 0rem;
-  background-color: inherit;
+  /* background-color: inherit; */
 
   touch-action: manipulation;
 }
@@ -912,15 +915,19 @@ a:focus {
   outline-offset: 2px;
 } */
 
-a:focus:not(.focus-visible) {
-  outline: 0;
+:focus {
+  outline: none !important;
 }
 
-a:focus:not(:focus-visible) {
-  outline: 0;
+.focus-visible {
+  outline: solid 2px hsla(238, 65%, 65.5%,1) !important;
+  outline: solid 2px var(--bravo) !important;
 }
 
-a:focus-visible;
+:focus-visible {
+  outline: solid 2px hsla(238, 65%, 65.5%,1) !important;
+  outline: solid 2px var(--bravo) !important;
+}
 
 a:moz-focusring {
   position: relative;
@@ -1031,9 +1038,11 @@ main {
 
   flex-grow: 1;
   width: 100%;
-  max-width: 75ch;
+  max-width: calc(75ch + .6rem);
   margin-right: auto;
-  margin-left: auto
+  margin-left: auto;
+  padding-right: .3rem;
+  padding-left: .3rem
 }
 
 @media (max-width: 768px) {
@@ -1088,6 +1097,13 @@ body header,
   visibility: hidden !important;
 }
 
+::selection {
+  color: #fff;
+  color: var(--light);
+  background-color: #000;
+  background-color: var(--dark);
+}
+
 @supports (display:grid) {
   body {
     display: grid;
@@ -1134,7 +1150,6 @@ body header,
 /* removes all animation if people have reduced motioon seet up for ADA or Memory usage */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -1205,7 +1220,7 @@ html[data-theme='dark'] {
 
 /* Auto screen dark */
 
-@media (prefers-contrast), (inverted-colors), (-ms-high-contrast: active) {
+@media (prefers-contrast), (inverted-colors), (-ms-high-contrast: active), (forced-colors: active) {
   * {
     color: #fff;
     color: var(--light);
@@ -1231,7 +1246,7 @@ html[data-theme='dark'] {
 /* EOF */
 
 :root {
-   /* unitless base font size variables in px */
+  /* unitless base font size variables in px */
   --unitless-min-font-size: 14;
   --unitless-max-font-size: 22;
 
@@ -1247,15 +1262,15 @@ html[data-theme='dark'] {
 @font-face { font-display: swap !important; }
 
 html {
-    font-size: 14px;
-    font-size: calc((14 * 1px) + calc(22 - 14) * calc(100vw - (380 * 1px)) / calc(2048 - 380));
-    font-size: calc((var(--unitless-min-font-size) * 1px) + var(--font-size-difference) * var(--viewport-difference) / var(--font-range-difference));
+  font-size: 14px;
+  font-size: calc((14 * 1px) + calc(22 - 14) * calc(100vw - (380 * 1px)) / calc(2048 - 380));
+  font-size: calc((var(--unitless-min-font-size) * 1px) + var(--font-size-difference) * var(--viewport-difference) / var(--font-range-difference));
 }
 
 body {
   font-family: Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', ssans-serif;
   font-size: inherit;
-  font-weight: 400;
+  font-weight: 100;
   font-style: normal;
   /* line-height: calc(2px + 2ex + 2px); */
   line-height: 150%;
@@ -1389,14 +1404,19 @@ sub {
 }
 
 strong,
- b {
-   font-weight: 700 !important;
- }
+b {
+  font-weight: 700 !important;
+}
 
 i,
- em {
-   font-style: italic !important;
- }
+em {
+  font-style: italic !important;
+}
+
+.small{
+  font-size: .8em;
+  line-height: 80%;
+}
 
 /* EOF */
 
@@ -1418,13 +1438,13 @@ select {
   color: inherit;
   border: 1px solid #000;
   border: 1px solid var(--dark);
-  border-radius: 0.2rem;
-  border-radius: var(--border-radius);
+  /* border-radius: var(--border-radius); */
   outline: none;
-  background-color: #fff;
-  background-color: var(--light);
+  /* background-color: var(--light); */
   box-shadow: none;
-  appearance: none;
+
+  /* -webkit-appearance: none;
+          appearance: none; */
   text-fill-color: #fff;
   text-fill-color: var(--light)
 }
@@ -1448,18 +1468,16 @@ input:focus, textarea:focus, select:focus {
   margin-bottom: 0;
   padding: 0;
 
-  vertical-align: text-bottom;
+  vertical-align: text-bottom
 
-  border: 1px solid currentColor;
+  /* border: 1px solid currentColor; */
 
-  -webkit-appearance: none
+  /* -webkit-appearance: none; */
 }
 
 [type='checkbox']:checked {
-    background-color: #000;
-    background-color: var(--dark);
-    box-shadow: inset 0 0 0 0.1rem #fff;
-    box-shadow: inset 0 0 0 0.1rem var(--light);
+    /* background-color: var(--dark);
+    box-shadow: inset 0 0 0 0.1rem var(--light); */
   }
 
 [type='radio'] {
@@ -1467,23 +1485,22 @@ input:focus, textarea:focus, select:focus {
 
   width: 1em;
   height: 1em;
-  margin-right: 0.2rem;
-  margin-bottom: 0;
+  /* margin-right: 0.2rem; */
+  /* margin-bottom: 0; */
+  margin: 0;
   padding: 0;
 
-  vertical-align: text-bottom;
+  vertical-align: middle
 
-  border: 1px solid currentColor;
-  border-radius: 50%;
+  /* border: 1px solid currentColor; */
+  /* border-radius: 50%; */
 
-  -webkit-appearance: none
+  /* -webkit-appearance: none; */
 }
 
 [type='radio']:checked {
-    background-color: #000;
-    background-color: var(--dark);
-    box-shadow: inset 0 0 0 0.1rem #fff;
-    box-shadow: inset 0 0 0 0.1rem var(--light);
+    /* background-color: var(--dark); */
+    /* box-shadow: inset 0 0 0 0.1rem var(--light); */
   }
 
 input,
@@ -1518,13 +1535,27 @@ select:-moz-focus-inner,
   border: none;
 }
 
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: inherit;
+}
+
 label {
   display: inline-block;
   /* display: block; */
   /* margin-bottom: 1.5rem; */
 
   cursor: pointer;
+  font-size: inherit
 }
+
+label p{
+    margin-bottom: 0;
+  }
 
 .honey {
   display: none;
@@ -1535,15 +1566,7 @@ form [type='submit'] {
   /* clear: both; */
 }
 
-:root { accent-color: hsla(206,17%,24%,1); accent-color: var(--alpha); }
-
-.focus-visible { outline-color: hsla(206,17%,24%,1); outline-color: var(--alpha); }
-
-:focus-visible { outline-color: hsla(206,17%,24%,1); outline-color: var(--alpha); }
-
-::selection { background-color: hsla(206,17%,24%,1); background-color: var(--alpha); }
-
-::marker { color: hsla(206,17%,24%,1); color: var(--alpha); }
+::marker { color: hsla(238, 65%, 65.5%,1); color: var(--bravo); }
 
 :is(
   ::-webkit-calendar-picker-indicator,
@@ -1551,8 +1574,8 @@ form [type='submit'] {
   ::-webkit-inner-spin-button,
   ::-webkit-outer-spin-button
 ) {
-  color: hsla(206,17%,24%,1);
-  color: var(--alpha);
+  color: hsla(238, 65%, 65.5%,1);
+  color: var(--bravo);
 }
 
 /* EOF */
@@ -1569,22 +1592,59 @@ form [type='submit'] {
   /* justify-content: space-between; */
   align-items: center;
 
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   padding: 0.5rem;
 
-  background-color: hsla(0, 0%, 82%, 1);
+  background-color: hsla(250, 100%, 100%, .85);
+  backdrop-filter: blur(1rem);
+}
 
-  background-color: var(--echo);
-  box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
+@supports (animation-timeline: works) {
+  [dir="ltr"] &{
+    start-top: 0;
+    start-left: 0
+  }
+  [dir="rtl"] &{
+    start-top: 0;
+    start-right: 0
+  }
+  [dir="ltr"] &{
+    end-bottom: 1vh;
+    end-right: 1vh
+  }
+  [dir="rtl"] &{
+    end-bottom: 1vh;
+    end-left: 1vh
+  }
+  @scroll-timeline shadow-scroll-timeline {
+    time-range: 1s;
+    /* scroll-offsets: 0%, 1vh; */
+  }
+  @keyframes shadow-fade {
+    from{
+      box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.01), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.01);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    to{
+      box-shadow: 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .Header {
+    animation: forwards .08s ease-in-out shadow-fade;
+    animation-timeline: shadow-scroll-timeline;
+  }
 }
 
 .Header__logo {
   display: inline-block;
 
   margin-right: auto;
-  padding: 1rem;
+  padding: 1rem
 
-  background-color: inherit
+  /* background-color: inherit; */
 }
 
 .Header__logo img {
@@ -1601,7 +1661,8 @@ form [type='submit'] {
     vertical-align: middle;
 
     border: none;
-    background-color: transparent
+    background-color: transparent;
+    appearance: none
   }
 
 .Theme__picker input:checked {
@@ -1667,9 +1728,7 @@ form [type='submit'] {
 
     list-style: none;
 
-    background-color: hsla(0, 0%, 82%, 1);
-
-    background-color: var(--echo);
+    /* background-color: var(--echo); */
   }
 
 .Nav li {
@@ -1888,14 +1947,17 @@ body.no-js .Nav__toggle {
   margin-top: 3rem;
   padding: 1.5rem;
 
-  background-color: hsla(0, 0%, 82%, 1);
-
-  background-color: var(--echo);
-  box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
+  /* background-color: var(--echo); */
+  /* box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, 0.1); */
+  box-shadow: 0 -0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
 }
 
 .Footer a {
   background-color: inherit;
+}
+
+.Footer>*:last-child {
+  margin-bottom: 0;
 }
 
 @supports (padding: min(0px)) {
@@ -1921,6 +1983,12 @@ body.no-js .Nav__toggle {
 
 .Form fieldset label {
   margin-right: 1rem;
+}
+
+.Form .radio{
+  display: grid;
+  grid-template-columns: 1.2rem auto;
+  align-items: center;
 }
 
 input:not(:placeholder-shown):required:invalid{
@@ -1960,7 +2028,8 @@ section{
 
   width: 100%;
 
-  padding: 1rem
+  padding: 1rem;
+  display: block
 }
 
 .Details__summary:hover {
@@ -1982,7 +2051,7 @@ section{
   width: 1.5rem;
   height: 1.5rem;
 
-  content: '';
+  content: '' / '';
   transition: transform 0.3s;
   transform: rotate(90deg) translateY(-50%);
   transform-origin: 50% 0;
@@ -1992,7 +2061,7 @@ section{
   color: var(--dark);
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIyNnB4IiB2aWV3Qm94PSIwIDAgMjYgMjYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU2LjMgKDgxNzE2KSAtIGh0dHBzOi8vc2tldGNoLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS4wMDAwMDAsIDEuMDAwMDAwKSI+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiMwMDAwMDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLjAwMDAwMCwgMTIuMDAwMDAwKSByb3RhdGUoLTkwLjAwMDAwMCkgdHJhbnNsYXRlKC0xMi4wMDAwMDAsIC0xMi4wMDAwMDApICIgeD0iMTEiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjE2Ij48L3JlY3Q+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiMwMDAwMDAiIHg9IjExIiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIxNiI+PC9yZWN0PgogICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIj48L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 99%;
 
   font-size: 2rem;
 
@@ -2041,28 +2110,30 @@ details[open] .Details__summary {
 
 @keyframes detailsFade {
   0% {
-    transform: translateY(-1em);
+    /* transform: translateY(-1em); */
 
-    opacity: 0;
+    /* opacity: 0; */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
 
   100% {
-    transform: translateY(0);
+    /* transform: translateY(0); */
 
-    opacity: 1;
+    /* opacity: 1; */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
 .Details[open] .Details__content {
   display: block !important;
 
-  animation: detailsFade 0.3s ease-in-out;
+  animation: detailsFade .8s ease-in-out;
 }
 
 .Details--open .Details__content {
   display: block !important;
 
-  animation: detailsFade 0.3s ease-in-out;
+  animation: detailsFade .8s ease-in-out;
 }
 
 .Details[open] .Details__summary::after {
@@ -2240,8 +2311,6 @@ button.Button {
 
   color: var(--light);
   border: none;
-  border-radius: 0.2rem;
-  border-radius: var(--border-radius); /* TODO delete later */
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
   box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, 0.8), inset 0 0 0.5rem hsla(0, 0%, 100%, 0.1); /* TODO delete later */
@@ -2269,8 +2338,6 @@ button.Button {
 
   color: var(--light);
   border: none;
-  border-radius: 0.2rem;
-  border-radius: var(--border-radius); /* TODO delete later */
   background-color: hsla(238,69%,52.5%,1);
   background-color: var(--charlie);
   box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, 0.8), inset 0 0 0.5rem hsla(0, 0%, 100%, 0.1); /* TODO delete later */
@@ -2454,9 +2521,7 @@ body.no-js .Dialog [class*='close'] {
   margin: 0;
   padding: 0;
 
-  border-radius: 0.2rem;
-
-  border-radius: var(--border-radius);
+  /* border-radius: var(--border-radius); */
 }
 
 .Carousel__slide {
@@ -2625,5 +2690,7 @@ body.no-js .Dialog [class*='close'] {
 }
 
 /* @import './modules/_Linter'; */
+
+/* @import './modules/_HeadLinter'; */
 
 /* EOF */

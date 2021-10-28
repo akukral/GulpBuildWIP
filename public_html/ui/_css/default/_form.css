@@ -15,13 +15,13 @@ select {
 
   color: inherit;
   border: 1px solid var(--dark);
-  border-radius: var(--border-radius);
+  /* border-radius: var(--border-radius); */
   outline: none;
-  background-color: var(--light);
+  /* background-color: var(--light); */
   box-shadow: none;
 
-  -webkit-appearance: none;
-          appearance: none;
+  /* -webkit-appearance: none;
+          appearance: none; */
   text-fill-color: var(--light);
   &[type='submit'] {
     width: auto;
@@ -42,12 +42,12 @@ select {
 
   vertical-align: text-bottom;
 
-  border: 1px solid currentColor;
+  /* border: 1px solid currentColor; */
 
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   &:checked {
-    background-color: var(--dark);
-    box-shadow: inset 0 0 0 0.1rem var(--light);
+    /* background-color: var(--dark);
+    box-shadow: inset 0 0 0 0.1rem var(--light); */
   }
 }
 [type='radio'] {
@@ -55,19 +55,20 @@ select {
 
   width: 1em;
   height: 1em;
-  margin-right: 0.2rem;
-  margin-bottom: 0;
+  /* margin-right: 0.2rem; */
+  /* margin-bottom: 0; */
+  margin: 0;
   padding: 0;
 
-  vertical-align: text-bottom;
+  vertical-align: middle;
 
-  border: 1px solid currentColor;
-  border-radius: 50%;
+  /* border: 1px solid currentColor; */
+  /* border-radius: 50%; */
 
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   &:checked {
-    background-color: var(--dark);
-    box-shadow: inset 0 0 0 0.1rem var(--light);
+    /* background-color: var(--dark); */
+    /* box-shadow: inset 0 0 0 0.1rem var(--light); */
   }
 }
 input,
@@ -97,12 +98,25 @@ select:-moz-focus-inner,
   border: none;
 }
 
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: inherit;
+}
+
 label {
   display: inline-block;
   /* display: block; */
   /* margin-bottom: 1.5rem; */
 
   cursor: pointer;
+  font-size: inherit;
+  & p{
+    margin-bottom: 0;
+  }
 }
 
 .honey {
@@ -114,10 +128,7 @@ form [type='submit'] {
   /* clear: both; */
 }
 
-:root { accent-color: var(--alpha); }
-:focus-visible { outline-color: var(--alpha); }
-::selection { background-color: var(--alpha); }
-::marker { color: var(--alpha); }
+::marker { color: var(--bravo); }
 
 :is(
   ::-webkit-calendar-picker-indicator,
@@ -125,7 +136,7 @@ form [type='submit'] {
   ::-webkit-inner-spin-button,
   ::-webkit-outer-spin-button
 ) {
-  color: var(--alpha);
+  color: var(--bravo);
 }
 
 /* EOF */

@@ -10,6 +10,11 @@
 .Form fieldset label {
   margin-right: 1rem;
 }
+.Form .radio{
+  display: grid;
+  grid-template-columns: 1.2rem auto;
+  align-items: center;
+}
 input:not(:placeholder-shown):required:invalid{
   border-color: red;
 }

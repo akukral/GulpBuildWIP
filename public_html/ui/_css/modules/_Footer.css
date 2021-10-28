@@ -2,11 +2,15 @@
   margin-top: 3rem;
   padding: 1.5rem;
 
-  background-color: var(--echo);
-  box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, 0.1);
+  /* background-color: var(--echo); */
+  /* box-shadow: 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.1rem hsla(0, 0%, 0%, 0.1); */
+  box-shadow: 0 -0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 -0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
 }
 .Footer a {
   background-color: inherit;
+}
+.Footer>*:last-child {
+  margin-bottom: 0;
 }
 
 @supports (padding: min(0px)) {
