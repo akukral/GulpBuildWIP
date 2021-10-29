@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "eqeqeq": 2,
+    "curly": "error",
+    "no-console": 0,
+    "max-len": 0,
+    "no-unused-vars": 1,
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
+  }
+}
