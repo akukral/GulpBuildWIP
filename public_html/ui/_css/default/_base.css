@@ -11,6 +11,7 @@
   font-display: swap !important;
   /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
   overscroll-behavior: none;
+  overscroll-behavior-y: contain;
   will-change: font-size;
 }
 
@@ -23,6 +24,7 @@ html {
   /* Remove Scrollbar Firefox Fix, suggested in the comments */
   /* overflow: auto; */
   scrollbar-width: none;
+  scrollbar-gutter: stable;   
 }
 
 /* Hide scrollbar for Chrome, Safari, and Opera */

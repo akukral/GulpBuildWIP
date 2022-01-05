@@ -11,6 +11,7 @@ const postcss = require(`gulp-postcss`);
 const postcssPresetEnv = require(`postcss-preset-env`);
 const cssimport = require(`postcss-import`);
 const cssnano = require(`cssnano`);
+var csso = require('gulp-csso');
 // const postcssLogical = require('postcss-logical');
 const critical = require(`critical`).stream;
 
@@ -83,6 +84,7 @@ gulp.task(`styles`, gulp.series((done) => {
   gulp.src(stylesEntryPoint)
     .pipe(notify())
     .pipe(postcss(processors))
+    .pipe(csso())
     .pipe(gulp.dest(stylesDestPoint))
     .pipe(browsersync.reload({
       stream: true,
@@ -116,6 +118,7 @@ gulp.task(`stylesBuild`, gulp.series((done) => {
   gulp.src(stylesEntryPoint)
     .pipe(notify())
     .pipe(postcss(processors))
+    .pipe(csso())
     .pipe(gulp.dest(stylesDestPoint));
 
   done();

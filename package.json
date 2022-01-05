@@ -1,6 +1,6 @@
 {
   "name": "AllanKukral",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "HTML, CSS, JS",
   "main": "index.html",
   "scripts": {
@@ -10,38 +10,32 @@
   },
   "author": "AllanKukral",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akukral/GulpBuildWIP/issues"
+  },
+  "homepage": "https://github.com/akukral/GulpBuildWIP#readme",
   "dependencies": {
-    "debounce": "^1.2.0",
-    "lazysizes": "^5.2.2",
-    "quicklink": "^2.0.0"
+    "debounce": "^1.2.1",
+    "lazysizes": "^5.3.2",
+    "quicklink": "^2.2.0"
   },
   "devDependencies": {
-    "axe-core": "^3.5.5",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.3",
     "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.26.13",
-    "critical": "^0.7.3",
-    "cssnano": "^5.0.8",
-    "cypress": "^8.7.0",
-    "cypress-plugin-tab": "^1.0.5",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.22.1",
+    "browser-sync": "^2.27.7",
+    "critical": "^4.0.1",
+    "cssnano": "^5.0.14",
     "gulp": "^4.0.2",
-    "gulp-cli": "^1.4.0",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-plumber-notifier": "^0.1.0",
-    "gulp-postcss": "^9.0.0",
-    "gulp-uglify": "^3.0.1",
-    "postcss": "^8.0.0",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^12.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "uglifyjs-webpack-plugin": "^1.1.2",
-    "webpack": "^5.60.0",
-    "webpack-stream": "^5.2.1"
-  },
-  "peerDependencies": {
-    "postcss": "^8.0.0"
+    "gulp-postcss": "^9.0.1",
+    "gulp-uglify": "^3.0.2",
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^7.1.0",
+    "webpack": "^5.65.0",
+    "webpack-stream": "^7.0.0"
   }
 }

@@ -20,6 +20,8 @@
 
   border: 2px solid var(--alpha);
   border-bottom: 0;
+  border-bottom: 2px solid white;
+  z-index: 2;
   outline-offset: -4px;
   background: #ffffff;
 }

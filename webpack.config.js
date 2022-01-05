@@ -9,21 +9,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
-        query: {
-          presets: [
-            ['env',
-              {
-                targets: {
-                  browsers: [
-                    'last 6 versions',
-                    'IE >= 10',
-                  ],
-                },
-                useBuiltIns: true,
-              },
-            ],
-          ],
-        },
       },
     ],
   },

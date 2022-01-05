@@ -86,10 +86,10 @@ for (let carousel of carousels) {
 
 const media = '(prefers-reduced-motion: reduce)';
 const pref = window.matchMedia(media);
-// console.log("reduced motion=",pref)
+console.log("reduced motion=",pref)
 if (pref.media !== media && !pref.matches) {
   // do stuff without animations
-  // console.log('prefers reduced motion');
+  console.log('prefers reduced motion');
 }
 
 // Night mode theme picker

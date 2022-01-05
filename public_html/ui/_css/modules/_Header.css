@@ -20,7 +20,7 @@
     time-range: 1s;
     /* scroll-offsets: 0%, 1vh; */
     start: 0;
-    end: 1vh;
+    end: 50vh;
   }
   @keyframes shadow-fade {
     from{

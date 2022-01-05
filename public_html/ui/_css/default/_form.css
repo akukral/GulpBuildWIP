@@ -101,6 +101,7 @@ select:-moz-focus-inner,
 fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 legend {
