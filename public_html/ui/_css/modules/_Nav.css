@@ -193,6 +193,7 @@ body.no-js {
       width: auto;
       margin-bottom: 0;
       padding-left: 0;
+      height: 100%;
     }
     & li {
       display: inline-block;
