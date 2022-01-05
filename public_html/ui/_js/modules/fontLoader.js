@@ -13,8 +13,10 @@ const fontLoader = (fontsToLoad) => {
                 urlToFile+extension,
                 { method: 'GET' }
               )
-              .then( response => console.error('success:', response) )
-              .catch( error => console.error('error:', error) );
+              // .then( response => console.warn('success:', response) )
+              // .catch( error => console.warn('error:', error) );
+              .then( response => response )
+              .catch( error => error );
           };
 
 
@@ -56,7 +58,7 @@ const fontLoader = (fontsToLoad) => {
         .then(_ => {
           document.documentElement.classList.add('fonts-loaded')
         })
-        .catch((error) => console.log(error.message));
+        .catch(error => {console.warn(error.message);} );
     }
   }
 
@@ -65,7 +67,7 @@ const fontLoader = (fontsToLoad) => {
     (`matchMedia` in window && window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) ||
     (navigator.connection && (navigator.connection.effectiveType === `slow-2g` || navigator.connection.effectiveType === `2g`))
   ) {
-    console.warning(`looks like you don't want custom typefaces`)
+    console.warn(`looks like you don't want custom typefaces`)
   } else {
     loadFonts();
   }

@@ -1,6 +1,6 @@
 'use strict';
 
-var cacheVersion = 7;
+var cacheVersion = 9;
 var currentCache = {
   offline: 'offline-cache' + cacheVersion
 };
@@ -10,9 +10,10 @@ this.addEventListener('install', event => {
   event.waitUntil(
     caches.open(currentCache.offline).then(function (cache) {
       return cache.addAll([
+        '/',
         '/ui/css/main.css',
-        // '/ui/js/main.js',
-        '/critical.css',
+        '/ui/js/main.js',
+        '/ui/css/critical.css',
         '/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff',
         '/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff',
         offlineUrl

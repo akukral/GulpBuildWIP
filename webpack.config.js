@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'development',
+  devtool: false,
   output: {
     filename: 'main.js',
   },

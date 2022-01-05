@@ -1,24 +1,5 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-
-/***/ "./public_html/ui/_js/main.js":
-/*!************************************!*\
-  !*** ./public_html/ui/_js/main.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazysizes */ \"./node_modules/lazysizes/lazysizes.js\");\n/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quicklink/dist/quicklink.umd */ \"./node_modules/quicklink/dist/quicklink.umd.js\");\n/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! debounce */ \"./node_modules/debounce/index.js\");\n/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fontLoader */ \"./public_html/ui/_js/modules/fontLoader.js\");\n/* harmony import */ var _modules_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/dialog */ \"./public_html/ui/_js/modules/dialog.js\");\n/* harmony import */ var _modules_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/details */ \"./public_html/ui/_js/modules/details.js\");\n/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/carousel */ \"./public_html/ui/_js/modules/carousel.js\");\n/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ \"./public_html/ui/_js/modules/tabs.js\");\n/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/nav */ \"./public_html/ui/_js/modules/nav.js\");\n/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ \"./public_html/ui/_js/modules/theme.js\");\nfunction _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== \"undefined\" && o[Symbol.iterator] || o[\"@@iterator\"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === \"number\") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError(\"Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it[\"return\"] != null) it[\"return\"](); } finally { if (didErr) throw err; } } }; }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\n// import app from './modules/app';\n\n\n\n\n\n\n\n\n\n\nquicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen(); // Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.\n// loads in woff eot and ttf files automatically if they are all in the same  directory.\n// Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc\n\n(0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__[\"default\"])([{\n  shortName: \"Neue\",\n  localName: \"HelveticaNeue-Roman\",\n  path: \"/ui/webfonts/helvetica/helveticaneue-roman-webfont\"\n}, {\n  shortName: \"NeueBold\",\n  localName: \"HelveticaNeue-Bold\",\n  path: \"/ui/webfonts/helvetica/helveticaneue-bold-webfont\"\n}]);\n(0,_modules_nav__WEBPACK_IMPORTED_MODULE_8__[\"default\"])();\n(lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = false; // check if native lazy loading is available\n\nif ('loading' in HTMLImageElement.prototype) {\n  // console.log(\"Browser supports `loading`..\");\n  var lazy = document.querySelectorAll(\"[class*='lazyload']\");\n\n  var _iterator = _createForOfIteratorHelper(lazy),\n      _step;\n\n  try {\n    for (_iterator.s(); !(_step = _iterator.n()).done;) {\n      var item = _step.value;\n      item.classList.remove(\"lazyload\");\n      item.classList.add(\"lazyloaded\");\n    }\n  } catch (err) {\n    _iterator.e(err);\n  } finally {\n    _iterator.f();\n  }\n} else {\n  // Fetch and apply a polyfill/JavaScript library\n  // console.log(\"Browser does not support `loading`..\");\n  // for lazy-loading instead.\n  (lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = true;\n} // init modals\n\n\nvar modals = Array.from(document.querySelectorAll(\"[data-modal]\"));\n\nfor (var _i = 0, _modals = modals; _i < _modals.length; _i++) {\n  var win = _modals[_i];\n  new _modules_dialog__WEBPACK_IMPORTED_MODULE_4__[\"default\"]({\n    button: win\n  }); // console.log(win);\n} // init details\n\n\nvar details = Array.from(document.querySelectorAll(\"details\"));\n\nfor (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {\n  var detail = _details[_i2];\n  new _modules_details__WEBPACK_IMPORTED_MODULE_5__[\"default\"]({\n    container: detail\n  });\n} // init tabs\n\n\nvar tabset = Array.from(document.querySelectorAll(\".Tabbed\"));\n\nfor (var _i3 = 0, _tabset = tabset; _i3 < _tabset.length; _i3++) {\n  var tab = _tabset[_i3];\n  new _modules_tabs__WEBPACK_IMPORTED_MODULE_7__[\"default\"]({\n    container: tab\n  });\n} // init Carousels\n\n\nvar carousels = document.querySelectorAll(\".Carousel\");\n\nvar _iterator2 = _createForOfIteratorHelper(carousels),\n    _step2;\n\ntry {\n  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {\n    var carousel = _step2.value;\n    // console.log(carousel.querySelector(`.Carousel__slide`))\n    var newCarousel = new _modules_carousel__WEBPACK_IMPORTED_MODULE_6__[\"default\"]();\n    newCarousel.init({\n      id: carousel,\n      slidenav: true,\n      animate: true,\n      startAnimated: false\n    });\n  }\n} catch (err) {\n  _iterator2.e(err);\n} finally {\n  _iterator2.f();\n}\n\nvar media = '(prefers-reduced-motion: reduce)';\nvar pref = window.matchMedia(media);\nconsole.log(\"reduced motion=\", pref);\n\nif (pref.media !== media && !pref.matches) {\n  // do stuff without animations\n  console.log('prefers reduced motion');\n} // Night mode theme picker\n\n\n(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__[\"default\"])(\".Theme__picker input[type=\\\"checkbox\\\"]\"); // window.resize callback function\n\nfunction getVerticalHeight() {\n  var vh = window.innerHeight * 0.01; // document.documentElement.style.setProperty('--vh', `${vh}px`);\n\n  document.documentElement.style.setProperty(\"--vh\", \"\".concat(vh, \"px\")); // console.info(vh);\n}\n\nwindow.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 200);\ngetVerticalHeight();\nvar allLinks = Array.from(document.querySelectorAll(\"[target=\\\"_blank\\\"]\"));\nallLinks.forEach(function (el) {\n  if (!el.hasAttribute(\"rel\")) {\n    el.setAttribute(\"rel\", \"noreferrer\");\n  }\n}); // function ready(fn) {\n//   if (document.readyState !== 'loading') {\n//     fn();\n//   } else {\n//     document.addEventListener('DOMContentLoaded', fn);\n//   }\n// }\n// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.\n\ndocument.body.classList.remove(\"no-js\");\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/main.js?");
-
-/***/ }),
 
 /***/ "./public_html/ui/_js/modules/carousel.js":
 /*!************************************************!*\
@@ -27,7 +8,354 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lazy
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n!function () {\n  var w = window,\n      d = w.document;\n\n  function addPolyfill(e) {\n    var type = e.type === 'focus' ? 'focusin' : 'focusout';\n    var event = new CustomEvent(type, {\n      bubbles: true,\n      cancelable: false\n    });\n    event.c1Generated = true;\n    e.target.dispatchEvent(event);\n  }\n\n  function removePolyfill(e) {\n    if (!e.c1Generated) {\n      // focus after focusin, so chrome will the first time trigger tow times focusin\n      d.removeEventListener('focus', addPolyfill, true);\n      d.removeEventListener('blur', addPolyfill, true);\n      d.removeEventListener('focusin', removePolyfill, true);\n      d.removeEventListener('focusout', removePolyfill, true);\n    }\n\n    setTimeout(function () {\n      d.removeEventListener('focusin', removePolyfill, true);\n      d.removeEventListener('focusout', removePolyfill, true);\n    });\n  }\n\n  if (w.onfocusin === undefined) {\n    d.addEventListener('focus', addPolyfill, true);\n    d.addEventListener('blur', addPolyfill, true);\n    d.addEventListener('focusin', removePolyfill, true);\n    d.addEventListener('focusout', removePolyfill, true);\n  }\n}();\n/*\n   Carousel Prototype\n   Eric Eggert for W3C\n*/\n\nvar myCarousel = function myCarousel() {\n  // Initial variables\n  var carousel;\n  var slides;\n  var index;\n  var slidenav;\n  var settings;\n  var timer;\n  var setFocus;\n  var animationSuspended; // Helper function: Iterates over an array of elements\n\n  function forEachElement(elements, fn) {\n    for (var i = 0; i < elements.length; i++) {\n      fn(elements[i], i);\n    }\n  } // Helper function: Remove Class\n\n\n  function removeClass(el, className) {\n    if (el.classList) {\n      el.classList.remove(className);\n    } else {\n      el.className = el.className.replace(new RegExp('(^|\\\\b)' + className.split(' ').join('|') + '(\\\\b|$)', 'gi'), ' ');\n    }\n  } // Helper function: Test if element has a specific class\n\n\n  function hasClass(el, className) {\n    if (el.classList) {\n      return el.classList.contains(className);\n    } else {\n      return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);\n    }\n  } // Initialization for the carousel\n  // Argument: set = an object of settings\n  // Possible settings:\n  // id <string> ID of the carousel wrapper element (required).\n  // slidenav <bool> If true, a list of slides is shown.\n  // animate <bool> If true, the slides can be animated.\n  // startAnimated <bool> If true, the animation begins\n  //                        immediately.\n  //                      If false, the animation needs\n  //                        to be initiated by clicking\n  //                        the play button.\n\n\n  function init(set) {\n    // Make settings available to all functions\n    settings = set; // Select the element and the individual slides\n\n    carousel = settings.id; // console.log(set)\n\n    slides = carousel.querySelectorAll('.Carousel__slide');\n    carousel.className = 'Carousel Carousel--active'; // Create unordered list for controls, and attach click events fo previous and next slide\n\n    var ctrls = document.createElement('ul');\n    ctrls.className = 'controls';\n    ctrls.innerHTML = '<li>' + '<button type=\"button\" class=\"Button btn-prev\">&lsaquo;</button>' + '</li>' + '<li>' + '<button type=\"button\" class=\"Button btn-next\">&rsaquo;</button>' + '</li>';\n    ctrls.querySelector('.btn-prev').addEventListener('click', function () {\n      prevSlide(true);\n    });\n    ctrls.querySelector('.btn-next').addEventListener('click', function () {\n      nextSlide(true);\n    });\n    carousel.appendChild(ctrls); // If the carousel is animated or a slide navigation is requested in the settings, anoter unordered list that contains those elements is added. (Note that you cannot supress the navigation when it is animated.)\n\n    if (settings.slidenav || settings.animate) {\n      slidenav = document.createElement('ul');\n      slidenav.className = 'Carousel__slidenav';\n\n      if (settings.animate) {\n        var li = document.createElement('li');\n\n        if (settings.startAnimated) {\n          li.innerHTML = '<button data-action=\"stop\" class=\"Button\"><span class=\"sr-only\">Stop Animation </span>￭</button>';\n        } else {\n          li.innerHTML = '<button data-action=\"start\" class=\"Button\"><span class=\"sr-only\">Start Animation </span>▶</button>';\n        }\n\n        slidenav.appendChild(li);\n      }\n\n      if (settings.slidenav) {\n        forEachElement(slides, function (el, i) {\n          var li = document.createElement('li');\n          var klass = i === 0 ? 'current' : '';\n          var kurrent = i === 0 ? ' <span class=\"sr-only\">(Current Item)</span>' : '';\n          li.innerHTML = '<button class=\"Button ' + klass + '\" data-slide=\"' + i + '\"><span class=\"sr-only\">Item</span> ' + (i + 1) + kurrent + '</button>';\n          slidenav.appendChild(li);\n        });\n      }\n\n      slidenav.addEventListener('click', function (event) {\n        var button = event.target;\n\n        if (button.localName === 'button') {\n          if (button.getAttribute('data-slide')) {\n            stopAnimation();\n            setSlides(button.getAttribute('data-slide'), true);\n          } else if (button.getAttribute('data-action') === 'stop') {\n            stopAnimation();\n          } else if (button.getAttribute('data-action') === 'start') {\n            startAnimation();\n          }\n        }\n      }, true);\n      carousel.className = 'Carousel Carousel--active Carousel--with-slidenav';\n      carousel.appendChild(slidenav);\n    } // Add a live region to announce the slide number when using the previous/next buttons\n\n\n    var liveregion = document.createElement('div');\n    liveregion.setAttribute('aria-live', 'polite');\n    liveregion.setAttribute('aria-atomic', 'true');\n    liveregion.setAttribute('class', 'liveregion sr-only');\n    carousel.appendChild(liveregion); // After the slide transitioned, remove the in-transition class, if focus should be set, set the tabindex attribute to -1 and focus the slide.\n\n    slides[0].parentNode.addEventListener('transitionend', function (event) {\n      var slide = event.target;\n      removeClass(slide, 'in-transition');\n\n      if (hasClass(slide, 'current')) {\n        if (setFocus) {\n          slide.setAttribute('tabindex', '-1');\n          slide.focus();\n          setFocus = false;\n        }\n      }\n    }); // When the mouse enters the carousel, suspend the animation.\n\n    carousel.addEventListener('mouseenter', suspendAnimation); // When the mouse leaves the carousel, and the animation is suspended, start the animation.\n\n    carousel.addEventListener('mouseleave', function () {\n      if (animationSuspended) {\n        startAnimation();\n      }\n    }); // When the focus enters the carousel, suspend the animation\n\n    carousel.addEventListener('focusin', function (event) {\n      if (!hasClass(event.target, 'slide')) {\n        suspendAnimation();\n      }\n    }); // When the focus leaves the carousel, and the animation is suspended, start the animation\n\n    carousel.addEventListener('focusout', function (event) {\n      if (!hasClass(event.target, 'Carousel__slide') && animationSuspended) {\n        startAnimation();\n      }\n    }); // Set the index (=current slide) to 0 – the first slide\n\n    index = 0;\n    setSlides(index); // If the carousel is animated, advance to the\n    // next slide after 5s\n\n    if (settings.startAnimated) {\n      timer = setTimeout(nextSlide, 5000);\n    }\n  } // Function to set a slide the current slide\n\n\n  function setSlides(new_current, setFocusHere, transition, announceItemHere) {\n    // Focus, transition and announce Item are optional parameters.\n    // focus denotes if the focus should be set after the\n    // carousel advanced to slide number new_current.\n    // transition denotes if the transition is going into the\n    // next or previous direction.\n    // If announceItem is set to true, the live region’s text is changed (and announced)\n    // Here defaults are set:\n    setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;\n    transition = typeof transition !== 'undefined' ? transition : 'none';\n    var announceItem = typeof announceItemHere !== 'undefined' ? announceItemHere : false;\n    new_current = parseFloat(new_current);\n    var length = slides.length;\n    var new_next = new_current + 1;\n    var new_prev = new_current - 1; // If the next slide number is equal to the length,\n    // the next slide should be the first one of the slides.\n    // If the previous slide number is less than 0.\n    // the previous slide is the last of the slides.\n\n    if (new_next === length) {\n      new_next = 0;\n    } else if (new_prev < 0) {\n      new_prev = length - 1;\n    } // Reset slide classes\n\n\n    for (var i = slides.length - 1; i >= 0; i--) {\n      slides[i].className = 'slide';\n    } // Add classes to the previous, next and current slide\n\n\n    slides[new_next].className = 'next Carousel__slide' + (transition === 'next' ? ' in-transition' : '');\n    slides[new_next].setAttribute('aria-hidden', 'true');\n    slides[new_prev].className = 'prev Carousel__slide' + (transition === 'prev' ? ' in-transition' : '');\n    slides[new_prev].setAttribute('aria-hidden', 'true');\n    slides[new_current].className = 'current Carousel__slide';\n    slides[new_current].removeAttribute('aria-hidden'); // Update the text in the live region which is then announced by screen readers.\n\n    if (announceItem) {\n      carousel.querySelector('.liveregion').textContent = 'Item ' + (new_current + 1) + ' of ' + slides.length;\n    } // Update the buttons in the slider navigation to match the currently displayed  item\n\n\n    if (settings.slidenav) {\n      var buttons = carousel.querySelectorAll('.Carousel__slidenav button[data-slide]');\n\n      for (var j = buttons.length - 1; j >= 0; j--) {\n        buttons[j].classList.remove = 'current';\n        buttons[j].innerHTML = '<span class=\"sr-only\">Item</span> ' + (j + 1);\n      }\n\n      buttons[new_current].classList.add = 'current';\n      buttons[new_current].innerHTML = '<span class=\"sr-only\">Item</span> ' + (new_current + 1) + ' <span class=\"sr-only\">(Current Item)</span>';\n    } // Set the global index to the new current value\n\n\n    index = new_current;\n  } // Function to advance to the next slide\n\n\n  function nextSlide(announceItem) {\n    announceItem = typeof announceItem !== 'undefined' ? announceItem : false;\n    var length = slides.length,\n        new_current = index + 1;\n\n    if (new_current === length) {\n      new_current = 0;\n    } // If we advance to the next slide, the previous needs to be\n    // visible to the user, so the third parameter is 'prev', not\n    // next.\n\n\n    setSlides(new_current, false, 'prev', announceItem); // If the carousel is animated, advance to the next\n    // slide after 5s\n\n    if (settings.animate) {\n      timer = setTimeout(nextSlide, 5000);\n    }\n  } // Function to advance to the previous slide\n\n\n  function prevSlide(announceItem) {\n    announceItem = typeof announceItem !== 'undefined' ? announceItem : false;\n    var length = slides.length,\n        new_current = index - 1; // If we are already on the first slide, show the last slide instead.\n\n    if (new_current < 0) {\n      new_current = length - 1;\n    } // If we advance to the previous slide, the next needs to be\n    // visible to the user, so the third parameter is 'next', not\n    // prev.\n\n\n    setSlides(new_current, false, 'next', announceItem);\n  } // Function to stop the animation\n\n\n  function stopAnimation() {\n    clearTimeout(timer);\n    settings.animate = false;\n    animationSuspended = false;\n\n    var _this = carousel.querySelector('[data-action]');\n\n    _this.innerHTML = '<span class=\"sr-only\">Start Animation </span>▶';\n\n    _this.setAttribute('data-action', 'start');\n  } // Function to start the animation\n\n\n  function startAnimation() {\n    settings.animate = true;\n    animationSuspended = false;\n    timer = setTimeout(nextSlide, 5000);\n\n    var _this = carousel.querySelector('[data-action]');\n\n    _this.innerHTML = '<span class=\"sr-only\">Stop Animation </span>￭';\n\n    _this.setAttribute('data-action', 'stop');\n  } // Function to suspend the animation\n\n\n  function suspendAnimation() {\n    if (settings.animate) {\n      clearTimeout(timer);\n      settings.animate = false;\n      animationSuspended = true;\n    }\n  } // Making some functions public\n\n\n  return {\n    init: init,\n    next: nextSlide,\n    prev: prevSlide,\n    \"goto\": setSlides,\n    stop: stopAnimation,\n    start: startAnimation\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (myCarousel);\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/carousel.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+!function () {
+  var w = window,
+      d = w.document;
+
+  function addPolyfill(e) {
+    var type = e.type === 'focus' ? 'focusin' : 'focusout';
+    var event = new CustomEvent(type, {
+      bubbles: true,
+      cancelable: false
+    });
+    event.c1Generated = true;
+    e.target.dispatchEvent(event);
+  }
+
+  function removePolyfill(e) {
+    if (!e.c1Generated) {
+      // focus after focusin, so chrome will the first time trigger tow times focusin
+      d.removeEventListener('focus', addPolyfill, true);
+      d.removeEventListener('blur', addPolyfill, true);
+      d.removeEventListener('focusin', removePolyfill, true);
+      d.removeEventListener('focusout', removePolyfill, true);
+    }
+
+    setTimeout(function () {
+      d.removeEventListener('focusin', removePolyfill, true);
+      d.removeEventListener('focusout', removePolyfill, true);
+    });
+  }
+
+  if (w.onfocusin === undefined) {
+    d.addEventListener('focus', addPolyfill, true);
+    d.addEventListener('blur', addPolyfill, true);
+    d.addEventListener('focusin', removePolyfill, true);
+    d.addEventListener('focusout', removePolyfill, true);
+  }
+}();
+/*
+   Carousel Prototype
+   Eric Eggert for W3C
+*/
+
+var myCarousel = function myCarousel() {
+  // Initial variables
+  var carousel;
+  var slides;
+  var index;
+  var slidenav;
+  var settings;
+  var timer;
+  var setFocus;
+  var animationSuspended; // Helper function: Iterates over an array of elements
+
+  function forEachElement(elements, fn) {
+    for (var i = 0; i < elements.length; i++) {
+      fn(elements[i], i);
+    }
+  } // Helper function: Remove Class
+
+
+  function removeClass(el, className) {
+    if (el.classList) {
+      el.classList.remove(className);
+    } else {
+      el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+  } // Helper function: Test if element has a specific class
+
+
+  function hasClass(el, className) {
+    if (el.classList) {
+      return el.classList.contains(className);
+    } else {
+      return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+    }
+  } // Initialization for the carousel
+  // Argument: set = an object of settings
+  // Possible settings:
+  // id <string> ID of the carousel wrapper element (required).
+  // slidenav <bool> If true, a list of slides is shown.
+  // animate <bool> If true, the slides can be animated.
+  // startAnimated <bool> If true, the animation begins
+  //                        immediately.
+  //                      If false, the animation needs
+  //                        to be initiated by clicking
+  //                        the play button.
+
+
+  function init(set) {
+    // Make settings available to all functions
+    settings = set; // Select the element and the individual slides
+
+    carousel = settings.id; // console.log(set)
+
+    slides = carousel.querySelectorAll('.Carousel__slide');
+    carousel.className = 'Carousel Carousel--active'; // Create unordered list for controls, and attach click events fo previous and next slide
+
+    var ctrls = document.createElement('ul');
+    ctrls.className = 'controls';
+    ctrls.innerHTML = '<li>' + '<button type="button" class="Button btn-prev">&lsaquo;</button>' + '</li>' + '<li>' + '<button type="button" class="Button btn-next">&rsaquo;</button>' + '</li>';
+    ctrls.querySelector('.btn-prev').addEventListener('click', function () {
+      prevSlide(true);
+    });
+    ctrls.querySelector('.btn-next').addEventListener('click', function () {
+      nextSlide(true);
+    });
+    carousel.appendChild(ctrls); // If the carousel is animated or a slide navigation is requested in the settings, anoter unordered list that contains those elements is added. (Note that you cannot supress the navigation when it is animated.)
+
+    if (settings.slidenav || settings.animate) {
+      slidenav = document.createElement('ul');
+      slidenav.className = 'Carousel__slidenav';
+
+      if (settings.animate) {
+        var li = document.createElement('li');
+
+        if (settings.startAnimated) {
+          li.innerHTML = '<button data-action="stop" class="Button"><span class="sr-only">Stop Animation </span>￭</button>';
+        } else {
+          li.innerHTML = '<button data-action="start" class="Button"><span class="sr-only">Start Animation </span>▶</button>';
+        }
+
+        slidenav.appendChild(li);
+      }
+
+      if (settings.slidenav) {
+        forEachElement(slides, function (el, i) {
+          var li = document.createElement('li');
+          var klass = i === 0 ? 'current' : '';
+          var kurrent = i === 0 ? ' <span class="sr-only">(Current Item)</span>' : '';
+          li.innerHTML = '<button class="Button ' + klass + '" data-slide="' + i + '"><span class="sr-only">Item</span> ' + (i + 1) + kurrent + '</button>';
+          slidenav.appendChild(li);
+        });
+      }
+
+      slidenav.addEventListener('click', function (event) {
+        var button = event.target;
+
+        if (button.localName === 'button') {
+          if (button.getAttribute('data-slide')) {
+            stopAnimation();
+            setSlides(button.getAttribute('data-slide'), true);
+          } else if (button.getAttribute('data-action') === 'stop') {
+            stopAnimation();
+          } else if (button.getAttribute('data-action') === 'start') {
+            startAnimation();
+          }
+        }
+      }, true);
+      carousel.className = 'Carousel Carousel--active Carousel--with-slidenav';
+      carousel.appendChild(slidenav);
+    } // Add a live region to announce the slide number when using the previous/next buttons
+
+
+    var liveregion = document.createElement('div');
+    liveregion.setAttribute('aria-live', 'polite');
+    liveregion.setAttribute('aria-atomic', 'true');
+    liveregion.setAttribute('class', 'liveregion sr-only');
+    carousel.appendChild(liveregion); // After the slide transitioned, remove the in-transition class, if focus should be set, set the tabindex attribute to -1 and focus the slide.
+
+    slides[0].parentNode.addEventListener('transitionend', function (event) {
+      var slide = event.target;
+      removeClass(slide, 'in-transition');
+
+      if (hasClass(slide, 'current')) {
+        if (setFocus) {
+          slide.setAttribute('tabindex', '-1');
+          slide.focus();
+          setFocus = false;
+        }
+      }
+    }); // When the mouse enters the carousel, suspend the animation.
+
+    carousel.addEventListener('mouseenter', suspendAnimation); // When the mouse leaves the carousel, and the animation is suspended, start the animation.
+
+    carousel.addEventListener('mouseleave', function () {
+      if (animationSuspended) {
+        startAnimation();
+      }
+    }); // When the focus enters the carousel, suspend the animation
+
+    carousel.addEventListener('focusin', function (event) {
+      if (!hasClass(event.target, 'slide')) {
+        suspendAnimation();
+      }
+    }); // When the focus leaves the carousel, and the animation is suspended, start the animation
+
+    carousel.addEventListener('focusout', function (event) {
+      if (!hasClass(event.target, 'Carousel__slide') && animationSuspended) {
+        startAnimation();
+      }
+    }); // Set the index (=current slide) to 0 – the first slide
+
+    index = 0;
+    setSlides(index); // If the carousel is animated, advance to the
+    // next slide after 5s
+
+    if (settings.startAnimated) {
+      timer = setTimeout(nextSlide, 5000);
+    }
+  } // Function to set a slide the current slide
+
+
+  function setSlides(new_current, setFocusHere, transition, announceItemHere) {
+    // Focus, transition and announce Item are optional parameters.
+    // focus denotes if the focus should be set after the
+    // carousel advanced to slide number new_current.
+    // transition denotes if the transition is going into the
+    // next or previous direction.
+    // If announceItem is set to true, the live region’s text is changed (and announced)
+    // Here defaults are set:
+    setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;
+    transition = typeof transition !== 'undefined' ? transition : 'none';
+    var announceItem = typeof announceItemHere !== 'undefined' ? announceItemHere : false;
+    new_current = parseFloat(new_current);
+    var length = slides.length;
+    var new_next = new_current + 1;
+    var new_prev = new_current - 1; // If the next slide number is equal to the length,
+    // the next slide should be the first one of the slides.
+    // If the previous slide number is less than 0.
+    // the previous slide is the last of the slides.
+
+    if (new_next === length) {
+      new_next = 0;
+    } else if (new_prev < 0) {
+      new_prev = length - 1;
+    } // Reset slide classes
+
+
+    for (var i = slides.length - 1; i >= 0; i--) {
+      slides[i].className = 'slide';
+    } // Add classes to the previous, next and current slide
+
+
+    slides[new_next].className = 'next Carousel__slide' + (transition === 'next' ? ' in-transition' : '');
+    slides[new_next].setAttribute('aria-hidden', 'true');
+    slides[new_prev].className = 'prev Carousel__slide' + (transition === 'prev' ? ' in-transition' : '');
+    slides[new_prev].setAttribute('aria-hidden', 'true');
+    slides[new_current].className = 'current Carousel__slide';
+    slides[new_current].removeAttribute('aria-hidden'); // Update the text in the live region which is then announced by screen readers.
+
+    if (announceItem) {
+      carousel.querySelector('.liveregion').textContent = 'Item ' + (new_current + 1) + ' of ' + slides.length;
+    } // Update the buttons in the slider navigation to match the currently displayed  item
+
+
+    if (settings.slidenav) {
+      var buttons = carousel.querySelectorAll('.Carousel__slidenav button[data-slide]');
+
+      for (var j = buttons.length - 1; j >= 0; j--) {
+        buttons[j].classList.remove = 'current';
+        buttons[j].innerHTML = '<span class="sr-only">Item</span> ' + (j + 1);
+      }
+
+      buttons[new_current].classList.add = 'current';
+      buttons[new_current].innerHTML = '<span class="sr-only">Item</span> ' + (new_current + 1) + ' <span class="sr-only">(Current Item)</span>';
+    } // Set the global index to the new current value
+
+
+    index = new_current;
+  } // Function to advance to the next slide
+
+
+  function nextSlide(announceItem) {
+    announceItem = typeof announceItem !== 'undefined' ? announceItem : false;
+    var length = slides.length,
+        new_current = index + 1;
+
+    if (new_current === length) {
+      new_current = 0;
+    } // If we advance to the next slide, the previous needs to be
+    // visible to the user, so the third parameter is 'prev', not
+    // next.
+
+
+    setSlides(new_current, false, 'prev', announceItem); // If the carousel is animated, advance to the next
+    // slide after 5s
+
+    if (settings.animate) {
+      timer = setTimeout(nextSlide, 5000);
+    }
+  } // Function to advance to the previous slide
+
+
+  function prevSlide(announceItem) {
+    announceItem = typeof announceItem !== 'undefined' ? announceItem : false;
+    var length = slides.length,
+        new_current = index - 1; // If we are already on the first slide, show the last slide instead.
+
+    if (new_current < 0) {
+      new_current = length - 1;
+    } // If we advance to the previous slide, the next needs to be
+    // visible to the user, so the third parameter is 'next', not
+    // prev.
+
+
+    setSlides(new_current, false, 'next', announceItem);
+  } // Function to stop the animation
+
+
+  function stopAnimation() {
+    clearTimeout(timer);
+    settings.animate = false;
+    animationSuspended = false;
+
+    var _this = carousel.querySelector('[data-action]');
+
+    _this.innerHTML = '<span class="sr-only">Start Animation </span>▶';
+
+    _this.setAttribute('data-action', 'start');
+  } // Function to start the animation
+
+
+  function startAnimation() {
+    settings.animate = true;
+    animationSuspended = false;
+    timer = setTimeout(nextSlide, 5000);
+
+    var _this = carousel.querySelector('[data-action]');
+
+    _this.innerHTML = '<span class="sr-only">Stop Animation </span>￭';
+
+    _this.setAttribute('data-action', 'stop');
+  } // Function to suspend the animation
+
+
+  function suspendAnimation() {
+    if (settings.animate) {
+      clearTimeout(timer);
+      settings.animate = false;
+      animationSuspended = true;
+    }
+  } // Making some functions public
+
+
+  return {
+    init: init,
+    next: nextSlide,
+    prev: prevSlide,
+    "goto": setSlides,
+    stop: stopAnimation,
+    start: startAnimation
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (myCarousel);
 
 /***/ }),
 
@@ -38,7 +366,80 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nvar Details = /*#__PURE__*/function () {\n  function Details(settingsObj) {\n    _classCallCheck(this, Details);\n\n    this.settings = settingsObj; // set the accordion/detail elements\n\n    this.detailsContainer = this.settings.container || document.querySelector(\"details\");\n    if (!this.detailsContainer) return;\n    this.detailsButton = this.settings.button || this.detailsContainer.querySelector(\"summary\");\n    if (!this.detailsButton) return;\n    this.detailsTarget = this.settings.target || this.detailsButton.nextElementSibling || this.detailsContainer.querySelector(\"summary\").nextElementSibling || document.querySelector(\"Details__content\");\n    if (!this.detailsTarget) return;\n    this.curState = false;\n    this.init();\n    return this;\n  }\n\n  _createClass(Details, [{\n    key: \"init\",\n    value: function init() {\n      this.detailsButton.addEventListener(\"click\", this.toggleDetailVisibility.bind(this));\n      this.detailsButton.addEventListener(\"keydown\", this.keypressHandler.bind(this));\n    }\n  }, {\n    key: \"toggleDetailVisibility\",\n    value: function toggleDetailVisibility(event) {\n      event.preventDefault(); // changing the state of the details being open defaults to false (not open)\n\n      this.curState = !this.curState; // changing the aria states and class of the button and target\n\n      this.detailsButton.setAttribute(\"aria-expanded\", this.curState);\n      this.detailsContainer.classList.toggle(\"Details--open\"); // console.log(this.curState);\n\n      if (this.curState) {\n        // console.log(`open`);\n        this.detailsContainer.setAttribute(\"open\", \"open\");\n      } else {\n        this.detailsContainer.removeAttribute(\"open\"); // console.log(`close`);\n      } // return this\n\n    }\n  }, {\n    key: \"keypressHandler\",\n    value: function keypressHandler(event) {\n      if (this.detailsButton.hasFocus) {\n        // if the toggle button for the detail is focused allow ENTER or SPACEBAR to open the accordion.\n        if (event.key === \" \" || event.key === \"Spacebar\" || event.keyCode === 0 || event.keyCode === 32) {\n          event.preventDefault();\n          this.toggleDetailVisibility(event); // console.log(`space`)\n        }\n\n        if (event.key === \"Enter\" || event.key === \"Return\" || event.keyCode === 13) {\n          event.preventDefault();\n          this.toggleDetailVisibility(event); // console.log(`enter`)\n        }\n      } // return this;\n\n    }\n  }]);\n\n  return Details;\n}();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Details);\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/details.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Details = /*#__PURE__*/function () {
+  function Details(settingsObj) {
+    _classCallCheck(this, Details);
+
+    this.settings = settingsObj; // set the accordion/detail elements
+
+    this.detailsContainer = this.settings.container || document.querySelector("details");
+    if (!this.detailsContainer) return;
+    this.detailsButton = this.settings.button || this.detailsContainer.querySelector("summary");
+    if (!this.detailsButton) return;
+    this.detailsTarget = this.settings.target || this.detailsButton.nextElementSibling || this.detailsContainer.querySelector("summary").nextElementSibling || document.querySelector("Details__content");
+    if (!this.detailsTarget) return;
+    this.curState = false;
+    this.init();
+    return this;
+  }
+
+  _createClass(Details, [{
+    key: "init",
+    value: function init() {
+      this.detailsButton.addEventListener("click", this.toggleDetailVisibility.bind(this));
+      this.detailsButton.addEventListener("keydown", this.keypressHandler.bind(this));
+    }
+  }, {
+    key: "toggleDetailVisibility",
+    value: function toggleDetailVisibility(event) {
+      event.preventDefault(); // changing the state of the details being open defaults to false (not open)
+
+      this.curState = !this.curState; // changing the aria states and class of the button and target
+
+      this.detailsButton.setAttribute("aria-expanded", this.curState);
+      this.detailsContainer.classList.toggle("Details--open"); // console.log(this.curState);
+
+      if (this.curState) {
+        // console.log(`open`);
+        this.detailsContainer.setAttribute("open", "open");
+      } else {
+        this.detailsContainer.removeAttribute("open"); // console.log(`close`);
+      } // return this
+
+    }
+  }, {
+    key: "keypressHandler",
+    value: function keypressHandler(event) {
+      if (this.detailsButton.hasFocus) {
+        // if the toggle button for the detail is focused allow ENTER or SPACEBAR to open the accordion.
+        if (event.key === " " || event.key === "Spacebar" || event.keyCode === 0 || event.keyCode === 32) {
+          event.preventDefault();
+          this.toggleDetailVisibility(event); // console.log(`space`)
+        }
+
+        if (event.key === "Enter" || event.key === "Return" || event.keyCode === 13) {
+          event.preventDefault();
+          this.toggleDetailVisibility(event); // console.log(`enter`)
+        }
+      } // return this;
+
+    }
+  }]);
+
+  return Details;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Details);
 
 /***/ }),
 
@@ -49,7 +450,123 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nvar Dialog = /*#__PURE__*/function () {\n  function Dialog(settingsObj) {\n    _classCallCheck(this, Dialog);\n\n    // constructor(options = {}) {\n    // Object.assign(this, {\n    //   dialogButton: document.querySelector(`[data-dialog]`),\n    //   dialogTarget: document.querySelector(`[data-dialog]`).nextElementSibling,\n    // }, options);\n    this.settings = settingsObj;\n    this.dialogButton = this.settings.button || document.querySelector(\"[data-dialog]\");\n    if (!this.dialogButton) return;\n    this.dialogTarget = this.settings.target || this.dialogButton.nextElementSibling || document.querySelector(\"dialog\") || document.querySelector(\"[data-dialog]\").nextElementSibling;\n    if (!this.dialogTarget) return;\n    this.dialogClose = this.settings.close || this.dialogTarget.querySelector(\"[class*='close'], [class*='Close'], [aria-label*='close']\");\n    if (!this.dialogClose) return;\n    this.curState = false;\n    this.init();\n    return this;\n  }\n\n  _createClass(Dialog, [{\n    key: \"init\",\n    value: function init() {\n      this.dialogButton.addEventListener(\"click\", this.toggleDialogVisibility.bind(this));\n      this.dialogClose.addEventListener(\"click\", this.toggleDialogVisibility.bind(this));\n    }\n  }, {\n    key: \"toggleDialogVisibility\",\n    value: function toggleDialogVisibility() {\n      // changing the state of the dialog being open defaults to false (not open)\n      this.curState = !this.curState; // changing the aria states and class of the button and target\n\n      this.dialogButton.setAttribute(\"aria-expanded\", this.curState);\n      this.dialogTarget.classList.toggle(\"Dialog--open\");\n\n      if (this.curState) {\n        // find all of the focusable elements within the element to trap\n        this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])'));\n        this.firstFocusableEl = this.focusableElements[0];\n        this.lastFocusableEl = this.focusableElements.pop(); // setting the initial focus to be on the dialog itself\n\n        this.dialogTarget.setAttribute(\"tabindex\", \"-1\");\n        this.dialogTarget.focus();\n        this.dialogTarget.setAttribute(\"open\", \"\"); // listen for keyboard events namely TAB and ESC keys\n\n        document.addEventListener(\"keydown\", this.keypressHandler.bind(this));\n      } else {\n        // dealing with an autoplay or currently playing video in the modal if you close it.\n        var iframeSrc = this.dialogTarget.querySelector(\"iframe\");\n\n        if (iframeSrc) {\n          var src = iframeSrc.src;\n          this.dialogTarget.querySelector(\"iframe\").src = \"\";\n          this.dialogTarget.querySelector(\"iframe\").src = src;\n        } // set the tab index of the dialog\n\n\n        this.dialogTarget.setAttribute(\"tabindex\", \"0\");\n        this.dialogTarget.removeAttribute(\"open\");\n        this.dialogButton.focus();\n      }\n    }\n  }, {\n    key: \"keypressHandler\",\n    value: function keypressHandler(event) {\n      var isEscape = false;\n      var isTab = false;\n\n      if (\"key\" in event) {\n        isEscape = event.key === \"Escape\" || event.key === \"Esc\";\n        isTab = event.key === \"Tab\";\n      } else {\n        isEscape = event.keyCode === 27;\n        isTab = event.keyCode === KEYCODE_TAB;\n      }\n\n      if (!isEscape && !isTab) return; //if the keypressed isn't a tab or escape what are we doing here\n\n      if (isEscape && this.curState) {\n        // if the state of this dialog is open/true close it and set the focus back to the button that opens it.\n        this.toggleDialogVisibility();\n        this.dialogButton.focus();\n      }\n\n      if (event.shiftKey)\n        /* shift + tab */\n        {\n          if (document.activeElement === this.firstFocusableEl) {\n            this.lastFocusableEl.focus();\n            event.preventDefault();\n          }\n        } else\n        /* tab */\n        {\n          if (document.activeElement === this.lastFocusableEl) {\n            this.firstFocusableEl.focus();\n            event.preventDefault();\n          }\n        }\n    }\n  }]);\n\n  return Dialog;\n}();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dialog);\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/dialog.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Dialog = /*#__PURE__*/function () {
+  function Dialog(settingsObj) {
+    _classCallCheck(this, Dialog);
+
+    // constructor(options = {}) {
+    // Object.assign(this, {
+    //   dialogButton: document.querySelector(`[data-dialog]`),
+    //   dialogTarget: document.querySelector(`[data-dialog]`).nextElementSibling,
+    // }, options);
+    this.settings = settingsObj;
+    this.dialogButton = this.settings.button || document.querySelector("[data-dialog]");
+    if (!this.dialogButton) return;
+    this.dialogTarget = this.settings.target || this.dialogButton.nextElementSibling || document.querySelector("dialog") || document.querySelector("[data-dialog]").nextElementSibling;
+    if (!this.dialogTarget) return;
+    this.dialogClose = this.settings.close || this.dialogTarget.querySelector("[class*='close'], [class*='Close'], [aria-label*='close']");
+    if (!this.dialogClose) return;
+    this.curState = false;
+    this.init();
+    return this;
+  }
+
+  _createClass(Dialog, [{
+    key: "init",
+    value: function init() {
+      this.dialogButton.addEventListener("click", this.toggleDialogVisibility.bind(this));
+      this.dialogClose.addEventListener("click", this.toggleDialogVisibility.bind(this));
+    }
+  }, {
+    key: "toggleDialogVisibility",
+    value: function toggleDialogVisibility() {
+      // changing the state of the dialog being open defaults to false (not open)
+      this.curState = !this.curState; // changing the aria states and class of the button and target
+
+      this.dialogButton.setAttribute("aria-expanded", this.curState);
+      this.dialogTarget.classList.toggle("Dialog--open");
+
+      if (this.curState) {
+        // find all of the focusable elements within the element to trap
+        this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
+        this.firstFocusableEl = this.focusableElements[0];
+        this.lastFocusableEl = this.focusableElements.pop(); // setting the initial focus to be on the dialog itself
+
+        this.dialogTarget.setAttribute("tabindex", "-1");
+        this.dialogTarget.focus();
+        this.dialogTarget.setAttribute("open", ""); // listen for keyboard events namely TAB and ESC keys
+
+        document.addEventListener("keydown", this.keypressHandler.bind(this));
+      } else {
+        // dealing with an autoplay or currently playing video in the modal if you close it.
+        var iframeSrc = this.dialogTarget.querySelector("iframe");
+
+        if (iframeSrc) {
+          var src = iframeSrc.src;
+          this.dialogTarget.querySelector("iframe").src = "";
+          this.dialogTarget.querySelector("iframe").src = src;
+        } // set the tab index of the dialog
+
+
+        this.dialogTarget.setAttribute("tabindex", "0");
+        this.dialogTarget.removeAttribute("open");
+        this.dialogButton.focus();
+      }
+    }
+  }, {
+    key: "keypressHandler",
+    value: function keypressHandler(event) {
+      var isEscape = false;
+      var isTab = false;
+
+      if ("key" in event) {
+        isEscape = event.key === "Escape" || event.key === "Esc";
+        isTab = event.key === "Tab";
+      } else {
+        isEscape = event.keyCode === 27;
+        isTab = event.keyCode === KEYCODE_TAB;
+      }
+
+      if (!isEscape && !isTab) return; //if the keypressed isn't a tab or escape what are we doing here
+
+      if (isEscape && this.curState) {
+        // if the state of this dialog is open/true close it and set the focus back to the button that opens it.
+        this.toggleDialogVisibility();
+        this.dialogButton.focus();
+      }
+
+      if (event.shiftKey)
+        /* shift + tab */
+        {
+          if (document.activeElement === this.firstFocusableEl) {
+            this.lastFocusableEl.focus();
+            event.preventDefault();
+          }
+        } else
+        /* tab */
+        {
+          if (document.activeElement === this.lastFocusableEl) {
+            this.firstFocusableEl.focus();
+            event.preventDefault();
+          }
+        }
+    }
+  }]);
+
+  return Dialog;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dialog);
 
 /***/ }),
 
@@ -60,7 +577,79 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar fontLoader = function fontLoader(fontsToLoad) {\n  function loadFonts() {\n    if (\"fonts\" in document) {\n      var fontsArray = fontsToLoad.map(function (font, i) {\n        var shortName = font.shortName || font.localName || \"font\".concat(i + 1);\n        var localName = font.localName || font.shortName || \"font\".concat(i + 1);\n        var path = font.path;\n\n        var doesFileExist = function doesFileExist(urlToFile, extension) {\n          fetch(urlToFile + extension, {\n            method: 'GET'\n          }).then(function (response) {\n            return console.error('success:', response);\n          })[\"catch\"](function (error) {\n            return console.error('error:', error);\n          });\n        };\n\n        var fontsToEmbed;\n\n        if (doesFileExist(path, \".eot\")) {\n          fontsToEmbed += \"url('\".concat(path, \".eot?#iefix') format('embedded-opentype'),\");\n        }\n\n        if (doesFileExist(path, \".ttf\")) {\n          fontsToEmbed += \"url('\".concat(path, \".format('truetype'),\");\n        }\n\n        if (doesFileExist(path, \".woff2\")) {\n          fontsToEmbed += \"url('\".concat(path, \".woff2') format('woff2'),\");\n        }\n\n        if (doesFileExist(path, \".woff\")) {\n          fontsToEmbed += \"url('\".concat(path, \".woff') format('woff'),\");\n        }\n\n        var newFont = new FontFace(shortName, \"local(\".concat(localName, \"),\\n            url('\").concat(path, \".ttf') format('truetype')\"), {\n          weight: 400\n        });\n        newFont.display = 'swap';\n        return newFont;\n      }); // console.log(fontsArray);\n\n      var requests = fontsArray.map(function (font) {\n        return font.load();\n      });\n      Promise.all(requests).then(function (loadedFonts) {\n        // Render them at the same time\n        loadedFonts.forEach(function (font) {\n          document.fonts.add(font);\n        });\n      }).then(function (_) {\n        document.documentElement.classList.add('fonts-loaded');\n      })[\"catch\"](function (error) {\n        return console.log(error.message);\n      });\n    }\n  }\n\n  if (navigator.connection && navigator.connection.saveData || \"matchMedia\" in window && window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches || navigator.connection && (navigator.connection.effectiveType === \"slow-2g\" || navigator.connection.effectiveType === \"2g\")) {\n    console.warning(\"looks like you don't want custom typefaces\");\n  } else {\n    loadFonts();\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fontLoader);\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/fontLoader.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var fontLoader = function fontLoader(fontsToLoad) {
+  function loadFonts() {
+    if ("fonts" in document) {
+      var fontsArray = fontsToLoad.map(function (font, i) {
+        var shortName = font.shortName || font.localName || "font".concat(i + 1);
+        var localName = font.localName || font.shortName || "font".concat(i + 1);
+        var path = font.path;
+
+        var doesFileExist = function doesFileExist(urlToFile, extension) {
+          fetch(urlToFile + extension, {
+            method: 'GET'
+          }) // .then( response => console.warn('success:', response) )
+          // .catch( error => console.warn('error:', error) );
+          .then(function (response) {
+            return response;
+          })["catch"](function (error) {
+            return error;
+          });
+        };
+
+        var fontsToEmbed;
+
+        if (doesFileExist(path, ".eot")) {
+          fontsToEmbed += "url('".concat(path, ".eot?#iefix') format('embedded-opentype'),");
+        }
+
+        if (doesFileExist(path, ".ttf")) {
+          fontsToEmbed += "url('".concat(path, ".format('truetype'),");
+        }
+
+        if (doesFileExist(path, ".woff2")) {
+          fontsToEmbed += "url('".concat(path, ".woff2') format('woff2'),");
+        }
+
+        if (doesFileExist(path, ".woff")) {
+          fontsToEmbed += "url('".concat(path, ".woff') format('woff'),");
+        }
+
+        var newFont = new FontFace(shortName, "local(".concat(localName, "),\n            url('").concat(path, ".ttf') format('truetype')"), {
+          weight: 400
+        });
+        newFont.display = 'swap';
+        return newFont;
+      }); // console.log(fontsArray);
+
+      var requests = fontsArray.map(function (font) {
+        return font.load();
+      });
+      Promise.all(requests).then(function (loadedFonts) {
+        // Render them at the same time
+        loadedFonts.forEach(function (font) {
+          document.fonts.add(font);
+        });
+      }).then(function (_) {
+        document.documentElement.classList.add('fonts-loaded');
+      })["catch"](function (error) {
+        console.warn(error.message);
+      });
+    }
+  }
+
+  if (navigator.connection && navigator.connection.saveData || "matchMedia" in window && window.matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.connection && (navigator.connection.effectiveType === "slow-2g" || navigator.connection.effectiveType === "2g")) {
+    console.warn("looks like you don't want custom typefaces");
+  } else {
+    loadFonts();
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fontLoader);
 
 /***/ }),
 
@@ -71,7 +660,94 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Nav)\n/* harmony export */ });\nfunction Nav() {\n  var nav = document.querySelectorAll(\"Nav\")[0]; // const bodyEverything = Array.from(document.querySelectorAll(`body *`));\n  // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));\n\n  var button = document.getElementsByClassName(\"Nav__toggle\")[0]; // const everythingButNav = bodyEverything.filter((el) => !navEverything.includes(el));\n  // console.log(everythingButNav);\n\n  var curState = false;\n\n  if (window.NodeList && !NodeList.prototype.forEach) {\n    NodeList.prototype.forEach = function (callback, thisArg) {\n      thisArg = thisArg || window;\n\n      for (var i = 0; i < this.length; i++) {\n        callback.call(thisArg, this[i], i, this);\n      }\n    };\n  }\n\n  function keyHandler(e) {\n    var focusableEls = Array.from(nav.querySelectorAll(\"iframe, iframe *, [tabindex=\\\"0\\\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\\\"text\\\"]:not([disabled]), input[type=\\\"radio\\\"]:not([disabled]), input[type=\\\"checkbox\\\"]:not([disabled]), select:not([disabled])\"));\n    var firstFocusableEl = focusableEls[0];\n    var lastFocusableEl = focusableEls[focusableEls.length - 1]; // console.log(e);\n    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);\n\n    var isEscape = e.key === \"Escape\" || e.key === \"Esc\" || e.keyCode === 27; // if (!isTabPressed) {\n    //   return;\n    // }\n\n    if (e.shiftKey)\n      /* shift + tab */\n      {\n        if (document.activeElement === firstFocusableEl) {\n          lastFocusableEl.focus();\n          e.preventDefault();\n        }\n      } else\n      /* tab */\n      {\n        if (document.activeElement === lastFocusableEl) {\n          firstFocusableEl.focus();\n          e.preventDefault();\n        }\n      }\n\n    if (isEscape && curState) {\n      toggleNav();\n    }\n  }\n\n  var toggleNav = function toggleNav() {\n    // event.preventDefault();\n    curState = !curState;\n\n    if (curState) {\n      nav.classList.toggle(\"Nav--isactive\");\n      nav.addEventListener(\"keydown\", keyHandler);\n      setTimeout(function () {\n        nav.classList.toggle(\"Nav--visible\");\n      }, 100);\n    } else {\n      // console.log('button')\n      button.focus();\n      nav.classList.toggle(\"Nav--visible\");\n      nav.removeEventListener(\"keydown\", keyHandler, {\n        passive: true\n      });\n      setTimeout(function () {\n        nav.classList.toggle(\"Nav--isactive\");\n      }, 200);\n    }\n\n    button.setAttribute(\"aria-expanded\", curState);\n  };\n\n  if (button) {\n    button.addEventListener(\"click\", toggleNav);\n  }\n\n  var navItems = nav.querySelectorAll(\"a\");\n  navItems.forEach(function (item) {\n    return item.addEventListener(\"click\", toggleNav);\n  });\n} // EOF\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/nav.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Nav)
+/* harmony export */ });
+function Nav() {
+  var nav = document.querySelectorAll("Nav")[0]; // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
+  // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));
+
+  var button = document.getElementsByClassName("Nav__toggle")[0]; // const everythingButNav = bodyEverything.filter((el) => !navEverything.includes(el));
+  // console.log(everythingButNav);
+
+  var curState = false;
+
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+      thisArg = thisArg || window;
+
+      for (var i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    };
+  }
+
+  function keyHandler(e) {
+    var focusableEls = Array.from(nav.querySelectorAll("iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])"));
+    var firstFocusableEl = focusableEls[0];
+    var lastFocusableEl = focusableEls[focusableEls.length - 1]; // console.log(e);
+    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
+
+    var isEscape = e.key === "Escape" || e.key === "Esc" || e.keyCode === 27; // if (!isTabPressed) {
+    //   return;
+    // }
+
+    if (e.shiftKey)
+      /* shift + tab */
+      {
+        if (document.activeElement === firstFocusableEl) {
+          lastFocusableEl.focus();
+          e.preventDefault();
+        }
+      } else
+      /* tab */
+      {
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl.focus();
+          e.preventDefault();
+        }
+      }
+
+    if (isEscape && curState) {
+      toggleNav();
+    }
+  }
+
+  var toggleNav = function toggleNav() {
+    // event.preventDefault();
+    curState = !curState;
+
+    if (curState) {
+      nav.classList.toggle("Nav--isactive");
+      nav.addEventListener("keydown", keyHandler);
+      setTimeout(function () {
+        nav.classList.toggle("Nav--visible");
+      }, 100);
+    } else {
+      // console.log('button')
+      button.focus();
+      nav.classList.toggle("Nav--visible");
+      nav.removeEventListener("keydown", keyHandler, {
+        passive: true
+      });
+      setTimeout(function () {
+        nav.classList.toggle("Nav--isactive");
+      }, 200);
+    }
+
+    button.setAttribute("aria-expanded", curState);
+  };
+
+  if (button) {
+    button.addEventListener("click", toggleNav);
+  }
+
+  var navItems = nav.querySelectorAll("a");
+  navItems.forEach(function (item) {
+    return item.addEventListener("click", toggleNav);
+  });
+} // EOF
 
 /***/ }),
 
@@ -82,7 +758,109 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nvar Tabs = /*#__PURE__*/function () {\n  function Tabs(settingsObj) {\n    _classCallCheck(this, Tabs);\n\n    this.settings = settingsObj; // set the accordion/detail elements\n\n    this.tabContainer = this.settings.container || document.querySelector(\".Tabbed\");\n    if (!this.tabContainer) return;\n    this.tabbed = this.tabContainer;\n    this.tablist = this.tabbed.querySelector('ul');\n    this.tabs = this.tablist.querySelectorAll('a');\n    this.panels = this.tabbed.querySelectorAll('[id^=\"section\"]');\n    this.init();\n    return this;\n  }\n\n  _createClass(Tabs, [{\n    key: \"init\",\n    value: function init() {\n      var _this = this;\n\n      // Add semantics are remove user focusability for each tab\n      Array.prototype.forEach.call(this.tabs, function (tab, i) {\n        tab.setAttribute('role', 'tab');\n        tab.setAttribute('id', 'tab' + (i + 1));\n        tab.setAttribute('tabindex', '-1');\n        tab.parentNode.setAttribute('role', 'presentation'); // Handle clicking of tabs for mouse users\n\n        tab.addEventListener('click', function (e) {\n          e.preventDefault();\n\n          var currentTab = _this.tablist.querySelector('[aria-selected]');\n\n          if (e.currentTarget !== currentTab) {\n            _this.switchTab(currentTab, e.currentTarget);\n          }\n        }); // Handle keydown events for keyboard users\n\n        tab.addEventListener('keydown', function (e) {\n          // Get the index of the current tab in the tabs node list\n          var index = Array.prototype.indexOf.call(_this.tabs, e.currentTarget); // Work out which key the user is pressing and\n          // Calculate the new tab's index where appropriate\n\n          var dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? 'down' : null;\n\n          if (dir !== null) {\n            e.preventDefault(); // If the down key is pressed, move focus to the open panel,\n            // otherwise switch to the adjacent tab\n\n            dir === 'down' ? _this.panels[i].focus() : _this.tabs[dir] ? _this.switchTab(e.currentTarget, _this.tabs[dir]) : void 0;\n          }\n        });\n      }); // Add tab panel semantics and hide them all\n\n      Array.prototype.forEach.call(this.panels, function (panel, i) {\n        panel.setAttribute('role', 'tabpanel');\n        panel.setAttribute('tabindex', '-1');\n        var id = panel.getAttribute('id');\n        panel.setAttribute('aria-labelledby', _this.tabs[i].id);\n        panel.hidden = true;\n      }); // Add the tablist role to the first <ul> in the .tabbed container\n\n      this.tablist.setAttribute('role', 'tablist'); // Initially activate the first tab and reveal the first tab panel\n\n      this.tabs[0].removeAttribute('tabindex');\n      this.tabs[0].setAttribute('aria-selected', 'true');\n      this.panels[0].hidden = false;\n    } // Get relevant elements and collections\n    // The tab switching function\n\n  }, {\n    key: \"switchTab\",\n    value: function switchTab(oldTab, newTab) {\n      newTab.focus(); // Make the active tab focusable by the user (Tab key)\n\n      newTab.removeAttribute('tabindex'); // Set the selected state\n\n      newTab.setAttribute('aria-selected', 'true');\n      oldTab.removeAttribute('aria-selected');\n      oldTab.setAttribute('tabindex', '-1'); // Get the indices of the new and old tabs to find the correct\n      // tab panels to show and hide\n\n      var index = Array.prototype.indexOf.call(this.tabs, newTab);\n      var oldIndex = Array.prototype.indexOf.call(this.tabs, oldTab);\n      this.panels[oldIndex].hidden = true;\n      this.panels[index].hidden = false;\n    }\n  }]);\n\n  return Tabs;\n}();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/tabs.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Tabs = /*#__PURE__*/function () {
+  function Tabs(settingsObj) {
+    _classCallCheck(this, Tabs);
+
+    this.settings = settingsObj; // set the accordion/detail elements
+
+    this.tabContainer = this.settings.container || document.querySelector(".Tabbed");
+    if (!this.tabContainer) return;
+    this.tabbed = this.tabContainer;
+    this.tablist = this.tabbed.querySelector('ul');
+    this.tabs = this.tablist.querySelectorAll('a');
+    this.panels = this.tabbed.querySelectorAll('[id^="section"]');
+    this.init();
+    return this;
+  }
+
+  _createClass(Tabs, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      // Add semantics are remove user focusability for each tab
+      Array.prototype.forEach.call(this.tabs, function (tab, i) {
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('id', 'tab' + (i + 1));
+        tab.setAttribute('tabindex', '-1');
+        tab.parentNode.setAttribute('role', 'presentation'); // Handle clicking of tabs for mouse users
+
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          var currentTab = _this.tablist.querySelector('[aria-selected]');
+
+          if (e.currentTarget !== currentTab) {
+            _this.switchTab(currentTab, e.currentTarget);
+          }
+        }); // Handle keydown events for keyboard users
+
+        tab.addEventListener('keydown', function (e) {
+          // Get the index of the current tab in the tabs node list
+          var index = Array.prototype.indexOf.call(_this.tabs, e.currentTarget); // Work out which key the user is pressing and
+          // Calculate the new tab's index where appropriate
+
+          var dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? 'down' : null;
+
+          if (dir !== null) {
+            e.preventDefault(); // If the down key is pressed, move focus to the open panel,
+            // otherwise switch to the adjacent tab
+
+            dir === 'down' ? _this.panels[i].focus() : _this.tabs[dir] ? _this.switchTab(e.currentTarget, _this.tabs[dir]) : void 0;
+          }
+        });
+      }); // Add tab panel semantics and hide them all
+
+      Array.prototype.forEach.call(this.panels, function (panel, i) {
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('tabindex', '-1');
+        var id = panel.getAttribute('id');
+        panel.setAttribute('aria-labelledby', _this.tabs[i].id);
+        panel.hidden = true;
+      }); // Add the tablist role to the first <ul> in the .tabbed container
+
+      this.tablist.setAttribute('role', 'tablist'); // Initially activate the first tab and reveal the first tab panel
+
+      this.tabs[0].removeAttribute('tabindex');
+      this.tabs[0].setAttribute('aria-selected', 'true');
+      this.panels[0].hidden = false;
+    } // Get relevant elements and collections
+    // The tab switching function
+
+  }, {
+    key: "switchTab",
+    value: function switchTab(oldTab, newTab) {
+      newTab.focus(); // Make the active tab focusable by the user (Tab key)
+
+      newTab.removeAttribute('tabindex'); // Set the selected state
+
+      newTab.setAttribute('aria-selected', 'true');
+      oldTab.removeAttribute('aria-selected');
+      oldTab.setAttribute('tabindex', '-1'); // Get the indices of the new and old tabs to find the correct
+      // tab panels to show and hide
+
+      var index = Array.prototype.indexOf.call(this.tabs, newTab);
+      var oldIndex = Array.prototype.indexOf.call(this.tabs, oldTab);
+      this.panels[oldIndex].hidden = true;
+      this.panels[index].hidden = false;
+    }
+  }]);
+
+  return Tabs;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);
 
 /***/ }),
 
@@ -93,7 +871,41 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar themePicker = function themePicker(input) {\n  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;\n  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;\n  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches;\n  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified; // console.log('isDarkMode=' + isDarkMode, 'isLightMode=' + isLightMode, 'isNotSpecified=' + isNotSpecified, 'hasNoSupport=' + hasNoSupport);\n\n  var toggleSwitch = document.querySelector(input);\n  var currentTheme = localStorage.getItem('theme');\n\n  if (currentTheme) {\n    document.documentElement.setAttribute('data-theme', currentTheme);\n\n    if (currentTheme === 'dark') {\n      toggleSwitch.checked = true;\n    }\n  }\n\n  function switchTheme(e) {\n    if (e.target.checked) {\n      document.documentElement.setAttribute('data-theme', 'dark');\n      localStorage.setItem('theme', 'dark');\n    } else {\n      document.documentElement.setAttribute('data-theme', 'light');\n      localStorage.setItem('theme', 'light');\n    }\n  }\n\n  toggleSwitch.addEventListener('change', switchTheme, false);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (themePicker);\n\n//# sourceURL=webpack://AllanKukral/./public_html/ui/_js/modules/theme.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var themePicker = function themePicker(input) {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches;
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified; // console.log('isDarkMode=' + isDarkMode, 'isLightMode=' + isLightMode, 'isNotSpecified=' + isNotSpecified, 'hasNoSupport=' + hasNoSupport);
+
+  var toggleSwitch = document.querySelector(input);
+  var currentTheme = localStorage.getItem('theme');
+
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+
+  function switchTheme(e) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  toggleSwitch.addEventListener('change', switchTheme, false);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (themePicker);
 
 /***/ }),
 
@@ -103,7 +915,77 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************************/
 /***/ ((module) => {
 
-eval("/**\n * Returns a function, that, as long as it continues to be invoked, will not\n * be triggered. The function will be called after it stops being called for\n * N milliseconds. If `immediate` is passed, trigger the function on the\n * leading edge, instead of the trailing. The function also has a property 'clear' \n * that is a function which will clear the timer to prevent previously scheduled executions. \n *\n * @source underscore.js\n * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/\n * @param {Function} function to wrap\n * @param {Number} timeout in ms (`100`)\n * @param {Boolean} whether to execute at the beginning (`false`)\n * @api public\n */\nfunction debounce(func, wait, immediate){\n  var timeout, args, context, timestamp, result;\n  if (null == wait) wait = 100;\n\n  function later() {\n    var last = Date.now() - timestamp;\n\n    if (last < wait && last >= 0) {\n      timeout = setTimeout(later, wait - last);\n    } else {\n      timeout = null;\n      if (!immediate) {\n        result = func.apply(context, args);\n        context = args = null;\n      }\n    }\n  };\n\n  var debounced = function(){\n    context = this;\n    args = arguments;\n    timestamp = Date.now();\n    var callNow = immediate && !timeout;\n    if (!timeout) timeout = setTimeout(later, wait);\n    if (callNow) {\n      result = func.apply(context, args);\n      context = args = null;\n    }\n\n    return result;\n  };\n\n  debounced.clear = function() {\n    if (timeout) {\n      clearTimeout(timeout);\n      timeout = null;\n    }\n  };\n  \n  debounced.flush = function() {\n    if (timeout) {\n      result = func.apply(context, args);\n      context = args = null;\n      \n      clearTimeout(timeout);\n      timeout = null;\n    }\n  };\n\n  return debounced;\n};\n\n// Adds compatibility for ES modules\ndebounce.debounce = debounce;\n\nmodule.exports = debounce;\n\n\n//# sourceURL=webpack://AllanKukral/./node_modules/debounce/index.js?");
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not
+ * be triggered. The function will be called after it stops being called for
+ * N milliseconds. If `immediate` is passed, trigger the function on the
+ * leading edge, instead of the trailing. The function also has a property 'clear' 
+ * that is a function which will clear the timer to prevent previously scheduled executions. 
+ *
+ * @source underscore.js
+ * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
+ * @param {Function} function to wrap
+ * @param {Number} timeout in ms (`100`)
+ * @param {Boolean} whether to execute at the beginning (`false`)
+ * @api public
+ */
+function debounce(func, wait, immediate){
+  var timeout, args, context, timestamp, result;
+  if (null == wait) wait = 100;
+
+  function later() {
+    var last = Date.now() - timestamp;
+
+    if (last < wait && last >= 0) {
+      timeout = setTimeout(later, wait - last);
+    } else {
+      timeout = null;
+      if (!immediate) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+    }
+  };
+
+  var debounced = function(){
+    context = this;
+    args = arguments;
+    timestamp = Date.now();
+    var callNow = immediate && !timeout;
+    if (!timeout) timeout = setTimeout(later, wait);
+    if (callNow) {
+      result = func.apply(context, args);
+      context = args = null;
+    }
+
+    return result;
+  };
+
+  debounced.clear = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+  
+  debounced.flush = function() {
+    if (timeout) {
+      result = func.apply(context, args);
+      context = args = null;
+      
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+
+  return debounced;
+};
+
+// Adds compatibility for ES modules
+debounce.debounce = debounce;
+
+module.exports = debounce;
+
 
 /***/ }),
 
@@ -113,7 +995,821 @@ eval("/**\n * Returns a function, that, as long as it continues to be invoked, w
   \*********************************************/
 /***/ ((module) => {
 
-eval("(function(window, factory) {\n\tvar lazySizes = factory(window, window.document, Date);\n\twindow.lazySizes = lazySizes;\n\tif( true && module.exports){\n\t\tmodule.exports = lazySizes;\n\t}\n}(typeof window != 'undefined' ?\n      window : {}, \n/**\n * import(\"./types/global\")\n * @typedef { import(\"./types/lazysizes-config\").LazySizesConfigPartial } LazySizesConfigPartial\n */\nfunction l(window, document, Date) { // Pass in the window Date function also for SSR because the Date class can be lost\n\t'use strict';\n\t/*jshint eqnull:true */\n\n\tvar lazysizes,\n\t\t/**\n\t\t * @type { LazySizesConfigPartial }\n\t\t */\n\t\tlazySizesCfg;\n\n\t(function(){\n\t\tvar prop;\n\n\t\tvar lazySizesDefaults = {\n\t\t\tlazyClass: 'lazyload',\n\t\t\tloadedClass: 'lazyloaded',\n\t\t\tloadingClass: 'lazyloading',\n\t\t\tpreloadClass: 'lazypreload',\n\t\t\terrorClass: 'lazyerror',\n\t\t\t//strictClass: 'lazystrict',\n\t\t\tautosizesClass: 'lazyautosizes',\n\t\t\tfastLoadedClass: 'ls-is-cached',\n\t\t\tiframeLoadMode: 0,\n\t\t\tsrcAttr: 'data-src',\n\t\t\tsrcsetAttr: 'data-srcset',\n\t\t\tsizesAttr: 'data-sizes',\n\t\t\t//preloadAfterLoad: false,\n\t\t\tminSize: 40,\n\t\t\tcustomMedia: {},\n\t\t\tinit: true,\n\t\t\texpFactor: 1.5,\n\t\t\thFac: 0.8,\n\t\t\tloadMode: 2,\n\t\t\tloadHidden: true,\n\t\t\tricTimeout: 0,\n\t\t\tthrottleDelay: 125,\n\t\t};\n\n\t\tlazySizesCfg = window.lazySizesConfig || window.lazysizesConfig || {};\n\n\t\tfor(prop in lazySizesDefaults){\n\t\t\tif(!(prop in lazySizesCfg)){\n\t\t\t\tlazySizesCfg[prop] = lazySizesDefaults[prop];\n\t\t\t}\n\t\t}\n\t})();\n\n\tif (!document || !document.getElementsByClassName) {\n\t\treturn {\n\t\t\tinit: function () {},\n\t\t\t/**\n\t\t\t * @type { LazySizesConfigPartial }\n\t\t\t */\n\t\t\tcfg: lazySizesCfg,\n\t\t\t/**\n\t\t\t * @type { true }\n\t\t\t */\n\t\t\tnoSupport: true,\n\t\t};\n\t}\n\n\tvar docElem = document.documentElement;\n\n\tvar supportPicture = window.HTMLPictureElement;\n\n\tvar _addEventListener = 'addEventListener';\n\n\tvar _getAttribute = 'getAttribute';\n\n\t/**\n\t * Update to bind to window because 'this' becomes null during SSR\n\t * builds.\n\t */\n\tvar addEventListener = window[_addEventListener].bind(window);\n\n\tvar setTimeout = window.setTimeout;\n\n\tvar requestAnimationFrame = window.requestAnimationFrame || setTimeout;\n\n\tvar requestIdleCallback = window.requestIdleCallback;\n\n\tvar regPicture = /^picture$/i;\n\n\tvar loadEvents = ['load', 'error', 'lazyincluded', '_lazyloaded'];\n\n\tvar regClassCache = {};\n\n\tvar forEach = Array.prototype.forEach;\n\n\t/**\n\t * @param ele {Element}\n\t * @param cls {string}\n\t */\n\tvar hasClass = function(ele, cls) {\n\t\tif(!regClassCache[cls]){\n\t\t\tregClassCache[cls] = new RegExp('(\\\\s|^)'+cls+'(\\\\s|$)');\n\t\t}\n\t\treturn regClassCache[cls].test(ele[_getAttribute]('class') || '') && regClassCache[cls];\n\t};\n\n\t/**\n\t * @param ele {Element}\n\t * @param cls {string}\n\t */\n\tvar addClass = function(ele, cls) {\n\t\tif (!hasClass(ele, cls)){\n\t\t\tele.setAttribute('class', (ele[_getAttribute]('class') || '').trim() + ' ' + cls);\n\t\t}\n\t};\n\n\t/**\n\t * @param ele {Element}\n\t * @param cls {string}\n\t */\n\tvar removeClass = function(ele, cls) {\n\t\tvar reg;\n\t\tif ((reg = hasClass(ele,cls))) {\n\t\t\tele.setAttribute('class', (ele[_getAttribute]('class') || '').replace(reg, ' '));\n\t\t}\n\t};\n\n\tvar addRemoveLoadEvents = function(dom, fn, add){\n\t\tvar action = add ? _addEventListener : 'removeEventListener';\n\t\tif(add){\n\t\t\taddRemoveLoadEvents(dom, fn);\n\t\t}\n\t\tloadEvents.forEach(function(evt){\n\t\t\tdom[action](evt, fn);\n\t\t});\n\t};\n\n\t/**\n\t * @param elem { Element }\n\t * @param name { string }\n\t * @param detail { any }\n\t * @param noBubbles { boolean }\n\t * @param noCancelable { boolean }\n\t * @returns { CustomEvent }\n\t */\n\tvar triggerEvent = function(elem, name, detail, noBubbles, noCancelable){\n\t\tvar event = document.createEvent('Event');\n\n\t\tif(!detail){\n\t\t\tdetail = {};\n\t\t}\n\n\t\tdetail.instance = lazysizes;\n\n\t\tevent.initEvent(name, !noBubbles, !noCancelable);\n\n\t\tevent.detail = detail;\n\n\t\telem.dispatchEvent(event);\n\t\treturn event;\n\t};\n\n\tvar updatePolyfill = function (el, full){\n\t\tvar polyfill;\n\t\tif( !supportPicture && ( polyfill = (window.picturefill || lazySizesCfg.pf) ) ){\n\t\t\tif(full && full.src && !el[_getAttribute]('srcset')){\n\t\t\t\tel.setAttribute('srcset', full.src);\n\t\t\t}\n\t\t\tpolyfill({reevaluate: true, elements: [el]});\n\t\t} else if(full && full.src){\n\t\t\tel.src = full.src;\n\t\t}\n\t};\n\n\tvar getCSS = function (elem, style){\n\t\treturn (getComputedStyle(elem, null) || {})[style];\n\t};\n\n\t/**\n\t *\n\t * @param elem { Element }\n\t * @param parent { Element }\n\t * @param [width] {number}\n\t * @returns {number}\n\t */\n\tvar getWidth = function(elem, parent, width){\n\t\twidth = width || elem.offsetWidth;\n\n\t\twhile(width < lazySizesCfg.minSize && parent && !elem._lazysizesWidth){\n\t\t\twidth =  parent.offsetWidth;\n\t\t\tparent = parent.parentNode;\n\t\t}\n\n\t\treturn width;\n\t};\n\n\tvar rAF = (function(){\n\t\tvar running, waiting;\n\t\tvar firstFns = [];\n\t\tvar secondFns = [];\n\t\tvar fns = firstFns;\n\n\t\tvar run = function(){\n\t\t\tvar runFns = fns;\n\n\t\t\tfns = firstFns.length ? secondFns : firstFns;\n\n\t\t\trunning = true;\n\t\t\twaiting = false;\n\n\t\t\twhile(runFns.length){\n\t\t\t\trunFns.shift()();\n\t\t\t}\n\n\t\t\trunning = false;\n\t\t};\n\n\t\tvar rafBatch = function(fn, queue){\n\t\t\tif(running && !queue){\n\t\t\t\tfn.apply(this, arguments);\n\t\t\t} else {\n\t\t\t\tfns.push(fn);\n\n\t\t\t\tif(!waiting){\n\t\t\t\t\twaiting = true;\n\t\t\t\t\t(document.hidden ? setTimeout : requestAnimationFrame)(run);\n\t\t\t\t}\n\t\t\t}\n\t\t};\n\n\t\trafBatch._lsFlush = run;\n\n\t\treturn rafBatch;\n\t})();\n\n\tvar rAFIt = function(fn, simple){\n\t\treturn simple ?\n\t\t\tfunction() {\n\t\t\t\trAF(fn);\n\t\t\t} :\n\t\t\tfunction(){\n\t\t\t\tvar that = this;\n\t\t\t\tvar args = arguments;\n\t\t\t\trAF(function(){\n\t\t\t\t\tfn.apply(that, args);\n\t\t\t\t});\n\t\t\t}\n\t\t;\n\t};\n\n\tvar throttle = function(fn){\n\t\tvar running;\n\t\tvar lastTime = 0;\n\t\tvar gDelay = lazySizesCfg.throttleDelay;\n\t\tvar rICTimeout = lazySizesCfg.ricTimeout;\n\t\tvar run = function(){\n\t\t\trunning = false;\n\t\t\tlastTime = Date.now();\n\t\t\tfn();\n\t\t};\n\t\tvar idleCallback = requestIdleCallback && rICTimeout > 49 ?\n\t\t\tfunction(){\n\t\t\t\trequestIdleCallback(run, {timeout: rICTimeout});\n\n\t\t\t\tif(rICTimeout !== lazySizesCfg.ricTimeout){\n\t\t\t\t\trICTimeout = lazySizesCfg.ricTimeout;\n\t\t\t\t}\n\t\t\t} :\n\t\t\trAFIt(function(){\n\t\t\t\tsetTimeout(run);\n\t\t\t}, true)\n\t\t;\n\n\t\treturn function(isPriority){\n\t\t\tvar delay;\n\n\t\t\tif((isPriority = isPriority === true)){\n\t\t\t\trICTimeout = 33;\n\t\t\t}\n\n\t\t\tif(running){\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\trunning =  true;\n\n\t\t\tdelay = gDelay - (Date.now() - lastTime);\n\n\t\t\tif(delay < 0){\n\t\t\t\tdelay = 0;\n\t\t\t}\n\n\t\t\tif(isPriority || delay < 9){\n\t\t\t\tidleCallback();\n\t\t\t} else {\n\t\t\t\tsetTimeout(idleCallback, delay);\n\t\t\t}\n\t\t};\n\t};\n\n\t//based on http://modernjavascript.blogspot.de/2013/08/building-better-debounce.html\n\tvar debounce = function(func) {\n\t\tvar timeout, timestamp;\n\t\tvar wait = 99;\n\t\tvar run = function(){\n\t\t\ttimeout = null;\n\t\t\tfunc();\n\t\t};\n\t\tvar later = function() {\n\t\t\tvar last = Date.now() - timestamp;\n\n\t\t\tif (last < wait) {\n\t\t\t\tsetTimeout(later, wait - last);\n\t\t\t} else {\n\t\t\t\t(requestIdleCallback || run)(run);\n\t\t\t}\n\t\t};\n\n\t\treturn function() {\n\t\t\ttimestamp = Date.now();\n\n\t\t\tif (!timeout) {\n\t\t\t\ttimeout = setTimeout(later, wait);\n\t\t\t}\n\t\t};\n\t};\n\n\tvar loader = (function(){\n\t\tvar preloadElems, isCompleted, resetPreloadingTimer, loadMode, started;\n\n\t\tvar eLvW, elvH, eLtop, eLleft, eLright, eLbottom, isBodyHidden;\n\n\t\tvar regImg = /^img$/i;\n\t\tvar regIframe = /^iframe$/i;\n\n\t\tvar supportScroll = ('onscroll' in window) && !(/(gle|ing)bot/.test(navigator.userAgent));\n\n\t\tvar shrinkExpand = 0;\n\t\tvar currentExpand = 0;\n\n\t\tvar isLoading = 0;\n\t\tvar lowRuns = -1;\n\n\t\tvar resetPreloading = function(e){\n\t\t\tisLoading--;\n\t\t\tif(!e || isLoading < 0 || !e.target){\n\t\t\t\tisLoading = 0;\n\t\t\t}\n\t\t};\n\n\t\tvar isVisible = function (elem) {\n\t\t\tif (isBodyHidden == null) {\n\t\t\t\tisBodyHidden = getCSS(document.body, 'visibility') == 'hidden';\n\t\t\t}\n\n\t\t\treturn isBodyHidden || !(getCSS(elem.parentNode, 'visibility') == 'hidden' && getCSS(elem, 'visibility') == 'hidden');\n\t\t};\n\n\t\tvar isNestedVisible = function(elem, elemExpand){\n\t\t\tvar outerRect;\n\t\t\tvar parent = elem;\n\t\t\tvar visible = isVisible(elem);\n\n\t\t\teLtop -= elemExpand;\n\t\t\teLbottom += elemExpand;\n\t\t\teLleft -= elemExpand;\n\t\t\teLright += elemExpand;\n\n\t\t\twhile(visible && (parent = parent.offsetParent) && parent != document.body && parent != docElem){\n\t\t\t\tvisible = ((getCSS(parent, 'opacity') || 1) > 0);\n\n\t\t\t\tif(visible && getCSS(parent, 'overflow') != 'visible'){\n\t\t\t\t\touterRect = parent.getBoundingClientRect();\n\t\t\t\t\tvisible = eLright > outerRect.left &&\n\t\t\t\t\t\teLleft < outerRect.right &&\n\t\t\t\t\t\teLbottom > outerRect.top - 1 &&\n\t\t\t\t\t\teLtop < outerRect.bottom + 1\n\t\t\t\t\t;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\treturn visible;\n\t\t};\n\n\t\tvar checkElements = function() {\n\t\t\tvar eLlen, i, rect, autoLoadElem, loadedSomething, elemExpand, elemNegativeExpand, elemExpandVal,\n\t\t\t\tbeforeExpandVal, defaultExpand, preloadExpand, hFac;\n\t\t\tvar lazyloadElems = lazysizes.elements;\n\n\t\t\tif((loadMode = lazySizesCfg.loadMode) && isLoading < 8 && (eLlen = lazyloadElems.length)){\n\n\t\t\t\ti = 0;\n\n\t\t\t\tlowRuns++;\n\n\t\t\t\tfor(; i < eLlen; i++){\n\n\t\t\t\t\tif(!lazyloadElems[i] || lazyloadElems[i]._lazyRace){continue;}\n\n\t\t\t\t\tif(!supportScroll || (lazysizes.prematureUnveil && lazysizes.prematureUnveil(lazyloadElems[i]))){unveilElement(lazyloadElems[i]);continue;}\n\n\t\t\t\t\tif(!(elemExpandVal = lazyloadElems[i][_getAttribute]('data-expand')) || !(elemExpand = elemExpandVal * 1)){\n\t\t\t\t\t\telemExpand = currentExpand;\n\t\t\t\t\t}\n\n\t\t\t\t\tif (!defaultExpand) {\n\t\t\t\t\t\tdefaultExpand = (!lazySizesCfg.expand || lazySizesCfg.expand < 1) ?\n\t\t\t\t\t\t\tdocElem.clientHeight > 500 && docElem.clientWidth > 500 ? 500 : 370 :\n\t\t\t\t\t\t\tlazySizesCfg.expand;\n\n\t\t\t\t\t\tlazysizes._defEx = defaultExpand;\n\n\t\t\t\t\t\tpreloadExpand = defaultExpand * lazySizesCfg.expFactor;\n\t\t\t\t\t\thFac = lazySizesCfg.hFac;\n\t\t\t\t\t\tisBodyHidden = null;\n\n\t\t\t\t\t\tif(currentExpand < preloadExpand && isLoading < 1 && lowRuns > 2 && loadMode > 2 && !document.hidden){\n\t\t\t\t\t\t\tcurrentExpand = preloadExpand;\n\t\t\t\t\t\t\tlowRuns = 0;\n\t\t\t\t\t\t} else if(loadMode > 1 && lowRuns > 1 && isLoading < 6){\n\t\t\t\t\t\t\tcurrentExpand = defaultExpand;\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\tcurrentExpand = shrinkExpand;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\n\t\t\t\t\tif(beforeExpandVal !== elemExpand){\n\t\t\t\t\t\teLvW = innerWidth + (elemExpand * hFac);\n\t\t\t\t\t\telvH = innerHeight + elemExpand;\n\t\t\t\t\t\telemNegativeExpand = elemExpand * -1;\n\t\t\t\t\t\tbeforeExpandVal = elemExpand;\n\t\t\t\t\t}\n\n\t\t\t\t\trect = lazyloadElems[i].getBoundingClientRect();\n\n\t\t\t\t\tif ((eLbottom = rect.bottom) >= elemNegativeExpand &&\n\t\t\t\t\t\t(eLtop = rect.top) <= elvH &&\n\t\t\t\t\t\t(eLright = rect.right) >= elemNegativeExpand * hFac &&\n\t\t\t\t\t\t(eLleft = rect.left) <= eLvW &&\n\t\t\t\t\t\t(eLbottom || eLright || eLleft || eLtop) &&\n\t\t\t\t\t\t(lazySizesCfg.loadHidden || isVisible(lazyloadElems[i])) &&\n\t\t\t\t\t\t((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){\n\t\t\t\t\t\tunveilElement(lazyloadElems[i]);\n\t\t\t\t\t\tloadedSomething = true;\n\t\t\t\t\t\tif(isLoading > 9){break;}\n\t\t\t\t\t} else if(!loadedSomething && isCompleted && !autoLoadElem &&\n\t\t\t\t\t\tisLoading < 4 && lowRuns < 4 && loadMode > 2 &&\n\t\t\t\t\t\t(preloadElems[0] || lazySizesCfg.preloadAfterLoad) &&\n\t\t\t\t\t\t(preloadElems[0] || (!elemExpandVal && ((eLbottom || eLright || eLleft || eLtop) || lazyloadElems[i][_getAttribute](lazySizesCfg.sizesAttr) != 'auto')))){\n\t\t\t\t\t\tautoLoadElem = preloadElems[0] || lazyloadElems[i];\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tif(autoLoadElem && !loadedSomething){\n\t\t\t\t\tunveilElement(autoLoadElem);\n\t\t\t\t}\n\t\t\t}\n\t\t};\n\n\t\tvar throttledCheckElements = throttle(checkElements);\n\n\t\tvar switchLoadingClass = function(e){\n\t\t\tvar elem = e.target;\n\n\t\t\tif (elem._lazyCache) {\n\t\t\t\tdelete elem._lazyCache;\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tresetPreloading(e);\n\t\t\taddClass(elem, lazySizesCfg.loadedClass);\n\t\t\tremoveClass(elem, lazySizesCfg.loadingClass);\n\t\t\taddRemoveLoadEvents(elem, rafSwitchLoadingClass);\n\t\t\ttriggerEvent(elem, 'lazyloaded');\n\t\t};\n\t\tvar rafedSwitchLoadingClass = rAFIt(switchLoadingClass);\n\t\tvar rafSwitchLoadingClass = function(e){\n\t\t\trafedSwitchLoadingClass({target: e.target});\n\t\t};\n\n\t\tvar changeIframeSrc = function(elem, src){\n\t\t\tvar loadMode = elem.getAttribute('data-load-mode') || lazySizesCfg.iframeLoadMode;\n\n\t\t\t// loadMode can be also a string!\n\t\t\tif (loadMode == 0) {\n\t\t\t\telem.contentWindow.location.replace(src);\n\t\t\t} else if (loadMode == 1) {\n\t\t\t\telem.src = src;\n\t\t\t}\n\t\t};\n\n\t\tvar handleSources = function(source){\n\t\t\tvar customMedia;\n\n\t\t\tvar sourceSrcset = source[_getAttribute](lazySizesCfg.srcsetAttr);\n\n\t\t\tif( (customMedia = lazySizesCfg.customMedia[source[_getAttribute]('data-media') || source[_getAttribute]('media')]) ){\n\t\t\t\tsource.setAttribute('media', customMedia);\n\t\t\t}\n\n\t\t\tif(sourceSrcset){\n\t\t\t\tsource.setAttribute('srcset', sourceSrcset);\n\t\t\t}\n\t\t};\n\n\t\tvar lazyUnveil = rAFIt(function (elem, detail, isAuto, sizes, isImg){\n\t\t\tvar src, srcset, parent, isPicture, event, firesLoad;\n\n\t\t\tif(!(event = triggerEvent(elem, 'lazybeforeunveil', detail)).defaultPrevented){\n\n\t\t\t\tif(sizes){\n\t\t\t\t\tif(isAuto){\n\t\t\t\t\t\taddClass(elem, lazySizesCfg.autosizesClass);\n\t\t\t\t\t} else {\n\t\t\t\t\t\telem.setAttribute('sizes', sizes);\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tsrcset = elem[_getAttribute](lazySizesCfg.srcsetAttr);\n\t\t\t\tsrc = elem[_getAttribute](lazySizesCfg.srcAttr);\n\n\t\t\t\tif(isImg) {\n\t\t\t\t\tparent = elem.parentNode;\n\t\t\t\t\tisPicture = parent && regPicture.test(parent.nodeName || '');\n\t\t\t\t}\n\n\t\t\t\tfiresLoad = detail.firesLoad || (('src' in elem) && (srcset || src || isPicture));\n\n\t\t\t\tevent = {target: elem};\n\n\t\t\t\taddClass(elem, lazySizesCfg.loadingClass);\n\n\t\t\t\tif(firesLoad){\n\t\t\t\t\tclearTimeout(resetPreloadingTimer);\n\t\t\t\t\tresetPreloadingTimer = setTimeout(resetPreloading, 2500);\n\t\t\t\t\taddRemoveLoadEvents(elem, rafSwitchLoadingClass, true);\n\t\t\t\t}\n\n\t\t\t\tif(isPicture){\n\t\t\t\t\tforEach.call(parent.getElementsByTagName('source'), handleSources);\n\t\t\t\t}\n\n\t\t\t\tif(srcset){\n\t\t\t\t\telem.setAttribute('srcset', srcset);\n\t\t\t\t} else if(src && !isPicture){\n\t\t\t\t\tif(regIframe.test(elem.nodeName)){\n\t\t\t\t\t\tchangeIframeSrc(elem, src);\n\t\t\t\t\t} else {\n\t\t\t\t\t\telem.src = src;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tif(isImg && (srcset || isPicture)){\n\t\t\t\t\tupdatePolyfill(elem, {src: src});\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif(elem._lazyRace){\n\t\t\t\tdelete elem._lazyRace;\n\t\t\t}\n\t\t\tremoveClass(elem, lazySizesCfg.lazyClass);\n\n\t\t\trAF(function(){\n\t\t\t\t// Part of this can be removed as soon as this fix is older: https://bugs.chromium.org/p/chromium/issues/detail?id=7731 (2015)\n\t\t\t\tvar isLoaded = elem.complete && elem.naturalWidth > 1;\n\n\t\t\t\tif( !firesLoad || isLoaded){\n\t\t\t\t\tif (isLoaded) {\n\t\t\t\t\t\taddClass(elem, lazySizesCfg.fastLoadedClass);\n\t\t\t\t\t}\n\t\t\t\t\tswitchLoadingClass(event);\n\t\t\t\t\telem._lazyCache = true;\n\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\tif ('_lazyCache' in elem) {\n\t\t\t\t\t\t\tdelete elem._lazyCache;\n\t\t\t\t\t\t}\n\t\t\t\t\t}, 9);\n\t\t\t\t}\n\t\t\t\tif (elem.loading == 'lazy') {\n\t\t\t\t\tisLoading--;\n\t\t\t\t}\n\t\t\t}, true);\n\t\t});\n\n\t\t/**\n\t\t *\n\t\t * @param elem { Element }\n\t\t */\n\t\tvar unveilElement = function (elem){\n\t\t\tif (elem._lazyRace) {return;}\n\t\t\tvar detail;\n\n\t\t\tvar isImg = regImg.test(elem.nodeName);\n\n\t\t\t//allow using sizes=\"auto\", but don't use. it's invalid. Use data-sizes=\"auto\" or a valid value for sizes instead (i.e.: sizes=\"80vw\")\n\t\t\tvar sizes = isImg && (elem[_getAttribute](lazySizesCfg.sizesAttr) || elem[_getAttribute]('sizes'));\n\t\t\tvar isAuto = sizes == 'auto';\n\n\t\t\tif( (isAuto || !isCompleted) && isImg && (elem[_getAttribute]('src') || elem.srcset) && !elem.complete && !hasClass(elem, lazySizesCfg.errorClass) && hasClass(elem, lazySizesCfg.lazyClass)){return;}\n\n\t\t\tdetail = triggerEvent(elem, 'lazyunveilread').detail;\n\n\t\t\tif(isAuto){\n\t\t\t\t autoSizer.updateElem(elem, true, elem.offsetWidth);\n\t\t\t}\n\n\t\t\telem._lazyRace = true;\n\t\t\tisLoading++;\n\n\t\t\tlazyUnveil(elem, detail, isAuto, sizes, isImg);\n\t\t};\n\n\t\tvar afterScroll = debounce(function(){\n\t\t\tlazySizesCfg.loadMode = 3;\n\t\t\tthrottledCheckElements();\n\t\t});\n\n\t\tvar altLoadmodeScrollListner = function(){\n\t\t\tif(lazySizesCfg.loadMode == 3){\n\t\t\t\tlazySizesCfg.loadMode = 2;\n\t\t\t}\n\t\t\tafterScroll();\n\t\t};\n\n\t\tvar onload = function(){\n\t\t\tif(isCompleted){return;}\n\t\t\tif(Date.now() - started < 999){\n\t\t\t\tsetTimeout(onload, 999);\n\t\t\t\treturn;\n\t\t\t}\n\n\n\t\t\tisCompleted = true;\n\n\t\t\tlazySizesCfg.loadMode = 3;\n\n\t\t\tthrottledCheckElements();\n\n\t\t\taddEventListener('scroll', altLoadmodeScrollListner, true);\n\t\t};\n\n\t\treturn {\n\t\t\t_: function(){\n\t\t\t\tstarted = Date.now();\n\n\t\t\t\tlazysizes.elements = document.getElementsByClassName(lazySizesCfg.lazyClass);\n\t\t\t\tpreloadElems = document.getElementsByClassName(lazySizesCfg.lazyClass + ' ' + lazySizesCfg.preloadClass);\n\n\t\t\t\taddEventListener('scroll', throttledCheckElements, true);\n\n\t\t\t\taddEventListener('resize', throttledCheckElements, true);\n\n\t\t\t\taddEventListener('pageshow', function (e) {\n\t\t\t\t\tif (e.persisted) {\n\t\t\t\t\t\tvar loadingElements = document.querySelectorAll('.' + lazySizesCfg.loadingClass);\n\n\t\t\t\t\t\tif (loadingElements.length && loadingElements.forEach) {\n\t\t\t\t\t\t\trequestAnimationFrame(function () {\n\t\t\t\t\t\t\t\tloadingElements.forEach( function (img) {\n\t\t\t\t\t\t\t\t\tif (img.complete) {\n\t\t\t\t\t\t\t\t\t\tunveilElement(img);\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t\tif(window.MutationObserver){\n\t\t\t\t\tnew MutationObserver( throttledCheckElements ).observe( docElem, {childList: true, subtree: true, attributes: true} );\n\t\t\t\t} else {\n\t\t\t\t\tdocElem[_addEventListener]('DOMNodeInserted', throttledCheckElements, true);\n\t\t\t\t\tdocElem[_addEventListener]('DOMAttrModified', throttledCheckElements, true);\n\t\t\t\t\tsetInterval(throttledCheckElements, 999);\n\t\t\t\t}\n\n\t\t\t\taddEventListener('hashchange', throttledCheckElements, true);\n\n\t\t\t\t//, 'fullscreenchange'\n\t\t\t\t['focus', 'mouseover', 'click', 'load', 'transitionend', 'animationend'].forEach(function(name){\n\t\t\t\t\tdocument[_addEventListener](name, throttledCheckElements, true);\n\t\t\t\t});\n\n\t\t\t\tif((/d$|^c/.test(document.readyState))){\n\t\t\t\t\tonload();\n\t\t\t\t} else {\n\t\t\t\t\taddEventListener('load', onload);\n\t\t\t\t\tdocument[_addEventListener]('DOMContentLoaded', throttledCheckElements);\n\t\t\t\t\tsetTimeout(onload, 20000);\n\t\t\t\t}\n\n\t\t\t\tif(lazysizes.elements.length){\n\t\t\t\t\tcheckElements();\n\t\t\t\t\trAF._lsFlush();\n\t\t\t\t} else {\n\t\t\t\t\tthrottledCheckElements();\n\t\t\t\t}\n\t\t\t},\n\t\t\tcheckElems: throttledCheckElements,\n\t\t\tunveil: unveilElement,\n\t\t\t_aLSL: altLoadmodeScrollListner,\n\t\t};\n\t})();\n\n\n\tvar autoSizer = (function(){\n\t\tvar autosizesElems;\n\n\t\tvar sizeElement = rAFIt(function(elem, parent, event, width){\n\t\t\tvar sources, i, len;\n\t\t\telem._lazysizesWidth = width;\n\t\t\twidth += 'px';\n\n\t\t\telem.setAttribute('sizes', width);\n\n\t\t\tif(regPicture.test(parent.nodeName || '')){\n\t\t\t\tsources = parent.getElementsByTagName('source');\n\t\t\t\tfor(i = 0, len = sources.length; i < len; i++){\n\t\t\t\t\tsources[i].setAttribute('sizes', width);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif(!event.detail.dataAttr){\n\t\t\t\tupdatePolyfill(elem, event.detail);\n\t\t\t}\n\t\t});\n\t\t/**\n\t\t *\n\t\t * @param elem {Element}\n\t\t * @param dataAttr\n\t\t * @param [width] { number }\n\t\t */\n\t\tvar getSizeElement = function (elem, dataAttr, width){\n\t\t\tvar event;\n\t\t\tvar parent = elem.parentNode;\n\n\t\t\tif(parent){\n\t\t\t\twidth = getWidth(elem, parent, width);\n\t\t\t\tevent = triggerEvent(elem, 'lazybeforesizes', {width: width, dataAttr: !!dataAttr});\n\n\t\t\t\tif(!event.defaultPrevented){\n\t\t\t\t\twidth = event.detail.width;\n\n\t\t\t\t\tif(width && width !== elem._lazysizesWidth){\n\t\t\t\t\t\tsizeElement(elem, parent, event, width);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t};\n\n\t\tvar updateElementsSizes = function(){\n\t\t\tvar i;\n\t\t\tvar len = autosizesElems.length;\n\t\t\tif(len){\n\t\t\t\ti = 0;\n\n\t\t\t\tfor(; i < len; i++){\n\t\t\t\t\tgetSizeElement(autosizesElems[i]);\n\t\t\t\t}\n\t\t\t}\n\t\t};\n\n\t\tvar debouncedUpdateElementsSizes = debounce(updateElementsSizes);\n\n\t\treturn {\n\t\t\t_: function(){\n\t\t\t\tautosizesElems = document.getElementsByClassName(lazySizesCfg.autosizesClass);\n\t\t\t\taddEventListener('resize', debouncedUpdateElementsSizes);\n\t\t\t},\n\t\t\tcheckElems: debouncedUpdateElementsSizes,\n\t\t\tupdateElem: getSizeElement\n\t\t};\n\t})();\n\n\tvar init = function(){\n\t\tif(!init.i && document.getElementsByClassName){\n\t\t\tinit.i = true;\n\t\t\tautoSizer._();\n\t\t\tloader._();\n\t\t}\n\t};\n\n\tsetTimeout(function(){\n\t\tif(lazySizesCfg.init){\n\t\t\tinit();\n\t\t}\n\t});\n\n\tlazysizes = {\n\t\t/**\n\t\t * @type { LazySizesConfigPartial }\n\t\t */\n\t\tcfg: lazySizesCfg,\n\t\tautoSizer: autoSizer,\n\t\tloader: loader,\n\t\tinit: init,\n\t\tuP: updatePolyfill,\n\t\taC: addClass,\n\t\trC: removeClass,\n\t\thC: hasClass,\n\t\tfire: triggerEvent,\n\t\tgW: getWidth,\n\t\trAF: rAF,\n\t};\n\n\treturn lazysizes;\n}\n));\n\n\n//# sourceURL=webpack://AllanKukral/./node_modules/lazysizes/lazysizes.js?");
+(function(window, factory) {
+	var lazySizes = factory(window, window.document, Date);
+	window.lazySizes = lazySizes;
+	if( true && module.exports){
+		module.exports = lazySizes;
+	}
+}(typeof window != 'undefined' ?
+      window : {}, 
+/**
+ * import("./types/global")
+ * @typedef { import("./types/lazysizes-config").LazySizesConfigPartial } LazySizesConfigPartial
+ */
+function l(window, document, Date) { // Pass in the window Date function also for SSR because the Date class can be lost
+	'use strict';
+	/*jshint eqnull:true */
+
+	var lazysizes,
+		/**
+		 * @type { LazySizesConfigPartial }
+		 */
+		lazySizesCfg;
+
+	(function(){
+		var prop;
+
+		var lazySizesDefaults = {
+			lazyClass: 'lazyload',
+			loadedClass: 'lazyloaded',
+			loadingClass: 'lazyloading',
+			preloadClass: 'lazypreload',
+			errorClass: 'lazyerror',
+			//strictClass: 'lazystrict',
+			autosizesClass: 'lazyautosizes',
+			fastLoadedClass: 'ls-is-cached',
+			iframeLoadMode: 0,
+			srcAttr: 'data-src',
+			srcsetAttr: 'data-srcset',
+			sizesAttr: 'data-sizes',
+			//preloadAfterLoad: false,
+			minSize: 40,
+			customMedia: {},
+			init: true,
+			expFactor: 1.5,
+			hFac: 0.8,
+			loadMode: 2,
+			loadHidden: true,
+			ricTimeout: 0,
+			throttleDelay: 125,
+		};
+
+		lazySizesCfg = window.lazySizesConfig || window.lazysizesConfig || {};
+
+		for(prop in lazySizesDefaults){
+			if(!(prop in lazySizesCfg)){
+				lazySizesCfg[prop] = lazySizesDefaults[prop];
+			}
+		}
+	})();
+
+	if (!document || !document.getElementsByClassName) {
+		return {
+			init: function () {},
+			/**
+			 * @type { LazySizesConfigPartial }
+			 */
+			cfg: lazySizesCfg,
+			/**
+			 * @type { true }
+			 */
+			noSupport: true,
+		};
+	}
+
+	var docElem = document.documentElement;
+
+	var supportPicture = window.HTMLPictureElement;
+
+	var _addEventListener = 'addEventListener';
+
+	var _getAttribute = 'getAttribute';
+
+	/**
+	 * Update to bind to window because 'this' becomes null during SSR
+	 * builds.
+	 */
+	var addEventListener = window[_addEventListener].bind(window);
+
+	var setTimeout = window.setTimeout;
+
+	var requestAnimationFrame = window.requestAnimationFrame || setTimeout;
+
+	var requestIdleCallback = window.requestIdleCallback;
+
+	var regPicture = /^picture$/i;
+
+	var loadEvents = ['load', 'error', 'lazyincluded', '_lazyloaded'];
+
+	var regClassCache = {};
+
+	var forEach = Array.prototype.forEach;
+
+	/**
+	 * @param ele {Element}
+	 * @param cls {string}
+	 */
+	var hasClass = function(ele, cls) {
+		if(!regClassCache[cls]){
+			regClassCache[cls] = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+		}
+		return regClassCache[cls].test(ele[_getAttribute]('class') || '') && regClassCache[cls];
+	};
+
+	/**
+	 * @param ele {Element}
+	 * @param cls {string}
+	 */
+	var addClass = function(ele, cls) {
+		if (!hasClass(ele, cls)){
+			ele.setAttribute('class', (ele[_getAttribute]('class') || '').trim() + ' ' + cls);
+		}
+	};
+
+	/**
+	 * @param ele {Element}
+	 * @param cls {string}
+	 */
+	var removeClass = function(ele, cls) {
+		var reg;
+		if ((reg = hasClass(ele,cls))) {
+			ele.setAttribute('class', (ele[_getAttribute]('class') || '').replace(reg, ' '));
+		}
+	};
+
+	var addRemoveLoadEvents = function(dom, fn, add){
+		var action = add ? _addEventListener : 'removeEventListener';
+		if(add){
+			addRemoveLoadEvents(dom, fn);
+		}
+		loadEvents.forEach(function(evt){
+			dom[action](evt, fn);
+		});
+	};
+
+	/**
+	 * @param elem { Element }
+	 * @param name { string }
+	 * @param detail { any }
+	 * @param noBubbles { boolean }
+	 * @param noCancelable { boolean }
+	 * @returns { CustomEvent }
+	 */
+	var triggerEvent = function(elem, name, detail, noBubbles, noCancelable){
+		var event = document.createEvent('Event');
+
+		if(!detail){
+			detail = {};
+		}
+
+		detail.instance = lazysizes;
+
+		event.initEvent(name, !noBubbles, !noCancelable);
+
+		event.detail = detail;
+
+		elem.dispatchEvent(event);
+		return event;
+	};
+
+	var updatePolyfill = function (el, full){
+		var polyfill;
+		if( !supportPicture && ( polyfill = (window.picturefill || lazySizesCfg.pf) ) ){
+			if(full && full.src && !el[_getAttribute]('srcset')){
+				el.setAttribute('srcset', full.src);
+			}
+			polyfill({reevaluate: true, elements: [el]});
+		} else if(full && full.src){
+			el.src = full.src;
+		}
+	};
+
+	var getCSS = function (elem, style){
+		return (getComputedStyle(elem, null) || {})[style];
+	};
+
+	/**
+	 *
+	 * @param elem { Element }
+	 * @param parent { Element }
+	 * @param [width] {number}
+	 * @returns {number}
+	 */
+	var getWidth = function(elem, parent, width){
+		width = width || elem.offsetWidth;
+
+		while(width < lazySizesCfg.minSize && parent && !elem._lazysizesWidth){
+			width =  parent.offsetWidth;
+			parent = parent.parentNode;
+		}
+
+		return width;
+	};
+
+	var rAF = (function(){
+		var running, waiting;
+		var firstFns = [];
+		var secondFns = [];
+		var fns = firstFns;
+
+		var run = function(){
+			var runFns = fns;
+
+			fns = firstFns.length ? secondFns : firstFns;
+
+			running = true;
+			waiting = false;
+
+			while(runFns.length){
+				runFns.shift()();
+			}
+
+			running = false;
+		};
+
+		var rafBatch = function(fn, queue){
+			if(running && !queue){
+				fn.apply(this, arguments);
+			} else {
+				fns.push(fn);
+
+				if(!waiting){
+					waiting = true;
+					(document.hidden ? setTimeout : requestAnimationFrame)(run);
+				}
+			}
+		};
+
+		rafBatch._lsFlush = run;
+
+		return rafBatch;
+	})();
+
+	var rAFIt = function(fn, simple){
+		return simple ?
+			function() {
+				rAF(fn);
+			} :
+			function(){
+				var that = this;
+				var args = arguments;
+				rAF(function(){
+					fn.apply(that, args);
+				});
+			}
+		;
+	};
+
+	var throttle = function(fn){
+		var running;
+		var lastTime = 0;
+		var gDelay = lazySizesCfg.throttleDelay;
+		var rICTimeout = lazySizesCfg.ricTimeout;
+		var run = function(){
+			running = false;
+			lastTime = Date.now();
+			fn();
+		};
+		var idleCallback = requestIdleCallback && rICTimeout > 49 ?
+			function(){
+				requestIdleCallback(run, {timeout: rICTimeout});
+
+				if(rICTimeout !== lazySizesCfg.ricTimeout){
+					rICTimeout = lazySizesCfg.ricTimeout;
+				}
+			} :
+			rAFIt(function(){
+				setTimeout(run);
+			}, true)
+		;
+
+		return function(isPriority){
+			var delay;
+
+			if((isPriority = isPriority === true)){
+				rICTimeout = 33;
+			}
+
+			if(running){
+				return;
+			}
+
+			running =  true;
+
+			delay = gDelay - (Date.now() - lastTime);
+
+			if(delay < 0){
+				delay = 0;
+			}
+
+			if(isPriority || delay < 9){
+				idleCallback();
+			} else {
+				setTimeout(idleCallback, delay);
+			}
+		};
+	};
+
+	//based on http://modernjavascript.blogspot.de/2013/08/building-better-debounce.html
+	var debounce = function(func) {
+		var timeout, timestamp;
+		var wait = 99;
+		var run = function(){
+			timeout = null;
+			func();
+		};
+		var later = function() {
+			var last = Date.now() - timestamp;
+
+			if (last < wait) {
+				setTimeout(later, wait - last);
+			} else {
+				(requestIdleCallback || run)(run);
+			}
+		};
+
+		return function() {
+			timestamp = Date.now();
+
+			if (!timeout) {
+				timeout = setTimeout(later, wait);
+			}
+		};
+	};
+
+	var loader = (function(){
+		var preloadElems, isCompleted, resetPreloadingTimer, loadMode, started;
+
+		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom, isBodyHidden;
+
+		var regImg = /^img$/i;
+		var regIframe = /^iframe$/i;
+
+		var supportScroll = ('onscroll' in window) && !(/(gle|ing)bot/.test(navigator.userAgent));
+
+		var shrinkExpand = 0;
+		var currentExpand = 0;
+
+		var isLoading = 0;
+		var lowRuns = -1;
+
+		var resetPreloading = function(e){
+			isLoading--;
+			if(!e || isLoading < 0 || !e.target){
+				isLoading = 0;
+			}
+		};
+
+		var isVisible = function (elem) {
+			if (isBodyHidden == null) {
+				isBodyHidden = getCSS(document.body, 'visibility') == 'hidden';
+			}
+
+			return isBodyHidden || !(getCSS(elem.parentNode, 'visibility') == 'hidden' && getCSS(elem, 'visibility') == 'hidden');
+		};
+
+		var isNestedVisible = function(elem, elemExpand){
+			var outerRect;
+			var parent = elem;
+			var visible = isVisible(elem);
+
+			eLtop -= elemExpand;
+			eLbottom += elemExpand;
+			eLleft -= elemExpand;
+			eLright += elemExpand;
+
+			while(visible && (parent = parent.offsetParent) && parent != document.body && parent != docElem){
+				visible = ((getCSS(parent, 'opacity') || 1) > 0);
+
+				if(visible && getCSS(parent, 'overflow') != 'visible'){
+					outerRect = parent.getBoundingClientRect();
+					visible = eLright > outerRect.left &&
+						eLleft < outerRect.right &&
+						eLbottom > outerRect.top - 1 &&
+						eLtop < outerRect.bottom + 1
+					;
+				}
+			}
+
+			return visible;
+		};
+
+		var checkElements = function() {
+			var eLlen, i, rect, autoLoadElem, loadedSomething, elemExpand, elemNegativeExpand, elemExpandVal,
+				beforeExpandVal, defaultExpand, preloadExpand, hFac;
+			var lazyloadElems = lazysizes.elements;
+
+			if((loadMode = lazySizesCfg.loadMode) && isLoading < 8 && (eLlen = lazyloadElems.length)){
+
+				i = 0;
+
+				lowRuns++;
+
+				for(; i < eLlen; i++){
+
+					if(!lazyloadElems[i] || lazyloadElems[i]._lazyRace){continue;}
+
+					if(!supportScroll || (lazysizes.prematureUnveil && lazysizes.prematureUnveil(lazyloadElems[i]))){unveilElement(lazyloadElems[i]);continue;}
+
+					if(!(elemExpandVal = lazyloadElems[i][_getAttribute]('data-expand')) || !(elemExpand = elemExpandVal * 1)){
+						elemExpand = currentExpand;
+					}
+
+					if (!defaultExpand) {
+						defaultExpand = (!lazySizesCfg.expand || lazySizesCfg.expand < 1) ?
+							docElem.clientHeight > 500 && docElem.clientWidth > 500 ? 500 : 370 :
+							lazySizesCfg.expand;
+
+						lazysizes._defEx = defaultExpand;
+
+						preloadExpand = defaultExpand * lazySizesCfg.expFactor;
+						hFac = lazySizesCfg.hFac;
+						isBodyHidden = null;
+
+						if(currentExpand < preloadExpand && isLoading < 1 && lowRuns > 2 && loadMode > 2 && !document.hidden){
+							currentExpand = preloadExpand;
+							lowRuns = 0;
+						} else if(loadMode > 1 && lowRuns > 1 && isLoading < 6){
+							currentExpand = defaultExpand;
+						} else {
+							currentExpand = shrinkExpand;
+						}
+					}
+
+					if(beforeExpandVal !== elemExpand){
+						eLvW = innerWidth + (elemExpand * hFac);
+						elvH = innerHeight + elemExpand;
+						elemNegativeExpand = elemExpand * -1;
+						beforeExpandVal = elemExpand;
+					}
+
+					rect = lazyloadElems[i].getBoundingClientRect();
+
+					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
+						(eLtop = rect.top) <= elvH &&
+						(eLright = rect.right) >= elemNegativeExpand * hFac &&
+						(eLleft = rect.left) <= eLvW &&
+						(eLbottom || eLright || eLleft || eLtop) &&
+						(lazySizesCfg.loadHidden || isVisible(lazyloadElems[i])) &&
+						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
+						unveilElement(lazyloadElems[i]);
+						loadedSomething = true;
+						if(isLoading > 9){break;}
+					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
+						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
+						(preloadElems[0] || lazySizesCfg.preloadAfterLoad) &&
+						(preloadElems[0] || (!elemExpandVal && ((eLbottom || eLright || eLleft || eLtop) || lazyloadElems[i][_getAttribute](lazySizesCfg.sizesAttr) != 'auto')))){
+						autoLoadElem = preloadElems[0] || lazyloadElems[i];
+					}
+				}
+
+				if(autoLoadElem && !loadedSomething){
+					unveilElement(autoLoadElem);
+				}
+			}
+		};
+
+		var throttledCheckElements = throttle(checkElements);
+
+		var switchLoadingClass = function(e){
+			var elem = e.target;
+
+			if (elem._lazyCache) {
+				delete elem._lazyCache;
+				return;
+			}
+
+			resetPreloading(e);
+			addClass(elem, lazySizesCfg.loadedClass);
+			removeClass(elem, lazySizesCfg.loadingClass);
+			addRemoveLoadEvents(elem, rafSwitchLoadingClass);
+			triggerEvent(elem, 'lazyloaded');
+		};
+		var rafedSwitchLoadingClass = rAFIt(switchLoadingClass);
+		var rafSwitchLoadingClass = function(e){
+			rafedSwitchLoadingClass({target: e.target});
+		};
+
+		var changeIframeSrc = function(elem, src){
+			var loadMode = elem.getAttribute('data-load-mode') || lazySizesCfg.iframeLoadMode;
+
+			// loadMode can be also a string!
+			if (loadMode == 0) {
+				elem.contentWindow.location.replace(src);
+			} else if (loadMode == 1) {
+				elem.src = src;
+			}
+		};
+
+		var handleSources = function(source){
+			var customMedia;
+
+			var sourceSrcset = source[_getAttribute](lazySizesCfg.srcsetAttr);
+
+			if( (customMedia = lazySizesCfg.customMedia[source[_getAttribute]('data-media') || source[_getAttribute]('media')]) ){
+				source.setAttribute('media', customMedia);
+			}
+
+			if(sourceSrcset){
+				source.setAttribute('srcset', sourceSrcset);
+			}
+		};
+
+		var lazyUnveil = rAFIt(function (elem, detail, isAuto, sizes, isImg){
+			var src, srcset, parent, isPicture, event, firesLoad;
+
+			if(!(event = triggerEvent(elem, 'lazybeforeunveil', detail)).defaultPrevented){
+
+				if(sizes){
+					if(isAuto){
+						addClass(elem, lazySizesCfg.autosizesClass);
+					} else {
+						elem.setAttribute('sizes', sizes);
+					}
+				}
+
+				srcset = elem[_getAttribute](lazySizesCfg.srcsetAttr);
+				src = elem[_getAttribute](lazySizesCfg.srcAttr);
+
+				if(isImg) {
+					parent = elem.parentNode;
+					isPicture = parent && regPicture.test(parent.nodeName || '');
+				}
+
+				firesLoad = detail.firesLoad || (('src' in elem) && (srcset || src || isPicture));
+
+				event = {target: elem};
+
+				addClass(elem, lazySizesCfg.loadingClass);
+
+				if(firesLoad){
+					clearTimeout(resetPreloadingTimer);
+					resetPreloadingTimer = setTimeout(resetPreloading, 2500);
+					addRemoveLoadEvents(elem, rafSwitchLoadingClass, true);
+				}
+
+				if(isPicture){
+					forEach.call(parent.getElementsByTagName('source'), handleSources);
+				}
+
+				if(srcset){
+					elem.setAttribute('srcset', srcset);
+				} else if(src && !isPicture){
+					if(regIframe.test(elem.nodeName)){
+						changeIframeSrc(elem, src);
+					} else {
+						elem.src = src;
+					}
+				}
+
+				if(isImg && (srcset || isPicture)){
+					updatePolyfill(elem, {src: src});
+				}
+			}
+
+			if(elem._lazyRace){
+				delete elem._lazyRace;
+			}
+			removeClass(elem, lazySizesCfg.lazyClass);
+
+			rAF(function(){
+				// Part of this can be removed as soon as this fix is older: https://bugs.chromium.org/p/chromium/issues/detail?id=7731 (2015)
+				var isLoaded = elem.complete && elem.naturalWidth > 1;
+
+				if( !firesLoad || isLoaded){
+					if (isLoaded) {
+						addClass(elem, lazySizesCfg.fastLoadedClass);
+					}
+					switchLoadingClass(event);
+					elem._lazyCache = true;
+					setTimeout(function(){
+						if ('_lazyCache' in elem) {
+							delete elem._lazyCache;
+						}
+					}, 9);
+				}
+				if (elem.loading == 'lazy') {
+					isLoading--;
+				}
+			}, true);
+		});
+
+		/**
+		 *
+		 * @param elem { Element }
+		 */
+		var unveilElement = function (elem){
+			if (elem._lazyRace) {return;}
+			var detail;
+
+			var isImg = regImg.test(elem.nodeName);
+
+			//allow using sizes="auto", but don't use. it's invalid. Use data-sizes="auto" or a valid value for sizes instead (i.e.: sizes="80vw")
+			var sizes = isImg && (elem[_getAttribute](lazySizesCfg.sizesAttr) || elem[_getAttribute]('sizes'));
+			var isAuto = sizes == 'auto';
+
+			if( (isAuto || !isCompleted) && isImg && (elem[_getAttribute]('src') || elem.srcset) && !elem.complete && !hasClass(elem, lazySizesCfg.errorClass) && hasClass(elem, lazySizesCfg.lazyClass)){return;}
+
+			detail = triggerEvent(elem, 'lazyunveilread').detail;
+
+			if(isAuto){
+				 autoSizer.updateElem(elem, true, elem.offsetWidth);
+			}
+
+			elem._lazyRace = true;
+			isLoading++;
+
+			lazyUnveil(elem, detail, isAuto, sizes, isImg);
+		};
+
+		var afterScroll = debounce(function(){
+			lazySizesCfg.loadMode = 3;
+			throttledCheckElements();
+		});
+
+		var altLoadmodeScrollListner = function(){
+			if(lazySizesCfg.loadMode == 3){
+				lazySizesCfg.loadMode = 2;
+			}
+			afterScroll();
+		};
+
+		var onload = function(){
+			if(isCompleted){return;}
+			if(Date.now() - started < 999){
+				setTimeout(onload, 999);
+				return;
+			}
+
+
+			isCompleted = true;
+
+			lazySizesCfg.loadMode = 3;
+
+			throttledCheckElements();
+
+			addEventListener('scroll', altLoadmodeScrollListner, true);
+		};
+
+		return {
+			_: function(){
+				started = Date.now();
+
+				lazysizes.elements = document.getElementsByClassName(lazySizesCfg.lazyClass);
+				preloadElems = document.getElementsByClassName(lazySizesCfg.lazyClass + ' ' + lazySizesCfg.preloadClass);
+
+				addEventListener('scroll', throttledCheckElements, true);
+
+				addEventListener('resize', throttledCheckElements, true);
+
+				addEventListener('pageshow', function (e) {
+					if (e.persisted) {
+						var loadingElements = document.querySelectorAll('.' + lazySizesCfg.loadingClass);
+
+						if (loadingElements.length && loadingElements.forEach) {
+							requestAnimationFrame(function () {
+								loadingElements.forEach( function (img) {
+									if (img.complete) {
+										unveilElement(img);
+									}
+								});
+							});
+						}
+					}
+				});
+
+				if(window.MutationObserver){
+					new MutationObserver( throttledCheckElements ).observe( docElem, {childList: true, subtree: true, attributes: true} );
+				} else {
+					docElem[_addEventListener]('DOMNodeInserted', throttledCheckElements, true);
+					docElem[_addEventListener]('DOMAttrModified', throttledCheckElements, true);
+					setInterval(throttledCheckElements, 999);
+				}
+
+				addEventListener('hashchange', throttledCheckElements, true);
+
+				//, 'fullscreenchange'
+				['focus', 'mouseover', 'click', 'load', 'transitionend', 'animationend'].forEach(function(name){
+					document[_addEventListener](name, throttledCheckElements, true);
+				});
+
+				if((/d$|^c/.test(document.readyState))){
+					onload();
+				} else {
+					addEventListener('load', onload);
+					document[_addEventListener]('DOMContentLoaded', throttledCheckElements);
+					setTimeout(onload, 20000);
+				}
+
+				if(lazysizes.elements.length){
+					checkElements();
+					rAF._lsFlush();
+				} else {
+					throttledCheckElements();
+				}
+			},
+			checkElems: throttledCheckElements,
+			unveil: unveilElement,
+			_aLSL: altLoadmodeScrollListner,
+		};
+	})();
+
+
+	var autoSizer = (function(){
+		var autosizesElems;
+
+		var sizeElement = rAFIt(function(elem, parent, event, width){
+			var sources, i, len;
+			elem._lazysizesWidth = width;
+			width += 'px';
+
+			elem.setAttribute('sizes', width);
+
+			if(regPicture.test(parent.nodeName || '')){
+				sources = parent.getElementsByTagName('source');
+				for(i = 0, len = sources.length; i < len; i++){
+					sources[i].setAttribute('sizes', width);
+				}
+			}
+
+			if(!event.detail.dataAttr){
+				updatePolyfill(elem, event.detail);
+			}
+		});
+		/**
+		 *
+		 * @param elem {Element}
+		 * @param dataAttr
+		 * @param [width] { number }
+		 */
+		var getSizeElement = function (elem, dataAttr, width){
+			var event;
+			var parent = elem.parentNode;
+
+			if(parent){
+				width = getWidth(elem, parent, width);
+				event = triggerEvent(elem, 'lazybeforesizes', {width: width, dataAttr: !!dataAttr});
+
+				if(!event.defaultPrevented){
+					width = event.detail.width;
+
+					if(width && width !== elem._lazysizesWidth){
+						sizeElement(elem, parent, event, width);
+					}
+				}
+			}
+		};
+
+		var updateElementsSizes = function(){
+			var i;
+			var len = autosizesElems.length;
+			if(len){
+				i = 0;
+
+				for(; i < len; i++){
+					getSizeElement(autosizesElems[i]);
+				}
+			}
+		};
+
+		var debouncedUpdateElementsSizes = debounce(updateElementsSizes);
+
+		return {
+			_: function(){
+				autosizesElems = document.getElementsByClassName(lazySizesCfg.autosizesClass);
+				addEventListener('resize', debouncedUpdateElementsSizes);
+			},
+			checkElems: debouncedUpdateElementsSizes,
+			updateElem: getSizeElement
+		};
+	})();
+
+	var init = function(){
+		if(!init.i && document.getElementsByClassName){
+			init.i = true;
+			autoSizer._();
+			loader._();
+		}
+	};
+
+	setTimeout(function(){
+		if(lazySizesCfg.init){
+			init();
+		}
+	});
+
+	lazysizes = {
+		/**
+		 * @type { LazySizesConfigPartial }
+		 */
+		cfg: lazySizesCfg,
+		autoSizer: autoSizer,
+		loader: loader,
+		init: init,
+		uP: updatePolyfill,
+		aC: addClass,
+		rC: removeClass,
+		hC: hasClass,
+		fire: triggerEvent,
+		gW: getWidth,
+		rAF: rAF,
+	};
+
+	return lazysizes;
+}
+));
+
 
 /***/ }),
 
@@ -123,7 +1819,8 @@ eval("(function(window, factory) {\n\tvar lazySizes = factory(window, window.doc
   \******************************************************/
 /***/ (function(__unused_webpack_module, exports) {
 
-eval("!function(e,n){ true?n(exports):0}(this,function(e){function n(e){return new Promise(function(n,t,r){(r=new XMLHttpRequest).open(\"GET\",e,r.withCredentials=!0),r.onload=function(){200===r.status?n():t()},r.send()})}var t,r=(t=document.createElement(\"link\")).relList&&t.relList.supports&&t.relList.supports(\"prefetch\")?function(e){return new Promise(function(n,t,r){(r=document.createElement(\"link\")).rel=\"prefetch\",r.href=e,r.onload=n,r.onerror=t,document.head.appendChild(r)})}:n,o=window.requestIdleCallback||function(e){var n=Date.now();return setTimeout(function(){e({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-n))}})},1)},i=new Set;function c(e,t,o){if(o=navigator.connection){if(o.saveData)return Promise.reject(new Error(\"Cannot prefetch, Save-Data is enabled\"));if(/2g/.test(o.effectiveType))return Promise.reject(new Error(\"Cannot prefetch, network conditions are poor\"))}return Promise.all([].concat(e).map(function(e){if(!i.has(e))return i.add(e),(t?function(e){return window.fetch?fetch(e,{credentials:\"include\"}):n(e)}:r)(new URL(e,location.href).toString())}))}e.listen=function(e){if(e||(e={}),window.IntersectionObserver){var n=function(e){e=e||1;var n=[],t=0;function r(){t<e&&n.length>0&&(n.shift()(),t++)}return[function(e){n.push(e)>1||r()},function(){t--,r()}]}(e.throttle||1/0),t=n[0],r=n[1],f=e.limit||1/0,u=e.origins||[location.hostname],s=e.ignores||[],a=e.delay||0,l=[],h=e.timeoutFn||o,d=\"function\"==typeof e.hrefFn&&e.hrefFn,m=new IntersectionObserver(function(n){n.forEach(function(n){if(n.isIntersecting)l.push((n=n.target).href),function(e,n){n?setTimeout(e,n):e()}(function(){-1!==l.indexOf(n.href)&&(m.unobserve(n),i.size<f&&t(function(){c(d?d(n):n.href,e.priority).then(r).catch(function(n){r(),e.onError&&e.onError(n)})}))},a);else{var o=l.indexOf((n=n.target).href);o>-1&&l.splice(o)}})},{threshold:e.threshold||0});return h(function(){(e.el||document).querySelectorAll(\"a\").forEach(function(e){u.length&&!u.includes(e.hostname)||function e(n,t){return Array.isArray(t)?t.some(function(t){return e(n,t)}):(t.test||t).call(t,n.href,n)}(e,s)||m.observe(e)})},{timeout:e.timeout||2e3}),function(){i.clear(),m.disconnect()}}},e.prefetch=c});\n\n\n//# sourceURL=webpack://AllanKukral/./node_modules/quicklink/dist/quicklink.umd.js?");
+!function(e,n){ true?n(exports):0}(this,function(e){function n(e){return new Promise(function(n,t,r){(r=new XMLHttpRequest).open("GET",e,r.withCredentials=!0),r.onload=function(){200===r.status?n():t()},r.send()})}var t,r=(t=document.createElement("link")).relList&&t.relList.supports&&t.relList.supports("prefetch")?function(e){return new Promise(function(n,t,r){(r=document.createElement("link")).rel="prefetch",r.href=e,r.onload=n,r.onerror=t,document.head.appendChild(r)})}:n,o=window.requestIdleCallback||function(e){var n=Date.now();return setTimeout(function(){e({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-n))}})},1)},i=new Set;function c(e,t,o){if(o=navigator.connection){if(o.saveData)return Promise.reject(new Error("Cannot prefetch, Save-Data is enabled"));if(/2g/.test(o.effectiveType))return Promise.reject(new Error("Cannot prefetch, network conditions are poor"))}return Promise.all([].concat(e).map(function(e){if(!i.has(e))return i.add(e),(t?function(e){return window.fetch?fetch(e,{credentials:"include"}):n(e)}:r)(new URL(e,location.href).toString())}))}e.listen=function(e){if(e||(e={}),window.IntersectionObserver){var n=function(e){e=e||1;var n=[],t=0;function r(){t<e&&n.length>0&&(n.shift()(),t++)}return[function(e){n.push(e)>1||r()},function(){t--,r()}]}(e.throttle||1/0),t=n[0],r=n[1],f=e.limit||1/0,u=e.origins||[location.hostname],s=e.ignores||[],a=e.delay||0,l=[],h=e.timeoutFn||o,d="function"==typeof e.hrefFn&&e.hrefFn,m=new IntersectionObserver(function(n){n.forEach(function(n){if(n.isIntersecting)l.push((n=n.target).href),function(e,n){n?setTimeout(e,n):e()}(function(){-1!==l.indexOf(n.href)&&(m.unobserve(n),i.size<f&&t(function(){c(d?d(n):n.href,e.priority).then(r).catch(function(n){r(),e.onError&&e.onError(n)})}))},a);else{var o=l.indexOf((n=n.target).href);o>-1&&l.splice(o)}})},{threshold:e.threshold||0});return h(function(){(e.el||document).querySelectorAll("a").forEach(function(e){u.length&&!u.includes(e.hostname)||function e(n,t){return Array.isArray(t)?t.some(function(t){return e(n,t)}):(t.test||t).call(t,n.href,n)}(e,s)||m.observe(e)})},{timeout:e.timeout||2e3}),function(){i.clear(),m.disconnect()}}},e.prefetch=c});
+
 
 /***/ })
 
@@ -195,11 +1892,173 @@ eval("!function(e,n){ true?n(exports):0}(this,function(e){function n(e){return n
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./public_html/ui/_js/main.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!************************************!*\
+  !*** ./public_html/ui/_js/main.js ***!
+  \************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quicklink/dist/quicklink.umd */ "./node_modules/quicklink/dist/quicklink.umd.js");
+/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fontLoader */ "./public_html/ui/_js/modules/fontLoader.js");
+/* harmony import */ var _modules_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/dialog */ "./public_html/ui/_js/modules/dialog.js");
+/* harmony import */ var _modules_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/details */ "./public_html/ui/_js/modules/details.js");
+/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/carousel */ "./public_html/ui/_js/modules/carousel.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ "./public_html/ui/_js/modules/tabs.js");
+/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/nav */ "./public_html/ui/_js/modules/nav.js");
+/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+// import app from './modules/app';
+
+
+
+
+
+
+
+
+
+
+quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen(); // Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
+// loads in woff eot and ttf files automatically if they are all in the same  directory.
+// Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc
+
+(0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__["default"])([{
+  shortName: "Neue",
+  localName: "HelveticaNeue-Roman",
+  path: "/ui/webfonts/helvetica/helveticaneue-roman-webfont"
+}, {
+  shortName: "NeueBold",
+  localName: "HelveticaNeue-Bold",
+  path: "/ui/webfonts/helvetica/helveticaneue-bold-webfont"
+}]);
+(0,_modules_nav__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = false; // check if native lazy loading is available
+
+if ('loading' in HTMLImageElement.prototype) {
+  // console.log("Browser supports `loading`..");
+  var lazy = document.querySelectorAll("[class*='lazyload']");
+
+  var _iterator = _createForOfIteratorHelper(lazy),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var item = _step.value;
+      item.classList.remove("lazyload");
+      item.classList.add("lazyloaded");
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+} else {
+  // Fetch and apply a polyfill/JavaScript library
+  // console.log("Browser does not support `loading`..");
+  // for lazy-loading instead.
+  (lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = true;
+} // init modals
+
+
+var modals = Array.from(document.querySelectorAll("[data-modal]"));
+
+for (var _i = 0, _modals = modals; _i < _modals.length; _i++) {
+  var win = _modals[_i];
+  new _modules_dialog__WEBPACK_IMPORTED_MODULE_4__["default"]({
+    button: win
+  }); // console.log(win);
+} // init details
+
+
+var details = Array.from(document.querySelectorAll("details"));
+
+for (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {
+  var detail = _details[_i2];
+  new _modules_details__WEBPACK_IMPORTED_MODULE_5__["default"]({
+    container: detail
+  });
+} // init tabs
+
+
+var tabset = Array.from(document.querySelectorAll(".Tabbed"));
+
+for (var _i3 = 0, _tabset = tabset; _i3 < _tabset.length; _i3++) {
+  var tab = _tabset[_i3];
+  new _modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"]({
+    container: tab
+  });
+} // init Carousels
+
+
+var carousels = document.querySelectorAll(".Carousel");
+
+var _iterator2 = _createForOfIteratorHelper(carousels),
+    _step2;
+
+try {
+  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+    var carousel = _step2.value;
+    // console.log(carousel.querySelector(`.Carousel__slide`))
+    var newCarousel = new _modules_carousel__WEBPACK_IMPORTED_MODULE_6__["default"]();
+    newCarousel.init({
+      id: carousel,
+      slidenav: true,
+      animate: true,
+      startAnimated: false
+    });
+  }
+} catch (err) {
+  _iterator2.e(err);
+} finally {
+  _iterator2.f();
+}
+
+var media = '(prefers-reduced-motion: reduce)';
+var pref = window.matchMedia(media); // console.log("reduced motion=",pref)
+
+if (pref.media !== media && !pref.matches) {// do stuff without animations
+  // console.log('prefers reduced motion');
+} // Night mode theme picker
+
+
+(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".Theme__picker input[type=\"checkbox\"]"); // window.resize callback function
+
+function getVerticalHeight() {
+  var vh = window.innerHeight * 0.01; // document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); // console.info(vh);
+}
+
+window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 200);
+getVerticalHeight();
+var allLinks = Array.from(document.querySelectorAll("[target=\"_blank\"]"));
+allLinks.forEach(function (el) {
+  if (!el.hasAttribute("rel")) {
+    el.setAttribute("rel", "noreferrer");
+  }
+}); // function ready(fn) {
+//   if (document.readyState !== 'loading') {
+//     fn();
+//   } else {
+//     document.addEventListener('DOMContentLoaded', fn);
+//   }
+// }
+// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
+
+document.body.classList.remove("no-js");
+})();
+
 /******/ })()
 ;
