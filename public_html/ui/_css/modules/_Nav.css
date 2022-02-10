@@ -25,7 +25,7 @@
 
     list-style: none;
 
-    background-color: var(--light);
+    /* background-color: var(--light); */
   }
   & li {
     position: relative;

@@ -28,7 +28,7 @@ body {
   font-weight: 100;
   font-style: normal;
   /* line-height: calc(2px + 2ex + 2px); */
-  line-height: 150%;
+  line-height: calc(1em + 0.5rem);
   letter-spacing: .01rem;
   font-display: swap !important;
   text-size-adjust: 100% !important;

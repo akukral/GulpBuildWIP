@@ -24,7 +24,7 @@ html {
   /* Remove Scrollbar Firefox Fix, suggested in the comments */
   /* overflow: auto; */
   scrollbar-width: none;
-  scrollbar-gutter: stable;   
+  scrollbar-gutter: stable;
 }
 
 /* Hide scrollbar for Chrome, Safari, and Opera */
@@ -88,7 +88,7 @@ a {
 }
 
 /* Make prettier underlines */
-@supports (text-decoration-skip: edges) {
+/* @supports (text-decoration-style: line) { */
   a {
     text-decoration-color: var(--bravo);
     text-decoration-line: underline;
@@ -104,7 +104,7 @@ a {
       text-decoration-thickness: 0.15em;
     }
   }
-}
+/* } */
 
 a:hover,
 a:active,

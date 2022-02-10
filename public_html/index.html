@@ -96,11 +96,10 @@
 </head>
 
 <body class="no-js">
-  <noscript>
-    <span class="Warning">Please enable javascript to get the most out of this page.</span>
-  </noscript>
-
   <header class="Header" aria-label="Site Header">
+    <noscript>
+      <span class="Warning">Please enable javascript to get the most out of this page.</span>
+    </noscript>
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
     <a href="/" class="Header__logo" title="Boilerplate">
       <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" width="140" height="32">
@@ -147,7 +146,7 @@
         <h1 id="Dialog__title1">Modal 1</h1>
         <div id="Dialog__content1">
           <div class="Video">
-            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6" width="640" height="360" frameborder="0"
+            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6"
               allow="autoplay; fullscreen" title="Test Vimeo Video" class="Video__embed lazyload"
               loading="lazy"></iframe>
           </div>
@@ -209,22 +208,22 @@
 
     <section aria-label="Accordions">
       <details class="Details">
-        <summary class="Details__summary" aria-expanded="false" aria-controls="Details1" tabindex="0" role="button">
+        <summary class="Details__summary" tabindex="0" role="button">
           <span class="Details__summary-text">Lorem, ipsum dolor.</span>
           <span class="sr-only">Click to expand details.</span>
         </summary>
-        <div class="Details__content" id="Details1" aria-live="polite">
+        <div class="Details__content" id="Details1">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           <p>Doloribus facere pariatur vel aut sint <a href="/">dolores praesentium ullam quidem</a> ipsa debitis!</p>
         </div>
       </details>
 
       <details class="Details">
-        <summary class="Details__summary" aria-expanded="false" aria-controls="Details2" tabindex="0" role="button">
+        <summary class="Details__summary" tabindex="0" role="button">
           <span class="Details__summary-text">Lorem ipsum dolor sit amet.</span>
           <span class="sr-only">Click to expand details.</span>
         </summary>
-        <div class="Details__content" id="Details2" aria-live="polite">
+        <div class="Details__content" id="Details2">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae temporibus libero eum voluptate laboriosam
             recusandae nisi sit voluptatibus ut suscipit.</p>
         </div>
@@ -244,8 +243,8 @@
 
     <section aria-label="Featured Content" id="featuredContent">
       <h2>Featured Content</h2>
-      <article>
-        <h3><a href="#" aria-describedby="description1">Article Title 1</a></h3>
+      <article aria-labelledby="title1">
+        <h3><a href="#" id="title1" aria-describedby="description1">Article Title 1</a></h3>
         <p id="description1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus maxime voluptatibus voluptatem
           repellat tenetur optio fuga quaerat consectetur doloremque!
@@ -254,8 +253,8 @@
           <a href="#" aria-describedby="description1">Read More About …</a>
         </p>
       </article>
-      <article>
-        <h3><a href="#" aria-describedby="description2">Article Title 2</a></h3>
+      <article aria-labelledby="title2">
+        <h3><a href="#" id="title2" aria-describedby="description2">Article Title 2</a></h3>
         <p id="description2">
           Eum ea odit ipsa pariatur iure beatae dignissimos expedita quasi sequi, eligendi sunt maxime. Quos porro ex
           eveniet perferendis est!
@@ -264,8 +263,8 @@
           <a href="#" aria-describedby="description2">Read More About …</a>
         </p>
       </article>
-      <article>
-        <h3><a href="#" aria-describedby="description3">Article Title 3</a></h3>
+      <article aria-labelledby="title3">
+        <h3><a href="#" id="title3" aria-describedby="description3">Article Title 3</a></h3>
         <p id="description3">
           Accusamus corporis necessitatibus delectus vero. Nihil saepe itaque ea. Quibusdam quae mollitia rerum quos
           dolore doloribus fuga adipisci saepe unde.
