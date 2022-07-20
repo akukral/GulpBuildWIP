@@ -1,5 +1,6 @@
 .Details {
   margin-bottom: 1.5rem;
+  transition: all ease-out .5s;
   /* padding: 1rem; */
 
   color: var(--bravo);
@@ -8,11 +9,11 @@
 
 .Details__summary {
   position: relative;
+  display: block;
 
   width: 100%;
 
   padding: 1rem;
-  display: block;
 
   &:hover {
     cursor: pointer;
@@ -33,7 +34,7 @@
   width: 1.5rem;
   height: 1.5rem;
 
-  content: '' / '';
+  content: ''/ '';
   transition: transform 0.3s;
   transform: rotate(90deg) translateY(-50%);
   transform-origin: 50% 0;
@@ -65,55 +66,35 @@
   font-size: 1rem;
 }
 
-.Details:not([open]) .Details__content {
-  display: none;
+@keyframes show {
+  100% {
+    transform: none;
+    opacity: 1;
+  }
 }
 
+.Details:not([open]) .Details__content,
 .Details .Details__content {
-  display: none;
+  display: block;
+  transform: rotateX(-90deg);
+  transform-origin: top center;
+  opacity: 0;
+  transition: all 0.5s;
 }
 
-details[open] .Details__summary {
-  background-color: var(--delta);
+.Details[open] .Details__content,
+.Details--open .Details__content {
+  transform: none;
+  opacity: 1;
 }
 
+details[open] .Details__summary,
 .Details--open .Details__summary {
   background-color: var(--delta);
 }
 
-@keyframes detailsFade {
-  0% {
-    /* transform: translateY(-1em); */
 
-    /* opacity: 0; */
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  }
-
-  100% {
-    /* transform: translateY(0); */
-
-    /* opacity: 1; */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-}
-
-.Details[open] .Details__content {
-  display: block !important;
-
-  animation: detailsFade .8s ease-in-out;
-}
-
-.Details--open .Details__content {
-  display: block !important;
-
-  animation: detailsFade .8s ease-in-out;
-}
-
-.Details[open] .Details__summary::after {
-  /* content: '\2297'; */
-  transform: rotate(45deg) translateY(-50%);
-}
-
+.Details[open] .Details__summary::after,
 .Details--open .Details__summary::after {
   /* content: '\2297'; */
   transform: rotate(45deg) translateY(-50%);

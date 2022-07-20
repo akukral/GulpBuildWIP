@@ -13,6 +13,8 @@
   <!-- Meta Info -->
 
   <title>Home | Gulp Build WIP</title>
+
+  <meta name="color-scheme" content="dark light">
   <meta name="description" content="Website Homepage" />
 
   <meta property="fb:app_id" content="">
@@ -24,6 +26,8 @@
   <meta property="og:site_name" content="Home" />
   <meta property="og:locale" content="en-US" />
   <meta property="og:locale:alternate" content="en-US" />
+
+  <meta name="color-scheme" content="dark light">
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="" />
@@ -56,15 +60,18 @@
   <!--[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script> <![endif]-->
 
   <!-- Put in Critical CSS -->
-  <link rel="stylesheet" href="/critical.css" media="screen and (min-width:300px)" id="critical">
+  <!-- TODO Add inline if possible -->
+  <link rel="stylesheet" href="/ui/css/critical.css" media="screen and (min-width:300px)" id="critical">
 
   <!-- Preloads -->
-  <link rel="preload" href="/ui/css/main.css" as="style">
+  <link rel="prefetch" href="/ui/css/main.css" as="style">
   <!-- TODO add dynamically if possible -->
-  <link rel="preload" href="/critical.css" as="style">
-  <link rel="preload" href="/ui/js/main.js" as="script">
-  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
-  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+  <link rel="prefetch" href="/ui/css/critical.css" as="style">
+  <link rel="prefetch" href="/ui/js/main.js" as="script">
+  <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
+  <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
+  <link rel="preload" as="font" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff" crossorigin/>
+  <link rel="preload" as="font" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff" crossorigin/>
   <link rel="preconnect" href="https://f.vimeocdn.com">
 
   <!-- Pre connect to any ouside urls here -->
@@ -84,24 +91,22 @@
     }
   </style>
   <noscript>
-    <link rel="stylesheet" href="/ui/css/main.css">
+    <link rel="stylesheet" href="/ui/css/main.css" media="screen">
   </noscript>
 </head>
 
 <body class="no-js">
-  <noscript>
-    <span class="Warning">Please enable javascript to get the most out of this page.</span>
-  </noscript>
-
-  <header class="Header">
+  <header class="Header" aria-label="Site Header">
+    <noscript>
+      <span class="Warning">Please enable javascript to get the most out of this page.</span>
+    </noscript>
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
     <a href="/" class="Header__logo" title="Boilerplate">
-      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" style="max-width: 10rem; vertical-align: middle;">
+      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" width="140" height="32">
       <span class="sr-only">Boilerplate</span>
     </a>
     <nav class="Nav" aria-label="Main Navigation">
-      <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu"
-        title="Toggle Menu">
+      <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
         <span class="sr-only">Toggle Menu</span>
         <span class="Nav__hamburger"></span>
       </button>
@@ -110,15 +115,11 @@
           <a href="/#featuredContent">Featured Content</a>
         </li>
         <li>
-          <a href="/#tabSection">Tab Section</a>
-        </li>
-        <li>
-          <a href="http://google.com" target="_blank">Google</a>
+          <a href="/#tabSection">Tabs Section</a>
         </li>
       </ul>
     </nav>
-    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme"><span class="sr-only">Select
-        to enable dark mode.</span></label>
+    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme"><span class="sr-only">Select to enable dark mode.</span></label>
     <!-- /nav -->
   </header>
   <!-- /header -->
@@ -128,23 +129,25 @@
     <h1 id="MainTitle">Homepage<br>Title</h1>
 
     <label for="search">Search:</label>
-    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" />
+    <form action="/" method="GET">
+    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" pattern="^.*[a-zA-Z0-9]+.*$"/>
     <datalist id="searchList" aria-label="Available search autocomplete options">
-      <option value="lorem">
-      <option value="ipsum">
-      <option value="dolor">
-      <option value="sit">
+      <option>lorem</option>
+      <option>ipsum</option>
+      <option>dolor</option>
+      <option>sit</option>
     </datalist>
+    </form>
 
     <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
     <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
       aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
       <div class="Dialog__container">
-        <h1 id="Dialog__title1">Modal 1</h1>
+        <h2 id="Dialog__title1">Modal 1</h2>
         <div id="Dialog__content1">
           <div class="Video">
-            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6" width="640" height="360" frameborder="0"
-              allow="autoplay; fullscreen" allowfullscreen title="Test Vimeo Video" class="Video__embed lazyload"
+            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6"
+              allow="autoplay; fullscreen" title="Test Vimeo Video" class="Video__embed lazyload"
               loading="lazy"></iframe>
           </div>
           <p>
@@ -177,7 +180,7 @@
     <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
       aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
-        <h1 id="Dialog__title2">Modal 2</h1>
+        <h2 id="Dialog__title2">Modal 2</h2>
         <div id="Dialog__content2">
           <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. <a href="/">Earum sunt
               voluptatum</a> adipisci, a libero perferendis
@@ -196,7 +199,7 @@
     </div>
 
     <figure class="Figure">
-      <img src="/ui/images/1818manh2.JPG" height="1296" width="1936" alt="Photo of a empty strip mall" class="lazyload"
+      <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload"
         loading="lazy">
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
@@ -205,22 +208,22 @@
 
     <section aria-label="Accordions">
       <details class="Details">
-        <summary class="Details__summary" aria-expanded="false" aria-controls="Details1" tabindex="0" role="button">
+        <summary class="Details__summary" tabindex="0">
           <span class="Details__summary-text">Lorem, ipsum dolor.</span>
           <span class="sr-only">Click to expand details.</span>
         </summary>
-        <div class="Details__content" id="Details1" aria-live="polite">
+        <div class="Details__content" id="Details1">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           <p>Doloribus facere pariatur vel aut sint <a href="/">dolores praesentium ullam quidem</a> ipsa debitis!</p>
         </div>
       </details>
 
       <details class="Details">
-        <summary class="Details__summary" aria-expanded="false" aria-controls="Details2" tabindex="0" role="button">
+        <summary class="Details__summary" tabindex="0">
           <span class="Details__summary-text">Lorem ipsum dolor sit amet.</span>
           <span class="sr-only">Click to expand details.</span>
         </summary>
-        <div class="Details__content" id="Details2" aria-live="polite">
+        <div class="Details__content" id="Details2">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae temporibus libero eum voluptate laboriosam
             recusandae nisi sit voluptatibus ut suscipit.</p>
         </div>
@@ -240,8 +243,8 @@
 
     <section aria-label="Featured Content" id="featuredContent">
       <h2>Featured Content</h2>
-      <article>
-        <h3><a href="#" aria-describedby="description1">Article Title 1</a></h3>
+      <article aria-labelledby="title1">
+        <h3><a href="#" id="title1" aria-describedby="description1">Article Title 1</a></h3>
         <p id="description1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus maxime voluptatibus voluptatem
           repellat tenetur optio fuga quaerat consectetur doloremque!
@@ -250,8 +253,8 @@
           <a href="#" aria-describedby="description1">Read More About …</a>
         </p>
       </article>
-      <article>
-        <h3><a href="#" aria-describedby="description2">Article Title 2</a></h3>
+      <article aria-labelledby="title2">
+        <h3><a href="#" id="title2" aria-describedby="description2">Article Title 2</a></h3>
         <p id="description2">
           Eum ea odit ipsa pariatur iure beatae dignissimos expedita quasi sequi, eligendi sunt maxime. Quos porro ex
           eveniet perferendis est!
@@ -260,8 +263,8 @@
           <a href="#" aria-describedby="description2">Read More About …</a>
         </p>
       </article>
-      <article>
-        <h3><a href="#" aria-describedby="description3">Article Title 3</a></h3>
+      <article aria-labelledby="title3">
+        <h3><a href="#" id="title3" aria-describedby="description3">Article Title 3</a></h3>
         <p id="description3">
           Accusamus corporis necessitatibus delectus vero. Nihil saepe itaque ea. Quibusdam quae mollitia rerum quos
           dolore doloribus fuga adipisci saepe unde.
@@ -277,7 +280,7 @@
         <div class="Carousel__container">
           <div class="Carousel__slide">
             <figure aria-labelledby="Caption1">
-              <img src="https://picsum.photos/1000/500?random=1" height="500" width="1000"
+              <img decode="acync" src="https://picsum.photos/1000/500?random=1" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 1" class="lazyload" loading="lazy" id="test">
             </figure>
             <div class="Carousel__content" id="Caption1">
@@ -290,7 +293,7 @@
           </div>
           <div class="Carousel__slide">
             <figure aria-labelledby="Caption2">
-              <img src="https://picsum.photos/1000/500?random=2" height="500" width="1000"
+              <img decode="acync" src="https://picsum.photos/1000/500?random=2" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 2" class="lazyload" loading="lazy">
             </figure>
             <div class="Carousel__content" id="Caption2">
@@ -303,7 +306,7 @@
           </div>
           <div class="Carousel__slide">
             <figure aria-labelledby="Caption3">
-              <img src="https://picsum.photos/1000/500?random=3" height="500" width="1000"
+              <img decode="acync" src="https://picsum.photos/1000/500?random=3" height="500" width="1000"
                 alt="random photograph from LorumPicsum.com Number 3" class="lazyload" loading="lazy">
             </figure>
             <div class="Carousel__content" id="Caption3">
@@ -329,86 +332,75 @@
             <a href="#section2">Section 2</a>
           </li>
           <li>
-            <a href="#section3">Section 3</a>
+             <a href="#section3">Section 3</a>
           </li>
         </ul>
         <section id="section1">
           <h2>Section 1</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante
-            erat imperdiet velit, nec laoreet enim lacus a velit. <a href="#">Nam luctus</a>, enim in interdum
-            condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna
-            bibendum accumsan.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. <a href="#">Nam luctus</a>, enim in interdum condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna bibendum accumsan.</p>
         </section>
         <section id="section2">
           <h2>Section 2</h2>
-          <p>Nullam at diam nec arcu suscipit auctor non a erat. Sed et magna semper, eleifend magna non, facilisis
-            nisl. Proin et est et lorem dictum finibus ut nec turpis. Aenean nisi tortor, euismod a mauris a, mattis
-            scelerisque tortor. Sed dolor risus, varius a nibh id, condimentum lacinia est. In lacinia cursus odio a
-            aliquam. Curabitur tortor magna, laoreet ut rhoncus at, sodales consequat tellus.</p>
+          <p>Nullam at diam nec arcu suscipit auctor non a erat. Sed et magna semper, eleifend magna non, facilisis nisl. Proin et est et lorem dictum finibus ut nec turpis. Aenean nisi tortor, euismod a mauris a, mattis scelerisque tortor. Sed dolor risus, varius a nibh id, condimentum lacinia est. In lacinia cursus odio a aliquam. Curabitur tortor magna, laoreet ut rhoncus at, sodales consequat tellus.</p>
         </section>
         <section id="section3">
           <h2>Section 3</h2>
-          <p>Phasellus ac tristique orci. Nulla maximus <a href="">justo nec dignissim consequat</a>. Sed vehicula diam
-            sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan
-            consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet
-            mollis neque. Vestibulum at facilisis massa.</p>
+          <p>Phasellus ac tristique orci. Nulla maximus <a href="#">justo nec dignissim consequat</a>. Sed vehicula diam sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet mollis neque. Vestibulum at facilisis massa.</p>
         </section>
       </div>
     </section>
 
     <section aria-label="Contact Form">
       <h2>Contact Form</h2>
-      <form method="post" class="Form" id="Contact" name="Contact Form">
+      <form method="post" class="Form" id="Contact" name="Contact Form" action="/">
         <label for="firstName">First Name*</label>
-        <input class="form-control" name="firstName" id="firstName" type="text" placeholder="First Name"
-          autocomplete="given-name" required="">
+          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="Jane" autocomplete="on" required >
 
         <label for="lastName">Last Name*</label>
-        <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Last Name"
-          autocomplete="family-name" required="">
+          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Deaux" autocomplete="on" required>
 
         <label for="address">Address*</label>
-        <input class="form-control" name="address" id="address" type="text" placeholder="Address" autocomplete="on"
-          required="">
+          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." autocomplete="on" required>
 
         <label for="city">City*</label>
-        <input class="form-control" name="city" id="city" type="text" placeholder="City" autocomplete="on" required="">
+          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" autocomplete="on" required>
 
         <label for="state">State*</label>
-        <input class="form-control" name="state" id="state" type="text" placeholder="State" autocomplete="on"
-          required="">
+          <input class="form-control" name="state" id="state" type="text" placeholder="LA" autocomplete="on" required>
 
         <label for="zipCode">Zip*</label>
-        <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555"
-          autocomplete="postal-code" required="">
+          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" autocomplete="on" required>
 
-        <label for="email">Email Address*</label></label></label>
-        <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com"
-          autocomplete="email" required="">
+        <label for="email">
+          Email Address*
+          <span class="small">Format: Email@Address.com</span>
+        </label>
+
+          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="on" required>
 
         <div class="honey" aria-hidden="true">
           <label for="email_address_confirm">Email Address Confirm</label>
-          <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com"
-            type="email" placeholder="Email@Address.com">
+            <input class="form-control" name="email_address_confirm" id="email_address_confirm" value="Email@Address.com" type="email" placeholder="Email@Address.com">
         </div>
 
-        <label for="phone">Phone</label>
-        <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on"
-          required="">
+        <label for="phone">
+          Phone*
+          <span class="small">Format: (555) 555-5555</span>
+        </label>
+
+          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required>
 
         <label for="subject">Subject/Interest*</label>
-        <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry"
-          autocomplete="off" required="">
+          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" autocomplete="off" autocorrect="on" required>
 
         <label for="message">Message</label>
-        <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off"
-          placeholder="Send us your message."></textarea>
+          <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off" autocorrect="on" placeholder="Send us your message."></textarea>
 
-        <fieldset role="group">
+        <fieldset>
           <legend>Some exclusive options.</legend>
-          <label for="r1"><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
-          <label for="r2"><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
-          <label for="r3"><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
+          <label for="r1" class="radio"><input type="radio" name="r1" id="r1" value="1" aria-label="Value 1" checked> Value 1</label>
+          <label for="r2" class="radio"><input type="radio" name="r1" id="r2" value="2" aria-label="Value 2"> Value 2</label>
+          <label for="r3" class="radio"><input type="radio" name="r1" id="r3" value="3" aria-label="Value 3"> Value 3</label>
         </fieldset>
 
 
@@ -424,12 +416,17 @@
   <!-- main -->
 
   <footer class="Footer">
-    <p>
-      © 2019 Copyright. | <a href="/sitemap">Site Map</a>
-    </p>
+    <p>© 2019 Copyright. | <a href="#sitemap">Site Map</a></p>
   </footer>
   <!-- footer -->
 
+  <!-- This polyfill needs to be loaded from the cdn to work -->
+  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" async></script>
+
+  <!-- Load main scripts here -->
+  <script src="/ui/js/main.js" defer></script>
+
+  <!-- Service Worker -->
   <script>
     function loadCSS(file, media) {
       var n = window.document.createElement("link");
@@ -444,16 +441,7 @@
       }, 0);
     }
     loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
-  </script>
 
-  <!-- This polyfill needs to be loaded from the cdn to work -->
-  <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" async></script>
-
-  <!-- Load main scripts here -->
-  <script src="/ui/js/main.js" async></script>
-
-  <!-- Service Worker -->
-  <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').then(function (registration) {
@@ -466,8 +454,6 @@
       });
     }
   </script>
-
-  <script src="//instant.page/5.0.1" type="module" integrity="sha384-0DvoZ9kNcB36fWcQApIMIGQoTzoBDYTQ85e8nmsfFOGz4RHAdUhADqJt4k3K2uLS"></script>
 </body>
 
 </html>

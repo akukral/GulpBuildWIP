@@ -101,9 +101,9 @@
       <span class="Warning">Please enable javascript to get the most out of this page.</span>
     </noscript>
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
-    <a href="/" class="Header__logo" title="Boilerplate">
+    <!--<a href="/" class="Header__logo" title="Boilerplate">-->
       <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" width="140" height="32">
-      <span class="sr-only">Boilerplate</span>
+      <!--<span class="sr-only">Boilerplate</span>-->
     </a>
     <nav class="Nav" aria-label="Main Navigation">
       <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
@@ -132,10 +132,10 @@
     <form action="/" method="GET">
     <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" pattern="^.*[a-zA-Z0-9]+.*$"/>
     <datalist id="searchList" aria-label="Available search autocomplete options">
-      <option value="lorem">
-      <option value="ipsum">
-      <option value="dolor">
-      <option value="sit">
+      <option>lorem</option>
+      <option>ipsum</option>
+      <option>dolor</option>
+      <option>sit</option>
     </datalist>
     </form>
 
@@ -143,7 +143,7 @@
     <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
       aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
       <div class="Dialog__container">
-        <h1 id="Dialog__title1">Modal 1</h1>
+        <h2 id="Dialog__title1">Modal 1</h2>
         <div id="Dialog__content1">
           <div class="Video">
             <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6"
@@ -180,7 +180,7 @@
     <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
       aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
-        <h1 id="Dialog__title2">Modal 2</h1>
+        <h2 id="Dialog__title2">Modal 2</h2>
         <div id="Dialog__content2">
           <p>Lorem ipsum dolor sit amet <a href="/">consectetur</a> adipisicing elit. <a href="/">Earum sunt
               voluptatum</a> adipisci, a libero perferendis
@@ -208,7 +208,7 @@
 
     <section aria-label="Accordions">
       <details class="Details">
-        <summary class="Details__summary" tabindex="0" role="button">
+        <summary class="Details__summary" tabindex="0">
           <span class="Details__summary-text">Lorem, ipsum dolor.</span>
           <span class="sr-only">Click to expand details.</span>
         </summary>
@@ -219,7 +219,7 @@
       </details>
 
       <details class="Details">
-        <summary class="Details__summary" tabindex="0" role="button">
+        <summary class="Details__summary" tabindex="0">
           <span class="Details__summary-text">Lorem ipsum dolor sit amet.</span>
           <span class="sr-only">Click to expand details.</span>
         </summary>
@@ -360,20 +360,20 @@
           <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Deaux" autocomplete="on" required>
 
         <label for="address">Address*</label>
-          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." autocorrect="on" autocomplete="on" required>
+          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." autocomplete="on" required>
 
         <label for="city">City*</label>
-          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" autocorrect="on" autocomplete="on" required>
+          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" autocomplete="on" required>
 
         <label for="state">State*</label>
-          <input class="form-control" name="state" id="state" type="text" placeholder="LA" autocorrect="on" autocomplete="on" required>
+          <input class="form-control" name="state" id="state" type="text" placeholder="LA" autocomplete="on" required>
 
         <label for="zipCode">Zip*</label>
           <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" autocomplete="on" required>
 
         <label for="email">
           Email Address*
-          <p class="small">Format: Email@Address.com</p>
+          <span class="small">Format: Email@Address.com</span>
         </label>
 
           <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="on" required>
@@ -385,7 +385,7 @@
 
         <label for="phone">
           Phone*
-          <p class="small">Format: (555) 555-5555</p>
+          <span class="small">Format: (555) 555-5555</span>
         </label>
 
           <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required>
@@ -416,7 +416,7 @@
   <!-- main -->
 
   <footer class="Footer">
-    <p>© 2019 Copyright. | <a href="/sitemap">Site Map</a></p>
+    <p>© 2019 Copyright. | <a href="#sitemap">Site Map</a></p>
   </footer>
   <!-- footer -->
 

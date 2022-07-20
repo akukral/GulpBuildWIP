@@ -58,8 +58,7 @@
     padding: 5vh 1rem;
 
     text-decoration: none;
-    word-wrap: none;
-    /* color: var(--bravo); */
+    white-space: nowrap;
 
     background-color: inherit;
     &:hover,
@@ -99,7 +98,7 @@
 }
 .Nav__hamburger {
   position: relative;
-  top: 1;
+  top: 0;
 
   display: block;
 
@@ -182,6 +181,7 @@ body.no-js {
 
 @media screen and (min-width: 1000px) {
   .Nav {
+    margin-left: auto;
     & ul {
       position: relative;
       top: auto;
