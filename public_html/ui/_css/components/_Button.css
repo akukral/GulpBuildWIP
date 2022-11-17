@@ -1,5 +1,5 @@
 .Button,
-a:any-link.Button,
+a.Button,
 button.Button {
   display: inline-block;
 

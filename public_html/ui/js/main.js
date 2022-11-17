@@ -14,8 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 !function () {
   var w = window,
-      d = w.document;
-
+    d = w.document;
   function addPolyfill(e) {
     var type = e.type === 'focus' ? 'focusin' : 'focusout';
     var event = new CustomEvent(type, {
@@ -25,7 +24,6 @@ __webpack_require__.r(__webpack_exports__);
     event.c1Generated = true;
     e.target.dispatchEvent(event);
   }
-
   function removePolyfill(e) {
     if (!e.c1Generated) {
       // focus after focusin, so chrome will the first time trigger tow times focusin
@@ -34,13 +32,11 @@ __webpack_require__.r(__webpack_exports__);
       d.removeEventListener('focusin', removePolyfill, true);
       d.removeEventListener('focusout', removePolyfill, true);
     }
-
     setTimeout(function () {
       d.removeEventListener('focusin', removePolyfill, true);
       d.removeEventListener('focusout', removePolyfill, true);
     });
   }
-
   if (w.onfocusin === undefined) {
     d.addEventListener('focus', addPolyfill, true);
     d.addEventListener('blur', addPolyfill, true);
@@ -48,6 +44,7 @@ __webpack_require__.r(__webpack_exports__);
     d.addEventListener('focusout', removePolyfill, true);
   }
 }();
+
 /*
    Carousel Prototype
    Eric Eggert for W3C
@@ -62,31 +59,34 @@ var myCarousel = function myCarousel() {
   var settings;
   var timer;
   var setFocus;
-  var animationSuspended; // Helper function: Iterates over an array of elements
+  var animationSuspended;
 
+  // Helper function: Iterates over an array of elements
   function forEachElement(elements, fn) {
     for (var i = 0; i < elements.length; i++) {
       fn(elements[i], i);
     }
-  } // Helper function: Remove Class
+  }
 
-
+  // Helper function: Remove Class
   function removeClass(el, className) {
     if (el.classList) {
       el.classList.remove(className);
     } else {
       el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     }
-  } // Helper function: Test if element has a specific class
+  }
 
-
+  // Helper function: Test if element has a specific class
   function hasClass(el, className) {
     if (el.classList) {
       return el.classList.contains(className);
     } else {
       return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
     }
-  } // Initialization for the carousel
+  }
+
+  // Initialization for the carousel
   // Argument: set = an object of settings
   // Possible settings:
   // id <string> ID of the carousel wrapper element (required).
@@ -97,17 +97,17 @@ var myCarousel = function myCarousel() {
   //                      If false, the animation needs
   //                        to be initiated by clicking
   //                        the play button.
-
-
   function init(set) {
     // Make settings available to all functions
-    settings = set; // Select the element and the individual slides
+    settings = set;
 
-    carousel = settings.id; // console.log(set)
-
+    // Select the element and the individual slides
+    carousel = settings.id;
+    // console.log(set)
     slides = carousel.querySelectorAll('.Carousel__slide');
-    carousel.className = 'Carousel Carousel--active'; // Create unordered list for controls, and attach click events fo previous and next slide
+    carousel.className = 'Carousel Carousel--active';
 
+    // Create unordered list for controls, and attach click events fo previous and next slide
     var ctrls = document.createElement('ul');
     ctrls.className = 'controls';
     ctrls.innerHTML = '<li>' + '<button type="button" class="Button btn-prev">&lsaquo;</button>' + '</li>' + '<li>' + '<button type="button" class="Button btn-next">&rsaquo;</button>' + '</li>';
@@ -117,24 +117,21 @@ var myCarousel = function myCarousel() {
     ctrls.querySelector('.btn-next').addEventListener('click', function () {
       nextSlide(true);
     });
-    carousel.appendChild(ctrls); // If the carousel is animated or a slide navigation is requested in the settings, anoter unordered list that contains those elements is added. (Note that you cannot supress the navigation when it is animated.)
+    carousel.appendChild(ctrls);
 
+    // If the carousel is animated or a slide navigation is requested in the settings, anoter unordered list that contains those elements is added. (Note that you cannot supress the navigation when it is animated.)
     if (settings.slidenav || settings.animate) {
       slidenav = document.createElement('ul');
       slidenav.className = 'Carousel__slidenav';
-
       if (settings.animate) {
         var li = document.createElement('li');
-
         if (settings.startAnimated) {
           li.innerHTML = '<button data-action="stop" class="Button"><span class="sr-only">Stop Animation </span>￭</button>';
         } else {
           li.innerHTML = '<button data-action="start" class="Button"><span class="sr-only">Start Animation </span>▶</button>';
         }
-
         slidenav.appendChild(li);
       }
-
       if (settings.slidenav) {
         forEachElement(slides, function (el, i) {
           var li = document.createElement('li');
@@ -144,10 +141,8 @@ var myCarousel = function myCarousel() {
           slidenav.appendChild(li);
         });
       }
-
       slidenav.addEventListener('click', function (event) {
         var button = event.target;
-
         if (button.localName === 'button') {
           if (button.getAttribute('data-slide')) {
             stopAnimation();
@@ -161,19 +156,19 @@ var myCarousel = function myCarousel() {
       }, true);
       carousel.className = 'Carousel Carousel--active Carousel--with-slidenav';
       carousel.appendChild(slidenav);
-    } // Add a live region to announce the slide number when using the previous/next buttons
+    }
 
-
+    // Add a live region to announce the slide number when using the previous/next buttons
     var liveregion = document.createElement('div');
     liveregion.setAttribute('aria-live', 'polite');
     liveregion.setAttribute('aria-atomic', 'true');
     liveregion.setAttribute('class', 'liveregion sr-only');
-    carousel.appendChild(liveregion); // After the slide transitioned, remove the in-transition class, if focus should be set, set the tabindex attribute to -1 and focus the slide.
+    carousel.appendChild(liveregion);
 
+    // After the slide transitioned, remove the in-transition class, if focus should be set, set the tabindex attribute to -1 and focus the slide.
     slides[0].parentNode.addEventListener('transitionend', function (event) {
       var slide = event.target;
       removeClass(slide, 'in-transition');
-
       if (hasClass(slide, 'current')) {
         if (setFocus) {
           slide.setAttribute('tabindex', '-1');
@@ -181,38 +176,44 @@ var myCarousel = function myCarousel() {
           setFocus = false;
         }
       }
-    }); // When the mouse enters the carousel, suspend the animation.
+    });
 
-    carousel.addEventListener('mouseenter', suspendAnimation); // When the mouse leaves the carousel, and the animation is suspended, start the animation.
+    // When the mouse enters the carousel, suspend the animation.
+    carousel.addEventListener('mouseenter', suspendAnimation);
 
+    // When the mouse leaves the carousel, and the animation is suspended, start the animation.
     carousel.addEventListener('mouseleave', function () {
       if (animationSuspended) {
         startAnimation();
       }
-    }); // When the focus enters the carousel, suspend the animation
+    });
 
+    // When the focus enters the carousel, suspend the animation
     carousel.addEventListener('focusin', function (event) {
       if (!hasClass(event.target, 'slide')) {
         suspendAnimation();
       }
-    }); // When the focus leaves the carousel, and the animation is suspended, start the animation
+    });
 
+    // When the focus leaves the carousel, and the animation is suspended, start the animation
     carousel.addEventListener('focusout', function (event) {
       if (!hasClass(event.target, 'Carousel__slide') && animationSuspended) {
         startAnimation();
       }
-    }); // Set the index (=current slide) to 0 – the first slide
+    });
 
+    // Set the index (=current slide) to 0 – the first slide
     index = 0;
-    setSlides(index); // If the carousel is animated, advance to the
-    // next slide after 5s
+    setSlides(index);
 
+    // If the carousel is animated, advance to the
+    // next slide after 5s
     if (settings.startAnimated) {
       timer = setTimeout(nextSlide, 5000);
     }
-  } // Function to set a slide the current slide
+  }
 
-
+  // Function to set a slide the current slide
   function setSlides(new_current, setFocusHere, transition, announceItemHere) {
     // Focus, transition and announce Item are optional parameters.
     // focus denotes if the focus should be set after the
@@ -221,130 +222,126 @@ var myCarousel = function myCarousel() {
     // next or previous direction.
     // If announceItem is set to true, the live region’s text is changed (and announced)
     // Here defaults are set:
+
     setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;
     transition = typeof transition !== 'undefined' ? transition : 'none';
     var announceItem = typeof announceItemHere !== 'undefined' ? announceItemHere : false;
     new_current = parseFloat(new_current);
     var length = slides.length;
     var new_next = new_current + 1;
-    var new_prev = new_current - 1; // If the next slide number is equal to the length,
+    var new_prev = new_current - 1;
+
+    // If the next slide number is equal to the length,
     // the next slide should be the first one of the slides.
     // If the previous slide number is less than 0.
     // the previous slide is the last of the slides.
-
     if (new_next === length) {
       new_next = 0;
     } else if (new_prev < 0) {
       new_prev = length - 1;
-    } // Reset slide classes
+    }
 
-
+    // Reset slide classes
     for (var i = slides.length - 1; i >= 0; i--) {
       slides[i].className = 'slide';
-    } // Add classes to the previous, next and current slide
+    }
 
-
+    // Add classes to the previous, next and current slide
     slides[new_next].className = 'next Carousel__slide' + (transition === 'next' ? ' in-transition' : '');
     slides[new_next].setAttribute('aria-hidden', 'true');
     slides[new_prev].className = 'prev Carousel__slide' + (transition === 'prev' ? ' in-transition' : '');
     slides[new_prev].setAttribute('aria-hidden', 'true');
     slides[new_current].className = 'current Carousel__slide';
-    slides[new_current].removeAttribute('aria-hidden'); // Update the text in the live region which is then announced by screen readers.
+    slides[new_current].removeAttribute('aria-hidden');
 
+    // Update the text in the live region which is then announced by screen readers.
     if (announceItem) {
       carousel.querySelector('.liveregion').textContent = 'Item ' + (new_current + 1) + ' of ' + slides.length;
-    } // Update the buttons in the slider navigation to match the currently displayed  item
+    }
 
-
+    // Update the buttons in the slider navigation to match the currently displayed  item
     if (settings.slidenav) {
       var buttons = carousel.querySelectorAll('.Carousel__slidenav button[data-slide]');
-
       for (var j = buttons.length - 1; j >= 0; j--) {
         buttons[j].classList.remove = 'current';
         buttons[j].innerHTML = '<span class="sr-only">Item</span> ' + (j + 1);
       }
-
       buttons[new_current].classList.add = 'current';
       buttons[new_current].innerHTML = '<span class="sr-only">Item</span> ' + (new_current + 1) + ' <span class="sr-only">(Current Item)</span>';
-    } // Set the global index to the new current value
+    }
 
-
+    // Set the global index to the new current value
     index = new_current;
-  } // Function to advance to the next slide
+  }
 
-
+  // Function to advance to the next slide
   function nextSlide(announceItem) {
     announceItem = typeof announceItem !== 'undefined' ? announceItem : false;
     var length = slides.length,
-        new_current = index + 1;
-
+      new_current = index + 1;
     if (new_current === length) {
       new_current = 0;
-    } // If we advance to the next slide, the previous needs to be
+    }
+
+    // If we advance to the next slide, the previous needs to be
     // visible to the user, so the third parameter is 'prev', not
     // next.
+    setSlides(new_current, false, 'prev', announceItem);
 
-
-    setSlides(new_current, false, 'prev', announceItem); // If the carousel is animated, advance to the next
+    // If the carousel is animated, advance to the next
     // slide after 5s
-
     if (settings.animate) {
       timer = setTimeout(nextSlide, 5000);
     }
-  } // Function to advance to the previous slide
+  }
 
-
+  // Function to advance to the previous slide
   function prevSlide(announceItem) {
     announceItem = typeof announceItem !== 'undefined' ? announceItem : false;
     var length = slides.length,
-        new_current = index - 1; // If we are already on the first slide, show the last slide instead.
+      new_current = index - 1;
 
+    // If we are already on the first slide, show the last slide instead.
     if (new_current < 0) {
       new_current = length - 1;
-    } // If we advance to the previous slide, the next needs to be
+    }
+
+    // If we advance to the previous slide, the next needs to be
     // visible to the user, so the third parameter is 'next', not
     // prev.
-
-
     setSlides(new_current, false, 'next', announceItem);
-  } // Function to stop the animation
+  }
 
-
+  // Function to stop the animation
   function stopAnimation() {
     clearTimeout(timer);
     settings.animate = false;
     animationSuspended = false;
-
     var _this = carousel.querySelector('[data-action]');
-
     _this.innerHTML = '<span class="sr-only">Start Animation </span>▶';
-
     _this.setAttribute('data-action', 'start');
-  } // Function to start the animation
+  }
 
-
+  // Function to start the animation
   function startAnimation() {
     settings.animate = true;
     animationSuspended = false;
     timer = setTimeout(nextSlide, 5000);
-
     var _this = carousel.querySelector('[data-action]');
-
     _this.innerHTML = '<span class="sr-only">Stop Animation </span>￭';
-
     _this.setAttribute('data-action', 'stop');
-  } // Function to suspend the animation
+  }
 
-
+  // Function to suspend the animation
   function suspendAnimation() {
     if (settings.animate) {
       clearTimeout(timer);
       settings.animate = false;
       animationSuspended = true;
     }
-  } // Making some functions public
+  }
 
-
+  // Making some functions public
   return {
     init: init,
     next: nextSlide,
@@ -354,7 +351,6 @@ var myCarousel = function myCarousel() {
     start: startAnimation
   };
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (myCarousel);
 
 /***/ }),
@@ -371,17 +367,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
 var Details = /*#__PURE__*/function () {
   function Details(settingsObj) {
     _classCallCheck(this, Details);
+    this.settings = settingsObj;
 
-    this.settings = settingsObj; // set the accordion/detail elements
-
+    // set the accordion/detail elements
     this.detailsContainer = this.settings.container || document.querySelector("details");
     if (!this.detailsContainer) return;
     this.detailsButton = this.settings.button || this.detailsContainer.querySelector("summary");
@@ -392,7 +385,6 @@ var Details = /*#__PURE__*/function () {
     this.init();
     return this;
   }
-
   _createClass(Details, [{
     key: "init",
     value: function init() {
@@ -402,20 +394,24 @@ var Details = /*#__PURE__*/function () {
   }, {
     key: "toggleDetailVisibility",
     value: function toggleDetailVisibility(event) {
-      event.preventDefault(); // changing the state of the details being open defaults to false (not open)
+      event.preventDefault();
+      // changing the state of the details being open defaults to false (not open)
+      this.curState = !this.curState;
 
-      this.curState = !this.curState; // changing the aria states and class of the button and target
-
+      // changing the aria states and class of the button and target
       this.detailsButton.setAttribute("aria-expanded", this.curState);
-      this.detailsContainer.classList.toggle("Details--open"); // console.log(this.curState);
+      this.detailsContainer.classList.toggle("Details--open");
+
+      // console.log(this.curState);
 
       if (this.curState) {
         // console.log(`open`);
         this.detailsContainer.setAttribute("open", "open");
       } else {
-        this.detailsContainer.removeAttribute("open"); // console.log(`close`);
-      } // return this
-
+        this.detailsContainer.removeAttribute("open");
+        // console.log(`close`);
+      }
+      // return this
     }
   }, {
     key: "keypressHandler",
@@ -424,21 +420,21 @@ var Details = /*#__PURE__*/function () {
         // if the toggle button for the detail is focused allow ENTER or SPACEBAR to open the accordion.
         if (event.key === " " || event.key === "Spacebar" || event.keyCode === 0 || event.keyCode === 32) {
           event.preventDefault();
-          this.toggleDetailVisibility(event); // console.log(`space`)
+          this.toggleDetailVisibility(event);
+          // console.log(`space`)
         }
 
         if (event.key === "Enter" || event.key === "Return" || event.keyCode === 13) {
           event.preventDefault();
-          this.toggleDetailVisibility(event); // console.log(`enter`)
+          this.toggleDetailVisibility(event);
+          // console.log(`enter`)
         }
-      } // return this;
-
+      }
+      // return this;
     }
   }]);
-
   return Details;
 }();
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Details);
 
 /***/ }),
@@ -455,15 +451,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
 var Dialog = /*#__PURE__*/function () {
   function Dialog(settingsObj) {
     _classCallCheck(this, Dialog);
-
     // constructor(options = {}) {
     // Object.assign(this, {
     //   dialogButton: document.querySelector(`[data-dialog]`),
@@ -480,7 +472,6 @@ var Dialog = /*#__PURE__*/function () {
     this.init();
     return this;
   }
-
   _createClass(Dialog, [{
     key: "init",
     value: function init() {
@@ -491,33 +482,34 @@ var Dialog = /*#__PURE__*/function () {
     key: "toggleDialogVisibility",
     value: function toggleDialogVisibility() {
       // changing the state of the dialog being open defaults to false (not open)
-      this.curState = !this.curState; // changing the aria states and class of the button and target
+      this.curState = !this.curState;
 
+      // changing the aria states and class of the button and target
       this.dialogButton.setAttribute("aria-expanded", this.curState);
       this.dialogTarget.classList.toggle("Dialog--open");
-
       if (this.curState) {
         // find all of the focusable elements within the element to trap
         this.focusableElements = Array.prototype.slice.call(this.dialogTarget.querySelectorAll('iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'));
         this.firstFocusableEl = this.focusableElements[0];
-        this.lastFocusableEl = this.focusableElements.pop(); // setting the initial focus to be on the dialog itself
+        this.lastFocusableEl = this.focusableElements.pop();
 
+        // setting the initial focus to be on the dialog itself
         this.dialogTarget.setAttribute("tabindex", "-1");
         this.dialogTarget.focus();
-        this.dialogTarget.setAttribute("open", ""); // listen for keyboard events namely TAB and ESC keys
+        this.dialogTarget.setAttribute("open", "");
 
+        // listen for keyboard events namely TAB and ESC keys
         document.addEventListener("keydown", this.keypressHandler.bind(this));
       } else {
         // dealing with an autoplay or currently playing video in the modal if you close it.
         var iframeSrc = this.dialogTarget.querySelector("iframe");
-
         if (iframeSrc) {
           var src = iframeSrc.src;
           this.dialogTarget.querySelector("iframe").src = "";
           this.dialogTarget.querySelector("iframe").src = src;
-        } // set the tab index of the dialog
+        }
 
-
+        // set the tab index of the dialog
         this.dialogTarget.setAttribute("tabindex", "0");
         this.dialogTarget.removeAttribute("open");
         this.dialogButton.focus();
@@ -528,7 +520,6 @@ var Dialog = /*#__PURE__*/function () {
     value: function keypressHandler(event) {
       var isEscape = false;
       var isTab = false;
-
       if ("key" in event) {
         isEscape = event.key === "Escape" || event.key === "Esc";
         isTab = event.key === "Tab";
@@ -536,7 +527,6 @@ var Dialog = /*#__PURE__*/function () {
         isEscape = event.keyCode === 27;
         isTab = event.keyCode === KEYCODE_TAB;
       }
-
       if (!isEscape && !isTab) return; //if the keypressed isn't a tab or escape what are we doing here
 
       if (isEscape && this.curState) {
@@ -544,17 +534,12 @@ var Dialog = /*#__PURE__*/function () {
         this.toggleDialogVisibility();
         this.dialogButton.focus();
       }
-
-      if (event.shiftKey)
-        /* shift + tab */
-        {
+      if (event.shiftKey) /* shift + tab */{
           if (document.activeElement === this.firstFocusableEl) {
             this.lastFocusableEl.focus();
             event.preventDefault();
           }
-        } else
-        /* tab */
-        {
+        } else /* tab */{
           if (document.activeElement === this.lastFocusableEl) {
             this.firstFocusableEl.focus();
             event.preventDefault();
@@ -562,10 +547,8 @@ var Dialog = /*#__PURE__*/function () {
         }
     }
   }]);
-
   return Dialog;
 }();
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dialog);
 
 /***/ }),
@@ -588,11 +571,11 @@ var fontLoader = function fontLoader(fontsToLoad) {
         var shortName = font.shortName || font.localName || "font".concat(i + 1);
         var localName = font.localName || font.shortName || "font".concat(i + 1);
         var path = font.path;
-
         var doesFileExist = function doesFileExist(urlToFile, extension) {
           fetch(urlToFile + extension, {
             method: 'GET'
-          }) // .then( response => console.warn('success:', response) )
+          })
+          // .then( response => console.warn('success:', response) )
           // .catch( error => console.warn('error:', error) );
           .then(function (response) {
             return response;
@@ -600,31 +583,26 @@ var fontLoader = function fontLoader(fontsToLoad) {
             return error;
           });
         };
-
         var fontsToEmbed;
-
         if (doesFileExist(path, ".eot")) {
           fontsToEmbed += "url('".concat(path, ".eot?#iefix') format('embedded-opentype'),");
         }
-
         if (doesFileExist(path, ".ttf")) {
           fontsToEmbed += "url('".concat(path, ".format('truetype'),");
         }
-
         if (doesFileExist(path, ".woff2")) {
           fontsToEmbed += "url('".concat(path, ".woff2') format('woff2'),");
         }
-
         if (doesFileExist(path, ".woff")) {
           fontsToEmbed += "url('".concat(path, ".woff') format('woff'),");
         }
-
         var newFont = new FontFace(shortName, "local(".concat(localName, "),\n            url('").concat(path, ".ttf') format('truetype')"), {
           weight: 400
         });
         newFont.display = 'swap';
         return newFont;
-      }); // console.log(fontsArray);
+      });
+      // console.log(fontsArray);
 
       var requests = fontsArray.map(function (font) {
         return font.load();
@@ -641,14 +619,12 @@ var fontLoader = function fontLoader(fontsToLoad) {
       });
     }
   }
-
   if (navigator.connection && navigator.connection.saveData || "matchMedia" in window && window.matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.connection && (navigator.connection.effectiveType === "slow-2g" || navigator.connection.effectiveType === "2g")) {
     console.warn("looks like you don't want custom typefaces");
   } else {
     loadFonts();
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fontLoader);
 
 /***/ }),
@@ -665,59 +641,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Nav)
 /* harmony export */ });
 function Nav() {
-  var nav = document.querySelectorAll("Nav")[0]; // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
+  var nav = document.querySelectorAll("Nav")[0];
+  // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
   // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));
+  var button = document.getElementsByClassName("Nav__toggle")[0];
 
-  var button = document.getElementsByClassName("Nav__toggle")[0]; // const everythingButNav = bodyEverything.filter((el) => !navEverything.includes(el));
+  // const everythingButNav = bodyEverything.filter((el) => !navEverything.includes(el));
   // console.log(everythingButNav);
 
   var curState = false;
-
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = function (callback, thisArg) {
       thisArg = thisArg || window;
-
       for (var i = 0; i < this.length; i++) {
         callback.call(thisArg, this[i], i, this);
       }
     };
   }
-
   function keyHandler(e) {
     var focusableEls = Array.from(nav.querySelectorAll("iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])"));
     var firstFocusableEl = focusableEls[0];
-    var lastFocusableEl = focusableEls[focusableEls.length - 1]; // console.log(e);
-    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
+    var lastFocusableEl = focusableEls[focusableEls.length - 1];
 
-    var isEscape = e.key === "Escape" || e.key === "Esc" || e.keyCode === 27; // if (!isTabPressed) {
+    // console.log(e);
+    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
+    var isEscape = e.key === "Escape" || e.key === "Esc" || e.keyCode === 27;
+
+    // if (!isTabPressed) {
     //   return;
     // }
 
-    if (e.shiftKey)
-      /* shift + tab */
-      {
+    if (e.shiftKey) /* shift + tab */{
         if (document.activeElement === firstFocusableEl) {
           lastFocusableEl.focus();
           e.preventDefault();
         }
-      } else
-      /* tab */
-      {
+      } else /* tab */{
         if (document.activeElement === lastFocusableEl) {
           firstFocusableEl.focus();
           e.preventDefault();
         }
       }
-
     if (isEscape && curState) {
       toggleNav();
     }
   }
-
   var toggleNav = function toggleNav() {
     // event.preventDefault();
     curState = !curState;
-
     if (curState) {
       nav.classList.toggle("Nav--isactive");
       nav.addEventListener("keydown", keyHandler);
@@ -735,19 +706,18 @@ function Nav() {
         nav.classList.toggle("Nav--isactive");
       }, 200);
     }
-
     button.setAttribute("aria-expanded", curState);
   };
-
   if (button) {
     button.addEventListener("click", toggleNav);
   }
-
   var navItems = nav.querySelectorAll("a");
   navItems.forEach(function (item) {
     return item.addEventListener("click", toggleNav);
   });
-} // EOF
+}
+
+// EOF
 
 /***/ }),
 
@@ -763,17 +733,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
 var Tabs = /*#__PURE__*/function () {
   function Tabs(settingsObj) {
     _classCallCheck(this, Tabs);
+    this.settings = settingsObj;
 
-    this.settings = settingsObj; // set the accordion/detail elements
-
+    // set the accordion/detail elements
     this.tabContainer = this.settings.container || document.querySelector(".Tabbed");
     if (!this.tabContainer) return;
     this.tabbed = this.tabContainer;
@@ -783,83 +750,83 @@ var Tabs = /*#__PURE__*/function () {
     this.init();
     return this;
   }
-
   _createClass(Tabs, [{
     key: "init",
     value: function init() {
       var _this = this;
-
       // Add semantics are remove user focusability for each tab
       Array.prototype.forEach.call(this.tabs, function (tab, i) {
         tab.setAttribute('role', 'tab');
         tab.setAttribute('id', 'tab' + (i + 1));
         tab.setAttribute('tabindex', '-1');
-        tab.parentNode.setAttribute('role', 'presentation'); // Handle clicking of tabs for mouse users
+        tab.parentNode.setAttribute('role', 'presentation');
 
+        // Handle clicking of tabs for mouse users
         tab.addEventListener('click', function (e) {
           e.preventDefault();
-
           var currentTab = _this.tablist.querySelector('[aria-selected]');
-
           if (e.currentTarget !== currentTab) {
             _this.switchTab(currentTab, e.currentTarget);
           }
-        }); // Handle keydown events for keyboard users
+        });
 
+        // Handle keydown events for keyboard users
         tab.addEventListener('keydown', function (e) {
           // Get the index of the current tab in the tabs node list
-          var index = Array.prototype.indexOf.call(_this.tabs, e.currentTarget); // Work out which key the user is pressing and
+          var index = Array.prototype.indexOf.call(_this.tabs, e.currentTarget);
+          // Work out which key the user is pressing and
           // Calculate the new tab's index where appropriate
-
           var dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? 'down' : null;
-
           if (dir !== null) {
-            e.preventDefault(); // If the down key is pressed, move focus to the open panel,
+            e.preventDefault();
+            // If the down key is pressed, move focus to the open panel,
             // otherwise switch to the adjacent tab
-
             dir === 'down' ? _this.panels[i].focus() : _this.tabs[dir] ? _this.switchTab(e.currentTarget, _this.tabs[dir]) : void 0;
           }
         });
-      }); // Add tab panel semantics and hide them all
+      });
 
+      // Add tab panel semantics and hide them all
       Array.prototype.forEach.call(this.panels, function (panel, i) {
         panel.setAttribute('role', 'tabpanel');
         panel.setAttribute('tabindex', '-1');
         var id = panel.getAttribute('id');
         panel.setAttribute('aria-labelledby', _this.tabs[i].id);
         panel.hidden = true;
-      }); // Add the tablist role to the first <ul> in the .tabbed container
+      });
 
-      this.tablist.setAttribute('role', 'tablist'); // Initially activate the first tab and reveal the first tab panel
+      // Add the tablist role to the first <ul> in the .tabbed container
+      this.tablist.setAttribute('role', 'tablist');
 
+      // Initially activate the first tab and reveal the first tab panel
       this.tabs[0].removeAttribute('tabindex');
       this.tabs[0].setAttribute('aria-selected', 'true');
       this.panels[0].hidden = false;
-    } // Get relevant elements and collections
-    // The tab switching function
+    }
 
+    // Get relevant elements and collections
+
+    // The tab switching function
   }, {
     key: "switchTab",
     value: function switchTab(oldTab, newTab) {
-      newTab.focus(); // Make the active tab focusable by the user (Tab key)
-
-      newTab.removeAttribute('tabindex'); // Set the selected state
-
+      newTab.focus();
+      // Make the active tab focusable by the user (Tab key)
+      newTab.removeAttribute('tabindex');
+      // Set the selected state
       newTab.setAttribute('aria-selected', 'true');
       oldTab.removeAttribute('aria-selected');
-      oldTab.setAttribute('tabindex', '-1'); // Get the indices of the new and old tabs to find the correct
+      oldTab.setAttribute('tabindex', '-1');
+      // Get the indices of the new and old tabs to find the correct
       // tab panels to show and hide
-
       var index = Array.prototype.indexOf.call(this.tabs, newTab);
       var oldIndex = Array.prototype.indexOf.call(this.tabs, oldTab);
       this.panels[oldIndex].hidden = true;
       this.panels[index].hidden = false;
     }
   }]);
-
   return Tabs;
 }();
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);
 
 /***/ }),
@@ -879,19 +846,18 @@ var themePicker = function themePicker(input) {
   var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
   var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches;
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified; // console.log('isDarkMode=' + isDarkMode, 'isLightMode=' + isLightMode, 'isNotSpecified=' + isNotSpecified, 'hasNoSupport=' + hasNoSupport);
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
+
+  // console.log('isDarkMode=' + isDarkMode, 'isLightMode=' + isLightMode, 'isNotSpecified=' + isNotSpecified, 'hasNoSupport=' + hasNoSupport);
 
   var toggleSwitch = document.querySelector(input);
   var currentTheme = localStorage.getItem('theme');
-
   if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
-
     if (currentTheme === 'dark') {
       toggleSwitch.checked = true;
     }
   }
-
   function switchTheme(e) {
     if (e.target.checked) {
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -901,10 +867,8 @@ var themePicker = function themePicker(input) {
       localStorage.setItem('theme', 'light');
     }
   }
-
   toggleSwitch.addEventListener('change', switchTheme, false);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (themePicker);
 
 /***/ }),
@@ -1819,7 +1783,7 @@ function l(window, document, Date) { // Pass in the window Date function also fo
   \******************************************************/
 /***/ (function(__unused_webpack_module, exports) {
 
-!function(e,n){ true?n(exports):0}(this,function(e){function n(e){return new Promise(function(n,t,r){(r=new XMLHttpRequest).open("GET",e,r.withCredentials=!0),r.onload=function(){200===r.status?n():t()},r.send()})}var t,r=(t=document.createElement("link")).relList&&t.relList.supports&&t.relList.supports("prefetch")?function(e){return new Promise(function(n,t,r){(r=document.createElement("link")).rel="prefetch",r.href=e,r.onload=n,r.onerror=t,document.head.appendChild(r)})}:n,o=window.requestIdleCallback||function(e){var n=Date.now();return setTimeout(function(){e({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-n))}})},1)},i=new Set;function c(e,t,o){if(o=navigator.connection){if(o.saveData)return Promise.reject(new Error("Cannot prefetch, Save-Data is enabled"));if(/2g/.test(o.effectiveType))return Promise.reject(new Error("Cannot prefetch, network conditions are poor"))}return Promise.all([].concat(e).map(function(e){if(!i.has(e))return i.add(e),(t?function(e){return window.fetch?fetch(e,{credentials:"include"}):n(e)}:r)(new URL(e,location.href).toString())}))}e.listen=function(e){if(e||(e={}),window.IntersectionObserver){var n=function(e){e=e||1;var n=[],t=0;function r(){t<e&&n.length>0&&(n.shift()(),t++)}return[function(e){n.push(e)>1||r()},function(){t--,r()}]}(e.throttle||1/0),t=n[0],r=n[1],f=e.limit||1/0,u=e.origins||[location.hostname],s=e.ignores||[],a=e.delay||0,l=[],h=e.timeoutFn||o,d="function"==typeof e.hrefFn&&e.hrefFn,m=new IntersectionObserver(function(n){n.forEach(function(n){if(n.isIntersecting)l.push((n=n.target).href),function(e,n){n?setTimeout(e,n):e()}(function(){-1!==l.indexOf(n.href)&&(m.unobserve(n),i.size<f&&t(function(){c(d?d(n):n.href,e.priority).then(r).catch(function(n){r(),e.onError&&e.onError(n)})}))},a);else{var o=l.indexOf((n=n.target).href);o>-1&&l.splice(o)}})},{threshold:e.threshold||0});return h(function(){(e.el||document).querySelectorAll("a").forEach(function(e){u.length&&!u.includes(e.hostname)||function e(n,t){return Array.isArray(t)?t.some(function(t){return e(n,t)}):(t.test||t).call(t,n.href,n)}(e,s)||m.observe(e)})},{timeout:e.timeout||2e3}),function(){i.clear(),m.disconnect()}}},e.prefetch=c});
+!function(e,n){ true?n(exports):0}(this,function(e){function n(e){return new Promise(function(n,r,t){(t=new XMLHttpRequest).open("GET",e,t.withCredentials=!0),t.onload=function(){200===t.status?n():r()},t.send()})}var r,t=(r=document.createElement("link")).relList&&r.relList.supports&&r.relList.supports("prefetch")?function(e){return new Promise(function(n,r,t){(t=document.createElement("link")).rel="prefetch",t.href=e,t.onload=n,t.onerror=r,document.head.appendChild(t)})}:n,o=window.requestIdleCallback||function(e){var n=Date.now();return setTimeout(function(){e({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-n))}})},1)},i=new Set,c=new Set,u=!1;function a(e){if(e){if(e.saveData)return new Error("Save-Data is enabled");if(/2g/.test(e.effectiveType))return new Error("network conditions are poor")}return!0}function s(e,r,o){var s=a(navigator.connection);return s instanceof Error?Promise.reject(new Error("Cannot prefetch, "+s.message)):(c.size>0&&!u&&console.warn("[Warning] You are using both prefetching and prerendering on the same document"),Promise.all([].concat(e).map(function(e){if(!i.has(e))return i.add(e),(r?function(e){return window.fetch?fetch(e,{credentials:"include"}):n(e)}:t)(new URL(e,location.href).toString())})))}function f(e,n){var r=a(navigator.connection);if(r instanceof Error)return Promise.reject(new Error("Cannot prerender, "+r.message));if(!HTMLScriptElement.supports("speculationrules"))return s(e),Promise.reject(new Error("This browser does not support the speculation rules API. Falling back to prefetch."));if(document.querySelector('script[type="speculationrules"]'))return Promise.reject(new Error("Speculation Rules is already defined and cannot be altered."));for(var t=0,o=[].concat(e);t<o.length;t+=1){var f=o[t];if(window.location.origin!==new URL(f,window.location.href).origin)return Promise.reject(new Error("Only same origin URLs are allowed: "+f));c.add(f)}i.size>0&&!u&&console.warn("[Warning] You are using both prefetching and prerendering on the same document");var l=function(e){var n=document.createElement("script");n.type="speculationrules",n.text='{"prerender":[{"source": "list","urls": ["'+Array.from(e).join('","')+'"]}]}';try{document.head.appendChild(n)}catch(e){return e}return!0}(c);return!0===l?Promise.resolve():Promise.reject(l)}e.listen=function(e){if(e||(e={}),window.IntersectionObserver){var n=function(e){e=e||1;var n=[],r=0;function t(){r<e&&n.length>0&&(n.shift()(),r++)}return[function(e){n.push(e)>1||t()},function(){r--,t()}]}(e.throttle||1/0),r=n[0],t=n[1],a=e.limit||1/0,l=e.origins||[location.hostname],d=e.ignores||[],h=e.delay||0,p=[],m=e.timeoutFn||o,w="function"==typeof e.hrefFn&&e.hrefFn,g=e.prerender||!1;u=e.prerenderAndPrefetch||!1;var v=new IntersectionObserver(function(n){n.forEach(function(n){if(n.isIntersecting)p.push((n=n.target).href),function(e,n){n?setTimeout(e,n):e()}(function(){-1!==p.indexOf(n.href)&&(v.unobserve(n),(u||g)&&c.size<1?f(w?w(n):n.href).catch(function(n){if(!e.onError)throw n;e.onError(n)}):i.size<a&&!g&&r(function(){s(w?w(n):n.href,e.priority).then(t).catch(function(n){t(),e.onError&&e.onError(n)})}))},h);else{var o=p.indexOf((n=n.target).href);o>-1&&p.splice(o)}})},{threshold:e.threshold||0});return m(function(){(e.el||document).querySelectorAll("a").forEach(function(e){l.length&&!l.includes(e.hostname)||function e(n,r){return Array.isArray(r)?r.some(function(r){return e(n,r)}):(r.test||r).call(r,n.href,n)}(e,d)||v.observe(e)})},{timeout:e.timeout||2e3}),function(){i.clear(),v.disconnect()}}},e.prefetch=s,e.prerender=f});
 
 
 /***/ })
@@ -1914,11 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/nav */ "./public_html/ui/_js/modules/nav.js");
 /* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 // import app from './modules/app';
 
 
@@ -1930,10 +1891,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen(); // Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
+quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen();
+
+// Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
 // loads in woff eot and ttf files automatically if they are all in the same  directory.
 // Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc
-
 (0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__["default"])([{
   shortName: "Neue",
   localName: "HelveticaNeue-Roman",
@@ -1944,15 +1906,14 @@ quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen(); //
   path: "/ui/webfonts/helvetica/helveticaneue-bold-webfont"
 }]);
 (0,_modules_nav__WEBPACK_IMPORTED_MODULE_8__["default"])();
-(lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = false; // check if native lazy loading is available
+(lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = false;
 
+// check if native lazy loading is available
 if ('loading' in HTMLImageElement.prototype) {
   // console.log("Browser supports `loading`..");
   var lazy = document.querySelectorAll("[class*='lazyload']");
-
   var _iterator = _createForOfIteratorHelper(lazy),
-      _step;
-
+    _step;
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var item = _step.value;
@@ -1969,44 +1930,39 @@ if ('loading' in HTMLImageElement.prototype) {
   // console.log("Browser does not support `loading`..");
   // for lazy-loading instead.
   (lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = true;
-} // init modals
+}
 
-
+// init modals
 var modals = Array.from(document.querySelectorAll("[data-modal]"));
-
 for (var _i = 0, _modals = modals; _i < _modals.length; _i++) {
   var win = _modals[_i];
   new _modules_dialog__WEBPACK_IMPORTED_MODULE_4__["default"]({
     button: win
-  }); // console.log(win);
-} // init details
+  });
+  // console.log(win);
+}
 
-
+// init details
 var details = Array.from(document.querySelectorAll("details"));
-
 for (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {
   var detail = _details[_i2];
   new _modules_details__WEBPACK_IMPORTED_MODULE_5__["default"]({
     container: detail
   });
-} // init tabs
-
-
+}
+// init tabs
 var tabset = Array.from(document.querySelectorAll(".Tabbed"));
-
 for (var _i3 = 0, _tabset = tabset; _i3 < _tabset.length; _i3++) {
   var tab = _tabset[_i3];
   new _modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"]({
     container: tab
   });
-} // init Carousels
+}
 
-
+// init Carousels
 var carousels = document.querySelectorAll(".Carousel");
-
 var _iterator2 = _createForOfIteratorHelper(carousels),
-    _step2;
-
+  _step2;
 try {
   for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
     var carousel = _step2.value;
@@ -2024,21 +1980,23 @@ try {
 } finally {
   _iterator2.f();
 }
-
 var media = '(prefers-reduced-motion: reduce)';
-var pref = window.matchMedia(media); // console.log("reduced motion=",pref)
-
-if (pref.media !== media && !pref.matches) {// do stuff without animations
+var pref = window.matchMedia(media);
+// console.log("reduced motion=",pref)
+if (pref.media !== media && !pref.matches) {
+  // do stuff without animations
   // console.log('prefers reduced motion');
-} // Night mode theme picker
+}
 
+// Night mode theme picker
+(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".Theme__picker input[type=\"checkbox\"]");
 
-(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".Theme__picker input[type=\"checkbox\"]"); // window.resize callback function
-
+// window.resize callback function
 function getVerticalHeight() {
-  var vh = window.innerHeight * 0.01; // document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-  document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); // console.info(vh);
+  var vh = window.innerHeight * 0.01;
+  // document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
+  // console.info(vh);
 }
 
 window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 200);
@@ -2048,15 +2006,17 @@ allLinks.forEach(function (el) {
   if (!el.hasAttribute("rel")) {
     el.setAttribute("rel", "noreferrer");
   }
-}); // function ready(fn) {
+});
+
+// function ready(fn) {
 //   if (document.readyState !== 'loading') {
 //     fn();
 //   } else {
 //     document.addEventListener('DOMContentLoaded', fn);
 //   }
 // }
-// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
 
+// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
 document.body.classList.remove("no-js");
 })();
 

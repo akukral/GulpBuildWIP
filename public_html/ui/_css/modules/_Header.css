@@ -15,7 +15,7 @@
   backdrop-filter: blur(1rem);
 }
 
-@supports (animation-timeline: works) {
+@supports (animation-timeline: scroll()) {
   @scroll-timeline shadow-scroll-timeline {
     time-range: 1s;
     /* scroll-offsets: 0%, 1vh; */

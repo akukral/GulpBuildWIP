@@ -52,7 +52,7 @@ body {
 
 body {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   margin: 0;

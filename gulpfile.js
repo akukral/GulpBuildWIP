@@ -13,10 +13,10 @@ const cssimport = require(`postcss-import`);
 const cssnano = require(`cssnano`);
 var csso = require('gulp-csso');
 // const postcssLogical = require('postcss-logical');
-const critical = require(`critical`).stream;
+const critical = import(`critical`).stream;
 
 // Image compression
-const imagemin = require(`gulp-imagemin`);
+const imagemin = import(`gulp-imagemin`);
 
 // Notificaiton friendly errors
 const notify = require(`gulp-plumber-notifier`);
@@ -73,9 +73,6 @@ gulp.task(`styles`, gulp.series((done) => {
       stage: 0,
       features: {
         'nesting-rules': true,
-        rem: {
-          html: false,
-        },
       },
       browsers: [`IE 8`],
     }),
@@ -102,9 +99,6 @@ gulp.task(`stylesBuild`, gulp.series((done) => {
       stage: 0,
       features: {
         'nesting-rules': true,
-        rem: {
-          html: false,
-        },
       },
       browsers: [`IE 8`],
     }),
