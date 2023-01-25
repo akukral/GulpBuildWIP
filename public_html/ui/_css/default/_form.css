@@ -7,10 +7,6 @@ select {
   margin: 0;
   margin-bottom: 1.5rem;
   padding: 0.3rem 0.5rem;
-
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
   vertical-align: bottom;
 
   color: inherit;
@@ -19,18 +15,26 @@ select {
   outline: none;
   /* background-color: var(--light); */
   box-shadow: none;
+  font-family: inherit;
+
+  font-size: inherit;
+  line-height: inherit;
+  accent-color: var(--charlie);
 
   /* -webkit-appearance: none;
           appearance: none; */
   text-fill-color: var(--light);
+
   &[type='submit'] {
     width: auto;
   }
+
   &:focus {
     outline: solid 2px var(--bravo);
     outline-offset: 2px;
   }
 }
+
 [type='checkbox'] {
   display: inline-block;
 
@@ -50,6 +54,7 @@ select {
     box-shadow: inset 0 0 0 0.1rem var(--light); */
   }
 }
+
 [type='radio'] {
   display: inline-block;
 
@@ -71,25 +76,29 @@ select {
     /* box-shadow: inset 0 0 0 0.1rem var(--light); */
   }
 }
+
 input,
 textarea,
 select {
   border: 1px solid var(--alpha);
 }
+
 datalist {
   display: none;
 }
+
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   color: inherit;
   background-color: var(--light) !important;
   -webkit-box-shadow: 0 0 0 1000px var(--light) inset;
-          box-shadow: 0 0 0 1000px var(--light) inset;
+  box-shadow: 0 0 0 1000px var(--light) inset;
 
   -webkit-text-fill-color: currentColor;
-          text-fill-color: currentColor;
+  text-fill-color: currentColor;
 }
+
 input:-moz-focus-inner,
 select:-moz-focus-inner,
 *:focus-inner {
@@ -115,7 +124,8 @@ label {
 
   cursor: pointer;
   font-size: inherit;
-  & p{
+
+  & p {
     margin-bottom: 0;
   }
 }
@@ -129,14 +139,14 @@ form [type='submit'] {
   /* clear: both; */
 }
 
-::marker { color: var(--bravo); }
+::marker {
+  color: var(--bravo);
+}
 
-:is(
-  ::-webkit-calendar-picker-indicator,
+:is( ::-webkit-calendar-picker-indicator,
   ::-webkit-clear-button,
   ::-webkit-inner-spin-button,
-  ::-webkit-outer-spin-button
-) {
+  ::-webkit-outer-spin-button) {
   color: var(--bravo);
 }
 

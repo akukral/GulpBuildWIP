@@ -218,6 +218,8 @@ a:moz-focusring {
 
   -webkit-clip-path: polygon(0 0, 0 0, 0 0);
   clip-path: polygon(0 0, 0 0, 0 0);
+
+  content-visibility: auto;
 }
 
 main {
@@ -275,6 +277,9 @@ body {
 .honey {
   display: none;
   visibility: hidden;
+}
+.no-scroll{
+  overflow:hidden;
 }
 
 /* make sure hidden things stay hidden */
@@ -349,7 +354,8 @@ body {
 }
 
 /* Auto screen dark */
-@media (prefers-color-scheme: dark) {
+/* TODO for js  */
+/* @media (prefers-color-scheme: dark) {
   body {
     filter: invert(100%) hue-rotate(180deg);
   }
@@ -364,7 +370,7 @@ body {
     box-shadow: none;
     text-shadow: none;
   }
-}
+} */
 
 html[data-theme='dark'] {
   & body {
@@ -384,7 +390,7 @@ html[data-theme='dark'] {
 }
 
 /* Auto screen dark */
-@media (prefers-contrast),
+/* @media (prefers-contrast),
 (inverted-colors),
 (-ms-high-contrast: active),
 (forced-colors: active) {
@@ -399,7 +405,7 @@ html[data-theme='dark'] {
       border: 1px solid var(--light);
     }
   }
-}
+} */
 
 @supports (-webkit-touch-callout: none) {
   body {

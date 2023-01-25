@@ -88,6 +88,17 @@
   margin: 0 0.5rem;
 }
 
+.Carousel .controls{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  & li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .btn-next,
 .btn-prev {
   position: absolute;

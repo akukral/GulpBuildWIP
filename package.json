@@ -27,6 +27,7 @@
     "webpack": "^5.75.0"
   },
   "devDependencies": {
+    "@csstools/postcss-oklab-function": "^2.0.0",
     "babel": "6.23.0",
     "babel-preset-env": "1.7.0",
     "browser-sync": "^2.27.11",
@@ -36,6 +37,8 @@
     "gulp-plumber-notifier": "0.1.0",
     "gulp-postcss": "9.0.1",
     "gulp-uglify": "3.0.2",
+    "postcss": "^8.4.21",
+    "postcss-logical": "^6.0.0",
     "webpack-stream": "7.0.0"
   }
 }

@@ -13,12 +13,12 @@
 
   background-color: hsla(250, 100%, 100%, .85);
   backdrop-filter: blur(1rem);
+  box-shadow: 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
 }
 
-@supports (animation-timeline: scroll()) {
+/* @supports (animation-timeline: scroll()) {
   @scroll-timeline shadow-scroll-timeline {
     time-range: 1s;
-    /* scroll-offsets: 0%, 1vh; */
     start: 0;
     end: 50vh;
   }
@@ -38,7 +38,7 @@
     animation: forwards .08s ease-in-out shadow-fade;
     animation-timeline: shadow-scroll-timeline;
   }
-}
+} */
 
 .Header__logo {
   display: inline-block;
@@ -61,6 +61,9 @@
 .Theme__picker {
   & input {
     position: relative;
+    block-size: 3rem;
+    inline-size: 3rem;
+
 
     vertical-align: middle;
 
@@ -75,7 +78,9 @@
 
     &::after {
       position: absolute;
-      top: -0.2em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
       content: '🌙';
 

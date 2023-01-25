@@ -3,19 +3,24 @@
 .Dialog {
   position: fixed;
   z-index: 2;
+  /* inset: 0; */
   top: 0;
   left: 0;
 
-  display: block;
+  display: none;
+  align-items: center;
+  justify-content: center;
 
-  width: 3000%;
-  height: 3000%;
+  /* width: 3000%; */
+  /* height: 3000%; */
+  width: 100%;
+  height: 100dvh;
   padding: 2rem;
 
   content: '';
 
   background-color: rgba(255,255,255,0.90);
-  scro
+  scroll-overflow: none;
   & * {
     transition: 0s !important;
   }
@@ -23,26 +28,26 @@
 .Dialog__container {
   position: fixed;
   z-index: 1;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
 
   display: block;
   overflow-x: hidden;
   overflow-y: auto;
 
-  width: calc(100% - 4rem);
+  /* width: calc(100% - 4rem); */
   max-width: 75ch;
-  max-height: 90%;
+  max-height: 90vh;
   padding: 2rem;
 
-  transform: translate(-50%,-50%);
+  /* transform: translate(-50%,-50%); */
 
   border: 1px solid var(--dark);
   background-color: var(--light);
 }
 .Dialog[open],
 .Dialog--open {
-  display: block;
+  display: flex;
 }
 .Dialog:not([open]) {
   /* display: none !important; */

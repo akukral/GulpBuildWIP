@@ -366,9 +366,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Details = /*#__PURE__*/function () {
   function Details(settingsObj) {
     _classCallCheck(this, Details);
@@ -450,9 +453,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Dialog = /*#__PURE__*/function () {
   function Dialog(settingsObj) {
     _classCallCheck(this, Dialog);
@@ -500,6 +506,7 @@ var Dialog = /*#__PURE__*/function () {
 
         // listen for keyboard events namely TAB and ESC keys
         document.addEventListener("keydown", this.keypressHandler.bind(this));
+        document.body.classList.add("no-scroll");
       } else {
         // dealing with an autoplay or currently playing video in the modal if you close it.
         var iframeSrc = this.dialogTarget.querySelector("iframe");
@@ -513,6 +520,7 @@ var Dialog = /*#__PURE__*/function () {
         this.dialogTarget.setAttribute("tabindex", "0");
         this.dialogTarget.removeAttribute("open");
         this.dialogButton.focus();
+        document.body.classList.remove("no-scroll");
       }
     }
   }, {
@@ -732,9 +740,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Tabs = /*#__PURE__*/function () {
   function Tabs(settingsObj) {
     _classCallCheck(this, Tabs);
@@ -843,31 +854,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var themePicker = function themePicker(input) {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches;
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches;
   var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
 
-  // console.log('isDarkMode=' + isDarkMode, 'isLightMode=' + isLightMode, 'isNotSpecified=' + isNotSpecified, 'hasNoSupport=' + hasNoSupport);
+  // console.log(`isDarkMode=` + isDarkMode, `isLightMode=` + isLightMode, `isNotSpecified=` + isNotSpecified, `hasNoSupport=` + hasNoSupport);
 
   var toggleSwitch = document.querySelector(input);
-  var currentTheme = localStorage.getItem('theme');
+  var currentTheme = localStorage.getItem("theme");
+
+  // Check if currentTheme exists
   if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') {
+    // Set data-theme attribute to currentTheme value
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    // Set toggleSwitch checked to true if currentTheme is dark
+    toggleSwitch.checked = currentTheme === 'dark';
+    // Set toggleSwitch title to 'Turn on Light/Dark Mode' depending on currentTheme
+    toggleSwitch.title = "Turn on ".concat(currentTheme === 'dark' ? 'Light' : 'Dark', " Mode");
+  } else {
+    // Set data-theme attribute to dark if isDarkMode is true
+    if (isDarkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
       toggleSwitch.checked = true;
-    }
-  }
-  function switchTheme(e) {
-    if (e.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+      toggleSwitch.title = "Turn on Light Mode";
+
+      // Set data-theme attribute to light if isLightMode is true
+    } else if (isLightMode) {
+      document.documentElement.setAttribute("data-theme", "light");
+      toggleSwitch.checked = false;
+      toggleSwitch.title = "Turn on Dark Mode";
+
+      // Set data-theme attribute to light and remove theme from localStorage
     } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.removeItem("theme");
     }
   }
-  toggleSwitch.addEventListener('change', switchTheme, false);
+
+  // Function to switch theme
+  function switchTheme(e) {
+    var newTheme = e.target.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    toggleSwitch.title = "Turn on ".concat(newTheme === 'dark' ? 'Light' : 'Dark', " Mode");
+  }
+  toggleSwitch.addEventListener("change", switchTheme, false);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (themePicker);
 
@@ -1879,7 +1911,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 // import app from './modules/app';
 
 

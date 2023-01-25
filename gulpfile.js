@@ -10,9 +10,10 @@ const uglifyjs = require(`gulp-uglify`);
 const postcss = require(`gulp-postcss`);
 const postcssPresetEnv = require(`postcss-preset-env`);
 const cssimport = require(`postcss-import`);
+const postcssOKLabFunction = require('@csstools/postcss-oklab-function');
 const cssnano = require(`cssnano`);
 var csso = require('gulp-csso');
-// const postcssLogical = require('postcss-logical');
+const postcssLogical = require('postcss-logical');
 const critical = import(`critical`).stream;
 
 // Image compression
@@ -67,8 +68,12 @@ gulp.task(`scriptsBuild`, gulp.series((done) => {
 gulp.task(`styles`, gulp.series((done) => {
   console.log(`Styles Run`);
   const processors = [
+    postcssOKLabFunction({
+      preserve: true,
+      enableProgressiveCustomProperties: true,
+    }),
     cssimport(),
-    // postcssLogical(),
+    postcssLogical(),
     postcssPresetEnv({
       stage: 0,
       features: {
@@ -93,8 +98,12 @@ gulp.task(`styles`, gulp.series((done) => {
 gulp.task(`stylesBuild`, gulp.series((done) => {
   console.log(`Styles Build`);
   const processors = [
+    postcssOKLabFunction({
+      preserve: true,
+      enableProgressiveCustomProperties: true,
+    }),
     cssimport(),
-    // postcssLogical(),
+    postcssLogical(),
     postcssPresetEnv({
       stage: 0,
       features: {
@@ -189,7 +198,7 @@ gulp.task('critical', gulp.series((done) => {
       ],
       minify: true,
       penthouse: {
-        forceInclude: [`body footer`],
+        forceInclude: [`body footer`,`header`],
         timeout: 600000,
       },
     }))

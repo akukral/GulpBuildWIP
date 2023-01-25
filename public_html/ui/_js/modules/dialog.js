@@ -53,6 +53,8 @@ const Dialog = class Dialog {
 
       // listen for keyboard events namely TAB and ESC keys
       document.addEventListener(`keydown`, this.keypressHandler.bind(this));
+
+      document.body.classList.add("no-scroll");
     } else {
       // dealing with an autoplay or currently playing video in the modal if you close it.
       const iframeSrc = this.dialogTarget.querySelector(`iframe`);
@@ -67,6 +69,8 @@ const Dialog = class Dialog {
       this.dialogTarget.removeAttribute(`open`);
 
       this.dialogButton.focus();
+
+      document.body.classList.remove("no-scroll");
     }
   }
 
