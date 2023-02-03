@@ -1,0 +1,106 @@
+.Supports{
+  container-type: inline-size;
+  container-name: supports;
+  display: block;
+  --test: true;
+}
+
+[class*="Supports__"] {
+  background-color: red;
+}
+
+@supports (height: 1cqw) {
+  .Supports__cqw {
+    background-color: green;
+  }
+}
+
+@supports (height: 1cqh) {
+  .Supports__cqh {
+    background-color: green;
+  }
+}
+
+@supports (height: 1cqi) {
+  .Supports__cqi {
+    background-color: green;
+  }
+}
+
+@supports (height: 1cqb) {
+  .Supports__cqb {
+    background-color: green;
+  }
+}
+
+@supports (height: 1cqmin) {
+  .Supports__cqmin {
+    background-color: green;
+  }
+}
+
+@supports (height: 1cqmax) {
+  .Supports__cqmax {
+    background-color: green;
+  }
+}
+
+@supports (height: 1dvh) {
+  .Supports__dvh {
+    background-color: green;
+  }
+}
+
+@supports (height: 1dvw) {
+  .Supports__dvw {
+    background-color: green;
+  }
+}
+
+@supports (height: clamp(1rem, 50%, 10rem)) {
+  .Supports__clamp {
+    background-color: green;
+  }
+}
+
+@supports (display: grid) {
+  .Supports__grid {
+    background-color: green;
+  }
+}
+
+@supports (grid-template-rows: masonry) {
+  .Supports__masonry {
+    background-color: green;
+  }
+}
+
+@supports (color: color-mix(in srgb, blue, white)){
+  .Supports__colormix {
+    background-color: green;
+  }
+}
+
+ul:has(li) .Supports__has {
+  background-color: green;
+}
+
+:is(.Supports__is) {
+  background-color: green;
+}
+
+:where(ul li.Supports__where){
+  background-color: green !important;
+}
+
+@container (min-width: 1px) {
+  .Supports__container {
+    background-color: green;
+  }
+}
+
+@container style(--test: true) {
+  .Supports__style {
+    background-color: green;
+  }
+}
