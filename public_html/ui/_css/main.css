@@ -25,8 +25,9 @@
 @import './components/_Carousel';
 @import './components/_Tabs';
 
-/* @import './modules/_Linter'; */
-/* @import './modules/_HeadLinter'; */
+@import './modules/_Linter';
+@import './modules/_HeadLinter';
+@import './modules/_Supports';
 
 
 

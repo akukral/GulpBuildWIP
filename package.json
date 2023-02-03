@@ -27,6 +27,7 @@
     "webpack": "^5.75.0"
   },
   "devDependencies": {
+    "@csstools/postcss-cascade-layers": "^3.0.1",
     "@csstools/postcss-oklab-function": "^2.0.0",
     "babel": "6.23.0",
     "babel-preset-env": "1.7.0",

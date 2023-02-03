@@ -11,9 +11,10 @@ const postcss = require(`gulp-postcss`);
 const postcssPresetEnv = require(`postcss-preset-env`);
 const cssimport = require(`postcss-import`);
 const postcssOKLabFunction = require('@csstools/postcss-oklab-function');
+const postcssCascadeLayers = require('@csstools/postcss-cascade-layers');
+const postcssLogical = require('postcss-logical');
 const cssnano = require(`cssnano`);
 var csso = require('gulp-csso');
-const postcssLogical = require('postcss-logical');
 const critical = import(`critical`).stream;
 
 // Image compression
@@ -73,6 +74,7 @@ gulp.task(`styles`, gulp.series((done) => {
       enableProgressiveCustomProperties: true,
     }),
     cssimport(),
+    postcssCascadeLayers(),
     postcssLogical(),
     postcssPresetEnv({
       stage: 0,
@@ -103,6 +105,7 @@ gulp.task(`stylesBuild`, gulp.series((done) => {
       enableProgressiveCustomProperties: true,
     }),
     cssimport(),
+    postcssCascadeLayers(),
     postcssLogical(),
     postcssPresetEnv({
       stage: 0,

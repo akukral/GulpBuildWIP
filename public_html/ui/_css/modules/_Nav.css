@@ -90,7 +90,7 @@
   text-align: center;
 
   border: none;
-  outline: none;
+  outline-color: traansparent;
   background-color: inherit;
 
   &:focus {

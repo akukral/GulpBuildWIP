@@ -12,7 +12,7 @@ select {
   color: inherit;
   border: 1px solid var(--dark);
   /* border-radius: var(--border-radius); */
-  outline: none;
+  outline-color: traansparent;
   /* background-color: var(--light); */
   box-shadow: none;
   font-family: inherit;

@@ -129,8 +129,8 @@
   <main class="Main" id="Main" aria-labelledby="MainTitle">
     <h1 id="MainTitle">Homepage<br>Title</h1>
 
+    <form action="/" method="GET" name="Search" id="Search">
     <label for="search">Search:</label>
-    <form action="/" method="GET">
     <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" pattern="^.*[a-zA-Z0-9]+.*$"/>
     <datalist id="searchList" aria-label="Available search autocomplete options">
       <option>lorem</option>
@@ -175,7 +175,26 @@
       <p class="Blockquote__byline">Jane Doe</p>
     </blockquote>
 
-    <h2>A section heading block</h2>
+    <h2>Does your browser support</h2>
+    <ul class="Supports">
+      <li class="Supports__cqw">cqw	1% of a query container’s width</li>
+      <li class="Supports__cqh">cqh	1% of a query container’s height</li>
+      <li class="Supports__cqi">cqi	1% of a query container’s inline size</li>
+      <li class="Supports__cqb">cqb	1% of a query container’s block size</li>
+      <li class="Supports__cqmin">cqmin	The smaller value of cqi or cqb</li>
+      <li class="Supports__cqmax">cqmax	The larger value of cqi or cqb</li>
+      <li class="Supports__dvh">dvh	1% of the dynamic viewport height</li>
+      <li class="Supports__dvw">dwv	1% of the dynamic viewport width</li>
+      <li class="Supports__clamp">CSS clamp function</li>
+      <li class="Supports__grid">CSS grid feature</li>
+      <li class="Supports__masonry">CSS grid masonry feature</li>
+      <li class="Supports__has">CSS :has feature</li>
+      <li class="Supports__is">CSS :is feature</li>
+      <li class="Supports__where">CSS :where feature</li>
+      <li class="Supports__container">CSS @container feature</li>
+      <li class="Supports__style">CSS @container style feature</li>
+      <li class="Supports__colormix">CSS color-mix</li>
+    </ul>
 
     <button type="button" class="Button" data-modal="Dialog2">Modal 2</button>
     <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
