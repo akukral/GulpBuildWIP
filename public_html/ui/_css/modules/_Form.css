@@ -15,12 +15,37 @@
   grid-template-columns: 1.2rem auto;
   align-items: center;
 }
-input:not(:placeholder-shown):required:invalid{
-  border-color: red;
+form label{
+  position: relative;
+  &::after{
+    content: "";
+    background-color: #fff;
+    padding-left: 1em;
+    z-index: 10;
+  }
 }
-input:valid{
-  border-color: green;
+form input:not(:placeholder-shown):required:invalid{
+  background-color: color-mix(in srgb, red 10%, transparent);
 }
+form input:placeholder-shown {
+  background-color: color-mix(in srgb, orange 5%, transparent);
+}
+form input:valid{
+  background-color: color-mix(in srgb, green 5%, transparent);
+}
+
+/* form label:has( :not(:placeholder-shown):required:invalid)::after{
+  content: "✗";
+  color: red;
+}
+form label:has( :placeholder-shown)::after {
+  content: "⚠";
+  color: orange;
+}
+form label:has( :valid)::after{
+  content: "✓";
+  color: green;
+} */
 
 
 /* EOF */

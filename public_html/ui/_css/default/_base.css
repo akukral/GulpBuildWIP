@@ -95,7 +95,7 @@ a {
     text-decoration-skip: edges;
     text-decoration-skip-ink: auto;
     text-decoration-style: line;
-    text-decoration-thickness: 0.125em;
+    text-decoration-thickness: 0.07em;
     text-underline-offset: 1.5px;
 
     &:hover,
@@ -125,6 +125,7 @@ a:focus {
 
 :focus-visible {
   outline: solid 2px var(--bravo) !important;
+  outline-offset: 1px;
 }
 
 a:moz-focusring {

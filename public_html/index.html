@@ -131,7 +131,7 @@
 
     <form action="/" method="GET" name="Search" id="Search">
     <label for="search">Search:</label>
-    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" pattern="^.*[a-zA-Z0-9]+.*$"/>
+    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" inputmode="search" pattern="^.*[a-zA-Z0-9]+.*$"/>
     <datalist id="searchList" aria-label="Available search autocomplete options">
       <option>lorem</option>
       <option>ipsum</option>
@@ -140,17 +140,11 @@
     </datalist>
     </form>
 
-    <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
-    <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
-      aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
+    <dialog class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
+      aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
         <h2 id="Dialog__title1">Modal 1</h2>
         <div id="Dialog__content1">
-          <div class="Video">
-            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6"
-              allow="autoplay; fullscreen" title="Test Vimeo Video" class="Video__embed lazyload"
-              loading="lazy"></iframe>
-          </div>
           <p>
             <a href="https://vimeo.com/100708006" rel="nofollow ugc">Photoshop animation test</a> from <a
               href="https://vimeo.com/sambmotion" rel="nofollow ugc">Sam Burton</a> on <a href="https://vimeo.com" rel="nofollow ugc">Vimeo</a>.
@@ -160,7 +154,8 @@
           <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
         </form>
       </div>
-    </div>
+    </dialog>
+    <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
 
     <p>Hello this is the home page. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dicta
       necessitatibus odit iure atque exercitationem amet quam. Est, harum unde?</p>
@@ -197,7 +192,7 @@
     </ul>
 
     <button type="button" class="Button" data-modal="Dialog2">Modal 2</button>
-    <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
+    <dialog class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
       aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
         <h2 id="Dialog__title2">Modal 2</h2>
@@ -210,7 +205,7 @@
           <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
         </form>
       </div>
-    </div>
+    </dialog>
 
     <div class="Video">
       <iframe src="https://player.vimeo.com/video/117827095?portrait=0&amp;title=0&amp;byline=0"
@@ -372,30 +367,27 @@
     <section aria-label="Contact Form">
       <h2>Contact Form</h2>
       <form method="post" class="Form" id="Contact" name="Contact Form" action="/">
-        <label for="firstName">First Name*</label>
-          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="Jane" autocomplete="on" required >
-
-        <label for="lastName">Last Name*</label>
-          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Deaux" autocomplete="on" required>
+        <label for="fullName">Full Name*</label>
+          <input class="form-control" name="firstName" id="fullName" type="text" placeholder="Jane Deaux" inputmode="text" autocomplete="on" required >
 
         <label for="address">Address*</label>
-          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." autocomplete="on" required>
+          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." inputmode="text" autocomplete="on" required>
 
         <label for="city">City*</label>
-          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" autocomplete="on" required>
+          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" inputmode="text" autocomplete="on" required>
 
         <label for="state">State*</label>
-          <input class="form-control" name="state" id="state" type="text" placeholder="LA" autocomplete="on" required>
+          <input class="form-control" name="state" id="state" type="text" placeholder="LA" inputmode="text" autocomplete="on" required>
 
         <label for="zipCode">Zip*</label>
-          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" autocomplete="on" required>
+          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" inputmode="number" autocomplete="on" required>
 
         <label for="email">
           Email Address*
           <span class="small">Format: Email@Address.com</span>
         </label>
 
-          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="on" required>
+          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" inputmode="email" autocomplete="on" required>
 
         <div class="honey" aria-hidden="true">
           <label for="email_address_confirm">Email Address Confirm</label>
@@ -407,10 +399,10 @@
           <span class="small">Format: (555) 555-5555</span>
         </label>
 
-          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required>
+        <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" inputmode="tel" autocomplete="on" required>
 
         <label for="subject">Subject/Interest*</label>
-          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" autocomplete="off" autocorrect="on" required>
+          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" inputmode="text" autocomplete="off" autocorrect="on" required>
 
         <label for="message">Message</label>
           <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off" autocorrect="on" placeholder="Send us your message."></textarea>

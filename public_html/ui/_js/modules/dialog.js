@@ -11,7 +11,8 @@ const Dialog = class Dialog {
 
     this.dialogButton = this.settings.button || document.querySelector(`[data-dialog]`);
     if (!this.dialogButton) return
-    this.dialogTarget = this.settings.target || this.dialogButton.nextElementSibling || document.querySelector(`dialog`) || document.querySelector(`[data-dialog]`).nextElementSibling;
+    console.log(this.dialogButton.dataset.modal);
+    this.dialogTarget = this.settings.target || document.querySelector(`#${this.dialogButton.dataset.modal}`);
     if (!this.dialogTarget) return
     this.dialogClose = this.settings.close || this.dialogTarget.querySelector(`[class*='close'], [class*='Close'], [aria-label*='close']`);
     if (!this.dialogClose) return
@@ -49,6 +50,7 @@ const Dialog = class Dialog {
       this.dialogTarget.setAttribute(`tabindex`, `-1`);
       this.dialogTarget.focus()
 
+      this.dialogTarget.showModal();
       this.dialogTarget.setAttribute(`open`,``);
 
       // listen for keyboard events namely TAB and ESC keys
@@ -66,6 +68,8 @@ const Dialog = class Dialog {
 
       // set the tab index of the dialog
       this.dialogTarget.setAttribute(`tabindex`, `0`);
+
+      this.dialogTarget.close();
       this.dialogTarget.removeAttribute(`open`);
 
       this.dialogButton.focus();

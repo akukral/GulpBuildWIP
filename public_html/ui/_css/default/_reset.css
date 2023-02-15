@@ -573,7 +573,7 @@ legend+* {
 }
 
 dialog {
-  background-color: inherit;
+  /* background-color: inherit;
   border: solid;
   color: inherit;
   display: block;
@@ -587,11 +587,11 @@ dialog {
   right: 0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
-  width: fit-content
+  width: fit-content */
 }
 
 dialog:not([open]) {
-  display: none
+  /* display: none */
 }
 
 ::-webkit-datetime-edit-day-field,

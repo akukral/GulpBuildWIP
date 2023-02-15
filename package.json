@@ -16,6 +16,7 @@
   "homepage": "https://github.com/akukral/GulpBuildWIP#readme",
   "dependencies": {
     "@babel/preset-env": "^7.20.2",
+    "aicommits": "^1.0.5",
     "babel-loader": "^9.1.0",
     "cssnano": "^5.1.14",
     "debounce": "1.2.1",
