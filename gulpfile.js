@@ -14,11 +14,7 @@ const postcssOKLabFunction = require('@csstools/postcss-oklab-function');
 const postcssCascadeLayers = require('@csstools/postcss-cascade-layers');
 const postcssLogical = require('postcss-logical');
 const cssnano = require(`cssnano`);
-var csso = require('gulp-csso');
-const critical = import(`critical`).stream;
-
-// Image compression
-const imagemin = import(`gulp-imagemin`);
+const csso = require('gulp-csso');
 
 // Notificaiton friendly errors
 const notify = require(`gulp-plumber-notifier`);
@@ -167,53 +163,6 @@ gulp.task(`sync`, gulp.series((done) => {
   done();
 }));
 
-gulp.task('critical', gulp.series((done) => {
-  const processors = [
-    postcssPresetEnv({
-      stage: 0,
-      features: {
-        'nesting-rules': true,
-        rem: {
-          html: false,
-        },
-      },
-      browsers: [`IE 9`],
-    }),
-    cssnano({
-      autoprefixer: true,
-    }),
-  ];
-
-  gulp.src(`${webroot}/critical.html`)
-    .pipe(notify())
-    .pipe(critical({
-      base: webroot,
-      css: [`${stylesDestPoint}main.css`],
-      dimensions: [
-        {
-          height: 480,
-          width: 768,
-        },
-        {
-          height: 768,
-          width: 1024,
-        },
-      ],
-      minify: true,
-      penthouse: {
-        forceInclude: [`body footer`,`header`],
-        timeout: 600000,
-      },
-    }))
-    .pipe(postcss(processors))
-    .pipe(gulp.dest(stylesDestPoint))
-    .pipe(browsersync.reload({
-      stream: true,
-    }));
-
-  done();
-}));
-
 gulp.task(`watch`, gulp.series((done) => {
   console.log(`Watchinig Scripts`);
   gulp.watch(scriptSources, gulp.series([`scripts`]));
@@ -228,7 +177,6 @@ gulp.task(`watch`, gulp.series((done) => {
 
 gulp.task(`default`, gulp.series([`sync`, `scripts`, `styles`, `watch`]));
 
-gulp.task(`build`, gulp.series([`scriptsBuild`, `stylesBuild`, `critical`, `imagemin`]));
-// gulp.task(`build`, gulp.series([`scriptsBuild`, `stylesBuild`, `imagemin`]));
+gulp.task(`build`, gulp.series([`scriptsBuild`, `stylesBuild`]));
 
 // EOF

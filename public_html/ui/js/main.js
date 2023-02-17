@@ -653,13 +653,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function Nav() {
   var nav = document.querySelectorAll("Nav")[0];
-  // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
-  // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));
   var button = document.getElementsByClassName("Nav__toggle")[0];
-
-  // const everythingButNav = bodyEverything.filter((el) => !navEverything.includes(el));
-  // console.log(everythingButNav);
-
   var curState = false;
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = function (callback, thisArg) {
@@ -673,15 +667,7 @@ function Nav() {
     var focusableEls = Array.from(nav.querySelectorAll("iframe, iframe *, [tabindex=\"0\"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled])"));
     var firstFocusableEl = focusableEls[0];
     var lastFocusableEl = focusableEls[focusableEls.length - 1];
-
-    // console.log(e);
-    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
     var isEscape = e.key === "Escape" || e.key === "Esc" || e.keyCode === 27;
-
-    // if (!isTabPressed) {
-    //   return;
-    // }
-
     if (e.shiftKey) /* shift + tab */{
         if (document.activeElement === firstFocusableEl) {
           lastFocusableEl.focus();
@@ -701,12 +687,15 @@ function Nav() {
     // event.preventDefault();
     curState = !curState;
     if (curState) {
+      document.querySelector("body").classList.add("no-scroll");
       nav.classList.toggle("Nav--isactive");
       nav.addEventListener("keydown", keyHandler);
       setTimeout(function () {
         nav.classList.toggle("Nav--visible");
       }, 100);
     } else {
+      document.querySelector("body").classList.remove("no-scroll");
+
       // console.log('button')
       button.focus();
       nav.classList.toggle("Nav--visible");
@@ -2034,7 +2023,7 @@ function getVerticalHeight() {
   // console.info(vh);
 }
 
-window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 200);
+window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 20);
 getVerticalHeight();
 var allLinks = Array.from(document.querySelectorAll("[target=\"_blank\"]"));
 allLinks.forEach(function (el) {

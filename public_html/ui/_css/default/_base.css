@@ -34,9 +34,9 @@ html::-webkit-scrollbar {
 
 html,
 body {
-  max-width: 100%;
+  /* max-width: 100%; */
 
-  min-height: 1vw;
+  /* min-height: 1vw; */
   margin: 0;
 
   color: var(--alpha);
@@ -52,9 +52,9 @@ body {
 
 body {
   position: relative;
-  min-height: calc(100 * var(--vh));
+  /* min-height: calc(100 * var(--vh)); */
   /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
+  /* min-height: -webkit-fill-available; */
   margin: 0;
   padding: 0;
 

@@ -41,6 +41,8 @@
 html {
   font-size: 14px;
   font-size: calc((var(--unitless-min-font-size) * 1px) + var(--font-size-difference) * var(--viewport-difference) / var(--font-range-difference));
+  /* font-size: 1rem; */
+  /* font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem); */
 }
 /* html{
   font-size: clamp(1.2rem, 0.5vw + 1rem, 2.2rem);

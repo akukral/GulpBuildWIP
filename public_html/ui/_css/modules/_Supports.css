@@ -6,7 +6,8 @@
 }
 
 [class*="Supports__"] {
-  background-color: red;
+  background-color: darkred;
+  color: white;
 }
 
 @supports (height: 1cqw) {
@@ -47,6 +48,12 @@
 
 @supports (height: 1dvh) {
   .Supports__dvh {
+    background-color: green;
+  }
+}
+
+@supports (height: 1svh) {
+  .Supports__svh {
     background-color: green;
   }
 }

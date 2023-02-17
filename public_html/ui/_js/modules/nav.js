@@ -1,12 +1,6 @@
 export default function Nav(){
   const nav = document.querySelectorAll(`Nav`)[0];
-  // const bodyEverything = Array.from(document.querySelectorAll(`body *`));
-  // const navEverything = Array.from(document.querySelectorAll(`body .Header, body .Header *`));
   const button = document.getElementsByClassName(`Nav__toggle`)[0];
-
-  // const everythingButNav = bodyEverything.filter((el) => !navEverything.includes(el));
-  // console.log(everythingButNav);
-
   let curState = false;
 
   if (window.NodeList && !NodeList.prototype.forEach) {
@@ -24,13 +18,7 @@ export default function Nav(){
     const firstFocusableEl = focusableEls[0];
     const lastFocusableEl = focusableEls[focusableEls.length - 1];
 
-    // console.log(e);
-    // let isTabPressed = (e.key === `Tab` || e.keyCode === 9);
     let isEscape = (e.key === `Escape` || e.key === `Esc` || e.keyCode === 27);
-
-    // if (!isTabPressed) {
-    //   return;
-    // }
 
     if (e.shiftKey) /* shift + tab */ {
       if (document.activeElement === firstFocusableEl) {
@@ -54,14 +42,15 @@ export default function Nav(){
     // event.preventDefault();
     curState = !curState
     if (curState) {
+      document.querySelector(`body`).classList.add(`no-scroll`);
       nav.classList.toggle(`Nav--isactive`);
       nav.addEventListener(`keydown`, keyHandler);
 
       setTimeout(() => {
         nav.classList.toggle(`Nav--visible`);
       }, 100);
-
     } else {
+      document.querySelector(`body`).classList.remove(`no-scroll`);
 
       // console.log('button')
       button.focus();

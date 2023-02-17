@@ -101,9 +101,10 @@
       <span class="Warning">Please enable javascript to get the most out of this page.</span>
     </noscript>
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
-    <a href="/" class="Header__logo" title="Boilerplate">
-      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" width="140" height="32">
-      <span class="sr-only">Boilerplate</span>
+      <a href="/" class="Header__logo" title="Boilerplate">
+        <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" fetchpriority="high" width="140" height="32">
+      </a>
+      <!-- <span class="sr-only">Boilerplate</span> -->
     </a>
     <nav class="Nav" aria-label="Main Navigation">
       <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
@@ -119,7 +120,7 @@
         </li>
       </ul>
     </nav>
-    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme"><span class="sr-only">Select to enable dark mode.</span></label>
+    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme" title="Turn on Dark Mode"><span class="sr-only">Toggle light &amp; dark mode.</span></label>
     <!-- /nav -->
   </header>
   <!-- /header -->
@@ -128,9 +129,9 @@
   <main class="Main" id="Main" aria-labelledby="MainTitle">
     <h1 id="MainTitle">Homepage<br>Title</h1>
 
+    <form action="/" method="GET" name="Search" id="Search">
     <label for="search">Search:</label>
-    <form action="/" method="GET">
-    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" pattern="^.*[a-zA-Z0-9]+.*$"/>
+    <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" inputmode="search" pattern="^.*[a-zA-Z0-9]+.*$"/>
     <datalist id="searchList" aria-label="Available search autocomplete options">
       <option>lorem</option>
       <option>ipsum</option>
@@ -139,27 +140,22 @@
     </datalist>
     </form>
 
-    <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
-    <div class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title1"
-      aria-describedby="Dialog__content1" role="dialog" tabindex="-1">
+    <dialog class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
+      aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
         <h2 id="Dialog__title1">Modal 1</h2>
         <div id="Dialog__content1">
-          <div class="Video">
-            <iframe src="https://player.vimeo.com/video/100708006?color=2af9b6"
-              allow="autoplay; fullscreen" title="Test Vimeo Video" class="Video__embed lazyload"
-              loading="lazy"></iframe>
-          </div>
           <p>
-            <a href="https://vimeo.com/100708006">Photoshop animation test</a> from <a
-              href="https://vimeo.com/sambmotion">Sam Burton</a> on <a href="https://vimeo.com">Vimeo</a>.
+            <a href="https://vimeo.com/100708006" rel="nofollow ugc">Photoshop animation test</a> from <a
+              href="https://vimeo.com/sambmotion" rel="nofollow ugc">Sam Burton</a> on <a href="https://vimeo.com" rel="nofollow ugc">Vimeo</a>.
           </p>
         </div>
         <form method="dialog">
           <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
         </form>
       </div>
-    </div>
+    </dialog>
+    <button type="button" class="Button" data-modal="Dialog1">Modal 1</button>
 
     <p>Hello this is the home page. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dicta
       necessitatibus odit iure atque exercitationem amet quam. Est, harum unde?</p>
@@ -174,10 +170,30 @@
       <p class="Blockquote__byline">Jane Doe</p>
     </blockquote>
 
-    <h2>A section heading block</h2>
+    <h2>Does your browser support</h2>
+    <ul class="Supports">
+      <li class="Supports__cqw">cqw	1% of a query container’s width</li>
+      <li class="Supports__cqh">cqh	1% of a query container’s height</li>
+      <li class="Supports__cqi">cqi	1% of a query container’s inline size</li>
+      <li class="Supports__cqb">cqb	1% of a query container’s block size</li>
+      <li class="Supports__cqmin">cqmin	The smaller value of cqi or cqb</li>
+      <li class="Supports__cqmax">cqmax	The larger value of cqi or cqb</li>
+      <li class="Supports__dvh">dvh	1% of the dynamic viewport height</li>
+      <li class="Supports__dvh">svh	1% of the shortest viewport height</li>
+      <li class="Supports__dvw">dwv	1% of the dynamic viewport width</li>
+      <li class="Supports__clamp">CSS clamp function</li>
+      <li class="Supports__grid">CSS grid feature</li>
+      <li class="Supports__masonry">CSS grid masonry feature</li>
+      <li class="Supports__has">CSS :has feature</li>
+      <li class="Supports__is">CSS :is feature</li>
+      <li class="Supports__where">CSS :where feature</li>
+      <li class="Supports__container">CSS @container feature</li>
+      <li class="Supports__style">CSS @container style feature</li>
+      <li class="Supports__colormix">CSS color-mix</li>
+    </ul>
 
     <button type="button" class="Button" data-modal="Dialog2">Modal 2</button>
-    <div class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
+    <dialog class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
       aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
       <div class="Dialog__container">
         <h2 id="Dialog__title2">Modal 2</h2>
@@ -190,7 +206,7 @@
           <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
         </form>
       </div>
-    </div>
+    </dialog>
 
     <div class="Video">
       <iframe src="https://player.vimeo.com/video/117827095?portrait=0&amp;title=0&amp;byline=0"
@@ -199,8 +215,7 @@
     </div>
 
     <figure class="Figure">
-      <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload"
-        loading="lazy">
+      <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy" fetchpriority="high">
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
       </figcaption>
@@ -353,30 +368,27 @@
     <section aria-label="Contact Form">
       <h2>Contact Form</h2>
       <form method="post" class="Form" id="Contact" name="Contact Form" action="/">
-        <label for="firstName">First Name*</label>
-          <input class="form-control" name="firstName" id="firstName" type="text" placeholder="Jane" autocomplete="on" required >
-
-        <label for="lastName">Last Name*</label>
-          <input class="form-control" name="lastName" id="lastName" type="text" placeholder="Deaux" autocomplete="on" required>
+        <label for="fullName">Full Name*</label>
+          <input class="form-control" name="firstName" id="fullName" type="text" placeholder="Jane Deaux" inputmode="text" autocomplete="on" required >
 
         <label for="address">Address*</label>
-          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." autocomplete="on" required>
+          <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." inputmode="text" autocomplete="on" required>
 
         <label for="city">City*</label>
-          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" autocomplete="on" required>
+          <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" inputmode="text" autocomplete="on" required>
 
         <label for="state">State*</label>
-          <input class="form-control" name="state" id="state" type="text" placeholder="LA" autocomplete="on" required>
+          <input class="form-control" name="state" id="state" type="text" placeholder="LA" inputmode="text" autocomplete="on" required>
 
         <label for="zipCode">Zip*</label>
-          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" autocomplete="on" required>
+          <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" inputmode="number" autocomplete="on" required>
 
         <label for="email">
           Email Address*
           <span class="small">Format: Email@Address.com</span>
         </label>
 
-          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" autocomplete="on" required>
+          <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" inputmode="email" autocomplete="on" required>
 
         <div class="honey" aria-hidden="true">
           <label for="email_address_confirm">Email Address Confirm</label>
@@ -388,10 +400,10 @@
           <span class="small">Format: (555) 555-5555</span>
         </label>
 
-          <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" autocomplete="on" required>
+        <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" inputmode="tel" autocomplete="on" required>
 
         <label for="subject">Subject/Interest*</label>
-          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" autocomplete="off" autocorrect="on" required>
+          <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" inputmode="text" autocomplete="off" autocorrect="on" required>
 
         <label for="message">Message</label>
           <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off" autocorrect="on" placeholder="Send us your message."></textarea>

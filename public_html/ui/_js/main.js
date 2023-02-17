@@ -102,7 +102,7 @@ function getVerticalHeight() {
   document.documentElement.style.setProperty(`--vh`, `${vh}px`);
   // console.info(vh);
 }
-window.onresize = debounce(getVerticalHeight, 200);
+window.onresize = debounce(getVerticalHeight, 20);
 getVerticalHeight();
 
 const allLinks = Array.from(document.querySelectorAll(`[target="_blank"]`));
