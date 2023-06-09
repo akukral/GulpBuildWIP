@@ -7,7 +7,7 @@ const Tabs = class Tabs {
 
     // set the accordion/detail elements
     this.tabContainer = this.settings.container || document.querySelector(`.Tabbed`);
-    if (!this.tabContainer) return
+    if (!this.tabContainer) {return}
 
 
     this.tabbed = this.tabContainer;
@@ -58,7 +58,7 @@ const Tabs = class Tabs {
     Array.prototype.forEach.call(this.panels, (panel, i) => {
       panel.setAttribute('role', 'tabpanel');
       panel.setAttribute('tabindex', '-1');
-      let id = panel.getAttribute('id');
+      // let id = panel.getAttribute('id');
       panel.setAttribute('aria-labelledby', this.tabs[i].id);
       panel.hidden = true;
     });

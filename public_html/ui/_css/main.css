@@ -25,10 +25,11 @@
 @import './components/_Carousel';
 @import './components/_Tabs';
 
+/* @import '../../../node_modules/@splidejs/splide/dist/css/splide-core.min'; */
+
+/* TODO Add these in for linting and checking */
 /* @import './modules/_Linter'; */
 /* @import './modules/_HeadLinter'; */
 @import './modules/_Supports';
-
-
 
 /* EOF */

@@ -10,12 +10,12 @@ const Dialog = class Dialog {
     this.settings = settingsObj;
 
     this.dialogButton = this.settings.button || document.querySelector(`[data-dialog]`);
-    if (!this.dialogButton) return
-    console.log(this.dialogButton.dataset.modal);
+    if (!this.dialogButton) {return}
+    // console.log(this.dialogButton.dataset.modal);
     this.dialogTarget = this.settings.target || document.querySelector(`#${this.dialogButton.dataset.modal}`);
-    if (!this.dialogTarget) return
+    if (!this.dialogTarget) {return}
     this.dialogClose = this.settings.close || this.dialogTarget.querySelector(`[class*='close'], [class*='Close'], [aria-label*='close']`);
-    if (!this.dialogClose) return
+    if (!this.dialogClose) {return}
 
     this.curState = false;
 
@@ -56,7 +56,7 @@ const Dialog = class Dialog {
       // listen for keyboard events namely TAB and ESC keys
       document.addEventListener(`keydown`, this.keypressHandler.bind(this));
 
-      document.body.classList.add("no-scroll");
+      document.body.classList.add('no-scroll');
     } else {
       // dealing with an autoplay or currently playing video in the modal if you close it.
       const iframeSrc = this.dialogTarget.querySelector(`iframe`);
@@ -74,7 +74,7 @@ const Dialog = class Dialog {
 
       this.dialogButton.focus();
 
-      document.body.classList.remove("no-scroll");
+      document.body.classList.remove('no-scroll');
     }
   }
 
@@ -88,10 +88,10 @@ const Dialog = class Dialog {
       isTab = (event.key === `Tab`)
     } else {
       isEscape = (event.keyCode === 27);
-      isTab = (event.keyCode === KEYCODE_TAB)
+      isTab = (event.keyCode === 9)
     }
 
-    if(!isEscape && !isTab) return //if the keypressed isn't a tab or escape what are we doing here
+    if(!isEscape && !isTab) {return} //if the keypressed isn't a tab or escape what are we doing here
 
     if (isEscape && this.curState) {
       // if the state of this dialog is open/true close it and set the focus back to the button that opens it.

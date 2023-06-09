@@ -1,13 +1,13 @@
-.Supports{
+.Supports {
+  display: block;
   container-type: inline-size;
   container-name: supports;
-  display: block;
   --test: true;
 }
 
 [class*="Supports__"] {
-  background-color: darkred;
   color: white;
+  background-color: darkred;
 }
 
 @supports (height: 1cqw) {
@@ -82,9 +82,9 @@
   }
 }
 
-@supports (color: color-mix(in srgb, blue, white)){
+@supports (color: color-mix(in srgb, blue, white)) {
   .Supports__colormix {
-    background-color: green;
+    background-color: color-mix(in srgb, green, transparent 10%)
   }
 }
 
@@ -96,7 +96,7 @@ ul:has(li) .Supports__has {
   background-color: green;
 }
 
-:where(ul li.Supports__where){
+:where(ul li.Supports__where) {
   background-color: green !important;
 }
 
@@ -108,6 +108,12 @@ ul:has(li) .Supports__has {
 
 @container style(--test: true) {
   .Supports__style {
+    background-color: green;
+  }
+}
+
+@supports (background: paint(something)){
+  .Supports__houdini {
     background-color: green;
   }
 }

@@ -1,6 +1,217 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./public_html/ui/_js/main.js":
+/*!************************************!*\
+  !*** ./public_html/ui/_js/main.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quicklink/dist/quicklink.umd */ "./node_modules/quicklink/dist/quicklink.umd.js");
+/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fontLoader */ "./public_html/ui/_js/modules/fontLoader.js");
+/* harmony import */ var _modules_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/dialog */ "./public_html/ui/_js/modules/dialog.js");
+/* harmony import */ var _modules_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/details */ "./public_html/ui/_js/modules/details.js");
+/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/carousel */ "./public_html/ui/_js/modules/carousel.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ "./public_html/ui/_js/modules/tabs.js");
+/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/nav */ "./public_html/ui/_js/modules/nav.js");
+/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+// import app from './modules/app';
+
+
+
+
+
+
+
+
+
+
+window.addEventListener('beforeunload', function () {
+  var documentFade = document.querySelector('body');
+  documentFade.animate({
+    opacity: [1, 0]
+  }, {
+    duration: 200,
+    easing: 'ease-out'
+  });
+});
+
+// import { getPageContent, onLinkNavigate } from './modules/utils';
+
+// onLinkNavigate(async ({ toPath }) => {
+//   const content = await getPageContent(toPath);
+
+//   startViewTransition(() => {
+//     // This is a pretty heavy-handed way to update page content.
+//     // In production, you'd likely be modifying DOM elements directly,
+//     // or using a framework.
+//     // innerHTML is used here just to keep the DOM update super simple.
+//     document.body.innerHTML = content;
+//   });
+// });
+
+// // A little helper function like this is really handy
+// // to handle progressive enhancement.
+// function startViewTransition(callback) {
+//   if (!document.startViewTransition) {
+//     callback();
+//     return;
+//   }
+
+//   document.startViewTransition(callback);
+// }
+
+// import Splide from '@splidejs/splide';
+
+quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen();
+
+// Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
+// loads in woff eot and ttf files automatically if they are all in the same  directory.
+// Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc
+(0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__["default"])([{
+  shortName: "Neue",
+  localName: "HelveticaNeue-Roman",
+  path: "/ui/webfonts/helvetica/helveticaneue-roman-webfont"
+}, {
+  shortName: "NeueBold",
+  localName: "HelveticaNeue-Bold",
+  path: "/ui/webfonts/helvetica/helveticaneue-bold-webfont"
+}]);
+(0,_modules_nav__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg).init = false;
+
+// check if native lazy loading is available
+if ('loading' in HTMLImageElement.prototype) {
+  // console.log("Browser supports `loading`..");
+  var lazy = document.querySelectorAll("[class*='lazyload']");
+  var _iterator = _createForOfIteratorHelper(lazy),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var item = _step.value;
+      item.classList.remove("lazyload");
+      item.classList.add("lazyloaded");
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+} else {
+  // Fetch and apply a polyfill/JavaScript library
+  // console.log("Browser does not support `loading`..");
+  // for lazy-loading instead.
+  (lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg).init = true;
+}
+
+// init modals
+var modals = Array.from(document.querySelectorAll("[data-modal]"));
+for (var _i = 0, _modals = modals; _i < _modals.length; _i++) {
+  var win = _modals[_i];
+  new _modules_dialog__WEBPACK_IMPORTED_MODULE_4__["default"]({
+    button: win
+  });
+  // console.log(win);
+}
+
+// init details
+var details = Array.from(document.querySelectorAll("details"));
+for (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {
+  var detail = _details[_i2];
+  new _modules_details__WEBPACK_IMPORTED_MODULE_5__["default"]({
+    container: detail
+  });
+}
+// init tabs
+var tabset = Array.from(document.querySelectorAll(".Tabbed"));
+for (var _i3 = 0, _tabset = tabset; _i3 < _tabset.length; _i3++) {
+  var tab = _tabset[_i3];
+  new _modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"]({
+    container: tab
+  });
+}
+
+// init Carousels
+// new Splide('.splide', {
+//   type: 'loop',
+//   autoplay: true,
+//   reducedMotion: {
+//     speed: 0,
+//     rewindSpeed: 0,
+//     autoplay: 'pause',
+//   },
+// }).mount();
+var carousels = document.querySelectorAll(".Carousel");
+var _iterator2 = _createForOfIteratorHelper(carousels),
+  _step2;
+try {
+  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+    var carousel = _step2.value;
+    // console.log(carousel.querySelector(`.Carousel__slide`))
+    var newCarousel = new _modules_carousel__WEBPACK_IMPORTED_MODULE_6__["default"]();
+    newCarousel.init({
+      id: carousel,
+      slidenav: true,
+      animate: true,
+      startAnimated: false
+    });
+  }
+} catch (err) {
+  _iterator2.e(err);
+} finally {
+  _iterator2.f();
+}
+var media = '(prefers-reduced-motion: reduce)';
+var pref = window.matchMedia(media);
+// console.log("reduced motion=",pref)
+if (pref.media !== media && !pref.matches) {
+  // do stuff without animations
+  // console.log('prefers reduced motion');
+}
+
+// Night mode theme picker
+(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".Theme__picker input[type=\"checkbox\"]");
+
+// window.resize callback function
+function getVerticalHeight() {
+  var vh = window.innerHeight * 0.01;
+  // document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
+  // console.info(vh);
+}
+
+window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 20);
+getVerticalHeight();
+var allLinks = Array.from(document.querySelectorAll("[target=\"_blank\"]"));
+allLinks.forEach(function (el) {
+  if (!el.hasAttribute("rel")) {
+    el.setAttribute("rel", "noreferrer");
+  }
+});
+
+// function ready(fn) {
+//   if (document.readyState !== 'loading') {
+//     fn();
+//   } else {
+//     document.addEventListener('DOMContentLoaded', fn);
+//   }
+// }
+
+// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
+document.body.classList.remove("no-js");
+
+/***/ }),
+
 /***/ "./public_html/ui/_js/modules/carousel.js":
 /*!************************************************!*\
   !*** ./public_html/ui/_js/modules/carousel.js ***!
@@ -105,6 +316,9 @@ var myCarousel = function myCarousel() {
     carousel = settings.id;
     // console.log(set)
     slides = carousel.querySelectorAll('.Carousel__slide');
+    Array.from(carousel.querySelectorAll('a, button')).forEach(function (el) {
+      return el.setAttribute('tabindex', '-1');
+    });
     carousel.className = 'Carousel Carousel--active';
 
     // Create unordered list for controls, and attach click events fo previous and next slide
@@ -249,10 +463,19 @@ var myCarousel = function myCarousel() {
     // Add classes to the previous, next and current slide
     slides[new_next].className = 'next Carousel__slide' + (transition === 'next' ? ' in-transition' : '');
     slides[new_next].setAttribute('aria-hidden', 'true');
+    Array.from(slides[new_next].querySelectorAll('a, button')).forEach(function (el) {
+      return el.setAttribute('tabindex', '-1');
+    });
     slides[new_prev].className = 'prev Carousel__slide' + (transition === 'prev' ? ' in-transition' : '');
     slides[new_prev].setAttribute('aria-hidden', 'true');
+    Array.from(slides[new_prev].querySelectorAll('a, button')).forEach(function (el) {
+      return el.setAttribute('tabindex', '-1');
+    });
     slides[new_current].className = 'current Carousel__slide';
     slides[new_current].removeAttribute('aria-hidden');
+    Array.from(slides[new_current].querySelectorAll('a, button')).forEach(function (el) {
+      return el.removeAttribute('tabindex');
+    });
 
     // Update the text in the live region which is then announced by screen readers.
     if (announceItem) {
@@ -379,42 +602,144 @@ var Details = /*#__PURE__*/function () {
 
     // set the accordion/detail elements
     this.detailsContainer = this.settings.container || document.querySelector("details");
-    if (!this.detailsContainer) return;
+    if (!this.detailsContainer) {
+      return;
+    }
     this.detailsButton = this.settings.button || this.detailsContainer.querySelector("summary");
-    if (!this.detailsButton) return;
-    this.detailsTarget = this.settings.target || this.detailsButton.nextElementSibling || this.detailsContainer.querySelector("summary").nextElementSibling || document.querySelector("Details__content");
-    if (!this.detailsTarget) return;
-    this.curState = false;
+    if (!this.detailsButton) {
+      return;
+    }
+    this.detailsTarget = this.settings.target || this.detailsButton.nextElementSibling || this.detailsContainer.querySelector("summary").nextElementSibling;
+    if (!this.detailsTarget) {
+      return;
+    }
+
+    // Store the animation object (so we can cancel it if needed)
+    this.animation = null;
+    // Store if the element is closing
+    this.isClosing = false;
+    // Store if the element is expanding
+    this.isExpanding = false;
     this.init();
     return this;
   }
   _createClass(Details, [{
     key: "init",
     value: function init() {
-      this.detailsButton.addEventListener("click", this.toggleDetailVisibility.bind(this));
+      // Detect user clicks on the summary element
+      this.detailsButton.addEventListener("click", this.onClick.bind(this));
       this.detailsButton.addEventListener("keydown", this.keypressHandler.bind(this));
     }
   }, {
-    key: "toggleDetailVisibility",
-    value: function toggleDetailVisibility(event) {
-      event.preventDefault();
-      // changing the state of the details being open defaults to false (not open)
-      this.curState = !this.curState;
-
-      // changing the aria states and class of the button and target
-      this.detailsButton.setAttribute("aria-expanded", this.curState);
-      this.detailsContainer.classList.toggle("Details--open");
-
-      // console.log(this.curState);
-
-      if (this.curState) {
-        // console.log(`open`);
-        this.detailsContainer.setAttribute("open", "open");
-      } else {
-        this.detailsContainer.removeAttribute("open");
-        // console.log(`close`);
+    key: "onClick",
+    value: function onClick(e) {
+      // Stop default behaviour from the browser
+      e.preventDefault();
+      // Add an overflow on the <details> to avoid content overflowing
+      this.detailsContainer.style.overflow = 'hidden';
+      // Check if the element is being closed or is already closed
+      if (this.isClosing || !this.detailsContainer.open) {
+        this.open();
+        // Check if the element is being openned or is already open
+      } else if (this.isExpanding || this.detailsContainer.open) {
+        this.shrink();
       }
-      // return this
+    }
+  }, {
+    key: "shrink",
+    value: function shrink() {
+      var _this = this;
+      // Set the element as "being closed"
+      this.isClosing = true;
+
+      // Store the current height of the element
+      var startHeight = "".concat(this.detailsContainer.offsetHeight, "px");
+      // Calculate the height of the summary
+      var endHeight = "".concat(this.detailsButton.offsetHeight, "px");
+
+      // If there is already an animation running
+      if (this.animation) {
+        // Cancel the current animation
+        this.animation.cancel();
+      }
+
+      // Start a WAAPI animation
+      this.animation = this.detailsContainer.animate({
+        // Set the keyframes from the startHeight to endHeight
+        height: [startHeight, endHeight]
+      }, {
+        duration: 400,
+        easing: 'ease-out'
+      });
+
+      // When the animation is complete, call onAnimationFinish()
+      this.animation.onfinish = function () {
+        return _this.onAnimationFinish(false);
+      };
+      // If the animation is cancelled, isClosing variable is set to false
+      this.animation.oncancel = function () {
+        return _this.isClosing = false;
+      };
+    }
+  }, {
+    key: "open",
+    value: function open() {
+      var _this2 = this;
+      // Apply a fixed height on the element
+      this.detailsContainer.style.height = "".concat(this.detailsContainer.offsetHeight, "px");
+      // Force the [open] attribute on the details element
+      this.detailsContainer.open = true;
+      // Wait for the next frame to call the expand function
+      window.requestAnimationFrame(function () {
+        return _this2.expand();
+      });
+    }
+  }, {
+    key: "expand",
+    value: function expand() {
+      var _this3 = this;
+      // Set the element as "being expanding"
+      this.isExpanding = true;
+      // Get the current fixed height of the element
+      var startHeight = "".concat(this.detailsContainer.offsetHeight, "px");
+      // Calculate the open height of the element (summary height + content height)
+      var endHeight = "".concat(this.detailsButton.offsetHeight + this.detailsTarget.offsetHeight, "px");
+
+      // If there is already an animation running
+      if (this.animation) {
+        // Cancel the current animation
+        this.animation.cancel();
+      }
+
+      // Start a WAAPI animation
+      this.animation = this.detailsContainer.animate({
+        // Set the keyframes from the startHeight to endHeight
+        height: [startHeight, endHeight]
+      }, {
+        duration: 400,
+        easing: 'ease-out'
+      });
+      // When the animation is complete, call onAnimationFinish()
+      this.animation.onfinish = function () {
+        return _this3.onAnimationFinish(true);
+      };
+      // If the animation is cancelled, isExpanding variable is set to false
+      this.animation.oncancel = function () {
+        return _this3.isExpanding = false;
+      };
+    }
+  }, {
+    key: "onAnimationFinish",
+    value: function onAnimationFinish(open) {
+      // Set the open attribute based on the parameter
+      this.detailsContainer.open = open;
+      // Clear the stored animation
+      this.animation = null;
+      // Reset isClosing & isExpanding
+      this.isClosing = false;
+      this.isExpanding = false;
+      // Remove the overflow hidden and the fixed height
+      this.detailsContainer.style.height = this.detailsContainer.style.overflow = '';
     }
   }, {
     key: "keypressHandler",
@@ -423,13 +748,13 @@ var Details = /*#__PURE__*/function () {
         // if the toggle button for the detail is focused allow ENTER or SPACEBAR to open the accordion.
         if (event.key === " " || event.key === "Spacebar" || event.keyCode === 0 || event.keyCode === 32) {
           event.preventDefault();
-          this.toggleDetailVisibility(event);
+          this.onClick(event);
           // console.log(`space`)
         }
 
         if (event.key === "Enter" || event.key === "Return" || event.keyCode === 13) {
           event.preventDefault();
-          this.toggleDetailVisibility(event);
+          this.onClick(event);
           // console.log(`enter`)
         }
       }
@@ -469,12 +794,18 @@ var Dialog = /*#__PURE__*/function () {
     // }, options);
     this.settings = settingsObj;
     this.dialogButton = this.settings.button || document.querySelector("[data-dialog]");
-    if (!this.dialogButton) return;
-    console.log(this.dialogButton.dataset.modal);
+    if (!this.dialogButton) {
+      return;
+    }
+    // console.log(this.dialogButton.dataset.modal);
     this.dialogTarget = this.settings.target || document.querySelector("#".concat(this.dialogButton.dataset.modal));
-    if (!this.dialogTarget) return;
+    if (!this.dialogTarget) {
+      return;
+    }
     this.dialogClose = this.settings.close || this.dialogTarget.querySelector("[class*='close'], [class*='Close'], [aria-label*='close']");
-    if (!this.dialogClose) return;
+    if (!this.dialogClose) {
+      return;
+    }
     this.curState = false;
     this.init();
     return this;
@@ -508,7 +839,7 @@ var Dialog = /*#__PURE__*/function () {
 
         // listen for keyboard events namely TAB and ESC keys
         document.addEventListener("keydown", this.keypressHandler.bind(this));
-        document.body.classList.add("no-scroll");
+        document.body.classList.add('no-scroll');
       } else {
         // dealing with an autoplay or currently playing video in the modal if you close it.
         var iframeSrc = this.dialogTarget.querySelector("iframe");
@@ -523,7 +854,7 @@ var Dialog = /*#__PURE__*/function () {
         this.dialogTarget.close();
         this.dialogTarget.removeAttribute("open");
         this.dialogButton.focus();
-        document.body.classList.remove("no-scroll");
+        document.body.classList.remove('no-scroll');
       }
     }
   }, {
@@ -536,9 +867,11 @@ var Dialog = /*#__PURE__*/function () {
         isTab = event.key === "Tab";
       } else {
         isEscape = event.keyCode === 27;
-        isTab = event.keyCode === KEYCODE_TAB;
+        isTab = event.keyCode === 9;
       }
-      if (!isEscape && !isTab) return; //if the keypressed isn't a tab or escape what are we doing here
+      if (!isEscape && !isTab) {
+        return;
+      } //if the keypressed isn't a tab or escape what are we doing here
 
       if (isEscape && this.curState) {
         // if the state of this dialog is open/true close it and set the focus back to the button that opens it.
@@ -582,32 +915,33 @@ var fontLoader = function fontLoader(fontsToLoad) {
         var shortName = font.shortName || font.localName || "font".concat(i + 1);
         var localName = font.localName || font.shortName || "font".concat(i + 1);
         var path = font.path;
-        var doesFileExist = function doesFileExist(urlToFile, extension) {
-          fetch(urlToFile + extension, {
-            method: 'GET'
-          })
-          // .then( response => console.warn('success:', response) )
-          // .catch( error => console.warn('error:', error) );
-          .then(function (response) {
-            return response;
-          })["catch"](function (error) {
-            return error;
-          });
-        };
-        var fontsToEmbed;
-        if (doesFileExist(path, ".eot")) {
-          fontsToEmbed += "url('".concat(path, ".eot?#iefix') format('embedded-opentype'),");
-        }
-        if (doesFileExist(path, ".ttf")) {
-          fontsToEmbed += "url('".concat(path, ".format('truetype'),");
-        }
-        if (doesFileExist(path, ".woff2")) {
-          fontsToEmbed += "url('".concat(path, ".woff2') format('woff2'),");
-        }
-        if (doesFileExist(path, ".woff")) {
-          fontsToEmbed += "url('".concat(path, ".woff') format('woff'),");
-        }
-        var newFont = new FontFace(shortName, "local(".concat(localName, "),\n            url('").concat(path, ".ttf') format('truetype')"), {
+
+        // const doesFileExist = (urlToFile, extension) => {
+        //     fetch(
+        //       urlToFile+extension,
+        //       { method: 'GET' }
+        //     )
+        //     // .then( response => console.warn('success:', response) )
+        //     // .catch( error => console.warn('error:', error) );
+        //     .then( response => response )
+        //     .catch( error => error );
+        // };
+
+        // let fontsToEmbed;
+        // if(doesFileExist(path,`.eot`)){
+        //   fontsToEmbed += `url('${path}.eot?#iefix') format('embedded-opentype'),`
+        // }
+        // if(doesFileExist(path,`.ttf`)){
+        //   fontsToEmbed += `url('${path}.format('truetype'),`
+        // }
+        // if(doesFileExist(path,`.woff2`)){
+        //   fontsToEmbed += `url('${path}.woff2') format('woff2'),`
+        // }
+        // if(doesFileExist(path,`.woff`)){
+        //   fontsToEmbed += `url('${path}.woff') format('woff'),`
+        // }
+
+        var newFont = new FontFace(shortName, "local(".concat(localName, "),\n            url('").concat(path, ".woff') format('woff')"), {
           weight: 400
         });
         newFont.display = 'swap';
@@ -623,7 +957,7 @@ var fontLoader = function fontLoader(fontsToLoad) {
         loadedFonts.forEach(function (font) {
           document.fonts.add(font);
         });
-      }).then(function (_) {
+      }).then(function () {
         document.documentElement.classList.add('fonts-loaded');
       })["catch"](function (error) {
         console.warn(error.message);
@@ -685,18 +1019,16 @@ function Nav() {
   }
   var toggleNav = function toggleNav() {
     // event.preventDefault();
+    // console.log("toggle nav");
+    document.querySelector("body").classList.toggle("no-scroll");
     curState = !curState;
     if (curState) {
-      document.querySelector("body").classList.add("no-scroll");
       nav.classList.toggle("Nav--isactive");
       nav.addEventListener("keydown", keyHandler);
       setTimeout(function () {
         nav.classList.toggle("Nav--visible");
       }, 100);
     } else {
-      document.querySelector("body").classList.remove("no-scroll");
-
-      // console.log('button')
       button.focus();
       nav.classList.toggle("Nav--visible");
       nav.removeEventListener("keydown", keyHandler, {
@@ -708,12 +1040,24 @@ function Nav() {
     }
     button.setAttribute("aria-expanded", curState);
   };
+  var closeNav = function closeNav() {
+    curState = false;
+    button.focus();
+    nav.classList.toggle("Nav--visible");
+    nav.removeEventListener("keydown", keyHandler, {
+      passive: true
+    });
+    setTimeout(function () {
+      nav.classList.toggle("Nav--isactive");
+    }, 200);
+    button.setAttribute("aria-expanded", curState);
+  };
   if (button) {
     button.addEventListener("click", toggleNav);
   }
   var navItems = nav.querySelectorAll("a");
   navItems.forEach(function (item) {
-    return item.addEventListener("click", toggleNav);
+    return item.addEventListener("click", closeNav);
   });
 }
 
@@ -745,7 +1089,9 @@ var Tabs = /*#__PURE__*/function () {
 
     // set the accordion/detail elements
     this.tabContainer = this.settings.container || document.querySelector(".Tabbed");
-    if (!this.tabContainer) return;
+    if (!this.tabContainer) {
+      return;
+    }
     this.tabbed = this.tabContainer;
     this.tablist = this.tabbed.querySelector('ul');
     this.tabs = this.tablist.querySelectorAll('a');
@@ -793,7 +1139,7 @@ var Tabs = /*#__PURE__*/function () {
       Array.prototype.forEach.call(this.panels, function (panel, i) {
         panel.setAttribute('role', 'tabpanel');
         panel.setAttribute('tabindex', '-1');
-        var id = panel.getAttribute('id');
+        // let id = panel.getAttribute('id');
         panel.setAttribute('aria-labelledby', _this.tabs[i].id);
         panel.hidden = true;
       });
@@ -869,15 +1215,18 @@ var themePicker = function themePicker(input) {
     if (isDarkMode) {
       document.documentElement.setAttribute("data-theme", "dark");
       toggleSwitch.checked = true;
-      toggleSwitch.title = "Turn on Light Mode";
+      toggleSwitch.title = 'Turn on Light Mode';
 
       // Set data-theme attribute to light if isLightMode is true
     } else if (isLightMode) {
       document.documentElement.setAttribute("data-theme", "light");
       toggleSwitch.checked = false;
-      toggleSwitch.title = "Turn on Dark Mode";
+      toggleSwitch.title = 'Turn on Dark Mode';
 
       // Set data-theme attribute to light and remove theme from localStorage
+    } else if (hasNoSupport) {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.removeItem("theme");
     } else {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.removeItem("theme");
@@ -1801,6 +2150,19 @@ function l(window, document, Date) { // Pass in the window Date function also fo
 
 /***/ }),
 
+/***/ "./public_html/ui/_css/main.css":
+/*!**************************************!*\
+  !*** ./public_html/ui/_css/main.css ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/quicklink/dist/quicklink.umd.js":
 /*!******************************************************!*\
   !*** ./node_modules/quicklink/dist/quicklink.umd.js ***!
@@ -1838,7 +2200,42 @@ function l(window, document, Date) { // Pass in the window Date function also fo
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -1879,170 +2276,68 @@ function l(window, document, Date) { // Pass in the window Date function also fo
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/public_html/ui/js/main": 0,
+/******/ 			"public_html/ui/css/main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkAllanKukral"] = self["webpackChunkAllanKukral"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!************************************!*\
-  !*** ./public_html/ui/_js/main.js ***!
-  \************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quicklink/dist/quicklink.umd */ "./node_modules/quicklink/dist/quicklink.umd.js");
-/* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
-/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fontLoader */ "./public_html/ui/_js/modules/fontLoader.js");
-/* harmony import */ var _modules_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/dialog */ "./public_html/ui/_js/modules/dialog.js");
-/* harmony import */ var _modules_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/details */ "./public_html/ui/_js/modules/details.js");
-/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/carousel */ "./public_html/ui/_js/modules/carousel.js");
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ "./public_html/ui/_js/modules/tabs.js");
-/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/nav */ "./public_html/ui/_js/modules/nav.js");
-/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-// import app from './modules/app';
-
-
-
-
-
-
-
-
-
-
-quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen();
-
-// Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
-// loads in woff eot and ttf files automatically if they are all in the same  directory.
-// Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc
-(0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__["default"])([{
-  shortName: "Neue",
-  localName: "HelveticaNeue-Roman",
-  path: "/ui/webfonts/helvetica/helveticaneue-roman-webfont"
-}, {
-  shortName: "NeueBold",
-  localName: "HelveticaNeue-Bold",
-  path: "/ui/webfonts/helvetica/helveticaneue-bold-webfont"
-}]);
-(0,_modules_nav__WEBPACK_IMPORTED_MODULE_8__["default"])();
-(lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = false;
-
-// check if native lazy loading is available
-if ('loading' in HTMLImageElement.prototype) {
-  // console.log("Browser supports `loading`..");
-  var lazy = document.querySelectorAll("[class*='lazyload']");
-  var _iterator = _createForOfIteratorHelper(lazy),
-    _step;
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var item = _step.value;
-      item.classList.remove("lazyload");
-      item.classList.add("lazyloaded");
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-} else {
-  // Fetch and apply a polyfill/JavaScript library
-  // console.log("Browser does not support `loading`..");
-  // for lazy-loading instead.
-  (lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg.init) = true;
-}
-
-// init modals
-var modals = Array.from(document.querySelectorAll("[data-modal]"));
-for (var _i = 0, _modals = modals; _i < _modals.length; _i++) {
-  var win = _modals[_i];
-  new _modules_dialog__WEBPACK_IMPORTED_MODULE_4__["default"]({
-    button: win
-  });
-  // console.log(win);
-}
-
-// init details
-var details = Array.from(document.querySelectorAll("details"));
-for (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {
-  var detail = _details[_i2];
-  new _modules_details__WEBPACK_IMPORTED_MODULE_5__["default"]({
-    container: detail
-  });
-}
-// init tabs
-var tabset = Array.from(document.querySelectorAll(".Tabbed"));
-for (var _i3 = 0, _tabset = tabset; _i3 < _tabset.length; _i3++) {
-  var tab = _tabset[_i3];
-  new _modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"]({
-    container: tab
-  });
-}
-
-// init Carousels
-var carousels = document.querySelectorAll(".Carousel");
-var _iterator2 = _createForOfIteratorHelper(carousels),
-  _step2;
-try {
-  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-    var carousel = _step2.value;
-    // console.log(carousel.querySelector(`.Carousel__slide`))
-    var newCarousel = new _modules_carousel__WEBPACK_IMPORTED_MODULE_6__["default"]();
-    newCarousel.init({
-      id: carousel,
-      slidenav: true,
-      animate: true,
-      startAnimated: false
-    });
-  }
-} catch (err) {
-  _iterator2.e(err);
-} finally {
-  _iterator2.f();
-}
-var media = '(prefers-reduced-motion: reduce)';
-var pref = window.matchMedia(media);
-// console.log("reduced motion=",pref)
-if (pref.media !== media && !pref.matches) {
-  // do stuff without animations
-  // console.log('prefers reduced motion');
-}
-
-// Night mode theme picker
-(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".Theme__picker input[type=\"checkbox\"]");
-
-// window.resize callback function
-function getVerticalHeight() {
-  var vh = window.innerHeight * 0.01;
-  // document.documentElement.style.setProperty('--vh', `${vh}px`);
-  document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
-  // console.info(vh);
-}
-
-window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 20);
-getVerticalHeight();
-var allLinks = Array.from(document.querySelectorAll("[target=\"_blank\"]"));
-allLinks.forEach(function (el) {
-  if (!el.hasAttribute("rel")) {
-    el.setAttribute("rel", "noreferrer");
-  }
-});
-
-// function ready(fn) {
-//   if (document.readyState !== 'loading') {
-//     fn();
-//   } else {
-//     document.addEventListener('DOMContentLoaded', fn);
-//   }
-// }
-
-// remove no-js body class proving JS is loaded and everything before this in this script has run and not errored out.
-document.body.classList.remove("no-js");
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["public_html/ui/css/main"], () => (__webpack_require__("./public_html/ui/_js/main.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["public_html/ui/css/main"], () => (__webpack_require__("./public_html/ui/_css/main.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;

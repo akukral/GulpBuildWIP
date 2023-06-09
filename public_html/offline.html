@@ -10,9 +10,27 @@
   <!-- TODO update to actual URL-->
   <link rel="home" href="http://gulpbuildwip.local" />
 
+
+  <!-- <link rel="preload" href="SOME URL HERE">  -->
+  <!-- TODO add dynamically if possible -->
+  <!-- Preloads -->
+  <link rel="prefetch" href="/ui/css/main.css" as="style">
+  <!-- <link rel="prefetch" href="/ui/css/media-queries/media-queries-1000.css" as="style"> -->
+  <!-- <link rel="prefetch" href="/ui/css/media-queries/media-queries-1200.css" as="style"> -->
+  <link rel="prefetch" href="/ui/css/critical.css" as="style">
+  <link rel="prefetch" href="/ui/js/main.js" as="script">
+  <!-- <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
+  <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">-->
+  <link rel="preload" as="fetch" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff" crossorigin/>
+  <link rel="preload" as="fetch" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff" crossorigin/>
+  <link rel="preconnect" href="https://f.vimeocdn.com">
+  <!-- Pre connect to any ouside urls here -->
+
   <!-- Meta Info -->
 
-  <title>Home | Gulp Build WIP</title>
+  <title>Home | Boilerplate Site</title>
+
+  <meta name="color-scheme" content="dark light">
   <meta name="description" content="Website Homepage" />
 
   <meta property="fb:app_id" content="">
@@ -24,6 +42,8 @@
   <meta property="og:site_name" content="Home" />
   <meta property="og:locale" content="en-US" />
   <meta property="og:locale:alternate" content="en-US" />
+
+  <meta name="color-scheme" content="dark light">
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="" />
@@ -56,43 +76,26 @@
   <!--[if lt IE 9]> <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script> <![endif]-->
 
   <!-- Put in Critical CSS -->
-  <link rel="stylesheet" href="/critical.css" media="screen and (min-width:300px)" id="critical">
-
-  <!-- Preloads -->
-  <link rel="preload" href="/ui/css/main.css" as="style">
-  <!-- TODO add dynamically if possible -->
-  <link rel="preload" href="/critical.css" as="style">
-  <link rel="preload" href="/ui/js/main.js" as="script">
-  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
-  <link rel="preload" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
-
-  <style>
-    @media screen and (max-width: 25rem) {
-      * {
-        max-width: 100%;
-        height: auto;
-      }
-
-      [data-modal],
-      .Dialog__close {
-        display: none;
-      }
-    }
-  </style>
+  <!-- TODO Add inline if possible -->
+  <link rel="stylesheet" href="/ui/css/critical.css" media="screen and (min-width:300px)" id="critical">
+  <!-- For very very tiny screens  -->
+  <style> @media screen and (max-width: 25rem) { * { max-width: 100%; height: auto; } } </style>
   <noscript>
-    <link rel="stylesheet" href="/ui/css/main.css">
+    <link rel="stylesheet" href="/ui/css/main.css" media="screen">
   </noscript>
 </head>
 
 <body class="no-js">
-  <noscript>
-    <span class="Warning">Please enable javascript to get the most out of this page.</span>
-  </noscript>
-
-  <header class="Header">
-    <a href="#Main" class="skip" tabindex="0">Skip to main content</a>
-    <a href="/" class="Header__logo">
-      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" style="max-width: 10rem; vertical-align: middle;" height="">
+  <header class="Header" aria-label="Site Header">
+    <noscript>
+      <span class="Warning">Please enable javascript to get the most out of this page.</span>
+    </noscript>
+    <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
+      <a href="/" class="Header__logo" title="Boilerplate">
+        <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="eager" fetchpriority="high" width="140" height="20">
+        <div class="sr-only">Boilerplate Site</div>
+      </a>
+      <!-- <span class="sr-only">Boilerplate</span> -->
     </a>
     <nav class="Nav" aria-label="Main Navigation">
       <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
@@ -101,57 +104,64 @@
       </button>
       <ul id="Menu" aria-live="polite">
         <li>
-          <a href="/#featuredContent">Featured Content</a>
+          <a href="/index.html#featuredContent">Featured Content</a>
         </li>
         <li>
-          <a href="/#tabSection">Tab Section</a>
+          <a href="/index.html#tabSection">Tabs Section</a>
+        </li>
+        <li>
+          <a href="/offline.html">Offline</a>
+        </li>
+        <li>
+          <a href="/critical.html">Critical</a>
         </li>
       </ul>
     </nav>
-    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme"><span class="sr-only">Select to enable dark mode.</span></label>
+    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme" title="Turn on Dark Mode"><span class="sr-only">Toggle light &amp; dark mode.</span></label>
     <!-- /nav -->
   </header>
   <!-- /header -->
 
 
   <main class="Main" id="Main" aria-labelledby="MainTitle">
-    <h1 id="MainTitle">Browser Offline</h1>
+    <h1 id="MainTitle">Offline</h1>
     <h2>It appears your browser is offline. Please check your connection and try again.</h2>
-    <p>Contact and other pertinent information</p>
+    <p>Perinent Information</p>
   </main>
   <!-- main -->
 
   <footer class="Footer">
-    <p>
-      © 2019 Copyright. | <a href="/sitemap">Site Map</a>
-    </p>
+    <p>© 2019 Copyright. | <a href="#sitemap">Site Map</a></p>
   </footer>
   <!-- footer -->
-
-  <script>
-    function loadCSS(file, media) {
-      var n = window.document.createElement("link");
-      var t = window.document.getElementsByTagName("head")[0];
-      n.rel = "stylesheet",
-        n.href = file,
-        n.media = "print";
-      t.appendChild(n, t)
-      setTimeout(function () {
-        n.media = media;
-        document.getElementById('critical').remove();
-      }, 0);
-    }
-    loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
-  </script>
 
   <!-- This polyfill needs to be loaded from the cdn to work -->
   <script crossorigin="anonymous" src="//polyfill.io/v3/polyfill.min.js" async></script>
 
   <!-- Load main scripts here -->
-  <script src="/ui/js/main.js" async></script>
+  <script src="/ui/js/main.js" defer></script>
 
   <!-- Service Worker -->
   <script>
+    function loadCSS(file, media) {
+      var n = window.document.createElement("link");
+      var t = window.document.getElementsByTagName("head")[0];
+      n.rel = "stylesheet",
+      n.href = file,
+      n.media = "screen",
+      n.setAttribute("defer","");
+      t.appendChild(n, t)
+      setTimeout(function () {
+        n.media = media;
+        if(file.includes('main')){
+          document.getElementById('critical').remove();
+        }
+      }, 0);
+    }
+    loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
+    // loadCSS("/ui/css/media-queries/media-queries-1000.css", "screen and (min-width:1000px)");
+    // loadCSS("/ui/css/media-queries/media-queries-1200.css", "screen and (min-width:1200px)");
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').then(function (registration) {
@@ -163,10 +173,7 @@
         });
       });
     }
-
   </script>
-
-  <!-- <script src="//instant.page/5.0.1" type="module" integrity="sha384-0DvoZ9kNcB36fWcQApIMIGQoTzoBDYTQ85e8nmsfFOGz4RHAdUhADqJt4k3K2uLS"></script> -->
 </body>
 
 </html>

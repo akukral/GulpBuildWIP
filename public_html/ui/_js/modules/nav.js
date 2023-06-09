@@ -1,4 +1,4 @@
-export default function Nav(){
+export default function Nav() {
   const nav = document.querySelectorAll(`Nav`)[0];
   const button = document.getElementsByClassName(`Nav__toggle`)[0];
   let curState = false;
@@ -12,7 +12,7 @@ export default function Nav(){
     };
   }
 
-   function keyHandler (e) {
+  function keyHandler(e) {
 
     const focusableEls = Array.from(nav.querySelectorAll(`iframe, iframe *, [tabindex="0"], a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])`));
     const firstFocusableEl = focusableEls[0];
@@ -40,9 +40,10 @@ export default function Nav(){
 
   const toggleNav = function () {
     // event.preventDefault();
+    // console.log("toggle nav");
+    document.querySelector(`body`).classList.toggle(`no-scroll`);
     curState = !curState
     if (curState) {
-      document.querySelector(`body`).classList.add(`no-scroll`);
       nav.classList.toggle(`Nav--isactive`);
       nav.addEventListener(`keydown`, keyHandler);
 
@@ -50,13 +51,12 @@ export default function Nav(){
         nav.classList.toggle(`Nav--visible`);
       }, 100);
     } else {
-      document.querySelector(`body`).classList.remove(`no-scroll`);
-
-      // console.log('button')
       button.focus();
 
       nav.classList.toggle(`Nav--visible`);
-      nav.removeEventListener(`keydown`, keyHandler, { passive: true });
+      nav.removeEventListener(`keydown`, keyHandler, {
+        passive: true
+      });
 
       setTimeout(() => {
         nav.classList.toggle(`Nav--isactive`);
@@ -65,13 +65,27 @@ export default function Nav(){
     button.setAttribute(`aria-expanded`, curState);
   };
 
+  const closeNav = function() {
+    curState = false;
+    button.focus();
+    nav.classList.toggle(`Nav--visible`);
+    nav.removeEventListener(`keydown`, keyHandler, {
+      passive: true
+    });
+
+    setTimeout(() => {
+      nav.classList.toggle(`Nav--isactive`);
+    }, 200);
+    button.setAttribute(`aria-expanded`, curState);
+  }
+
 
   if (button) {
     button.addEventListener(`click`, toggleNav);
   }
 
   const navItems = nav.querySelectorAll(`a`);
-  navItems.forEach(item => item.addEventListener(`click`,toggleNav));
+  navItems.forEach(item => item.addEventListener(`click`, closeNav));
 
 }
 

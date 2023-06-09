@@ -25,13 +25,13 @@ form label{
   }
 }
 form input:not(:placeholder-shown):required:invalid{
-  background-color: color-mix(in srgb, red 10%, transparent);
+  background-color: color-mix(in rgba, red 10%, transparent);
 }
 form input:placeholder-shown {
-  background-color: color-mix(in srgb, orange 5%, transparent);
+  background-color: color-mix(in rgba, orange 5%, transparent);
 }
 form input:valid{
-  background-color: color-mix(in srgb, green 5%, transparent);
+  background-color: color-mix(in rgba, green 5%, transparent);
 }
 
 /* form label:has( :not(:placeholder-shown):required:invalid)::after{

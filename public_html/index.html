@@ -10,9 +10,25 @@
   <!-- TODO update to actual URL-->
   <link rel="home" href="http://gulpbuildwip.local" />
 
+
+  <!-- <link rel="preload" href="SOME URL HERE">  -->
+  <!-- TODO add dynamically if possible -->
+  <!-- Preloads -->
+  <link rel="prefetch" href="/ui/css/main.css" as="style">
+  <!-- <link rel="prefetch" href="/ui/css/media-queries/media-queries-1000.css" as="style"> -->
+  <!-- <link rel="prefetch" href="/ui/css/media-queries/media-queries-1200.css" as="style"> -->
+  <link rel="prefetch" href="/ui/css/critical.css" as="style">
+  <link rel="prefetch" href="/ui/js/main.js" as="script">
+  <!-- <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
+  <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">-->
+  <link rel="preload" as="fetch" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff" crossorigin/>
+  <link rel="preload" as="fetch" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff" crossorigin/>
+  <link rel="preconnect" href="https://f.vimeocdn.com">
+  <!-- Pre connect to any ouside urls here -->
+
   <!-- Meta Info -->
 
-  <title>Home | Gulp Build WIP</title>
+  <title>Home | Boilerplate Site</title>
 
   <meta name="color-scheme" content="dark light">
   <meta name="description" content="Website Homepage" />
@@ -45,6 +61,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="view-transition" content="same-origin" />
 
   <!-- Favicon Info-->
   <!-- TODO -->
@@ -62,34 +79,8 @@
   <!-- Put in Critical CSS -->
   <!-- TODO Add inline if possible -->
   <link rel="stylesheet" href="/ui/css/critical.css" media="screen and (min-width:300px)" id="critical">
-
-  <!-- Preloads -->
-  <link rel="prefetch" href="/ui/css/main.css" as="style">
-  <!-- TODO add dynamically if possible -->
-  <link rel="prefetch" href="/ui/css/critical.css" as="style">
-  <link rel="prefetch" href="/ui/js/main.js" as="script">
-  <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff">
-  <link rel="prefetch" as="script" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff">
-  <link rel="preload" as="font" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-roman-webfont.woff" crossorigin/>
-  <link rel="preload" as="font" type="font/woff" href="/ui/webfonts/helvetica/helveticaneue-bold-webfont.woff" crossorigin/>
-  <link rel="preconnect" href="https://f.vimeocdn.com">
-
-  <!-- Pre connect to any ouside urls here -->
-  <!-- <link rel="preload" href="SOME URL HERE">  -->
-
-  <style>
-    @media screen and (max-width: 25rem) {
-      * {
-        max-width: 100%;
-        height: auto;
-      }
-
-      [data-modal],
-      .Dialog__close {
-        display: none;
-      }
-    }
-  </style>
+  <!-- For very very tiny screens  -->
+  <style> @media screen and (max-width: 25rem) { * { max-width: 100%; height: auto; } } </style>
   <noscript>
     <link rel="stylesheet" href="/ui/css/main.css" media="screen">
   </noscript>
@@ -101,11 +92,11 @@
       <span class="Warning">Please enable javascript to get the most out of this page.</span>
     </noscript>
     <a href="#Main" class="skip" tabindex="0" aria-current="page">Skip to main content</a>
-      <a href="/" class="Header__logo" title="Boilerplate">
-        <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="lazy" fetchpriority="high" width="140" height="32">
-      </a>
-      <!-- <span class="sr-only">Boilerplate</span> -->
+    <a href="/" class="Header__logo" title="Boilerplate">
+      <img src="/ui/images/logo.svg" alt="Boilerplate Logo" decode="acync" loading="eager" fetchpriority="high" width="140" height="20">
+      <div class="sr-only">Boilerplate Site</div>
     </a>
+      <!-- <span class="sr-only">Boilerplate</span> -->
     <nav class="Nav" aria-label="Main Navigation">
       <button type="button" class="Nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="Menu" title="Toggle Menu">
         <span class="sr-only">Toggle Menu</span>
@@ -113,10 +104,16 @@
       </button>
       <ul id="Menu" aria-live="polite">
         <li>
-          <a href="/#featuredContent">Featured Content</a>
+          <a href="#featuredContent">Featured Content</a>
         </li>
         <li>
-          <a href="/#tabSection">Tabs Section</a>
+          <a href="#tabSection">Tabs Section</a>
+        </li>
+        <li>
+          <a href="/offline.html">Offline</a>
+        </li>
+        <li>
+          <a href="/critical.html">Critical</a>
         </li>
       </ul>
     </nav>
@@ -141,7 +138,7 @@
     </form>
 
     <dialog class="Dialog" id="Dialog1" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
-      aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
+      aria-describedby="Dialog__content2" tabindex="-1">
       <div class="Dialog__container">
         <h2 id="Dialog__title1">Modal 1</h2>
         <div id="Dialog__content1">
@@ -190,11 +187,12 @@
       <li class="Supports__container">CSS @container feature</li>
       <li class="Supports__style">CSS @container style feature</li>
       <li class="Supports__colormix">CSS color-mix</li>
+      <li class="Supports__houdini">CSS Houdini</li>
     </ul>
 
     <button type="button" class="Button" data-modal="Dialog2">Modal 2</button>
     <dialog class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
-      aria-describedby="Dialog__content2" role="dialog" tabindex="-1">
+      aria-describedby="Dialog__content2" tabindex="-1">
       <div class="Dialog__container">
         <h2 id="Dialog__title2">Modal 2</h2>
         <div id="Dialog__content2">
@@ -215,7 +213,8 @@
     </div>
 
     <figure class="Figure">
-      <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy" fetchpriority="high">
+      <!-- <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy" fetchpriority="high"> -->
+      <img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy">
       <figcaption class="Figure__caption">
         <p>Unknown photographer.</p>
       </figcaption>
@@ -337,6 +336,16 @@
       </div>
     </section>
 
+    <!-- <section class="splide" aria-label="Splide Basic HTML Example">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide"><img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy"></li>
+          <li class="splide__slide"><img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy"></li>
+          <li class="splide__slide"><img decode="acync" src="/ui/images/1818manh2.JPG" height="1036" width="1548" alt="Photo of a empty strip mall" class="lazyload" loading="lazy"></li>
+        </ul>
+      </div>
+    </section> -->
+
     <section aria-label="Tabs" id="tabSection">
       <div class="Tabbed">
         <ul>
@@ -444,15 +453,20 @@
       var n = window.document.createElement("link");
       var t = window.document.getElementsByTagName("head")[0];
       n.rel = "stylesheet",
-        n.href = file,
-        n.media = "print";
+      n.href = file,
+      n.media = "screen",
+      n.setAttribute("defer","");
       t.appendChild(n, t)
       setTimeout(function () {
         n.media = media;
-        document.getElementById('critical').remove();
+        if(file.includes('main')){
+          document.getElementById('critical').remove();
+        }
       }, 0);
     }
     loadCSS("/ui/css/main.css", "screen and (min-width:300px)");
+    // loadCSS("/ui/css/media-queries/media-queries-1000.css", "screen and (min-width:1000px)");
+    // loadCSS("/ui/css/media-queries/media-queries-1200.css", "screen and (min-width:1200px)");
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {

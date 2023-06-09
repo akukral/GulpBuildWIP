@@ -7,47 +7,22 @@
   flex-wrap: wrap;
   /* justify-content: space-between; */
   align-items: center;
+  height: auto;
 
   margin-bottom: 2rem;
   padding: 0.5rem;
 
   background-color: hsla(250, 100%, 100%, .85);
-  backdrop-filter: blur(1rem);
   box-shadow: 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: blur(1rem);
 }
 
-/* @supports (animation-timeline: scroll()) {
-  @scroll-timeline shadow-scroll-timeline {
-    time-range: 1s;
-    start: 0;
-    end: 50vh;
-  }
-  @keyframes shadow-fade {
-    from{
-      box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.01), 0 0.1rem 0.1rem hsla(0, 0%, 0%, 0.01);
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-    to{
-      box-shadow: 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-  .Header {
-    animation: forwards .08s ease-in-out shadow-fade;
-    animation-timeline: shadow-scroll-timeline;
-  }
-} */
-
 .Header__logo {
+  z-index: 1;
   display: inline-block;
 
   margin-right: auto;
   padding: 1rem;
-  z-index: 1;
-
-  /* background-color: inherit; */
 
   & img {
     filter: none !important;
@@ -61,14 +36,14 @@
 .Theme__picker {
   & input {
     position: relative;
-    block-size: 3rem;
-    inline-size: 3rem;
 
 
     vertical-align: middle;
 
     border: none;
     background-color: transparent;
+    block-size: 3.3rem;
+    inline-size: 3.3rem;
     appearance: none;
 
     &:checked {
@@ -80,9 +55,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
 
       content: '🌙';
+      transform: translate(-50%, -50%);
 
       filter: drop-shadow(0 0 0.1rem var(--dark));
     }

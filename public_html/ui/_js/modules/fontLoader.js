@@ -8,36 +8,36 @@ const fontLoader = (fontsToLoad) => {
           const path = font.path;
 
 
-          const doesFileExist = (urlToFile, extension) => {
-              fetch(
-                urlToFile+extension,
-                { method: 'GET' }
-              )
-              // .then( response => console.warn('success:', response) )
-              // .catch( error => console.warn('error:', error) );
-              .then( response => response )
-              .catch( error => error );
-          };
+          // const doesFileExist = (urlToFile, extension) => {
+          //     fetch(
+          //       urlToFile+extension,
+          //       { method: 'GET' }
+          //     )
+          //     // .then( response => console.warn('success:', response) )
+          //     // .catch( error => console.warn('error:', error) );
+          //     .then( response => response )
+          //     .catch( error => error );
+          // };
 
 
-          let fontsToEmbed;
-          if(doesFileExist(path,`.eot`)){
-            fontsToEmbed += `url('${path}.eot?#iefix') format('embedded-opentype'),`
-          }
-          if(doesFileExist(path,`.ttf`)){
-            fontsToEmbed += `url('${path}.format('truetype'),`
-          }
-          if(doesFileExist(path,`.woff2`)){
-            fontsToEmbed += `url('${path}.woff2') format('woff2'),`
-          }
-          if(doesFileExist(path,`.woff`)){
-            fontsToEmbed += `url('${path}.woff') format('woff'),`
-          }
+          // let fontsToEmbed;
+          // if(doesFileExist(path,`.eot`)){
+          //   fontsToEmbed += `url('${path}.eot?#iefix') format('embedded-opentype'),`
+          // }
+          // if(doesFileExist(path,`.ttf`)){
+          //   fontsToEmbed += `url('${path}.format('truetype'),`
+          // }
+          // if(doesFileExist(path,`.woff2`)){
+          //   fontsToEmbed += `url('${path}.woff2') format('woff2'),`
+          // }
+          // if(doesFileExist(path,`.woff`)){
+          //   fontsToEmbed += `url('${path}.woff') format('woff'),`
+          // }
 
           const newFont = new FontFace(
             shortName,
             `local(${localName}),
-            url('${path}.ttf') format('truetype')`,
+            url('${path}.woff') format('woff')`,
             {weight: 400}
           )
           newFont.display = 'swap';
@@ -55,7 +55,7 @@ const fontLoader = (fontsToLoad) => {
             document.fonts.add(font);
           });
         })
-        .then(_ => {
+        .then(function(){
           document.documentElement.classList.add('fonts-loaded')
         })
         .catch(error => {console.warn(error.message);} );

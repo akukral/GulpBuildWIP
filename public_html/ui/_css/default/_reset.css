@@ -142,7 +142,7 @@ section {
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
-  outline: 0
+  outline-color: transparent;
 }
 
 hr {
@@ -170,7 +170,7 @@ h6 {
   line-height: 1.2
 }
 
-h1 {
+/* h1 {
   font-size: calc(1.375rem + 1.5vw)
 }
 
@@ -216,7 +216,7 @@ h5 {
 
 h6 {
   font-size: 1rem
-}
+} */
 
 p {
   margin-top: 0;
@@ -316,7 +316,7 @@ a:hover {
 }
 
 a:focus {
-  outline: thin dotted
+  /* outline: thin dotted */
 }
 
 a:not([href]):not([class]):hover,

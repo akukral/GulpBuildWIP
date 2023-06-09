@@ -11,6 +11,45 @@ import Tabs from './modules/tabs';
 import Nav from './modules/nav';
 import themePicker from './modules/theme';
 
+window.addEventListener('beforeunload', function () {
+  var documentFade = document.querySelector('body')
+  documentFade.animate({
+      opacity: [1, 0]
+    }, {
+      duration: 200,
+      easing: 'ease-out'
+    });
+});
+
+// import { getPageContent, onLinkNavigate } from './modules/utils';
+
+// onLinkNavigate(async ({ toPath }) => {
+//   const content = await getPageContent(toPath);
+
+//   startViewTransition(() => {
+//     // This is a pretty heavy-handed way to update page content.
+//     // In production, you'd likely be modifying DOM elements directly,
+//     // or using a framework.
+//     // innerHTML is used here just to keep the DOM update super simple.
+//     document.body.innerHTML = content;
+//   });
+// });
+
+
+// // A little helper function like this is really handy
+// // to handle progressive enhancement.
+// function startViewTransition(callback) {
+//   if (!document.startViewTransition) {
+//     callback();
+//     return;
+//   }
+
+//   document.startViewTransition(callback);
+// }
+
+// import Splide from '@splidejs/splide';
+
+
 Quicklink.listen();
 
 // Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
@@ -72,6 +111,15 @@ for (let tab of tabset) {
 }
 
 // init Carousels
+// new Splide('.splide', {
+//   type: 'loop',
+//   autoplay: true,
+//   reducedMotion: {
+//     speed: 0,
+//     rewindSpeed: 0,
+//     autoplay: 'pause',
+//   },
+// }).mount();
 const carousels = document.querySelectorAll(`.Carousel`);
 for (let carousel of carousels) {
   // console.log(carousel.querySelector(`.Carousel__slide`))

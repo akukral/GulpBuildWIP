@@ -143,10 +143,10 @@ form [type='submit'] {
   color: var(--bravo);
 }
 
-:is( ::-webkit-calendar-picker-indicator,
-  ::-webkit-clear-button,
-  ::-webkit-inner-spin-button,
-  ::-webkit-outer-spin-button) {
+:is(::-webkit-calendar-picker-indicator,
+::-webkit-clear-button,
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button) {
   color: var(--bravo);
 }
 

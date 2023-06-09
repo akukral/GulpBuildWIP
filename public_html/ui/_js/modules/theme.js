@@ -24,15 +24,18 @@ const themePicker = (input) => {
     if (isDarkMode) {
       document.documentElement.setAttribute(`data-theme`, `dark`);
       toggleSwitch.checked = true;
-      toggleSwitch.title = "Turn on Light Mode";
+      toggleSwitch.title = 'Turn on Light Mode';
 
     // Set data-theme attribute to light if isLightMode is true
     } else if (isLightMode) {
       document.documentElement.setAttribute(`data-theme`, `light`);
       toggleSwitch.checked = false;
-      toggleSwitch.title = "Turn on Dark Mode";
+      toggleSwitch.title = 'Turn on Dark Mode';
 
     // Set data-theme attribute to light and remove theme from localStorage
+    } else if(hasNoSupport) {
+      document.documentElement.setAttribute(`data-theme`, `light`);
+      localStorage.removeItem(`theme`);
     } else {
       document.documentElement.setAttribute(`data-theme`, `light`);
       localStorage.removeItem(`theme`);

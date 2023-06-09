@@ -95,6 +95,7 @@ const myCarousel = (function () {
     carousel = settings.id;
     // console.log(set)
     slides = carousel.querySelectorAll('.Carousel__slide');
+    Array.from(carousel.querySelectorAll('a, button')).forEach(el=>el.setAttribute('tabindex','-1'));
 
     carousel.className = 'Carousel Carousel--active';
 
@@ -261,12 +262,15 @@ const myCarousel = (function () {
     // Add classes to the previous, next and current slide
     slides[new_next].className = 'next Carousel__slide' + ((transition === 'next') ? ' in-transition' : '');
     slides[new_next].setAttribute('aria-hidden', 'true');
+    Array.from(slides[new_next].querySelectorAll('a, button')).forEach(el=>el.setAttribute('tabindex','-1'));
 
     slides[new_prev].className = 'prev Carousel__slide' + ((transition === 'prev') ? ' in-transition' : '');
     slides[new_prev].setAttribute('aria-hidden', 'true');
+    Array.from(slides[new_prev].querySelectorAll('a, button')).forEach(el=>el.setAttribute('tabindex','-1'));
 
     slides[new_current].className = 'current Carousel__slide';
     slides[new_current].removeAttribute('aria-hidden');
+    Array.from(slides[new_current].querySelectorAll('a, button')).forEach(el=>el.removeAttribute('tabindex'));
 
     // Update the text in the live region which is then announced by screen readers.
     if (announceItem) {
