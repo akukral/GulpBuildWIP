@@ -180,7 +180,7 @@ if (pref.media !== media && !pref.matches) {
 }
 
 // Night mode theme picker
-(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".Theme__picker input[type=\"checkbox\"]");
+(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".ThemePicker input[type=\"checkbox\"]");
 
 // window.resize callback function
 function getVerticalHeight() {

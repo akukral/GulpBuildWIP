@@ -67,7 +67,7 @@ summary {
   font-size: 1rem;
 }
 
-details[open] .Details__summary{
+.Details[open] .Details__summary{
   background-color: var(--delta);
 }
 

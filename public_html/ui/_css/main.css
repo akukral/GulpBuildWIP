@@ -6,14 +6,6 @@
 @import './default/_type';
 @import './default/_form';
 
-/* Modules */
-@import './modules/_Header';
-@import './modules/_Nav';
-@import './modules/_Footer';
-@import './modules/_Form';
-@import './modules/_Section';
-
-
 /* Components */
 @import './components/_Details';
 @import './components/_Video';
@@ -24,6 +16,13 @@
 @import './components/_Dialog';
 @import './components/_Carousel';
 @import './components/_Tabs';
+@import './components/_ThemePicker';
+
+/* Modules */
+@import './modules/_Header';
+@import './modules/_Nav';
+@import './modules/_Footer';
+@import './modules/_Section';
 
 /* @import '../../../node_modules/@splidejs/splide/dist/css/splide-core.min'; */
 

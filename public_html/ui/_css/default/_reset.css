@@ -609,9 +609,21 @@ dialog:not([open]) {
   height: auto
 }
 
-::-webkit-input-placeholder {
+:-webkit-input-placeholder {
   color: inherit;
   opacity: .54
+}
+
+:-webkit-internal-input-suggested{
+  font-size: inherit;
+}
+
+:-internal-input-suggested{
+  font-size: inherit;
+}
+
+:internal-input-suggested{
+  font-size: inherit;
 }
 
 [type=search] {

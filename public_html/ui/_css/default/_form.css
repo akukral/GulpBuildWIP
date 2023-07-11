@@ -33,6 +33,9 @@ select {
     outline: solid 2px var(--bravo);
     outline-offset: 2px;
   }
+  & > *{
+    font-size: 100%;
+  }
 }
 
 [type='checkbox'] {
@@ -90,13 +93,13 @@ datalist {
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  color: inherit;
+  color: #000;
   background-color: var(--light) !important;
   -webkit-box-shadow: 0 0 0 1000px var(--light) inset;
   box-shadow: 0 0 0 1000px var(--light) inset;
 
-  -webkit-text-fill-color: currentColor;
-  text-fill-color: currentColor;
+  -webkit-text-fill-color: var(--dark);
+  text-fill-color: var(--dark);
 }
 
 input:-moz-focus-inner,
@@ -137,6 +140,46 @@ label {
 form [type='submit'] {
   display: block !important;
   /* clear: both; */
+}
+
+/* Inputs don't allow for before or after */
+.notification::after{
+  /* height: 1em; */
+  /* width: 1em; */
+  transform: translateY(-3.4rem);
+  position: absolute;
+  right: 1rem;
+  color: red;
+  font-size: 1em;
+  display: inline-block;
+}
+input:not(:placeholder-shown):required:invalid{
+  background-color: color-mix(in srgb, red 10%, transparent);
+}
+input:placeholder-shown{
+  background-color: color-mix(in srgb, orange 5%, transparent);
+}
+input:valid {
+  background-color: color-mix(in srgb, green 5%, transparent);
+}
+
+input:not(:placeholder-shown):required:invalid + .notification{
+  &::after{
+    color: color-mix(in srgb, red  100%, transparent);
+    content: '\2716';
+  }
+}
+input:placeholder-shown + .notification{
+  &::after{
+    color: color-mix(in srgb, orange 100%, transparent);
+    content: '⚠️';
+  }
+}
+input:valid + .notification{
+  &::after{
+    color: color-mix(in srgb, green 100%, transparent);
+    content: '✓';
+  }
 }
 
 ::marker {

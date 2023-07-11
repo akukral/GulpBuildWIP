@@ -141,7 +141,7 @@ if (pref.media !== media && !pref.matches) {
 }
 
 // Night mode theme picker
-themePicker(`.Theme__picker input[type="checkbox"]`);
+themePicker(`.ThemePicker input[type="checkbox"]`);
 
 // window.resize callback function
 function getVerticalHeight() {

@@ -33,43 +33,6 @@
   }
 }
 
-.Theme__picker {
-  & input {
-    position: relative;
-
-
-    vertical-align: middle;
-
-    border: none;
-    background-color: transparent;
-    block-size: 3.3rem;
-    inline-size: 3.3rem;
-    appearance: none;
-
-    &:checked {
-      background-color: transparent;
-      box-shadow: none;
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-
-      content: '🌙';
-      transform: translate(-50%, -50%);
-
-      filter: drop-shadow(0 0 0.1rem var(--dark));
-    }
-
-    &:checked::after {
-      content: '☀️';
-
-      filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 0.1rem var(--dark));
-    }
-  }
-}
-
 @supports (padding: min(0px)) {
   .Header {
     /* padding-top: max(env(safe-area-inset-bottom), 1.5rem); */

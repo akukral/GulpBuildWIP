@@ -117,7 +117,7 @@
         </li>
       </ul>
     </nav>
-    <label class="Theme__picker" for="theme"><input type="checkbox" name="theme" id="theme" title="Turn on Dark Mode"><span class="sr-only">Toggle light &amp; dark mode.</span></label>
+    <label class="ThemePicker" for="theme"><input type="checkbox" name="theme" id="theme" title="Turn on Dark Mode"><span class="sr-only">Toggle light &amp; dark mode.</span></label>
     <!-- /nav -->
   </header>
   <!-- /header -->
@@ -167,28 +167,30 @@
       <p class="Blockquote__byline">Jane Doe</p>
     </blockquote>
 
-    <h2>Does your browser support</h2>
-    <ul class="Supports">
-      <li class="Supports__cqw">cqw	1% of a query container’s width</li>
-      <li class="Supports__cqh">cqh	1% of a query container’s height</li>
-      <li class="Supports__cqi">cqi	1% of a query container’s inline size</li>
-      <li class="Supports__cqb">cqb	1% of a query container’s block size</li>
-      <li class="Supports__cqmin">cqmin	The smaller value of cqi or cqb</li>
-      <li class="Supports__cqmax">cqmax	The larger value of cqi or cqb</li>
-      <li class="Supports__dvh">dvh	1% of the dynamic viewport height</li>
-      <li class="Supports__dvh">svh	1% of the shortest viewport height</li>
-      <li class="Supports__dvw">dwv	1% of the dynamic viewport width</li>
-      <li class="Supports__clamp">CSS clamp function</li>
-      <li class="Supports__grid">CSS grid feature</li>
-      <li class="Supports__masonry">CSS grid masonry feature</li>
-      <li class="Supports__has">CSS :has feature</li>
-      <li class="Supports__is">CSS :is feature</li>
-      <li class="Supports__where">CSS :where feature</li>
-      <li class="Supports__container">CSS @container feature</li>
-      <li class="Supports__style">CSS @container style feature</li>
-      <li class="Supports__colormix">CSS color-mix</li>
-      <li class="Supports__houdini">CSS Houdini</li>
-    </ul>
+    <section>
+      <h2>Does your browser support</h2>
+      <ul class="Supports">
+        <li class="Supports__cqw">cqw	1% of a query container’s width</li>
+        <li class="Supports__cqh">cqh	1% of a query container’s height</li>
+        <li class="Supports__cqi">cqi	1% of a query container’s inline size</li>
+        <li class="Supports__cqb">cqb	1% of a query container’s block size</li>
+        <li class="Supports__cqmin">cqmin	The smaller value of cqi or cqb</li>
+        <li class="Supports__cqmax">cqmax	The larger value of cqi or cqb</li>
+        <li class="Supports__dvh">dvh	1% of the dynamic viewport height</li>
+        <li class="Supports__dvh">svh	1% of the shortest viewport height</li>
+        <li class="Supports__dvw">dwv	1% of the dynamic viewport width</li>
+        <li class="Supports__clamp">CSS clamp function</li>
+        <li class="Supports__grid">CSS grid feature</li>
+        <li class="Supports__masonry">CSS grid masonry feature</li>
+        <li class="Supports__has">CSS :has feature</li>
+        <li class="Supports__is">CSS :is feature</li>
+        <li class="Supports__where">CSS :where feature</li>
+        <li class="Supports__container">CSS @container feature</li>
+        <li class="Supports__style">CSS @container style feature</li>
+        <li class="Supports__colormix">CSS color-mix</li>
+        <li class="Supports__houdini">CSS Houdini</li>
+      </ul>
+    </section>
 
     <button type="button" class="Button" data-modal="Dialog2">Modal 2</button>
     <dialog class="Dialog" id="Dialog2" aria-live="polite" aria-modal="true" aria-labelledby="Dialog__title2"
@@ -227,8 +229,10 @@
           <span class="sr-only">Click to expand details.</span>
         </summary>
         <div class="Details__content" id="Details1">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <p>Doloribus facere pariatur vel aut sint <a href="/">dolores praesentium ullam quidem</a> ipsa debitis!</p>
+          <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Doloribus facere pariatur vel aut sint <a href="/">dolores praesentium ullam quidem</a> ipsa debitis!</p>
+          </div>
         </div>
       </details>
 
@@ -379,18 +383,23 @@
       <form method="post" class="Form" id="Contact" name="Contact Form" action="/">
         <label for="fullName">Full Name*</label>
           <input class="form-control" name="firstName" id="fullName" type="text" placeholder="Jane Deaux" inputmode="text" autocomplete="on" required >
+          <span class="notification"></span>
 
         <label for="address">Address*</label>
           <input class="form-control" name="address" id="address" type="text" placeholder="555 Maple St." inputmode="text" autocomplete="on" required>
+          <span class="notification"></span>
 
         <label for="city">City*</label>
           <input class="form-control" name="city" id="city" type="text" placeholder="New Orleans" inputmode="text" autocomplete="on" required>
+          <span class="notification"></span>
 
         <label for="state">State*</label>
           <input class="form-control" name="state" id="state" type="text" placeholder="LA" inputmode="text" autocomplete="on" required>
+          <span class="notification"></span>
 
         <label for="zipCode">Zip*</label>
           <input class="form-control" name="zipCode" id="zipCode" type="text" placeholder="55555" inputmode="number" autocomplete="on" required>
+          <span class="notification"></span>
 
         <label for="email">
           Email Address*
@@ -398,6 +407,7 @@
         </label>
 
           <input class="form-control" name="email" id="email" type="email" placeholder="Email@Address.com" inputmode="email" autocomplete="on" required>
+          <span class="notification"></span>
 
         <div class="honey" aria-hidden="true">
           <label for="email_address_confirm">Email Address Confirm</label>
@@ -410,9 +420,11 @@
         </label>
 
         <input class="form-control" name="phone" id="phone" type="tel" placeholder="(555) 555-5555" inputmode="tel" autocomplete="on" required>
+        <span class="notification"></span>
 
         <label for="subject">Subject/Interest*</label>
           <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject of Inquiry" inputmode="text" autocomplete="off" autocorrect="on" required>
+          <span class="notification"></span>
 
         <label for="message">Message</label>
           <textarea class="form-control" name="message" id="message" rows="6" autocomplete="off" autocorrect="on" placeholder="Send us your message."></textarea>
