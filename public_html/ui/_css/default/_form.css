@@ -10,10 +10,10 @@ select {
   vertical-align: bottom;
 
   color: inherit;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--foreground);
   /* border-radius: var(--border-radius); */
   outline-color: traansparent;
-  /* background-color: var(--light); */
+  /* background-color: var(--background); */
   box-shadow: none;
   font-family: inherit;
 
@@ -23,7 +23,7 @@ select {
 
   /* -webkit-appearance: none;
           appearance: none; */
-  text-fill-color: var(--light);
+  text-fill-color: var(--background);
 
   &[type='submit'] {
     width: auto;
@@ -53,8 +53,8 @@ select {
 
   /* -webkit-appearance: none; */
   &:checked {
-    /* background-color: var(--dark);
-    box-shadow: inset 0 0 0 0.1rem var(--light); */
+    /* background-color: var(--foreground);
+    box-shadow: inset 0 0 0 0.1rem var(--background); */
   }
 }
 
@@ -75,8 +75,8 @@ select {
 
   /* -webkit-appearance: none; */
   &:checked {
-    /* background-color: var(--dark); */
-    /* box-shadow: inset 0 0 0 0.1rem var(--light); */
+    /* background-color: var(--foreground); */
+    /* box-shadow: inset 0 0 0 0.1rem var(--background); */
   }
 }
 
@@ -94,12 +94,12 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   color: #000;
-  background-color: var(--light) !important;
-  -webkit-box-shadow: 0 0 0 1000px var(--light) inset;
-  box-shadow: 0 0 0 1000px var(--light) inset;
+  background-color: var(--background) !important;
+  -webkit-box-shadow: 0 0 0 1000px var(--background) inset;
+  box-shadow: 0 0 0 1000px var(--background) inset;
 
-  -webkit-text-fill-color: var(--dark);
-  text-fill-color: var(--dark);
+  -webkit-text-fill-color: var(--foreground);
+  text-fill-color: var(--foreground);
 }
 
 input:-moz-focus-inner,
@@ -142,6 +142,33 @@ form [type='submit'] {
   /* clear: both; */
 }
 
+
+/**
+ * For browsers that support :user-invalid/:user-valid
+ */
+input:user-invalid {
+  /* Invalid input UI styles */
+}
+input:user-valid {
+ /* Valid input UI styles */
+}
+
+/**
+ * When not supported, fallback to :invalid/:valid
+ * Wrapping :valid/:invalid in a "not" @supports block ensures
+ * that the invalid styles are not applied on page load in browsers
+ * that do support :user-invalid/:user-valid
+ */
+@supports not selector(:user-invalid) {
+  input:invalid {
+    /* Invalid input UI styles */
+  }
+  input:valid {
+    /* Valid input UI styles */
+  }
+
+}
+
 /* Inputs don't allow for before or after */
 .notification::after{
   /* height: 1em; */
@@ -153,7 +180,8 @@ form [type='submit'] {
   font-size: 1em;
   display: inline-block;
 }
-input:not(:placeholder-shown):required:invalid{
+
+input:not(:placeholder-shown):required:user-invalid{
   background-color: color-mix(in srgb, red 10%, transparent);
 }
 input:placeholder-shown{
@@ -163,7 +191,7 @@ input:valid {
   background-color: color-mix(in srgb, green 5%, transparent);
 }
 
-input:not(:placeholder-shown):required:invalid + .notification{
+input:not(:placeholder-shown):required:user-invalid + .notification{
   &::after{
     color: color-mix(in srgb, red  100%, transparent);
     content: '\2716';

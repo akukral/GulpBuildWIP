@@ -18,7 +18,7 @@
     content: '🌙';
     transform: translate(-50%, -50%);
 
-    filter: drop-shadow(0 0 0.1rem var(--dark));
+    filter: drop-shadow(0 0 0.1rem var(--foreground));
   }
 
   &:checked {
@@ -28,6 +28,6 @@
 
   &:checked::after {
     content: '☀️';
-    filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 0.1rem var(--dark));
+    filter: invert(100%) hue-rotate(180deg) drop-shadow(0 0 0.1rem var(--foreground));
   }
 }

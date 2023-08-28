@@ -55,7 +55,7 @@
   --foxtrot: hsla(0, 0%, 50%, 1);
 
   --background: var(--light);
-  --forground: var(--dark);
+  --foreground: var(--dark);
 }
 
 /* EOF */

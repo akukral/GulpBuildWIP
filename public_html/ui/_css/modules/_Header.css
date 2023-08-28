@@ -16,6 +16,9 @@
   box-shadow: 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.3), 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.1);
   backdrop-filter: blur(1rem);
 }
+body.no-scroll .Header{
+  backdrop-filter: none;
+}
 
 .Header__logo {
   z-index: 1;

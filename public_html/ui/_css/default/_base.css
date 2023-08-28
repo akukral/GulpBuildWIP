@@ -8,9 +8,10 @@
   /* transition-duration: 0.2s; */
   /* transition-property: color, background-color, opacity; */
 
-  font-display: swap !important;
+  font-display: swap;
   /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
   /* overscroll-behavior: none; */
+  overflow: clip;
   overscroll-behavior: contain;
   will-change: font-size;
 }
@@ -45,7 +46,7 @@ body {
   padding: 0;
 
   color: var(--alpha);
-  background-color: var(--light);
+  background-color: var(--background);
 
   font-size: 62.5%;
 
@@ -54,6 +55,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -182,9 +184,9 @@ a:moz-focusring {
   height: 0.01rem;
   padding: 1rem;
 
-  color: var(--light) !important;
+  color: var(--background) !important;
   border: 0;
-  background-color: var(--dark) !important;
+  background-color: var(--foreground) !important;
 }
 
 .skip:hover,
@@ -227,9 +229,9 @@ a:moz-focusring {
 
   white-space: nowrap;
 
-  color: var(--light) !important;
+  color: var(--background) !important;
   border: 0;
-  background-color: var(--dark) !important;
+  background-color: var(--foreground) !important;
 
   -webkit-clip-path: polygon(0 0, 0 0, 0 0);
   clip-path: polygon(0 0, 0 0, 0 0);
@@ -269,8 +271,8 @@ a:moz-focusring {
 }
 
 ::selection {
-  color: var(--light);
-  background-color: var(--dark);
+  color: var(--background);
+  background-color: var(--foreground);
 }
 
 main {
@@ -387,14 +389,14 @@ html[data-theme="dark"] {
 (-ms-high-contrast: active),
 (forced-colors: active) {
   * {
-    color: var(--light);
-    background-color: var(--dark);
+    color: var(--background);
+    background-color: var(--foreground);
 
     &.Button,
     &.Details,
     &.Summary,
     & input {
-      border: 1px solid var(--light);
+      border: 1px solid var(--background);
     }
   }
 } */

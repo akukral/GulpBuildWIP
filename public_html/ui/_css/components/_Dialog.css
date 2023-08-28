@@ -11,7 +11,7 @@
 
   content: '';
   color: inherit;
-  background-color: var(--light);
+  background-color: var(--background);
   inset: 0;
   scroll-overflow: none;
 
@@ -67,5 +67,5 @@ body.no-js {
 }
 
 @media (prefers-reduced-transparency) {
-  background-color: var(--light);
+  background-color: var(--background);
 }

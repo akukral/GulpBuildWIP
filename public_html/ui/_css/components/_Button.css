@@ -12,7 +12,7 @@ button.Button {
   text-align: center;
   text-decoration: none;
 
-  color: var(--light);
+  color: var(--background);
   border: none;
   background-color: var(--charlie);
   box-shadow: 0 0.1rem 0.2rem hsla(0, 0%, 0%, 0.3), 0 0.02rem 0.05rem hsla(0, 0%, 0%, 0.8), inset 0 0 0.5rem hsla(0, 0%, 100%, 0.1); /* TODO delete later */
@@ -23,12 +23,12 @@ button.Button {
 
   &:hover,
   &:focus {
-    color: var(--light);
+    color: var(--background);
     background-color: var(--bravo);
     box-shadow: none;
   }
   &:active {
-    color: var(--light);
+    color: var(--background);
     background-color: var(--charlie);
   }
   &:focus {

@@ -8,6 +8,9 @@
   text-transform: uppercase;
 
   font-weight: 900;
+
+  overscroll-behavior: contain;
+  overflow: auto;
 }
 .Nav ul {
   position: fixed;
@@ -28,8 +31,8 @@
 
   list-style: none;
 
-  backdrop-filter: blur(2rem);
-  background-color: hsla(0,0%,100%,.97);
+  backdrop-filter: blur(1rem);
+  background-color: color-mix(in srgb, var(--background) 80%, transparent);
 }
 .Nav li {
   position: relative;
