@@ -36,15 +36,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-window.addEventListener('beforeunload', function () {
-  var documentFade = document.querySelector('body');
-  documentFade.animate({
-    opacity: [1, 0]
-  }, {
-    duration: 200,
-    easing: 'ease-out'
-  });
-});
+
+// window.addEventListener('beforeunload', function () {
+//   var documentFade = document.querySelector('body')
+//   documentFade.animate({
+//       opacity: [1, 0]
+//     }, {
+//       duration: 200,
+//       easing: 'ease-out'
+//     });
+// });
 
 // import { getPageContent, onLinkNavigate } from './modules/utils';
 
@@ -636,7 +637,7 @@ var Details = /*#__PURE__*/function () {
       // Stop default behaviour from the browser
       e.preventDefault();
       // Add an overflow on the <details> to avoid content overflowing
-      this.detailsContainer.style.overflow = 'hidden';
+      // this.detailsContainer.style.overflow = 'clip';
       // Check if the element is being closed or is already closed
       if (this.isClosing || !this.detailsContainer.open) {
         this.open();
@@ -739,7 +740,8 @@ var Details = /*#__PURE__*/function () {
       this.isClosing = false;
       this.isExpanding = false;
       // Remove the overflow hidden and the fixed height
-      this.detailsContainer.style.height = this.detailsContainer.style.overflow = '';
+      this.detailsContainer.style.height = '';
+      // this.detailsContainer.style.overflow = '';
     }
   }, {
     key: "keypressHandler",

@@ -36,7 +36,7 @@ const Details = class Details {
     // Stop default behaviour from the browser
     e.preventDefault();
     // Add an overflow on the <details> to avoid content overflowing
-    this.detailsContainer.style.overflow = 'hidden';
+    // this.detailsContainer.style.overflow = 'clip';
     // Check if the element is being closed or is already closed
     if (this.isClosing || !this.detailsContainer.open) {
       this.open();
@@ -122,7 +122,8 @@ const Details = class Details {
     this.isClosing = false;
     this.isExpanding = false;
     // Remove the overflow hidden and the fixed height
-    this.detailsContainer.style.height = this.detailsContainer.style.overflow = '';
+    this.detailsContainer.style.height = '';
+    // this.detailsContainer.style.overflow = '';
   }
 
   keypressHandler(event) {

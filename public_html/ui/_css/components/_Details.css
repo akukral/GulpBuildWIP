@@ -6,6 +6,8 @@ details {
 
   color: var(--bravo);
   background-color: var(--echo);
+
+  overflow: hidden;
 }
 
 .Details__summary,

@@ -12,7 +12,7 @@ const processors = [
     features: {
       'nesting-rules': true,
     },
-    browsers: [`IE 8`],
+    browsers: [`IE 11`],
   }),
   postcssOKLabFunction({
     preserve: true,

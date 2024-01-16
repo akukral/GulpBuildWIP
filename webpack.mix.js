@@ -40,7 +40,7 @@ const templateSources = [`${webroot}/*.html`, `${webroot}/**/*.html`, `${webroot
 mix.setPublicPath(`./`)
   .postCss(stylesEntryPoint, stylesDestPoint)
   // .then(()=>{
-  //   mqExtract('public_html/ui/css/main.css','public_html/ui/css/media-queries/');
+  //   mqExtract('./public_html/ui/css/main.css','./public_html/ui/css/media-queries/');
   // })
   .criticalCss({
       enabled: mix.inProduction(),
@@ -70,7 +70,10 @@ mix.setPublicPath(`./`)
 		emitWarning: true,
 		extensions: [`js`],
 	})
-	.browserSync(devhost);
+	.browserSync({
+    proxy: devhost,
+    files: [...scriptSources, ...styleSources, ...templateSources],
+  });
 
 mix.options({
 	hmrOptions: {

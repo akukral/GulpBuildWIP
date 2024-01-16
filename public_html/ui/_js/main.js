@@ -11,15 +11,15 @@ import Tabs from './modules/tabs';
 import Nav from './modules/nav';
 import themePicker from './modules/theme';
 
-window.addEventListener('beforeunload', function () {
-  var documentFade = document.querySelector('body')
-  documentFade.animate({
-      opacity: [1, 0]
-    }, {
-      duration: 200,
-      easing: 'ease-out'
-    });
-});
+// window.addEventListener('beforeunload', function () {
+//   var documentFade = document.querySelector('body')
+//   documentFade.animate({
+//       opacity: [1, 0]
+//     }, {
+//       duration: 200,
+//       easing: 'ease-out'
+//     });
+// });
 
 // import { getPageContent, onLinkNavigate } from './modules/utils';
 

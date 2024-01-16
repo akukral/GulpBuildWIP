@@ -1,60 +1,43 @@
+:root {
+  overscroll-behavior: none;
+  /* overflow: clip; */
+}
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
   box-sizing: border-box;
+  /* transition: all 0.2s, font-size 0ms; */
   transition-timing-function: ease-in-out;
-
-  /* transition-duration: 0.2s; */
-  /* transition-property: color, background-color, opacity; */
-
   font-display: swap;
   /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
   /* overscroll-behavior: none; */
-  overflow: clip;
   overscroll-behavior: contain;
   will-change: font-size;
+  touch-action: manipulate;
 }
 
 ::view-transition-group(root) {
   animation-duration: 0.2s;
 }
 
-html {
-  /* height: -webkit-fill-available; */
-
-  /* scroll-behavior: smooth; */
-  /* Hide scrollbar for IE and Edge */
-  /* -ms-overflow-style: none; */
-  /* Remove Scrollbar Firefox Fix, suggested in the comments */
-  /* overflow: auto; */
-  /* scrollbar-width: none;
-  scrollbar-gutter: stable; */
-}
-
-/* Hide scrollbar for Chrome, Safari, and Opera */
-/* html::-webkit-scrollbar {
-  display: none;
-} */
-
 html,
 body {
-  /* max-width: 100%; */
-
-  /* min-height: 1vw; */
   margin: 0;
   padding: 0;
+  min-height: 100%;
+
+  font-size: 62.5%;
 
   color: var(--alpha);
   background-color: var(--background);
-
-  font-size: 62.5%;
 
   font-display: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overscroll-behavior: contain;
+  overscroll-behavior: none;
   scrollbar-gutter: stable;
 }
 
@@ -87,8 +70,13 @@ img,
 img.lazyloaded {
   max-width: 100%;
   height: auto;
+  vertical-align: middle;
+  font-style: italic;
 
   filter: blur(0);
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
 }
 
 img.lazyload {
@@ -129,11 +117,6 @@ a:focus {
   box-shadow: none;
 }
 
-/* a:focus{
-  outline: solid 2px var(--bravo);
-  outline-offset: 2px;
-} */
-
 :focus {
   outline-color: transparent;
 }
@@ -150,25 +133,6 @@ a:moz-focusring {
   outline: solid 2px var(--bravo);
   outline-offset: 2px;
 }
-
-/* for devices that have bad pointers like WII, styluses, or no pointers */
-/* @media (any-pointer: coarse),
-(any-pointer: none),
-(pointer: none),
-(hover: none) {
-  a:hover {
-    text-shadow: none;
-    color: var(--charlie);
-    box-shadow: none;
-  }
-} */
-
-/* underrlinee for all links if no hover */
-/* @media (any-hover: none) {
-  a {
-    text-decoration: underline;
-  }
-} */
 
 /* skip to content technique */
 .skip {
@@ -290,9 +254,9 @@ main {
     display: grid;
     grid-template-rows: auto 1fr auto;
 
-    grid-template-columns: [full-start] minmax(2rem, 1fr) [main-start] minmax(10rem,
-        75ch) [main-end] minmax(2rem, 1fr) [full-end];
-    min-height: 100svh;
+    grid-template-columns:
+      [full-start] minmax(2rem, 1fr) [main-start] minmax(10rem, 75ch) [main-end] minmax(2rem, 1fr) [full-end];
+    min-height: 100%;
 
     & header {
       grid-column: full;
@@ -384,7 +348,7 @@ html[data-theme="dark"] {
 }
 
 /* Auto screen dark */
-/* @media (prefers-contrast),
+@media (prefers-contrast),
 (inverted-colors),
 (-ms-high-contrast: active),
 (forced-colors: active) {
@@ -399,12 +363,12 @@ html[data-theme="dark"] {
       border: 1px solid var(--background);
     }
   }
-} */
+}
 
-/* @supports (-webkit-touch-callout: none) {
+@supports (-webkit-touch-callout: none) {
   body {
     height: -webkit-fill-available;
   }
-} */
+}
 
 /* EOF */
