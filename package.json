@@ -27,7 +27,7 @@
   "devDependencies": {
     "@csstools/postcss-cascade-layers": "^4.0.2",
     "@csstools/postcss-oklab-function": "^3.0.9",
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^3.0.2",
     "browser-sync-webpack-plugin": "^2.3.0",
     "cssnano": "^6.0.3",
     "eslint": "^8.56.0",
