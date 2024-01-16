@@ -1,0 +1,1 @@
+@media (max-width:550px){[role=tablist] a,[role=tablist] li{display:block;position:static}[role=tablist] a{border:1px solid #222!important}[role=tablist] li+li a{border-top:0!important}[role=tablist] [aria-selected]{position:static}[role=tablist] [aria-selected]:after{content:"\0020⬅"}[role=tabpanel]{border-top:0}}
