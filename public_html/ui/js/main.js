@@ -13,15 +13,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quicklink/dist/quicklink.umd */ "./node_modules/quicklink/dist/quicklink.umd.js");
 /* harmony import */ var quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
-/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fontLoader */ "./public_html/ui/_js/modules/fontLoader.js");
-/* harmony import */ var _modules_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/dialog */ "./public_html/ui/_js/modules/dialog.js");
-/* harmony import */ var _modules_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/details */ "./public_html/ui/_js/modules/details.js");
-/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/carousel */ "./public_html/ui/_js/modules/carousel.js");
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ "./public_html/ui/_js/modules/tabs.js");
-/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/nav */ "./public_html/ui/_js/modules/nav.js");
-/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _modules_fontLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/fontLoader */ "./public_html/ui/_js/modules/fontLoader.js");
+/* harmony import */ var _modules_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/dialog */ "./public_html/ui/_js/modules/dialog.js");
+/* harmony import */ var _modules_details__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/details */ "./public_html/ui/_js/modules/details.js");
+/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/carousel */ "./public_html/ui/_js/modules/carousel.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/tabs */ "./public_html/ui/_js/modules/tabs.js");
+/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/nav */ "./public_html/ui/_js/modules/nav.js");
+/* harmony import */ var _modules_theme__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/theme */ "./public_html/ui/_js/modules/theme.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
@@ -79,7 +79,7 @@ quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen();
 // Load in fonts, all font files myst be in the same directory. loads like js/css files, no file extention name needed.
 // loads in woff eot and ttf files automatically if they are all in the same  directory.
 // Fallbacks for short name is local and conversly. Back up name for both is 'font1', 'font2', etc
-(0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_3__["default"])([{
+(0,_modules_fontLoader__WEBPACK_IMPORTED_MODULE_2__["default"])([{
   shortName: "Neue",
   localName: "HelveticaNeue-Roman",
   path: "/ui/webfonts/helvetica/helveticaneue-roman-webfont"
@@ -88,7 +88,7 @@ quicklink_dist_quicklink_umd__WEBPACK_IMPORTED_MODULE_1___default().listen();
   localName: "HelveticaNeue-Bold",
   path: "/ui/webfonts/helvetica/helveticaneue-bold-webfont"
 }]);
-(0,_modules_nav__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(0,_modules_nav__WEBPACK_IMPORTED_MODULE_7__["default"])();
 (lazysizes__WEBPACK_IMPORTED_MODULE_0___default().cfg).init = false;
 
 // check if native lazy loading is available
@@ -119,7 +119,7 @@ if ('loading' in HTMLImageElement.prototype) {
 var modals = Array.from(document.querySelectorAll("[data-modal]"));
 for (var _i = 0, _modals = modals; _i < _modals.length; _i++) {
   var win = _modals[_i];
-  new _modules_dialog__WEBPACK_IMPORTED_MODULE_4__["default"]({
+  new _modules_dialog__WEBPACK_IMPORTED_MODULE_3__["default"]({
     button: win
   });
   // console.log(win);
@@ -129,7 +129,7 @@ for (var _i = 0, _modals = modals; _i < _modals.length; _i++) {
 var details = Array.from(document.querySelectorAll("details"));
 for (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {
   var detail = _details[_i2];
-  new _modules_details__WEBPACK_IMPORTED_MODULE_5__["default"]({
+  new _modules_details__WEBPACK_IMPORTED_MODULE_4__["default"]({
     container: detail
   });
 }
@@ -137,7 +137,7 @@ for (var _i2 = 0, _details = details; _i2 < _details.length; _i2++) {
 var tabset = Array.from(document.querySelectorAll(".Tabbed"));
 for (var _i3 = 0, _tabset = tabset; _i3 < _tabset.length; _i3++) {
   var tab = _tabset[_i3];
-  new _modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"]({
+  new _modules_tabs__WEBPACK_IMPORTED_MODULE_6__["default"]({
     container: tab
   });
 }
@@ -159,7 +159,7 @@ try {
   for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
     var carousel = _step2.value;
     // console.log(carousel.querySelector(`.Carousel__slide`))
-    var newCarousel = new _modules_carousel__WEBPACK_IMPORTED_MODULE_6__["default"]();
+    var newCarousel = new _modules_carousel__WEBPACK_IMPORTED_MODULE_5__["default"]();
     newCarousel.init({
       id: carousel,
       slidenav: true,
@@ -181,7 +181,7 @@ if (pref.media !== media && !pref.matches) {
 }
 
 // Night mode theme picker
-(0,_modules_theme__WEBPACK_IMPORTED_MODULE_9__["default"])(".ThemePicker input[type=\"checkbox\"]");
+(0,_modules_theme__WEBPACK_IMPORTED_MODULE_8__["default"])(".ThemePicker input[type=\"checkbox\"]");
 
 // window.resize callback function
 function getVerticalHeight() {
@@ -190,8 +190,7 @@ function getVerticalHeight() {
   document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
   // console.info(vh);
 }
-
-window.onresize = debounce__WEBPACK_IMPORTED_MODULE_2___default()(getVerticalHeight, 20);
+window.onresize = debounce__WEBPACK_IMPORTED_MODULE_9___default()(getVerticalHeight, 20);
 getVerticalHeight();
 var allLinks = Array.from(document.querySelectorAll("[target=\"_blank\"]"));
 allLinks.forEach(function (el) {
@@ -590,12 +589,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var Details = /*#__PURE__*/function () {
   function Details(settingsObj) {
     _classCallCheck(this, Details);
@@ -753,7 +752,6 @@ var Details = /*#__PURE__*/function () {
           this.onClick(event);
           // console.log(`space`)
         }
-
         if (event.key === "Enter" || event.key === "Return" || event.keyCode === 13) {
           event.preventDefault();
           this.onClick(event);
@@ -780,12 +778,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var Dialog = /*#__PURE__*/function () {
   function Dialog(settingsObj) {
     _classCallCheck(this, Dialog);
@@ -1078,12 +1076,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var Tabs = /*#__PURE__*/function () {
   function Tabs(settingsObj) {
     _classCallCheck(this, Tabs);
@@ -1254,74 +1252,97 @@ var themePicker = function themePicker(input) {
   \****************************************/
 /***/ ((module) => {
 
-/**
- * Returns a function, that, as long as it continues to be invoked, will not
- * be triggered. The function will be called after it stops being called for
- * N milliseconds. If `immediate` is passed, trigger the function on the
- * leading edge, instead of the trailing. The function also has a property 'clear' 
- * that is a function which will clear the timer to prevent previously scheduled executions. 
- *
- * @source underscore.js
- * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
- * @param {Function} function to wrap
- * @param {Number} timeout in ms (`100`)
- * @param {Boolean} whether to execute at the beginning (`false`)
- * @api public
- */
-function debounce(func, wait, immediate){
-  var timeout, args, context, timestamp, result;
-  if (null == wait) wait = 100;
+function debounce(function_, wait = 100, options = {}) {
+	if (typeof function_ !== 'function') {
+		throw new TypeError(`Expected the first parameter to be a function, got \`${typeof function_}\`.`);
+	}
 
-  function later() {
-    var last = Date.now() - timestamp;
+	if (wait < 0) {
+		throw new RangeError('`wait` must not be negative.');
+	}
 
-    if (last < wait && last >= 0) {
-      timeout = setTimeout(later, wait - last);
-    } else {
-      timeout = null;
-      if (!immediate) {
-        result = func.apply(context, args);
-        context = args = null;
-      }
-    }
-  };
+	// TODO: Deprecate the boolean parameter at some point.
+	const {immediate} = typeof options === 'boolean' ? {immediate: options} : options;
 
-  var debounced = function(){
-    context = this;
-    args = arguments;
-    timestamp = Date.now();
-    var callNow = immediate && !timeout;
-    if (!timeout) timeout = setTimeout(later, wait);
-    if (callNow) {
-      result = func.apply(context, args);
-      context = args = null;
-    }
+	let storedContext;
+	let storedArguments;
+	let timeoutId;
+	let timestamp;
+	let result;
 
-    return result;
-  };
+	function later() {
+		const last = Date.now() - timestamp;
 
-  debounced.clear = function() {
-    if (timeout) {
-      clearTimeout(timeout);
-      timeout = null;
-    }
-  };
-  
-  debounced.flush = function() {
-    if (timeout) {
-      result = func.apply(context, args);
-      context = args = null;
-      
-      clearTimeout(timeout);
-      timeout = null;
-    }
-  };
+		if (last < wait && last >= 0) {
+			timeoutId = setTimeout(later, wait - last);
+		} else {
+			timeoutId = undefined;
 
-  return debounced;
-};
+			if (!immediate) {
+				const callContext = storedContext;
+				const callArguments = storedArguments;
+				storedContext = undefined;
+				storedArguments = undefined;
+				result = function_.apply(callContext, callArguments);
+			}
+		}
+	}
+
+	const debounced = function (...arguments_) {
+		if (storedContext && this !== storedContext) {
+			throw new Error('Debounced method called with different contexts.');
+		}
+
+		storedContext = this; // eslint-disable-line unicorn/no-this-assignment
+		storedArguments = arguments_;
+		timestamp = Date.now();
+
+		const callNow = immediate && !timeoutId;
+
+		if (!timeoutId) {
+			timeoutId = setTimeout(later, wait);
+		}
+
+		if (callNow) {
+			const callContext = storedContext;
+			const callArguments = storedArguments;
+			storedContext = undefined;
+			storedArguments = undefined;
+			result = function_.apply(callContext, callArguments);
+		}
+
+		return result;
+	};
+
+	debounced.clear = () => {
+		if (!timeoutId) {
+			return;
+		}
+
+		clearTimeout(timeoutId);
+		timeoutId = undefined;
+	};
+
+	debounced.flush = () => {
+		if (!timeoutId) {
+			return;
+		}
+
+		const callContext = storedContext;
+		const callArguments = storedArguments;
+		storedContext = undefined;
+		storedArguments = undefined;
+		result = function_.apply(callContext, callArguments);
+
+		clearTimeout(timeoutId);
+		timeoutId = undefined;
+	};
+
+	return debounced;
+}
 
 // Adds compatibility for ES modules
-debounce.debounce = debounce;
+module.exports.debounce = debounce;
 
 module.exports = debounce;
 
