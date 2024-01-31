@@ -122,13 +122,13 @@
   </header>
   <!-- /header -->
 
-
   <main class="Main" id="Main" aria-labelledby="MainTitle">
     <h1 id="MainTitle">Homepage<br>Title</h1>
 
     <form action="/" method="GET" name="Search" id="Search">
     <label for="search">Search:</label>
     <input list="searchList" id="search" name="search" placeholder="type here..." autocomplete="off" inputmode="search" pattern="^.*[a-zA-Z0-9]+.*$"/>
+    <button type="submit" class="sr-only" aria-label="Submit Search">Submit Search</button>
     <datalist id="searchList" aria-label="Available search autocomplete options">
       <option>lorem</option>
       <option>ipsum</option>
@@ -148,7 +148,7 @@
           </p>
         </div>
         <form method="dialog">
-          <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+          <button type="submit" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
         </form>
       </div>
     </dialog>
@@ -189,6 +189,9 @@
         <li class="Supports__style">CSS @container style feature</li>
         <li class="Supports__colormix">CSS color-mix</li>
         <li class="Supports__houdini">CSS Houdini</li>
+        <li class="Supports__scripting">CSS scipting check</li>
+        <li class="Supports__scrolltimeline">CSS scroll timeline</li>
+        <li class="Supports__starting">Starting style</li>
       </ul>
     </section>
 
@@ -203,7 +206,7 @@
             blanditiis neque quisquam excepturi deserunt?</p>
         </div>
         <form method="dialog">
-          <button type="button" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
+          <button type="submit" class="Button Dialog__close" aria-label="Close this dialog box">close</button>
         </form>
       </div>
     </dialog>

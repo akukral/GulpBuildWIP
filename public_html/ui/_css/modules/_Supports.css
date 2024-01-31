@@ -117,3 +117,26 @@ ul:has(li) .Supports__has {
     background-color: green;
   }
 }
+
+@media (scripting: enabled){
+  .Supports__scripting {
+    background-color: green;
+  }
+}
+@media (scripting: initial-only){
+  .Supports__scripting::after {
+    content: 'initial only';
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .Supports__scrolltimeline {
+    background-color: green;
+  }
+}
+
+@starting-style {
+  .Supports__starting {
+    background-color: green !important;
+  }
+}

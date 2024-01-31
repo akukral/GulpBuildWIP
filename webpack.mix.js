@@ -37,7 +37,9 @@ const templateSources = [`${webroot}/*.html`, `${webroot}/**/*.html`, `${webroot
  |
  */
 
-mix.setPublicPath(`./`)
+mix
+  .sourceMaps(true, 'source-map')
+  .setPublicPath(`./`)
   .postCss(stylesEntryPoint, stylesDestPoint)
   // .then(()=>{
   //   mqExtract('./public_html/ui/css/main.css','./public_html/ui/css/media-queries/');
@@ -45,7 +47,7 @@ mix.setPublicPath(`./`)
   .criticalCss({
       enabled: mix.inProduction(),
       paths: {
-          base: `http://ada.local/`,
+          base: devhost,
           templates: stylesDestPoint, //Where css files need to be written, all these paths are relative to /public
                                         //So the example path here will be public/css/critical
           suffix: ``

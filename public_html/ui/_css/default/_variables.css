@@ -1,6 +1,8 @@
 :root {
   --border-radius: 0.2rem;
+  --vh: 1vh;
 
   color-scheme: dark light;
-  --vh: 1vh;
 }
+
+/* EOF */

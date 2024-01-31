@@ -14,8 +14,10 @@
   /* overscroll-behavior: contain; SET TO CONTAIN FOR IOS BOUNCE */
   /* overscroll-behavior: none; */
   overscroll-behavior: contain;
+  scrollbar-gutter: stable both-edges;
   will-change: font-size;
   touch-action: manipulate;
+  min-width: 0;
 }
 
 ::view-transition-group(root) {
@@ -28,7 +30,7 @@ body {
   padding: 0;
   min-height: 100%;
 
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
 
   color: var(--alpha);
   background-color: var(--background);
@@ -38,19 +40,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overscroll-behavior: none;
-  scrollbar-gutter: stable;
 }
 
 body {
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
   animation: fadeInAnimation ease 0.2s;
   animation-iteration-count: 1;
 
   -webkit-overflow-scrolling: touch;
-  scrollbar-gutter: stable both-edges;
   text-rendering: optimizeSpeed;
   animation-fill-mode: forwards;
 }
@@ -295,7 +295,8 @@ main {
 }
 
 /* removes all animation if people have reduced motioon seet up for ADA or Memory usage */
-@media (prefers-reduced-motion: reduce) {
+/* TODO this is in the reset file */
+/* @media (prefers-reduced-motion: reduce) {
 
   *,
   *::before,
@@ -309,7 +310,7 @@ main {
   html {
     scroll-behavior: auto;
   }
-}
+} */
 
 /* Auto screen dark */
 /* TODO for js  */
